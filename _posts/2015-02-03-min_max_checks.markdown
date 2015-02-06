@@ -42,11 +42,11 @@ The table below describes the extent of the data used in this analysis.  The DAY
 | VANMET | 350 | 260| 2014-05-19 | 2015-02-03 |
 | VANMET | 450 | 260| 2014-05-19 | 2015-02-03 |
 
-The tables that follow describe histogrammed results for each station, each height, air temperature, not including the aspirated air temperature. Histograms used 5 evenly spaced bins. In some cases, one or two values which were clearly erroneous for either of the two data sets were removed as they greatly skewed the distribution. When this removal fell well into the realm of impossibility, I noted the date and value and then removed it. When it was potentially questionable, I noted it for further exploration (see the [PRIMET maximums](#primetmax) ).
+The tables that follow describe histogrammed results generated for each station, each height, and each air temperature, but do not address the aspirated air temperature. The histograms were generated using 5 evenly spaced bins. In some cases, one or two values which were clearly erroneous for either of the two data sets were removed as they greatly skewed the distribution. When this removal fell well into the realm of impossibility, I noted the date and value and then removed it. When it was potentially questionable, I noted it for further exploration (see the [PRIMET maximums](#primetmax) ).
 
-Additionally, I independently validated 3 randomly selected indices (which correspond to dates) of observations in each five minute data set versus what is being reported on the Portal. These indices were selected using a random number generator from 0 to the number of observations for each station. The times of min and times of max from METDAT come from the daily table.
+Additionally, I independently validated 3 randomly selected indices (which correspond to dates) of observations in several of the five minute data set versus what is being reported on the Portal. These indices were selected using a random number generator from 0 to the number of observations for each station. The times of minimum and times of maximum daily temperature come from METDAT off of the daily (440) table.
 
-#### CENMET 150 : DIFFERENCES BETWEEN FIVE-MINUTE MAX and DAILY MAX 
+#### CENMET 150 : DIFFERENCES BETWEEN FIVE-MINUTE MAX and DAILY MAX FOR AIR TEMPERATURE
 
 * ** Overview: ** 153 values collected
 * ** Maximum difference ** 0.51 C on 2014-09-09
@@ -63,8 +63,7 @@ Additionally, I independently validated 3 randomly selected indices (which corre
 | 0.3 to 0.4 | 5 | 3 |
 | > 0.5  | 1 | 1 |
 
-
-Validations: 2014-10-29, 2014-10-07, 2014-11-24
+Validations conducted on air temperature at CENMET 150m: 2014-10-29, 2014-10-07, 2014-11-24
 
 | DATE | PORT MAX | MET MAX | PORT TMX | MET TMX| PORT MIN | MET MIN | PORT TMIN | MET TMIN|
 |-|-|-|-|-|-|-|-|-|
@@ -74,6 +73,12 @@ Validations: 2014-10-29, 2014-10-07, 2014-11-24
 
 The reported five minute values are in sync with those in the database.
 
+#### CENMET 150: DIFFERENCES BETWEEN FIVE-MINUTE MAX and DAILY MAX FOR RELATIVE HUMIDITY
+
+* The maximum difference between five- minute relative humidity maximum and daily relative humidity maximum was 55.13 percent and occured on 2014-09-11.
+* on this day, the daily measurement was 96.3 percent for the maximum while the five-minute measurement was only 40.3 percent. The value of 96.3 percent is more similar to the other measurements on this sensor during that week, which were also in the 90's. This value is also more similar to the measured values of 100.0 on PRIMET on this day at 150 m for the daily and 95.5 on this day for the five-minute.
+* On average, the maximum relative humidity is only 8 percent greater than the mean for both the daily and five minute methods on CENMET 150 at 150 m. 
+* 91 percent of daily maximum values and maximum values for the day from five minute means are within 10 percent of one another. 
 
 #### CENMET 250 : DIFFERENCES BETWEEN FIVE-MINUTE MAX and DAILY MAX 
 
@@ -160,6 +165,12 @@ Validations: 2014-08-30, 2014-12-09, 2014-02-02
 
 * On the December 9th value, it appears that the minimums observed by Portal and the minimum of the five minutes are about fifteen minutes earlier than the actual daily minimum, which was 6.295. This is within a tenth of a degree of the five minute minimum, however.
 
+#### CENMET 450: DIFFERENCES BETWEEN FIVE-MINUTE MAX AND DAILY MAX FOR RELATIVE HUMIDITY.
+
+* Similar to the 150 m value, the maximum difference between the two methods occurs on 2014-09-11. On this day, the daily measurement is 87.7 percent whereas the five-minute measurement is 21 percent.
+* The since the values at the other height also have this discrepancy, it is acknowledged here that the 87.7 percent is more similar to the other sites (VANMET- the PRIMET 450 was not operational at this time) and to the trend of the surrounding week.
+* The average percent difference in relative humidity from the mean relative humidity is 16 percent in both the five minute and daily methods.
+
 #### PRIMET 150 : DIFFERENCES BETWEEN FIVE-MINUTE MAX and DAILY MAX <a id="primetmax"></a>
 
 * ** Overview: ** 267 values collected
@@ -169,7 +180,7 @@ Validations: 2014-08-30, 2014-12-09, 2014-02-02
 |-----|-----|-----|-----|-----|
 | 2014-11-12 00:00:00 | PRIM_226_table105 | 8.24 | PRIM_226_table440 |-0.918| 
 
-    * The five-minute maximum on this day is 8.24, although both the daily mean and the five minute mean are consistent (0.798 C fiveminute versus -1.21 C daily, recalling that this outlier is also certainly pulling the daily mean)
+    * The five-minute maximum on this day is 8.24, although both the daily mean and the five minute mean are consistent (0.798 C five minute versus -1.21 C daily, recalling that this outlier is also certainly pulling the daily mean)
     * days preceding this one show similar daily maximums to the five-minute value of 9 C, while days following this one show similar daily maximums to the daily value, between zero and two degrees. 
 
 * The daily maximum temperatures are on average 59 percent greater than the mean temperature for the day as calculated on the daily summary
@@ -195,6 +206,11 @@ Validations: 2014-12-29, 2014-11-14, 2014-07-04
 |2014-07-04 | 28.19  | 28.19  | 14:15 | 14:38 |10.84 | 10.84 | 04:30 | 04:26 |
 
 * On the 2014-12-29 and 2014-07-04 measurements, the values are similar between the Portal and METDAT, but the time of the maximum differs.
+
+#### PRIMET 150: DIFFERENCES BETWEEN FIVE-MINUTE MAXIMUM FOR RELATIVE HUMIDITY AND THE DAILY MAXIMUM FOR RELATIVE HUMIDITY.
+
+* The greatest difference between the five-minute and instantaneous maximums was 12 % on 2014-09-12. On this day the daily value exceeded the 5 minute value at 95 percent versus 83 percent. 
+* 92 percent of differences between methods were less than 12 percent. 
 
 #### PRIMET 250 : DIFFERENCES BETWEEN FIVE-MINUTE MAX and DAILY MAX 
 
@@ -254,6 +270,8 @@ Validations: 2014-07-30, 2014-08-22, 2014-12-07
 
 * Besides the outlier, all values were less than one degree of difference between methods.
 
+#### PRIMET 450 RELATIVE HUMIDITY WAS NOT FUNCTIONING AT THIS TIME.
+
 #### VANMET 150 : DIFFERENCES BETWEEN FIVE-MINUTE MAX and DAILY MAX
 
 * ** Overview: ** 260 values collected
@@ -276,6 +294,12 @@ Validations: 2014-07-30, 2014-08-22, 2014-12-07
 | >0.52 | 2 | 1 |
 
 * I have not yet validated these results against the results in the Portal webpage
+
+####: VANMET 350: DIFFERENCES IN FIVE MINUTE MAX and DAILY MAX.
+
+* on VANMET, the same september period emerges for having discrepancies between the five minute maximum and daily maximum values.
+* However, the mean difference between the maximum and median relative humidty at VANMET is 20.5 degrees in the maximum values from daily and 20.4 in the version in the five minute data.
+* Only 67 percent of vanmets values are within 10 percent of the mean.
 
 #### VANMET 250 : DIFFERENCES BETWEEN FIVE-MINUTE MAX and DAILY MAX
 
