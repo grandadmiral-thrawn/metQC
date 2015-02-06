@@ -8,21 +8,22 @@ date: 2015-02-03T14:30:24-08:00
   * [The Problem](#qlink)
   * [The Approach](#approach)
   * [Basic Statistics for Air Temperature](#statlink)
-
+  * [Take Home Points](#takehome)
+  * [Jump Right To Images](#images)
 
 ## The Problem<a id="qlink"></a>
 
-Data collected on METDAT of the instantaneous minimum and maximum temperature occuring on a single day is no longer being maintained. Recently, we have used the best five- or fifteen- minute maximum from the day to approximate these instantaneous values. But are they really the same?
+Data collected on METDAT of the instantaneous minimum and maximums of air temperature, solar, and wind for a single day is no longer being maintained. Recently, we have used the five- or fifteen- minute minimum or maximum from the day to approximate these instantaneous values. But what do we lose if we choose to not capture these values?
 
 Example (hypothetical):
 
 * Instantaneous maximum is "37.89" and occurs at 12:34:05
 * Five- minute preceding temperature is "36.35" at 12:30:00 and following is "35.87" at 12:35:00. 
-* ** Question ** How important is it to capture the instantaneous values?
+
 
 ## The Approach<a id="approach"></a>
 
-## Basic Statistics for Air Temperature<a id= "statlink"></a>
+## Data Extent for Air Temperature<a id= "statlink"></a>
 
 The table below describes the extent of the data used in this analysis.  The DAYS SHARED attribute is the number of days I used during which both five- and daily- data acquisitions appeared to be operational; values gathered were not labelled as "NULL" and within a reasonable range, here defined at greater than -50 C or less than 50 C for any air temperature. The LAST GATHERED attribute is the last day from which I collected data. There may be a few days of good data following this date.
 
@@ -41,7 +42,9 @@ The table below describes the extent of the data used in this analysis.  The DAY
 | VANMET | 350 | 260| 2014-05-19 | 2015-02-03 |
 | VANMET | 450 | 260| 2014-05-19 | 2015-02-03 |
 
-The table here describes the histogram results. I divided each data set into 5 evenly spaced bins. In the case where the number of values is less than the total shared days, the individual attribute may have some NULL values which cannot be compared.
+The tables that follow describe histogrammed results for each station, each height, air temperature, not including the aspirated air temperature. Histograms used 5 evenly spaced bins. In some cases, one or two values which were clearly erroneous for either of the two data sets were removed as they greatly skewed the distribution. When this removal fell well into the realm of impossibility, I noted the date and value and then removed it. When it was potentially questionable, I noted it for further exploration (see the [PRIMET maximums](#primetmax) ).
+
+Additionally, I independently validated 3 randomly selected indices (which correspond to dates) of observations in each five minute data set versus what is being reported on the Portal. These indices were selected using a random number generator from 0 to the number of observations for each station. The times of min and times of max from METDAT come from the daily table.
 
 #### CENMET 150 : DIFFERENCES BETWEEN FIVE-MINUTE MAX and DAILY MAX 
 
@@ -60,6 +63,18 @@ The table here describes the histogram results. I divided each data set into 5 e
 | 0.3 to 0.4 | 5 | 3 |
 | > 0.5  | 1 | 1 |
 
+
+Validations: 2014-10-29, 2014-10-07, 2014-11-24
+
+| DATE | PORT MAX | MET MAX | PORT TMX | MET TMX| PORT MIN | MET MIN | PORT TMIN | MET TMIN|
+|-|-|-|-|-|-|-|-|-|
+|2014-10-29 | 14.51 | 14.51 | 13:30 | 13:29 | 6.047 | 6.047 | 7:13 | 7:15 |
+|2014-10-07 | 30.19 | 30.19 | 14:40 | 14:37 | 12.00 | 12.03 | 6:35 | 6:33 |
+|2014-11-24 | 9.13  | 9.13  | 13:25 | 13:24 | 1.04 | 1.04 | 6:24 | 6:25 |
+
+The reported five minute values are in sync with those in the database.
+
+
 #### CENMET 250 : DIFFERENCES BETWEEN FIVE-MINUTE MAX and DAILY MAX 
 
 * ** Overview: ** 160 values collected
@@ -77,6 +92,16 @@ The table here describes the histogram results. I divided each data set into 5 e
 | 0.41 to 0.55 | 5 | 2 |
 | > 0.55 | 1 | 1 |
 
+Validations: 2014-09-02, 2014-11-07, 2014-12-06
+
+| DATE | PORT MAX | MET MAX | PORT TMX | MET TMX| PORT MIN | MET MIN | PORT TMIN | MET TMIN|
+|-|-|-|-|-|-|-|-|-|
+|2014-09-02 | 22.77 | 22.77 | 14:00 | 13:55 | 7.089 | 7.089 | 23:55 | 00:00 |
+|2014-11-07 | 13.66 | 13.66 | 15:30 | 15:30 | 1.813 | 1.813 | 7:20 | 07:18 |
+|2014-12-06 | 7.442  | 7.442  | 11:20 | 11:16 | 1.851 | 1.851 | 22:00 | 21:59 |
+
+The reported five minute values are in sync with those in the database.
+
 #### CENMET 350 : DIFFERENCES BETWEEN FIVE-MINUTE MAX and DAILY MAX 
 
 * ** Overview: ** 160 values collected
@@ -93,6 +118,17 @@ The table here describes the histogram results. I divided each data set into 5 e
 | 0.5 to 0.8 | 1 | 1 |
 | 0.8 to 1.1 | 0 | 0 |
 | > 1.1 | 1 | 1 |
+
+
+Validations: 2014-10-16, 2014-12-13, 2014-09-28
+
+| DATE | PORT MAX | MET MAX | PORT TMX | MET TMX| PORT MIN | MET MIN | PORT TMIN | MET TMIN|
+|-|-|-|-|-|-|-|-|-|
+|2014-10-16 | 16.530 | 16.53 | 14:30 | 14:27 | 4.248 | 4.248 | 02:10 | 01:57 |
+|2014-12-13 | 6.312 | 6.416 | 12:25 | 12:25 | -0.765 | -0.765 | 20:40 |20:37 |
+|2014-09-28 | 22.46  | 22.46  | 14:45 | 14:45 | 7.717 | 7.717 | 01:45 | 01:45 |
+ 
+* The Portal five minute value and the database five minute value for the minimum are in sync, but this actual minimum value on 2014-10-16 was about three-one-hundreths of a degree colder and occured about 15 minutes earlier, as 4.218 at 01:57. 
 
 #### CENMET 450 : DIFFERENCES BETWEEN FIVE-MINUTE MAX and DAILY MAX 
 
@@ -114,11 +150,25 @@ The table here describes the histogram results. I divided each data set into 5 e
 | 2.71 to 3.61 | 0 | 0 |
 | > 3.61 | 1 | 1 |
 
-#### PRIMET 150 : DIFFERENCES BETWEEN FIVE-MINUTE MAX and DAILY MAX 
+Validations: 2014-08-30, 2014-12-09, 2014-02-02
+
+| DATE | PORT MAX | MET MAX | PORT TMX | MET TMX| PORT MIN | MET MIN | PORT TMIN | MET TMIN|
+|-|-|-|-|-|-|-|-|-|
+|2014-08-30 | 13.96 | 13.96 | 11:40 | 11:36 | 9.55 | 9.55 | 23:45 | 23:43 |
+|2014-12-09 |11.170 | 11.417 | 10:20 | 10:17 | 6.331 | 6.331 | 06:25 |06:38 |
+|2014-02-02 | 7.536  | 7.536  | 14:40 | 14:38 |1.516 | 1.516 | 22:20 | 22:13 |
+
+* On the December 9th value, it appears that the minimums observed by Portal and the minimum of the five minutes are about fifteen minutes earlier than the actual daily minimum, which was 6.295. This is within a tenth of a degree of the five minute minimum, however.
+
+#### PRIMET 150 : DIFFERENCES BETWEEN FIVE-MINUTE MAX and DAILY MAX <a id="primetmax"></a>
 
 * ** Overview: ** 267 values collected
-* ** Maximum difference ** 9.158 on 2014-11-11
-    
+* ** Maximum difference ** 9.158 on 2014-11-11, after removal 0.51 on 2014-01-18
+
+| DATE | Five Minute Table | Value | Daily Table | Value |
+|-----|-----|-----|-----|-----|
+| 2014-11-12 00:00:00 | PRIM_226_table105 | 8.24 | PRIM_226_table440 |-0.918| 
+
     * The five-minute maximum on this day is 8.24, although both the daily mean and the five minute mean are consistent (0.798 C fiveminute versus -1.21 C daily, recalling that this outlier is also certainly pulling the daily mean)
     * days preceding this one show similar daily maximums to the five-minute value of 9 C, while days following this one show similar daily maximums to the daily value, between zero and two degrees. 
 
@@ -126,40 +176,77 @@ The table here describes the histogram results. I divided each data set into 5 e
 * The five-minute maximum temperatures are on average 58 percent greater than the mean temperature for the day as calculated as the mean of all the five minute temperatures
 * ** Note: ** the above "averages" are actually medians to remove outlier effect 
 
-* Besides the outlier, all values were less than one degree of difference between methods.
+| BIN EDGES | NUMBER OF VALUES | PERCENT OF VALUES |
+|--------|--------|------|
+| ~0 to 0.2 | 121 | 46 |
+| 0.2 to 0.3 | 97 | 37 |
+| 0.3 to 0.4 | 35 | 13 |
+|0.4 to 0.5 | 11  | 0.4 |
+| >0.5 | 2 | 1 |
+
+* Besides the outlier, all values were less than half of a degree of difference between methods.
+
+Validations: 2014-12-29, 2014-11-14, 2014-07-04
+
+| DATE | PORT MAX | MET MAX | PORT TMX | MET TMX| PORT MIN | MET MIN | PORT TMIN | MET TMIN|
+|-|-|-|-|-|-|-|-|-|
+|2014-12-29 | 2.60 | 2.60 | 14:10 | 14:10 | -4.732 | -4.68 | 23:45 | 23:58 |
+|2014-12-09 |7.19 | 7.189 | 12:45 | 12:45 | -0.345 | -0.346 | 23:55 |23:58|
+|2014-07-04 | 28.19  | 28.19  | 14:15 | 14:38 |10.84 | 10.84 | 04:30 | 04:26 |
+
+* On the 2014-12-29 and 2014-07-04 measurements, the values are similar between the Portal and METDAT, but the time of the maximum differs.
 
 #### PRIMET 250 : DIFFERENCES BETWEEN FIVE-MINUTE MAX and DAILY MAX 
 
-* ** Overview: ** 267 values collected
-* ** Maximum difference ** 8.838 on 2014-11-11
-    
-    * Same trend regarding daily maximums as in the 150 sensor 
+* ** Overview: ** 266/267 values collected
+* ** Maximum difference ** 8.838 on 2014-11-11, after removal of outlier, 0.68 is maximum difference which occurs on 2014-10-08.
+
+This data on 2014-11-11 is continuously suspect, here is the 250 example. It's removal reduces the maximum difference to less than a degree
+
+| DATE | Five Minute Table | Value | Daily Table | Value |
+|-----|-----|-----|-----|-----|    
+| 2014-11-12 00:00:00 |PRIM_226_table105 | 8.48 | PRIM_226_table440 |-0.358 |
 
 * The daily maximum temperatures are on average 56 percent greater than the mean temperature for the day as calculated on the daily summary
 * The five-minute maximum temperatures are on average 56 percent greater than the mean temperature for the day as calculated as the mean of all the five minute temperatures
 * ** Note: ** the above "averages" are actually medians to remove outlier effect 
 
 * Besides the outlier, all values were less than one degree of difference between methods.
+
+Validations: 2014-07-30, 2014-08-22, 2014-12-07
+
+| DATE | PORT MAX | MET MAX | PORT TMX | MET TMX| PORT MIN | MET MIN | PORT TMIN | MET TMIN|
+|-|-|-|-|-|-|-|-|-|
+|2014-07-30 | 33.96 | 33.96 | 13:50| 14:50 | 13.81 | 13.81 | 5:15| 5:17 |
+|2014-08-22| 26.11 | 26.11| 12:45 | 12:45 | 9.18 | 9.18 | 23:55 |3:55|
+|2014-12-07 | 9.33  | 9.33  | 14:40 | 14:38 |0.626 | 0.626 | 07:25 | 07:24|
 
 #### PRIMET 350 : DIFFERENCES BETWEEN FIVE-MINUTE MAX and DAILY MAX 
 
-* ** Overview: ** 267 values collected
-* ** Maximum difference ** 8.859 on 2014-11-11
-    
-    * Same trend regarding daily maximums as in the 150 and 250 sensr 
+* ** Overview: ** 266/267 values collected
+* ** Maximum difference ** 8.859 on 2014-11-11, after removal it is 0.64
+
+
+| DATE | Five Minute Table | Value | Daily Table | Value |
+|-----|-----|-----|-----|-----| 
+|2014-11-12 00:00:00 |PRIM_226_table105 |8.66 |PRIM_226_table440 |-0.199|
+
+* This is the same trend as from the other sensors. 
 
 * The daily maximum temperatures are on average 56 percent greater than the mean temperature for the day as calculated on the daily summary
 * The five-minute maximum temperatures are on average 56 percent greater than the mean temperature for the day as calculated as the mean of all the five minute temperatures
 * ** Note: ** the above "averages" are actually medians to remove outlier effect 
 
-* Besides the outlier, all values were less than one degree of difference between methods.
+* Besides the outlier, all values were less than 0.68 degree of difference between methods.
 
 #### PRIMET 450 : DIFFERENCES BETWEEN FIVE-MINUTE MAX and DAILY MAX 
 
 * ** Overview: ** 267 values collected
-* ** Maximum difference ** 8.867 on 2014-11-11
-    
-    * Same trend regarding daily maximums as in the 150,250, and 350 sensor 
+* ** Maximum difference ** 8.867 on 2014-11-11, after removal of outlier the maximum difference is only 0.45 C
+
+| DATE | Five Minute Table | Value | Daily Table | Value |
+|-----|-----|-----|-----|-----| 
+| 2014-11-12 00:00:00 | PRIM_226_table105 | 8.51 |PRIM_226_table440|-0.357|
 
 * The daily maximum temperatures are on average 56 percent greater than the mean temperature for the day as calculated on the daily summary
 * The five-minute maximum temperatures are on average 55 percent greater than the mean temperature for the day as calculated as the mean of all the five minute temperatures
@@ -188,6 +275,7 @@ The table here describes the histogram results. I divided each data set into 5 e
 |0.39 to 0.52 | 6  | 2 |
 | >0.52 | 2 | 1 |
 
+* I have not yet validated these results against the results in the Portal webpage
 
 #### VANMET 250 : DIFFERENCES BETWEEN FIVE-MINUTE MAX and DAILY MAX
 
@@ -206,6 +294,8 @@ The table here describes the histogram results. I divided each data set into 5 e
 |0.39 to 0.52 | 6  | 3 |
 | >0.52 | 2 | 1 |
 
+* I have not yet validated these results against the results in the Portal webpage
+
 #### VANMET 350 : DIFFERENCES BETWEEN FIVE-MINUTE MAX and DAILY MAX
 
 * ** Overview: ** 260 values collected
@@ -222,6 +312,8 @@ The table here describes the histogram results. I divided each data set into 5 e
 | 0.38 to 0.57 | 18 | 7 |
 |0.57 to 0.76 | 5  | 2 |
 | >0.76 | 2 | 1 |
+
+* I have not yet validated these results against the results in the Portal webpage
 
 #### VANMET 450 : DIFFERENCES BETWEEN FIVE-MINUTE MAX and DAILY MAX
 
@@ -246,6 +338,7 @@ The table here describes the histogram results. I divided each data set into 5 e
 |0.3 to 0.4 | 8  | 3 |
 | >0.4 | 6 | 2 |
 
+* I have not yet validated these results against the results in the Portal system
 
 #### CENMET 150 : DIFFERENCES BETWEEN FIVE-MINUTE MIN and DAILY MIN
 
@@ -265,6 +358,8 @@ The table here describes the histogram results. I divided each data set into 5 e
 |0.3 to 0.4 | 4  | 3 |
 | 0.4 to 0.5 | 2 | 1 |
 
+* validations are included in the maximums section
+
 #### CENMET 250 : DIFFERENCES BETWEEN FIVE-MINUTE MIN and DAILY MIN
 
 * ** Overview: ** 160 values collected
@@ -282,6 +377,8 @@ The table here describes the histogram results. I divided each data set into 5 e
 | 0.12 to 0.18 | 3 | 2 |
 | 0.18 to 0.24 | 2  | 2 |
 | >0.24 | 2 | 1 |
+
+* validations are included in the maximums section
 
 #### CENMET 350 : DIFFERENCES BETWEEN FIVE-MINUTE MIN and DAILY MIN
 
@@ -301,6 +398,8 @@ The table here describes the histogram results. I divided each data set into 5 e
 | 0.18 to 0.24 | 2  | 2 |
 | >0.24 | 2 | 1 |
 
+* validations are included in the maximums section
+
 #### CENMET 450 : DIFFERENCES BETWEEN FIVE-MINUTE MIN and DAILY MIN
 
 * ** Overview: ** 160 values collected
@@ -319,6 +418,8 @@ The table here describes the histogram results. I divided each data set into 5 e
 | 0.2 to 0.25 | 1  | 3 |
 | >0.25 | 2 | 1 |
 
+* validations are included in the maximums section
+
 #### PRIMET 150 : DIFFERENCES BETWEEN FIVE-MINUTE MIN and DAILY MIN 
 
 * ** Overview: ** 267 / 267 values collected
@@ -330,9 +431,14 @@ The table here describes the histogram results. I divided each data set into 5 e
 
 One outlier of note: 
 
-"2014-06-13 00:00:00","PRIM_226_table105","12.6153","19.98","8.55","PRIM_226_table440","12.61","20.14","-23.94","2014-06-12 08:25:16.500000","2014-06-12 08:25:16.500000",0.16000000000000014,32.49,0.5838,0.5971,0.3223,2.8985
+
+| DATE | Five Minute Table | Value | Daily Table | Value |
+|-----|-----|-----|-----|-----|
+| 2014-06-13 00:00:00 | PRIM_226_table105 | 8.55 | PRIM_226_table440 |-23.94 |
 
 No minimum values on PRIMET differ by more than 0.6 degrees at the 150 m height
+
+* validations are included in the maximums section
 
 #### PRIMET 250 : DIFFERENCES BETWEEN FIVE-MINUTE MIN and DAILY MIN 
 
@@ -346,6 +452,8 @@ No minimum values on PRIMET differ by more than 0.6 degrees at the 150 m height
 
 No minimum values on PRIMET differ by more than 0.6 degrees at the 250 m height
 
+* validations are included in the maximums section
+
 #### PRIMET 350 : DIFFERENCES BETWEEN FIVE-MINUTE MIN and DAILY MIN 
 
 * ** Overview: ** 267 / 267 values collected
@@ -354,6 +462,8 @@ No minimum values on PRIMET differ by more than 0.6 degrees at the 250 m height
 * The daily minimum temperatures are on average 39.5 percent less than the mean temperature for the day as calculated on the daily summary
 * The five-minute minimum temperatures are on average 39.4 percent less than the mean temperature for the day as calculated as the mean of all the five minute temperatures
 * ** Note: ** the above "averages" are actually medians to remove outlier effect 
+
+* validations are included in the maximums section
 
 #### PRIMET 450 : DIFFERENCES BETWEEN FIVE-MINUTE MIN and DAILY MIN 
 
@@ -371,21 +481,22 @@ No minimum values on PRIMET differ by more than 0.6 degrees at the 250 m height
 * The five-minute minimum temperatures are on average 39.9 percent less than the mean temperature for the day as calculated as the mean of all the five minute temperatures
 * ** Note: ** the above "averages" are actually medians to remove outlier effect 
 
+* validations are included in the maximums section
 
 
-"2014-07-04 00:00:00","Van_231_Table105","13.6798","21.45","6.542","Van_231_Table440","13.67","26.29","-43.38","2014-07-03 11:43:45","2014-07-03 11:42:00",4.84,49.922000000000004,0.568,0.9232,0.5218,4.1734
+#### TAKE HOME POINTS:<a id="takehome"></a>
 
-#### TAKE HOME POINTS:
+Given the consistency between the above results, I have developed some take-home points that may be useful for future flagging.
 
 * maximums are about 65 percent greater than daily mean in both five minute and instantaneous methods
-* differences in maximums increases VERY SLIGHTLY with height on sensor
 * minumums are about 40 percent less than daily mean in both five minute and instantaneous methods
-* minimums do not seem to change much with sensor height
-* all of the max daily temperatures from instantaneous are less than one and a half degrees off the five- minute values
-* this analysis treated days as "calendar days". 
+* maximums are less stable than minimums (in general the variability on both is small at the sub five minute scale, but it is even less on minimums than maximums)
+* all of the max daily temperatures from instantaneous are less than one and a half degrees off the five- minute values after a few spikes (described) were removed.
+* the true daily maximum/minimum usually occurs within the same five minute interval as the five-minute maximum/minimum selected from the day, but not always
 
+* it seems like the retention of the time of max and time of min is an important feature, but that the five minute data does seem to provide an adequate representation. 
 
-* ** Data Quality may be questionable in some cases, ex.:** Reports in METDAT (table CENT_233_Table440) are slightly different (rounding?) than those on Portal:
+* Reports in METDAT (table CENT_233_Table440) can e slightly different (due to rounding?) than those on Portal. I selected this day because on both it seems a little too high for a January so I was exploring it anyway.
 
     * 19.88, Jan. 26 2015 01:50:15:000PM
     * 20.22, Jan. 26 2015 01:43:30:000PM
@@ -399,10 +510,16 @@ No minimum values on PRIMET differ by more than 0.6 degrees at the 250 m height
     * at height 350, 20.360,"",13:45:00
     * at height 450, 20.140,"",13:45:00
 
+* a simple check for maximum and minimum might be a QUESTIONABLE type flag for maximums that are more than 75% greater than the mean, or minimums that are more than 50% less than the mean. This should almost never occur, and it could be implemented in one cell of MATLAB as (theoretically):
 
-#### Images: 
+        if (five_max - five_mean)/ five_mean > 0.7
+            flag = "Q";
+        else flag = "A";
+        end
 
+#### Images: <a id="images"></a>
 
+Here's an example of a distribution of the differences between maximum values using the daily method and using the five minute method on CENMET. It is good that there is a lot of left skew indicating that most of the differences are very small. 
 
 <style>
 
@@ -441,6 +558,51 @@ if(typeof(mpld3) !== "undefined" && mpld3._mpld3IsLoaded){
          mpld3_load_lib("https://mpld3.github.io/js/mpld3.v0.2.js", function(){
                  
                  mpld3.draw_figure("fig_el7576343718117284082490231", {"axes": [{"xlim": [0.0, 0.60000000000000009], "yscale": "linear", "axesbg": "#FFFFFF", "texts": [{"v_baseline": "hanging", "h_anchor": "middle", "color": "#000000", "text": "Value", "coordinates": "axes", "zorder": 3, "alpha": 1, "fontsize": 12.0, "position": [0.5, -0.059895833333333329], "rotation": -0.0, "id": "el757634372077520"}, {"v_baseline": "auto", "h_anchor": "middle", "color": "#000000", "text": "Probability", "coordinates": "axes", "zorder": 3, "alpha": 1, "fontsize": 12.0, "position": [-0.059979838709677422, 0.5], "rotation": -90.0, "id": "el757634372151568"}], "zoomable": true, "images": [], "xdomain": [0.0, 0.60000000000000009], "ylim": [0.0, 4.5], "paths": [{"edgecolor": "#000000", "facecolor": "#FF0000", "edgewidth": 1.0, "pathcodes": ["M", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "Z"], "yindex": 1, "coordinates": "data", "dasharray": "10,0", "zorder": 1, "alpha": 1, "xindex": 0, "data": "data01", "id": "el757634434670480"}], "sharey": [], "sharex": [], "axesbgalpha": null, "axes": [{"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 12.0, "position": "bottom", "nticks": 8, "tickvalues": null}, {"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 12.0, "position": "left", "nticks": 10, "tickvalues": null}], "lines": [], "markers": [], "id": "el757634371983632", "ydomain": [0.0, 4.5], "collections": [], "xscale": "linear", "bbox": [0.125, 0.099999999999999978, 0.77500000000000002, 0.80000000000000004]}], "height": 480.0, "width": 640.0, "plugins": [{"type": "reset"}, {"enabled": false, "button": true, "type": "zoom"}, {"enabled": false, "button": true, "type": "boxzoom"}], "data": {"data01": [[0.004000000000000448, 0.0], [0.004000000000000448, 4.384881422924892], [0.10520000000000067, 4.384881422924892], [0.10520000000000067, 3.890810276679834], [0.2064000000000009, 3.890810276679834], [0.2064000000000009, 1.2351778656126458], [0.3076000000000011, 1.2351778656126458], [0.3076000000000011, 0.3087944664031613], [0.40880000000000133, 0.3087944664031613], [0.40880000000000133, 0.06175889328063226], [0.5100000000000016, 0.06175889328063226], [0.5100000000000016, 0.0], [0.40880000000000133, 0.0], [0.40880000000000133, 0.0], [0.3076000000000011, 0.0], [0.3076000000000011, 0.0], [0.2064000000000009, 0.0], [0.2064000000000009, 0.0], [0.10520000000000067, 0.0], [0.10520000000000067, 0.0]]}, "id": "el757634371811728"});
+            })
+         });
+}
+</script>
+
+Here's a sample distribution on PRIMET, 150 m. 
+
+
+<style>
+
+</style>
+
+<div id="fig_el8906543718156961093860287"></div>
+<script>
+function mpld3_load_lib(url, callback){
+  var s = document.createElement('script');
+  s.src = url;
+  s.async = true;
+  s.onreadystatechange = s.onload = callback;
+  s.onerror = function(){console.warn("failed to load library " + url);};
+  document.getElementsByTagName("head")[0].appendChild(s);
+}
+
+if(typeof(mpld3) !== "undefined" && mpld3._mpld3IsLoaded){
+   // already loaded: just create the figure
+   !function(mpld3){
+       
+       mpld3.draw_figure("fig_el8906543718156961093860287", {"axes": [{"xlim": [0.0, 14.0], "yscale": "linear", "axesbg": "#FFFFFF", "texts": [{"v_baseline": "hanging", "h_anchor": "middle", "color": "#000000", "text": "Value", "coordinates": "axes", "zorder": 3, "alpha": 1, "fontsize": 12.0, "position": [0.5, -0.059895833333333329], "rotation": -0.0, "id": "el890654372093968"}, {"v_baseline": "auto", "h_anchor": "middle", "color": "#000000", "text": "Probability", "coordinates": "axes", "zorder": 3, "alpha": 1, "fontsize": 12.0, "position": [-0.076612903225806453, 0.5], "rotation": -90.0, "id": "el890654372159056"}], "zoomable": true, "images": [], "xdomain": [0.0, 14.0], "ylim": [0.0, 0.40000000000000002], "paths": [{"edgecolor": "#000000", "facecolor": "#FF0000", "edgewidth": 1.0, "pathcodes": ["M", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "Z"], "yindex": 1, "coordinates": "data", "dasharray": "10,0", "zorder": 1, "alpha": 1, "xindex": 0, "data": "data01", "id": "el890654434669264"}], "sharey": [], "sharex": [], "axesbgalpha": null, "axes": [{"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 12.0, "position": "bottom", "nticks": 8, "tickvalues": null}, {"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 12.0, "position": "left", "nticks": 10, "tickvalues": null}], "lines": [], "markers": [], "id": "el890654371971408", "ydomain": [0.0, 0.40000000000000002], "collections": [], "xscale": "linear", "bbox": [0.125, 0.099999999999999978, 0.77500000000000002, 0.80000000000000004]}], "height": 480.0, "width": 640.0, "plugins": [{"type": "reset"}, {"enabled": false, "button": true, "type": "zoom"}, {"enabled": false, "button": true, "type": "boxzoom"}], "data": {"data01": [[0.0, 0.0], [0.0, 0.3793018379178489], [2.419999999999999, 0.3793018379178489], [2.419999999999999, 0.015418773899099548], [4.839999999999998, 0.015418773899099548], [4.839999999999998, 0.015418773899099548], [7.259999999999997, 0.015418773899099548], [7.259999999999997, 0.0015418773899099551], [9.679999999999996, 0.0015418773899099551], [9.679999999999996, 0.0015418773899099555], [12.099999999999994, 0.0015418773899099555], [12.099999999999994, 0.0], [9.679999999999996, 0.0], [9.679999999999996, 0.0], [7.259999999999997, 0.0], [7.259999999999997, 0.0], [4.839999999999998, 0.0], [4.839999999999998, 0.0], [2.419999999999999, 0.0], [2.419999999999999, 0.0]]}, "id": "el890654371815696"});
+   }(mpld3);
+}else if(typeof define === "function" && define.amd){
+   // require.js is available: use it to load d3/mpld3
+   require.config({paths: {d3: "https://mpld3.github.io/js/d3.v3.min"}});
+   require(["d3"], function(d3){
+      window.d3 = d3;
+      mpld3_load_lib("https://mpld3.github.io/js/mpld3.v0.2.js", function(){
+         
+         mpld3.draw_figure("fig_el8906543718156961093860287", {"axes": [{"xlim": [0.0, 14.0], "yscale": "linear", "axesbg": "#FFFFFF", "texts": [{"v_baseline": "hanging", "h_anchor": "middle", "color": "#000000", "text": "Value", "coordinates": "axes", "zorder": 3, "alpha": 1, "fontsize": 12.0, "position": [0.5, -0.059895833333333329], "rotation": -0.0, "id": "el890654372093968"}, {"v_baseline": "auto", "h_anchor": "middle", "color": "#000000", "text": "Probability", "coordinates": "axes", "zorder": 3, "alpha": 1, "fontsize": 12.0, "position": [-0.076612903225806453, 0.5], "rotation": -90.0, "id": "el890654372159056"}], "zoomable": true, "images": [], "xdomain": [0.0, 14.0], "ylim": [0.0, 0.40000000000000002], "paths": [{"edgecolor": "#000000", "facecolor": "#FF0000", "edgewidth": 1.0, "pathcodes": ["M", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "Z"], "yindex": 1, "coordinates": "data", "dasharray": "10,0", "zorder": 1, "alpha": 1, "xindex": 0, "data": "data01", "id": "el890654434669264"}], "sharey": [], "sharex": [], "axesbgalpha": null, "axes": [{"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 12.0, "position": "bottom", "nticks": 8, "tickvalues": null}, {"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 12.0, "position": "left", "nticks": 10, "tickvalues": null}], "lines": [], "markers": [], "id": "el890654371971408", "ydomain": [0.0, 0.40000000000000002], "collections": [], "xscale": "linear", "bbox": [0.125, 0.099999999999999978, 0.77500000000000002, 0.80000000000000004]}], "height": 480.0, "width": 640.0, "plugins": [{"type": "reset"}, {"enabled": false, "button": true, "type": "zoom"}, {"enabled": false, "button": true, "type": "boxzoom"}], "data": {"data01": [[0.0, 0.0], [0.0, 0.3793018379178489], [2.419999999999999, 0.3793018379178489], [2.419999999999999, 0.015418773899099548], [4.839999999999998, 0.015418773899099548], [4.839999999999998, 0.015418773899099548], [7.259999999999997, 0.015418773899099548], [7.259999999999997, 0.0015418773899099551], [9.679999999999996, 0.0015418773899099551], [9.679999999999996, 0.0015418773899099555], [12.099999999999994, 0.0015418773899099555], [12.099999999999994, 0.0], [9.679999999999996, 0.0], [9.679999999999996, 0.0], [7.259999999999997, 0.0], [7.259999999999997, 0.0], [4.839999999999998, 0.0], [4.839999999999998, 0.0], [2.419999999999999, 0.0], [2.419999999999999, 0.0]]}, "id": "el890654371815696"});
+      });
+    });
+}else{
+    // require.js not available: dynamically load d3 & mpld3
+    mpld3_load_lib("https://mpld3.github.io/js/d3.v3.min.js", function(){
+         mpld3_load_lib("https://mpld3.github.io/js/mpld3.v0.2.js", function(){
+                 
+                 mpld3.draw_figure("fig_el8906543718156961093860287", {"axes": [{"xlim": [0.0, 14.0], "yscale": "linear", "axesbg": "#FFFFFF", "texts": [{"v_baseline": "hanging", "h_anchor": "middle", "color": "#000000", "text": "Value", "coordinates": "axes", "zorder": 3, "alpha": 1, "fontsize": 12.0, "position": [0.5, -0.059895833333333329], "rotation": -0.0, "id": "el890654372093968"}, {"v_baseline": "auto", "h_anchor": "middle", "color": "#000000", "text": "Probability", "coordinates": "axes", "zorder": 3, "alpha": 1, "fontsize": 12.0, "position": [-0.076612903225806453, 0.5], "rotation": -90.0, "id": "el890654372159056"}], "zoomable": true, "images": [], "xdomain": [0.0, 14.0], "ylim": [0.0, 0.40000000000000002], "paths": [{"edgecolor": "#000000", "facecolor": "#FF0000", "edgewidth": 1.0, "pathcodes": ["M", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "Z"], "yindex": 1, "coordinates": "data", "dasharray": "10,0", "zorder": 1, "alpha": 1, "xindex": 0, "data": "data01", "id": "el890654434669264"}], "sharey": [], "sharex": [], "axesbgalpha": null, "axes": [{"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 12.0, "position": "bottom", "nticks": 8, "tickvalues": null}, {"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 12.0, "position": "left", "nticks": 10, "tickvalues": null}], "lines": [], "markers": [], "id": "el890654371971408", "ydomain": [0.0, 0.40000000000000002], "collections": [], "xscale": "linear", "bbox": [0.125, 0.099999999999999978, 0.77500000000000002, 0.80000000000000004]}], "height": 480.0, "width": 640.0, "plugins": [{"type": "reset"}, {"enabled": false, "button": true, "type": "zoom"}, {"enabled": false, "button": true, "type": "boxzoom"}], "data": {"data01": [[0.0, 0.0], [0.0, 0.3793018379178489], [2.419999999999999, 0.3793018379178489], [2.419999999999999, 0.015418773899099548], [4.839999999999998, 0.015418773899099548], [4.839999999999998, 0.015418773899099548], [7.259999999999997, 0.015418773899099548], [7.259999999999997, 0.0015418773899099551], [9.679999999999996, 0.0015418773899099551], [9.679999999999996, 0.0015418773899099555], [12.099999999999994, 0.0015418773899099555], [12.099999999999994, 0.0], [9.679999999999996, 0.0], [9.679999999999996, 0.0], [7.259999999999997, 0.0], [7.259999999999997, 0.0], [4.839999999999998, 0.0], [4.839999999999998, 0.0], [2.419999999999999, 0.0], [2.419999999999999, 0.0]]}, "id": "el890654371815696"});
             })
          });
 }
