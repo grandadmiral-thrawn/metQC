@@ -607,3 +607,183 @@ if(typeof(mpld3) !== "undefined" && mpld3._mpld3IsLoaded){
          });
 }
 </script>
+
+Here are some images from Relative Humidity, doing the same analyses
+
+ Differences in Maximums on CENMET for Relative Humidity
+
+
+<style>
+
+</style>
+
+<div id="fig_el894314439172816866256538"></div>
+<script>
+function mpld3_load_lib(url, callback){
+  var s = document.createElement('script');
+  s.src = url;
+  s.async = true;
+  s.onreadystatechange = s.onload = callback;
+  s.onerror = function(){console.warn("failed to load library " + url);};
+  document.getElementsByTagName("head")[0].appendChild(s);
+}
+
+if(typeof(mpld3) !== "undefined" && mpld3._mpld3IsLoaded){
+   // already loaded: just create the figure
+   !function(mpld3){
+       
+       mpld3.draw_figure("fig_el894314439172816866256538", {"axes": [{"xlim": [0.0, 60.0], "yscale": "linear", "axesbg": "#FFFFFF", "texts": [{"v_baseline": "hanging", "h_anchor": "middle", "color": "#000000", "text": "Value", "coordinates": "axes", "zorder": 3, "alpha": 1, "fontsize": 12.0, "position": [0.5, -0.059895833333333329], "rotation": -0.0, "id": "el894314438995536"}, {"v_baseline": "auto", "h_anchor": "middle", "color": "#000000", "text": "Probability", "coordinates": "axes", "zorder": 3, "alpha": 1, "fontsize": 12.0, "position": [-0.076675907258064516, 0.5], "rotation": -90.0, "id": "el894314438727952"}], "zoomable": true, "images": [], "xdomain": [0.0, 60.0], "ylim": [0.0, 0.089999999999999997], "paths": [{"edgecolor": "#000000", "facecolor": "#FF0000", "edgewidth": 1.0, "pathcodes": ["M", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "Z"], "yindex": 1, "coordinates": "data", "dasharray": "10,0", "zorder": 1, "alpha": 1, "xindex": 0, "data": "data01", "id": "el894314371179792"}], "sharey": [], "sharex": [], "axesbgalpha": null, "axes": [{"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 12.0, "position": "bottom", "nticks": 7, "tickvalues": null}, {"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 12.0, "position": "left", "nticks": 10, "tickvalues": null}], "lines": [], "markers": [], "id": "el894314439448720", "ydomain": [0.0, 0.089999999999999997], "collections": [], "xscale": "linear", "bbox": [0.125, 0.099999999999999978, 0.77500000000000002, 0.80000000000000004]}], "height": 480.0, "width": 640.0, "plugins": [{"type": "reset"}, {"enabled": false, "button": true, "type": "zoom"}, {"enabled": false, "button": true, "type": "boxzoom"}], "data": {"data01": [[0.0, 0.0], [0.0, 0.082785298174716], [11.026, 0.082785298174716], [11.026, 0.0036910642498281018], [22.052, 0.0036910642498281018], [22.052, 0.002636474464162929], [33.078, 0.002636474464162929], [33.078, 0.0010545897856651723], [44.104, 0.0010545897856651723], [44.104, 0.0005272948928325862], [55.129999999999995, 0.0005272948928325862], [55.129999999999995, 0.0], [44.104, 0.0], [44.104, 0.0], [33.078, 0.0], [33.078, 0.0], [22.052, 0.0], [22.052, 0.0], [11.026, 0.0], [11.026, 0.0]]}, "id": "el894314439172816"});
+   }(mpld3);
+}else if(typeof define === "function" && define.amd){
+   // require.js is available: use it to load d3/mpld3
+   require.config({paths: {d3: "https://mpld3.github.io/js/d3.v3.min"}});
+   require(["d3"], function(d3){
+      window.d3 = d3;
+      mpld3_load_lib("https://mpld3.github.io/js/mpld3.v0.2.js", function(){
+         
+         mpld3.draw_figure("fig_el894314439172816866256538", {"axes": [{"xlim": [0.0, 60.0], "yscale": "linear", "axesbg": "#FFFFFF", "texts": [{"v_baseline": "hanging", "h_anchor": "middle", "color": "#000000", "text": "Value", "coordinates": "axes", "zorder": 3, "alpha": 1, "fontsize": 12.0, "position": [0.5, -0.059895833333333329], "rotation": -0.0, "id": "el894314438995536"}, {"v_baseline": "auto", "h_anchor": "middle", "color": "#000000", "text": "Probability", "coordinates": "axes", "zorder": 3, "alpha": 1, "fontsize": 12.0, "position": [-0.076675907258064516, 0.5], "rotation": -90.0, "id": "el894314438727952"}], "zoomable": true, "images": [], "xdomain": [0.0, 60.0], "ylim": [0.0, 0.089999999999999997], "paths": [{"edgecolor": "#000000", "facecolor": "#FF0000", "edgewidth": 1.0, "pathcodes": ["M", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "Z"], "yindex": 1, "coordinates": "data", "dasharray": "10,0", "zorder": 1, "alpha": 1, "xindex": 0, "data": "data01", "id": "el894314371179792"}], "sharey": [], "sharex": [], "axesbgalpha": null, "axes": [{"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 12.0, "position": "bottom", "nticks": 7, "tickvalues": null}, {"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 12.0, "position": "left", "nticks": 10, "tickvalues": null}], "lines": [], "markers": [], "id": "el894314439448720", "ydomain": [0.0, 0.089999999999999997], "collections": [], "xscale": "linear", "bbox": [0.125, 0.099999999999999978, 0.77500000000000002, 0.80000000000000004]}], "height": 480.0, "width": 640.0, "plugins": [{"type": "reset"}, {"enabled": false, "button": true, "type": "zoom"}, {"enabled": false, "button": true, "type": "boxzoom"}], "data": {"data01": [[0.0, 0.0], [0.0, 0.082785298174716], [11.026, 0.082785298174716], [11.026, 0.0036910642498281018], [22.052, 0.0036910642498281018], [22.052, 0.002636474464162929], [33.078, 0.002636474464162929], [33.078, 0.0010545897856651723], [44.104, 0.0010545897856651723], [44.104, 0.0005272948928325862], [55.129999999999995, 0.0005272948928325862], [55.129999999999995, 0.0], [44.104, 0.0], [44.104, 0.0], [33.078, 0.0], [33.078, 0.0], [22.052, 0.0], [22.052, 0.0], [11.026, 0.0], [11.026, 0.0]]}, "id": "el894314439172816"});
+      });
+    });
+}else{
+    // require.js not available: dynamically load d3 & mpld3
+    mpld3_load_lib("https://mpld3.github.io/js/d3.v3.min.js", function(){
+         mpld3_load_lib("https://mpld3.github.io/js/mpld3.v0.2.js", function(){
+                 
+                 mpld3.draw_figure("fig_el894314439172816866256538", {"axes": [{"xlim": [0.0, 60.0], "yscale": "linear", "axesbg": "#FFFFFF", "texts": [{"v_baseline": "hanging", "h_anchor": "middle", "color": "#000000", "text": "Value", "coordinates": "axes", "zorder": 3, "alpha": 1, "fontsize": 12.0, "position": [0.5, -0.059895833333333329], "rotation": -0.0, "id": "el894314438995536"}, {"v_baseline": "auto", "h_anchor": "middle", "color": "#000000", "text": "Probability", "coordinates": "axes", "zorder": 3, "alpha": 1, "fontsize": 12.0, "position": [-0.076675907258064516, 0.5], "rotation": -90.0, "id": "el894314438727952"}], "zoomable": true, "images": [], "xdomain": [0.0, 60.0], "ylim": [0.0, 0.089999999999999997], "paths": [{"edgecolor": "#000000", "facecolor": "#FF0000", "edgewidth": 1.0, "pathcodes": ["M", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "Z"], "yindex": 1, "coordinates": "data", "dasharray": "10,0", "zorder": 1, "alpha": 1, "xindex": 0, "data": "data01", "id": "el894314371179792"}], "sharey": [], "sharex": [], "axesbgalpha": null, "axes": [{"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 12.0, "position": "bottom", "nticks": 7, "tickvalues": null}, {"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 12.0, "position": "left", "nticks": 10, "tickvalues": null}], "lines": [], "markers": [], "id": "el894314439448720", "ydomain": [0.0, 0.089999999999999997], "collections": [], "xscale": "linear", "bbox": [0.125, 0.099999999999999978, 0.77500000000000002, 0.80000000000000004]}], "height": 480.0, "width": 640.0, "plugins": [{"type": "reset"}, {"enabled": false, "button": true, "type": "zoom"}, {"enabled": false, "button": true, "type": "boxzoom"}], "data": {"data01": [[0.0, 0.0], [0.0, 0.082785298174716], [11.026, 0.082785298174716], [11.026, 0.0036910642498281018], [22.052, 0.0036910642498281018], [22.052, 0.002636474464162929], [33.078, 0.002636474464162929], [33.078, 0.0010545897856651723], [44.104, 0.0010545897856651723], [44.104, 0.0005272948928325862], [55.129999999999995, 0.0005272948928325862], [55.129999999999995, 0.0], [44.104, 0.0], [44.104, 0.0], [33.078, 0.0], [33.078, 0.0], [22.052, 0.0], [22.052, 0.0], [11.026, 0.0], [11.026, 0.0]]}, "id": "el894314439172816"});
+            })
+         });
+}
+</script>
+
+
+Differences between "Minimums" in Relative Humidity on CENMET, 150
+
+<style>
+
+</style>
+
+<div id="fig_el894314436265552162221783"></div>
+<script>
+function mpld3_load_lib(url, callback){
+  var s = document.createElement('script');
+  s.src = url;
+  s.async = true;
+  s.onreadystatechange = s.onload = callback;
+  s.onerror = function(){console.warn("failed to load library " + url);};
+  document.getElementsByTagName("head")[0].appendChild(s);
+}
+
+if(typeof(mpld3) !== "undefined" && mpld3._mpld3IsLoaded){
+   // already loaded: just create the figure
+   !function(mpld3){
+       
+       mpld3.draw_figure("fig_el894314436265552162221783", {"axes": [{"xlim": [0.0, 70.0], "yscale": "linear", "axesbg": "#FFFFFF", "texts": [{"v_baseline": "hanging", "h_anchor": "middle", "color": "#000000", "text": "Value", "coordinates": "axes", "zorder": 3, "alpha": 1, "fontsize": 12.0, "position": [0.5, -0.059895833333333329], "rotation": -0.0, "id": "el894314439282576"}, {"v_baseline": "auto", "h_anchor": "middle", "color": "#000000", "text": "Probability", "coordinates": "axes", "zorder": 3, "alpha": 1, "fontsize": 12.0, "position": [-0.09375, 0.5], "rotation": -90.0, "id": "el894314440887120"}], "zoomable": true, "images": [], "xdomain": [0.0, 70.0], "ylim": [0.0, 0.040000000000000001], "paths": [{"edgecolor": "#000000", "facecolor": "#FF0000", "edgewidth": 1.0, "pathcodes": ["M", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "Z"], "yindex": 1, "coordinates": "data", "dasharray": "10,0", "zorder": 1, "alpha": 1, "xindex": 0, "data": "data01", "id": "el894314438770000"}], "sharey": [], "sharex": [], "axesbgalpha": null, "axes": [{"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 12.0, "position": "bottom", "nticks": 8, "tickvalues": null}, {"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 12.0, "position": "left", "nticks": 10, "tickvalues": null}], "lines": [], "markers": [], "id": "el894314436364368", "ydomain": [0.0, 0.040000000000000001], "collections": [], "xscale": "linear", "bbox": [0.125, 0.099999999999999978, 0.77500000000000002, 0.80000000000000004]}], "height": 480.0, "width": 640.0, "plugins": [{"type": "reset"}, {"enabled": false, "button": true, "type": "zoom"}, {"enabled": false, "button": true, "type": "boxzoom"}], "data": {"data01": [[0.09000000000000341, 0.0], [0.09000000000000341, 0.03865780114427091], [13.024000000000004, 0.03865780114427091], [13.024000000000004, 0.024273503044077084], [25.958000000000006, 0.024273503044077084], [25.958000000000006, 0.008540676996990083], [38.89200000000001, 0.008540676996990083], [38.89200000000001, 0.004045583840679515], [51.82600000000001, 0.004045583840679515], [51.82600000000001, 0.0017980372625242289], [64.76, 0.0017980372625242289], [64.76, 0.0], [51.82600000000001, 0.0], [51.82600000000001, 0.0], [38.89200000000001, 0.0], [38.89200000000001, 0.0], [25.958000000000006, 0.0], [25.958000000000006, 0.0], [13.024000000000004, 0.0], [13.024000000000004, 0.0]]}, "id": "el894314436265552"});
+   }(mpld3);
+}else if(typeof define === "function" && define.amd){
+   // require.js is available: use it to load d3/mpld3
+   require.config({paths: {d3: "https://mpld3.github.io/js/d3.v3.min"}});
+   require(["d3"], function(d3){
+      window.d3 = d3;
+      mpld3_load_lib("https://mpld3.github.io/js/mpld3.v0.2.js", function(){
+         
+         mpld3.draw_figure("fig_el894314436265552162221783", {"axes": [{"xlim": [0.0, 70.0], "yscale": "linear", "axesbg": "#FFFFFF", "texts": [{"v_baseline": "hanging", "h_anchor": "middle", "color": "#000000", "text": "Value", "coordinates": "axes", "zorder": 3, "alpha": 1, "fontsize": 12.0, "position": [0.5, -0.059895833333333329], "rotation": -0.0, "id": "el894314439282576"}, {"v_baseline": "auto", "h_anchor": "middle", "color": "#000000", "text": "Probability", "coordinates": "axes", "zorder": 3, "alpha": 1, "fontsize": 12.0, "position": [-0.09375, 0.5], "rotation": -90.0, "id": "el894314440887120"}], "zoomable": true, "images": [], "xdomain": [0.0, 70.0], "ylim": [0.0, 0.040000000000000001], "paths": [{"edgecolor": "#000000", "facecolor": "#FF0000", "edgewidth": 1.0, "pathcodes": ["M", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "Z"], "yindex": 1, "coordinates": "data", "dasharray": "10,0", "zorder": 1, "alpha": 1, "xindex": 0, "data": "data01", "id": "el894314438770000"}], "sharey": [], "sharex": [], "axesbgalpha": null, "axes": [{"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 12.0, "position": "bottom", "nticks": 8, "tickvalues": null}, {"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 12.0, "position": "left", "nticks": 10, "tickvalues": null}], "lines": [], "markers": [], "id": "el894314436364368", "ydomain": [0.0, 0.040000000000000001], "collections": [], "xscale": "linear", "bbox": [0.125, 0.099999999999999978, 0.77500000000000002, 0.80000000000000004]}], "height": 480.0, "width": 640.0, "plugins": [{"type": "reset"}, {"enabled": false, "button": true, "type": "zoom"}, {"enabled": false, "button": true, "type": "boxzoom"}], "data": {"data01": [[0.09000000000000341, 0.0], [0.09000000000000341, 0.03865780114427091], [13.024000000000004, 0.03865780114427091], [13.024000000000004, 0.024273503044077084], [25.958000000000006, 0.024273503044077084], [25.958000000000006, 0.008540676996990083], [38.89200000000001, 0.008540676996990083], [38.89200000000001, 0.004045583840679515], [51.82600000000001, 0.004045583840679515], [51.82600000000001, 0.0017980372625242289], [64.76, 0.0017980372625242289], [64.76, 0.0], [51.82600000000001, 0.0], [51.82600000000001, 0.0], [38.89200000000001, 0.0], [38.89200000000001, 0.0], [25.958000000000006, 0.0], [25.958000000000006, 0.0], [13.024000000000004, 0.0], [13.024000000000004, 0.0]]}, "id": "el894314436265552"});
+      });
+    });
+}else{
+    // require.js not available: dynamically load d3 & mpld3
+    mpld3_load_lib("https://mpld3.github.io/js/d3.v3.min.js", function(){
+         mpld3_load_lib("https://mpld3.github.io/js/mpld3.v0.2.js", function(){
+                 
+                 mpld3.draw_figure("fig_el894314436265552162221783", {"axes": [{"xlim": [0.0, 70.0], "yscale": "linear", "axesbg": "#FFFFFF", "texts": [{"v_baseline": "hanging", "h_anchor": "middle", "color": "#000000", "text": "Value", "coordinates": "axes", "zorder": 3, "alpha": 1, "fontsize": 12.0, "position": [0.5, -0.059895833333333329], "rotation": -0.0, "id": "el894314439282576"}, {"v_baseline": "auto", "h_anchor": "middle", "color": "#000000", "text": "Probability", "coordinates": "axes", "zorder": 3, "alpha": 1, "fontsize": 12.0, "position": [-0.09375, 0.5], "rotation": -90.0, "id": "el894314440887120"}], "zoomable": true, "images": [], "xdomain": [0.0, 70.0], "ylim": [0.0, 0.040000000000000001], "paths": [{"edgecolor": "#000000", "facecolor": "#FF0000", "edgewidth": 1.0, "pathcodes": ["M", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "Z"], "yindex": 1, "coordinates": "data", "dasharray": "10,0", "zorder": 1, "alpha": 1, "xindex": 0, "data": "data01", "id": "el894314438770000"}], "sharey": [], "sharex": [], "axesbgalpha": null, "axes": [{"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 12.0, "position": "bottom", "nticks": 8, "tickvalues": null}, {"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 12.0, "position": "left", "nticks": 10, "tickvalues": null}], "lines": [], "markers": [], "id": "el894314436364368", "ydomain": [0.0, 0.040000000000000001], "collections": [], "xscale": "linear", "bbox": [0.125, 0.099999999999999978, 0.77500000000000002, 0.80000000000000004]}], "height": 480.0, "width": 640.0, "plugins": [{"type": "reset"}, {"enabled": false, "button": true, "type": "zoom"}, {"enabled": false, "button": true, "type": "boxzoom"}], "data": {"data01": [[0.09000000000000341, 0.0], [0.09000000000000341, 0.03865780114427091], [13.024000000000004, 0.03865780114427091], [13.024000000000004, 0.024273503044077084], [25.958000000000006, 0.024273503044077084], [25.958000000000006, 0.008540676996990083], [38.89200000000001, 0.008540676996990083], [38.89200000000001, 0.004045583840679515], [51.82600000000001, 0.004045583840679515], [51.82600000000001, 0.0017980372625242289], [64.76, 0.0017980372625242289], [64.76, 0.0], [51.82600000000001, 0.0], [51.82600000000001, 0.0], [38.89200000000001, 0.0], [38.89200000000001, 0.0], [25.958000000000006, 0.0], [25.958000000000006, 0.0], [13.024000000000004, 0.0], [13.024000000000004, 0.0]]}, "id": "el894314436265552"});
+            })
+         });
+}
+</script>
+
+Differences in Maximums on Vanmet for Relative Humidity
+
+<style>
+
+</style>
+
+<div id="fig_el8943144392849445631979735"></div>
+<script>
+function mpld3_load_lib(url, callback){
+  var s = document.createElement('script');
+  s.src = url;
+  s.async = true;
+  s.onreadystatechange = s.onload = callback;
+  s.onerror = function(){console.warn("failed to load library " + url);};
+  document.getElementsByTagName("head")[0].appendChild(s);
+}
+
+if(typeof(mpld3) !== "undefined" && mpld3._mpld3IsLoaded){
+   // already loaded: just create the figure
+   !function(mpld3){
+       
+       mpld3.draw_figure("fig_el8943144392849445631979735", {"axes": [{"xlim": [0.0, 60.0], "yscale": "linear", "axesbg": "#FFFFFF", "texts": [{"v_baseline": "hanging", "h_anchor": "middle", "color": "#000000", "text": "Value", "coordinates": "axes", "zorder": 3, "alpha": 1, "fontsize": 12.0, "position": [0.5, -0.059895833333333329], "rotation": -0.0, "id": "el894314371109392"}, {"v_baseline": "auto", "h_anchor": "middle", "color": "#000000", "text": "Probability", "coordinates": "axes", "zorder": 3, "alpha": 1, "fontsize": 12.0, "position": [-0.076675907258064516, 0.5], "rotation": -90.0, "id": "el894314436413584"}], "zoomable": true, "images": [], "xdomain": [0.0, 60.0], "ylim": [0.0, 0.070000000000000007], "paths": [{"edgecolor": "#000000", "facecolor": "#FF0000", "edgewidth": 1.0, "pathcodes": ["M", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "Z"], "yindex": 1, "coordinates": "data", "dasharray": "10,0", "zorder": 1, "alpha": 1, "xindex": 0, "data": "data01", "id": "el894314441008400"}], "sharey": [], "sharex": [], "axesbgalpha": null, "axes": [{"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 12.0, "position": "bottom", "nticks": 7, "tickvalues": null}, {"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 12.0, "position": "left", "nticks": 9, "tickvalues": null}], "lines": [], "markers": [], "id": "el894314439253776", "ydomain": [0.0, 0.070000000000000007], "collections": [], "xscale": "linear", "bbox": [0.125, 0.099999999999999978, 0.77500000000000002, 0.80000000000000004]}], "height": 480.0, "width": 640.0, "plugins": [{"type": "reset"}, {"enabled": false, "button": true, "type": "zoom"}, {"enabled": false, "button": true, "type": "boxzoom"}], "data": {"data01": [[0.0, 0.0], [0.0, 0.06223297608048893], [10.774000000000001, 0.06223297608048893], [10.774000000000001, 0.016358382284014233], [21.548000000000002, 0.016358382284014233], [21.548000000000002, 0.005689872098787559], [32.322, 0.005689872098787559], [32.322, 0.005334255092613337], [43.096000000000004, 0.005334255092613337], [43.096000000000004, 0.0032005530555680017], [53.870000000000005, 0.0032005530555680017], [53.870000000000005, 0.0], [43.096000000000004, 0.0], [43.096000000000004, 0.0], [32.322, 0.0], [32.322, 0.0], [21.548000000000002, 0.0], [21.548000000000002, 0.0], [10.774000000000001, 0.0], [10.774000000000001, 0.0]]}, "id": "el894314439284944"});
+   }(mpld3);
+}else if(typeof define === "function" && define.amd){
+   // require.js is available: use it to load d3/mpld3
+   require.config({paths: {d3: "https://mpld3.github.io/js/d3.v3.min"}});
+   require(["d3"], function(d3){
+      window.d3 = d3;
+      mpld3_load_lib("https://mpld3.github.io/js/mpld3.v0.2.js", function(){
+         
+         mpld3.draw_figure("fig_el8943144392849445631979735", {"axes": [{"xlim": [0.0, 60.0], "yscale": "linear", "axesbg": "#FFFFFF", "texts": [{"v_baseline": "hanging", "h_anchor": "middle", "color": "#000000", "text": "Value", "coordinates": "axes", "zorder": 3, "alpha": 1, "fontsize": 12.0, "position": [0.5, -0.059895833333333329], "rotation": -0.0, "id": "el894314371109392"}, {"v_baseline": "auto", "h_anchor": "middle", "color": "#000000", "text": "Probability", "coordinates": "axes", "zorder": 3, "alpha": 1, "fontsize": 12.0, "position": [-0.076675907258064516, 0.5], "rotation": -90.0, "id": "el894314436413584"}], "zoomable": true, "images": [], "xdomain": [0.0, 60.0], "ylim": [0.0, 0.070000000000000007], "paths": [{"edgecolor": "#000000", "facecolor": "#FF0000", "edgewidth": 1.0, "pathcodes": ["M", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "Z"], "yindex": 1, "coordinates": "data", "dasharray": "10,0", "zorder": 1, "alpha": 1, "xindex": 0, "data": "data01", "id": "el894314441008400"}], "sharey": [], "sharex": [], "axesbgalpha": null, "axes": [{"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 12.0, "position": "bottom", "nticks": 7, "tickvalues": null}, {"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 12.0, "position": "left", "nticks": 9, "tickvalues": null}], "lines": [], "markers": [], "id": "el894314439253776", "ydomain": [0.0, 0.070000000000000007], "collections": [], "xscale": "linear", "bbox": [0.125, 0.099999999999999978, 0.77500000000000002, 0.80000000000000004]}], "height": 480.0, "width": 640.0, "plugins": [{"type": "reset"}, {"enabled": false, "button": true, "type": "zoom"}, {"enabled": false, "button": true, "type": "boxzoom"}], "data": {"data01": [[0.0, 0.0], [0.0, 0.06223297608048893], [10.774000000000001, 0.06223297608048893], [10.774000000000001, 0.016358382284014233], [21.548000000000002, 0.016358382284014233], [21.548000000000002, 0.005689872098787559], [32.322, 0.005689872098787559], [32.322, 0.005334255092613337], [43.096000000000004, 0.005334255092613337], [43.096000000000004, 0.0032005530555680017], [53.870000000000005, 0.0032005530555680017], [53.870000000000005, 0.0], [43.096000000000004, 0.0], [43.096000000000004, 0.0], [32.322, 0.0], [32.322, 0.0], [21.548000000000002, 0.0], [21.548000000000002, 0.0], [10.774000000000001, 0.0], [10.774000000000001, 0.0]]}, "id": "el894314439284944"});
+      });
+    });
+}else{
+    // require.js not available: dynamically load d3 & mpld3
+    mpld3_load_lib("https://mpld3.github.io/js/d3.v3.min.js", function(){
+         mpld3_load_lib("https://mpld3.github.io/js/mpld3.v0.2.js", function(){
+                 
+                 mpld3.draw_figure("fig_el8943144392849445631979735", {"axes": [{"xlim": [0.0, 60.0], "yscale": "linear", "axesbg": "#FFFFFF", "texts": [{"v_baseline": "hanging", "h_anchor": "middle", "color": "#000000", "text": "Value", "coordinates": "axes", "zorder": 3, "alpha": 1, "fontsize": 12.0, "position": [0.5, -0.059895833333333329], "rotation": -0.0, "id": "el894314371109392"}, {"v_baseline": "auto", "h_anchor": "middle", "color": "#000000", "text": "Probability", "coordinates": "axes", "zorder": 3, "alpha": 1, "fontsize": 12.0, "position": [-0.076675907258064516, 0.5], "rotation": -90.0, "id": "el894314436413584"}], "zoomable": true, "images": [], "xdomain": [0.0, 60.0], "ylim": [0.0, 0.070000000000000007], "paths": [{"edgecolor": "#000000", "facecolor": "#FF0000", "edgewidth": 1.0, "pathcodes": ["M", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "Z"], "yindex": 1, "coordinates": "data", "dasharray": "10,0", "zorder": 1, "alpha": 1, "xindex": 0, "data": "data01", "id": "el894314441008400"}], "sharey": [], "sharex": [], "axesbgalpha": null, "axes": [{"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 12.0, "position": "bottom", "nticks": 7, "tickvalues": null}, {"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 12.0, "position": "left", "nticks": 9, "tickvalues": null}], "lines": [], "markers": [], "id": "el894314439253776", "ydomain": [0.0, 0.070000000000000007], "collections": [], "xscale": "linear", "bbox": [0.125, 0.099999999999999978, 0.77500000000000002, 0.80000000000000004]}], "height": 480.0, "width": 640.0, "plugins": [{"type": "reset"}, {"enabled": false, "button": true, "type": "zoom"}, {"enabled": false, "button": true, "type": "boxzoom"}], "data": {"data01": [[0.0, 0.0], [0.0, 0.06223297608048893], [10.774000000000001, 0.06223297608048893], [10.774000000000001, 0.016358382284014233], [21.548000000000002, 0.016358382284014233], [21.548000000000002, 0.005689872098787559], [32.322, 0.005689872098787559], [32.322, 0.005334255092613337], [43.096000000000004, 0.005334255092613337], [43.096000000000004, 0.0032005530555680017], [53.870000000000005, 0.0032005530555680017], [53.870000000000005, 0.0], [43.096000000000004, 0.0], [43.096000000000004, 0.0], [32.322, 0.0], [32.322, 0.0], [21.548000000000002, 0.0], [21.548000000000002, 0.0], [10.774000000000001, 0.0], [10.774000000000001, 0.0]]}, "id": "el894314439284944"});
+            })
+         });
+}
+</script>
+
+Differences in Minimums on VANMET for relative humidity.
+
+<style>
+
+</style>
+
+<div id="fig_el8943144362665127506890787"></div>
+<script>
+function mpld3_load_lib(url, callback){
+  var s = document.createElement('script');
+  s.src = url;
+  s.async = true;
+  s.onreadystatechange = s.onload = callback;
+  s.onerror = function(){console.warn("failed to load library " + url);};
+  document.getElementsByTagName("head")[0].appendChild(s);
+}
+
+if(typeof(mpld3) !== "undefined" && mpld3._mpld3IsLoaded){
+   // already loaded: just create the figure
+   !function(mpld3){
+       
+       mpld3.draw_figure("fig_el8943144362665127506890787", {"axes": [{"xlim": [0.0, 90.0], "yscale": "linear", "axesbg": "#FFFFFF", "texts": [{"v_baseline": "hanging", "h_anchor": "middle", "color": "#000000", "text": "Value", "coordinates": "axes", "zorder": 3, "alpha": 1, "fontsize": 12.0, "position": [0.5, -0.059895833333333329], "rotation": -0.0, "id": "el894314438481936"}, {"v_baseline": "auto", "h_anchor": "middle", "color": "#000000", "text": "Probability", "coordinates": "axes", "zorder": 3, "alpha": 1, "fontsize": 12.0, "position": [-0.09375, 0.5], "rotation": -90.0, "id": "el894314439448208"}], "zoomable": true, "images": [], "xdomain": [0.0, 90.0], "ylim": [0.0, 0.025000000000000001], "paths": [{"edgecolor": "#000000", "facecolor": "#FF0000", "edgewidth": 1.0, "pathcodes": ["M", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "Z"], "yindex": 1, "coordinates": "data", "dasharray": "10,0", "zorder": 1, "alpha": 1, "xindex": 0, "data": "data01", "id": "el894314438854160"}], "sharey": [], "sharex": [], "axesbgalpha": null, "axes": [{"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 12.0, "position": "bottom", "nticks": 10, "tickvalues": null}, {"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 12.0, "position": "left", "nticks": 7, "tickvalues": null}], "lines": [], "markers": [], "id": "el894314436572944", "ydomain": [0.0, 0.025000000000000001], "collections": [], "xscale": "linear", "bbox": [0.125, 0.099999999999999978, 0.77500000000000002, 0.80000000000000004]}], "height": 480.0, "width": 640.0, "plugins": [{"type": "reset"}, {"enabled": false, "button": true, "type": "zoom"}, {"enabled": false, "button": true, "type": "boxzoom"}], "data": {"data01": [[0.0, 0.0], [0.0, 0.024661998502664376], [17.4, 0.024661998502664376], [17.4, 0.01629453472497468], [34.8, 0.01629453472497468], [34.8, 0.008807856608094421], [52.199999999999996, 0.008807856608094421], [52.199999999999996, 0.006165499625666094], [69.6, 0.006165499625666094], [69.6, 0.0015413749064165229], [87.0, 0.0015413749064165229], [87.0, 0.0], [69.6, 0.0], [69.6, 0.0], [52.199999999999996, 0.0], [52.199999999999996, 0.0], [34.8, 0.0], [34.8, 0.0], [17.4, 0.0], [17.4, 0.0]]}, "id": "el894314436266512"});
+   }(mpld3);
+}else if(typeof define === "function" && define.amd){
+   // require.js is available: use it to load d3/mpld3
+   require.config({paths: {d3: "https://mpld3.github.io/js/d3.v3.min"}});
+   require(["d3"], function(d3){
+      window.d3 = d3;
+      mpld3_load_lib("https://mpld3.github.io/js/mpld3.v0.2.js", function(){
+         
+         mpld3.draw_figure("fig_el8943144362665127506890787", {"axes": [{"xlim": [0.0, 90.0], "yscale": "linear", "axesbg": "#FFFFFF", "texts": [{"v_baseline": "hanging", "h_anchor": "middle", "color": "#000000", "text": "Value", "coordinates": "axes", "zorder": 3, "alpha": 1, "fontsize": 12.0, "position": [0.5, -0.059895833333333329], "rotation": -0.0, "id": "el894314438481936"}, {"v_baseline": "auto", "h_anchor": "middle", "color": "#000000", "text": "Probability", "coordinates": "axes", "zorder": 3, "alpha": 1, "fontsize": 12.0, "position": [-0.09375, 0.5], "rotation": -90.0, "id": "el894314439448208"}], "zoomable": true, "images": [], "xdomain": [0.0, 90.0], "ylim": [0.0, 0.025000000000000001], "paths": [{"edgecolor": "#000000", "facecolor": "#FF0000", "edgewidth": 1.0, "pathcodes": ["M", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "Z"], "yindex": 1, "coordinates": "data", "dasharray": "10,0", "zorder": 1, "alpha": 1, "xindex": 0, "data": "data01", "id": "el894314438854160"}], "sharey": [], "sharex": [], "axesbgalpha": null, "axes": [{"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 12.0, "position": "bottom", "nticks": 10, "tickvalues": null}, {"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 12.0, "position": "left", "nticks": 7, "tickvalues": null}], "lines": [], "markers": [], "id": "el894314436572944", "ydomain": [0.0, 0.025000000000000001], "collections": [], "xscale": "linear", "bbox": [0.125, 0.099999999999999978, 0.77500000000000002, 0.80000000000000004]}], "height": 480.0, "width": 640.0, "plugins": [{"type": "reset"}, {"enabled": false, "button": true, "type": "zoom"}, {"enabled": false, "button": true, "type": "boxzoom"}], "data": {"data01": [[0.0, 0.0], [0.0, 0.024661998502664376], [17.4, 0.024661998502664376], [17.4, 0.01629453472497468], [34.8, 0.01629453472497468], [34.8, 0.008807856608094421], [52.199999999999996, 0.008807856608094421], [52.199999999999996, 0.006165499625666094], [69.6, 0.006165499625666094], [69.6, 0.0015413749064165229], [87.0, 0.0015413749064165229], [87.0, 0.0], [69.6, 0.0], [69.6, 0.0], [52.199999999999996, 0.0], [52.199999999999996, 0.0], [34.8, 0.0], [34.8, 0.0], [17.4, 0.0], [17.4, 0.0]]}, "id": "el894314436266512"});
+      });
+    });
+}else{
+    // require.js not available: dynamically load d3 & mpld3
+    mpld3_load_lib("https://mpld3.github.io/js/d3.v3.min.js", function(){
+         mpld3_load_lib("https://mpld3.github.io/js/mpld3.v0.2.js", function(){
+                 
+                 mpld3.draw_figure("fig_el8943144362665127506890787", {"axes": [{"xlim": [0.0, 90.0], "yscale": "linear", "axesbg": "#FFFFFF", "texts": [{"v_baseline": "hanging", "h_anchor": "middle", "color": "#000000", "text": "Value", "coordinates": "axes", "zorder": 3, "alpha": 1, "fontsize": 12.0, "position": [0.5, -0.059895833333333329], "rotation": -0.0, "id": "el894314438481936"}, {"v_baseline": "auto", "h_anchor": "middle", "color": "#000000", "text": "Probability", "coordinates": "axes", "zorder": 3, "alpha": 1, "fontsize": 12.0, "position": [-0.09375, 0.5], "rotation": -90.0, "id": "el894314439448208"}], "zoomable": true, "images": [], "xdomain": [0.0, 90.0], "ylim": [0.0, 0.025000000000000001], "paths": [{"edgecolor": "#000000", "facecolor": "#FF0000", "edgewidth": 1.0, "pathcodes": ["M", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "Z"], "yindex": 1, "coordinates": "data", "dasharray": "10,0", "zorder": 1, "alpha": 1, "xindex": 0, "data": "data01", "id": "el894314438854160"}], "sharey": [], "sharex": [], "axesbgalpha": null, "axes": [{"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 12.0, "position": "bottom", "nticks": 10, "tickvalues": null}, {"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 12.0, "position": "left", "nticks": 7, "tickvalues": null}], "lines": [], "markers": [], "id": "el894314436572944", "ydomain": [0.0, 0.025000000000000001], "collections": [], "xscale": "linear", "bbox": [0.125, 0.099999999999999978, 0.77500000000000002, 0.80000000000000004]}], "height": 480.0, "width": 640.0, "plugins": [{"type": "reset"}, {"enabled": false, "button": true, "type": "zoom"}, {"enabled": false, "button": true, "type": "boxzoom"}], "data": {"data01": [[0.0, 0.0], [0.0, 0.024661998502664376], [17.4, 0.024661998502664376], [17.4, 0.01629453472497468], [34.8, 0.01629453472497468], [34.8, 0.008807856608094421], [52.199999999999996, 0.008807856608094421], [52.199999999999996, 0.006165499625666094], [69.6, 0.006165499625666094], [69.6, 0.0015413749064165229], [87.0, 0.0015413749064165229], [87.0, 0.0], [69.6, 0.0], [69.6, 0.0], [52.199999999999996, 0.0], [52.199999999999996, 0.0], [34.8, 0.0], [34.8, 0.0], [17.4, 0.0], [17.4, 0.0]]}, "id": "el894314436266512"});
+            })
+         });
+}
+</script>
