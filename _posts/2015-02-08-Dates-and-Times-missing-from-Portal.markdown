@@ -6,7 +6,7 @@ date: 2015-02-08T16:11:30-08:00
 
 The following is a list of times when there are gaps in the data streams displayed on the Portal, by logger. When dates are displayed but with round-off-error, this is also discussed.
 
-## Missing Times<a id="misstime"></a>
+## Missing Times
 
 There are time gaps in data streams for several hours. These seem to occur when program changes are made, i.e., VANMET 09-13-2013. Suggest gap filling null values with missing codes.
 
