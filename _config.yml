@@ -13,7 +13,8 @@ pygments: true
 
 # Build settings
 #markdown: kramdown
-markdown: maruku
+#markdown: maruku
+markdown: redcarpet
 
 # Make redcarpet behave like GitHub Flavored Markdown
 redcarpet:
