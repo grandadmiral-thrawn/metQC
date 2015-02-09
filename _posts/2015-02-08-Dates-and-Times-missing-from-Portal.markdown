@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Missing Enumeration"
+title: "Dates and Time missing from Portal"
 date: 2015-02-08T16:11:30-08:00
 ---
 
@@ -117,6 +117,9 @@ All data prior to September of 2014 has been removed from the Portal, so missing
 * H15MET 208, 15 minute 2013 range : 31-Jan-2013 to 31-Dec-2013, daily range 01-Feb-2013 to 31-Dec-2013 - all datetimes are okay
 
 * **Note: ** the date stamps on H15met are still formated as date-
+time in the old manner
+
+
 ### UPLMET:
 
 * UPLMET 227 logger 2014 range: 29-May-2012 to 28-Dec-2014
