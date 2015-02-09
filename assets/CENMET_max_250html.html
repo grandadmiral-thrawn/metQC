@@ -1,0 +1,43 @@
+
+
+<style>
+
+</style>
+
+<div id="fig_el7576344372665124610812918"></div>
+<script>
+function mpld3_load_lib(url, callback){
+  var s = document.createElement('script');
+  s.src = url;
+  s.async = true;
+  s.onreadystatechange = s.onload = callback;
+  s.onerror = function(){console.warn("failed to load library " + url);};
+  document.getElementsByTagName("head")[0].appendChild(s);
+}
+
+if(typeof(mpld3) !== "undefined" && mpld3._mpld3IsLoaded){
+   // already loaded: just create the figure
+   !function(mpld3){
+       
+       mpld3.draw_figure("fig_el7576344372665124610812918", {"axes": [{"xlim": [0.0, 0.70000000000000007], "yscale": "linear", "axesbg": "#FFFFFF", "texts": [{"v_baseline": "hanging", "h_anchor": "middle", "color": "#000000", "text": "Value", "coordinates": "axes", "zorder": 3, "alpha": 1, "fontsize": 12.0, "position": [0.5, -0.059895833333333329], "rotation": -0.0, "id": "el757634440426512"}, {"v_baseline": "auto", "h_anchor": "middle", "color": "#000000", "text": "Probability", "coordinates": "axes", "zorder": 3, "alpha": 1, "fontsize": 12.0, "position": [-0.059475806451612906, 0.5], "rotation": -90.0, "id": "el757634440464080"}], "zoomable": true, "images": [], "xdomain": [0.0, 0.70000000000000007], "ylim": [0.0, 3.5], "paths": [{"edgecolor": "#000000", "facecolor": "#FF0000", "edgewidth": 1.0, "pathcodes": ["M", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "Z"], "yindex": 1, "coordinates": "data", "dasharray": "10,0", "zorder": 1, "alpha": 1, "xindex": 0, "data": "data01", "id": "el757634440921680"}], "sharey": [], "sharex": [], "axesbgalpha": null, "axes": [{"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 12.0, "position": "bottom", "nticks": 9, "tickvalues": null}, {"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 12.0, "position": "left", "nticks": 8, "tickvalues": null}], "lines": [], "markers": [], "id": "el757634440290768", "ydomain": [0.0, 3.5], "collections": [], "xscale": "linear", "bbox": [0.125, 0.099999999999999978, 0.77500000000000002, 0.80000000000000004]}], "height": 480.0, "width": 640.0, "plugins": [{"type": "reset"}, {"enabled": false, "button": true, "type": "zoom"}, {"enabled": false, "button": true, "type": "boxzoom"}], "data": {"data01": [[0.0, 0.0], [0.0, 2.9438405797101472], [0.1379999999999999, 2.9438405797101472], [0.1379999999999999, 3.2155797101449304], [0.2759999999999998, 3.2155797101449304], [0.2759999999999998, 0.905797101449276], [0.4139999999999997, 0.905797101449276], [0.4139999999999997, 0.1358695652173914], [0.5519999999999996, 0.1358695652173914], [0.5519999999999996, 0.0452898550724638], [0.6899999999999995, 0.0452898550724638], [0.6899999999999995, 0.0], [0.5519999999999996, 0.0], [0.5519999999999996, 0.0], [0.4139999999999997, 0.0], [0.4139999999999997, 0.0], [0.2759999999999998, 0.0], [0.2759999999999998, 0.0], [0.1379999999999999, 0.0], [0.1379999999999999, 0.0]]}, "id": "el757634437266512"});
+   }(mpld3);
+}else if(typeof define === "function" && define.amd){
+   // require.js is available: use it to load d3/mpld3
+   require.config({paths: {d3: "https://mpld3.github.io/js/d3.v3.min"}});
+   require(["d3"], function(d3){
+      window.d3 = d3;
+      mpld3_load_lib("https://mpld3.github.io/js/mpld3.v0.2.js", function(){
+         
+         mpld3.draw_figure("fig_el7576344372665124610812918", {"axes": [{"xlim": [0.0, 0.70000000000000007], "yscale": "linear", "axesbg": "#FFFFFF", "texts": [{"v_baseline": "hanging", "h_anchor": "middle", "color": "#000000", "text": "Value", "coordinates": "axes", "zorder": 3, "alpha": 1, "fontsize": 12.0, "position": [0.5, -0.059895833333333329], "rotation": -0.0, "id": "el757634440426512"}, {"v_baseline": "auto", "h_anchor": "middle", "color": "#000000", "text": "Probability", "coordinates": "axes", "zorder": 3, "alpha": 1, "fontsize": 12.0, "position": [-0.059475806451612906, 0.5], "rotation": -90.0, "id": "el757634440464080"}], "zoomable": true, "images": [], "xdomain": [0.0, 0.70000000000000007], "ylim": [0.0, 3.5], "paths": [{"edgecolor": "#000000", "facecolor": "#FF0000", "edgewidth": 1.0, "pathcodes": ["M", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "Z"], "yindex": 1, "coordinates": "data", "dasharray": "10,0", "zorder": 1, "alpha": 1, "xindex": 0, "data": "data01", "id": "el757634440921680"}], "sharey": [], "sharex": [], "axesbgalpha": null, "axes": [{"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 12.0, "position": "bottom", "nticks": 9, "tickvalues": null}, {"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 12.0, "position": "left", "nticks": 8, "tickvalues": null}], "lines": [], "markers": [], "id": "el757634440290768", "ydomain": [0.0, 3.5], "collections": [], "xscale": "linear", "bbox": [0.125, 0.099999999999999978, 0.77500000000000002, 0.80000000000000004]}], "height": 480.0, "width": 640.0, "plugins": [{"type": "reset"}, {"enabled": false, "button": true, "type": "zoom"}, {"enabled": false, "button": true, "type": "boxzoom"}], "data": {"data01": [[0.0, 0.0], [0.0, 2.9438405797101472], [0.1379999999999999, 2.9438405797101472], [0.1379999999999999, 3.2155797101449304], [0.2759999999999998, 3.2155797101449304], [0.2759999999999998, 0.905797101449276], [0.4139999999999997, 0.905797101449276], [0.4139999999999997, 0.1358695652173914], [0.5519999999999996, 0.1358695652173914], [0.5519999999999996, 0.0452898550724638], [0.6899999999999995, 0.0452898550724638], [0.6899999999999995, 0.0], [0.5519999999999996, 0.0], [0.5519999999999996, 0.0], [0.4139999999999997, 0.0], [0.4139999999999997, 0.0], [0.2759999999999998, 0.0], [0.2759999999999998, 0.0], [0.1379999999999999, 0.0], [0.1379999999999999, 0.0]]}, "id": "el757634437266512"});
+      });
+    });
+}else{
+    // require.js not available: dynamically load d3 & mpld3
+    mpld3_load_lib("https://mpld3.github.io/js/d3.v3.min.js", function(){
+         mpld3_load_lib("https://mpld3.github.io/js/mpld3.v0.2.js", function(){
+                 
+                 mpld3.draw_figure("fig_el7576344372665124610812918", {"axes": [{"xlim": [0.0, 0.70000000000000007], "yscale": "linear", "axesbg": "#FFFFFF", "texts": [{"v_baseline": "hanging", "h_anchor": "middle", "color": "#000000", "text": "Value", "coordinates": "axes", "zorder": 3, "alpha": 1, "fontsize": 12.0, "position": [0.5, -0.059895833333333329], "rotation": -0.0, "id": "el757634440426512"}, {"v_baseline": "auto", "h_anchor": "middle", "color": "#000000", "text": "Probability", "coordinates": "axes", "zorder": 3, "alpha": 1, "fontsize": 12.0, "position": [-0.059475806451612906, 0.5], "rotation": -90.0, "id": "el757634440464080"}], "zoomable": true, "images": [], "xdomain": [0.0, 0.70000000000000007], "ylim": [0.0, 3.5], "paths": [{"edgecolor": "#000000", "facecolor": "#FF0000", "edgewidth": 1.0, "pathcodes": ["M", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "Z"], "yindex": 1, "coordinates": "data", "dasharray": "10,0", "zorder": 1, "alpha": 1, "xindex": 0, "data": "data01", "id": "el757634440921680"}], "sharey": [], "sharex": [], "axesbgalpha": null, "axes": [{"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 12.0, "position": "bottom", "nticks": 9, "tickvalues": null}, {"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 12.0, "position": "left", "nticks": 8, "tickvalues": null}], "lines": [], "markers": [], "id": "el757634440290768", "ydomain": [0.0, 3.5], "collections": [], "xscale": "linear", "bbox": [0.125, 0.099999999999999978, 0.77500000000000002, 0.80000000000000004]}], "height": 480.0, "width": 640.0, "plugins": [{"type": "reset"}, {"enabled": false, "button": true, "type": "zoom"}, {"enabled": false, "button": true, "type": "boxzoom"}], "data": {"data01": [[0.0, 0.0], [0.0, 2.9438405797101472], [0.1379999999999999, 2.9438405797101472], [0.1379999999999999, 3.2155797101449304], [0.2759999999999998, 3.2155797101449304], [0.2759999999999998, 0.905797101449276], [0.4139999999999997, 0.905797101449276], [0.4139999999999997, 0.1358695652173914], [0.5519999999999996, 0.1358695652173914], [0.5519999999999996, 0.0452898550724638], [0.6899999999999995, 0.0452898550724638], [0.6899999999999995, 0.0], [0.5519999999999996, 0.0], [0.5519999999999996, 0.0], [0.4139999999999997, 0.0], [0.4139999999999997, 0.0], [0.2759999999999998, 0.0], [0.2759999999999998, 0.0], [0.1379999999999999, 0.0], [0.1379999999999999, 0.0]]}, "id": "el757634437266512"});
+            })
+         });
+}
+</script>

@@ -1,0 +1,2023 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><style>body {
+  width: 45em;
+  border: 1px solid #ddd;
+  outline: 1300px solid #fff;
+  margin: 16px auto;
+}
+
+body .markdown-body
+{
+  padding: 30px;
+}
+
+@font-face {
+  font-family: fontawesome-mini;
+  src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
+}
+
+@font-face {
+  font-family: octicons-anchor;
+  src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
+}
+
+.markdown-body {
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  color: #333333;
+  overflow: hidden;
+  font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  word-wrap: break-word;
+}
+
+.markdown-body a {
+  background: transparent;
+}
+
+.markdown-body a:active,
+.markdown-body a:hover {
+  outline: 0;
+}
+
+.markdown-body b,
+.markdown-body strong {
+  font-weight: bold;
+}
+
+.markdown-body mark {
+  background: #ff0;
+  color: #000;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.markdown-body sub,
+.markdown-body sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+.markdown-body sup {
+  top: -0.5em;
+}
+.markdown-body sub {
+  bottom: -0.25em;
+}
+
+.markdown-body h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+.markdown-body img {
+  border: 0;
+}
+
+.markdown-body hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+}
+
+.markdown-body pre {
+  overflow: auto;
+}
+
+.markdown-body code,
+.markdown-body kbd,
+.markdown-body pre,
+.markdown-body samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+.markdown-body input {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+}
+
+.markdown-body html input[disabled] {
+  cursor: default;
+}
+
+.markdown-body input {
+  line-height: normal;
+}
+
+.markdown-body input[type="checkbox"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.markdown-body table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.markdown-body td,
+.markdown-body th {
+  padding: 0;
+}
+
+.markdown-body .codehilitetable {
+  border: 0;
+  border-spacing: 0;
+}
+
+.markdown-body .codehilitetable tr {
+  border: 0;
+}
+
+.markdown-body .codehilitetable pre,
+.markdown-body .codehilitetable div.codehilite {
+  margin: 0;
+}
+
+.markdown-body .linenos,
+.markdown-body .code,
+.markdown-body .codehilitetable td {
+  border: 0;
+  padding: 0;
+}
+
+.markdown-body td:not(.linenos) .linenodiv {
+  padding: 0 !important;
+}
+
+.markdown-body .code {
+  width: 100%;
+}
+
+.markdown-body .linenos div pre,
+.markdown-body .linenodiv pre,
+.markdown-body .linenodiv {
+  border: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  -webkit-border-top-left-radius: 3px;
+  -webkit-border-bottom-left-radius: 3px;
+  -moz-border-radius-topleft: 3px;
+  -moz-border-radius-bottomleft: 3px;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.markdown-body .code div pre,
+.markdown-body .code div {
+  border: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  -webkit-border-top-right-radius: 3px;
+  -webkit-border-bottom-right-radius: 3px;
+  -moz-border-radius-topright: 3px;
+  -moz-border-radius-bottomright: 3px;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+.markdown-body * {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.markdown-body input {
+  font: 13px Helvetica, arial, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+  line-height: 1.4;
+}
+
+.markdown-body a {
+  color: #4183c4;
+  text-decoration: none;
+}
+
+.markdown-body a:hover,
+.markdown-body a:focus,
+.markdown-body a:active {
+  text-decoration: underline;
+}
+
+.markdown-body hr {
+  height: 0;
+  margin: 15px 0;
+  overflow: hidden;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.markdown-body hr:before,
+.markdown-body hr:after {
+  display: table;
+  content: " ";
+}
+
+.markdown-body hr:after {
+  clear: both;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  line-height: 1.1;
+}
+
+.markdown-body h1 {
+  font-size: 30px;
+}
+
+.markdown-body h2 {
+  font-size: 21px;
+}
+
+.markdown-body h3 {
+  font-size: 16px;
+}
+
+.markdown-body h4 {
+  font-size: 14px;
+}
+
+.markdown-body h5 {
+  font-size: 12px;
+}
+
+.markdown-body h6 {
+  font-size: 11px;
+}
+
+.markdown-body blockquote {
+  margin: 0;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body ol ol,
+.markdown-body ul ol {
+  list-style-type: lower-roman;
+}
+
+.markdown-body ul ul ol,
+.markdown-body ul ol ol,
+.markdown-body ol ul ol,
+.markdown-body ol ol ol {
+  list-style-type: lower-alpha;
+}
+
+.markdown-body dd {
+  margin-left: 0;
+}
+
+.markdown-body code,
+.markdown-body pre,
+.markdown-body samp {
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  font-size: 12px;
+}
+
+.markdown-body pre {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body kbd {
+  background-color: #e7e7e7;
+  background-image: -moz-linear-gradient(#fefefe, #e7e7e7);
+  background-image: -webkit-linear-gradient(#fefefe, #e7e7e7);
+  background-image: linear-gradient(#fefefe, #e7e7e7);
+  background-repeat: repeat-x;
+  border-radius: 2px;
+  border: 1px solid #cfcfcf;
+  color: #000;
+  padding: 3px 5px;
+  line-height: 10px;
+  font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  display: inline-block;
+}
+
+.markdown-body>*:first-child {
+  margin-top: 0 !important;
+}
+
+.markdown-body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+.markdown-body .headeranchor-link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  display: block;
+  padding-right: 6px;
+  padding-left: 30px;
+  margin-left: -30px;
+}
+
+.markdown-body .headeranchor-link:focus {
+  outline: none;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  position: relative;
+  margin-top: 1em;
+  margin-bottom: 16px;
+  font-weight: bold;
+  line-height: 1.4;
+}
+
+.markdown-body h1 .headeranchor,
+.markdown-body h2 .headeranchor,
+.markdown-body h3 .headeranchor,
+.markdown-body h4 .headeranchor,
+.markdown-body h5 .headeranchor,
+.markdown-body h6 .headeranchor {
+  display: none;
+  color: #000;
+  vertical-align: middle;
+}
+
+.markdown-body h1:hover .headeranchor-link,
+.markdown-body h2:hover .headeranchor-link,
+.markdown-body h3:hover .headeranchor-link,
+.markdown-body h4:hover .headeranchor-link,
+.markdown-body h5:hover .headeranchor-link,
+.markdown-body h6:hover .headeranchor-link {
+  height: 1em;
+  padding-left: 8px;
+  margin-left: -30px;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.markdown-body h1:hover .headeranchor-link .headeranchor,
+.markdown-body h2:hover .headeranchor-link .headeranchor,
+.markdown-body h3:hover .headeranchor-link .headeranchor,
+.markdown-body h4:hover .headeranchor-link .headeranchor,
+.markdown-body h5:hover .headeranchor-link .headeranchor,
+.markdown-body h6:hover .headeranchor-link .headeranchor {
+  display: inline-block;
+}
+
+.markdown-body h1 {
+  padding-bottom: 0.3em;
+  font-size: 2.25em;
+  line-height: 1.2;
+  border-bottom: 1px solid #eee;
+}
+
+.markdown-body h2 {
+  padding-bottom: 0.3em;
+  font-size: 1.75em;
+  line-height: 1.225;
+  border-bottom: 1px solid #eee;
+}
+
+.markdown-body h3 {
+  font-size: 1.5em;
+  line-height: 1.43;
+}
+
+.markdown-body h4 {
+  font-size: 1.25em;
+}
+
+.markdown-body h5 {
+  font-size: 1em;
+}
+
+.markdown-body h6 {
+  font-size: 1em;
+  color: #777;
+}
+
+.markdown-body p,
+.markdown-body blockquote,
+.markdown-body ul,
+.markdown-body ol,
+.markdown-body dl,
+.markdown-body table,
+.markdown-body pre,
+.markdown-body .admonition {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.markdown-body hr {
+  height: 4px;
+  padding: 0;
+  margin: 16px 0;
+  background-color: #e7e7e7;
+  border: 0 none;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding-left: 2em;
+}
+
+.markdown-body ul ul,
+.markdown-body ul ol,
+.markdown-body ol ol,
+.markdown-body ol ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body li>p {
+  margin-top: 16px;
+}
+
+.markdown-body dl {
+  padding: 0;
+}
+
+.markdown-body dl dt {
+  padding: 0;
+  margin-top: 16px;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.markdown-body dl dd {
+  padding: 0 16px;
+  margin-bottom: 16px;
+}
+
+.markdown-body blockquote {
+  padding: 0 15px;
+  color: #777;
+  border-left: 4px solid #ddd;
+}
+
+.markdown-body blockquote>:first-child {
+  margin-top: 0;
+}
+
+.markdown-body blockquote>:last-child {
+  margin-bottom: 0;
+}
+
+.markdown-body table {
+  display: block;
+  width: 100%;
+  overflow: auto;
+  word-break: normal;
+  word-break: keep-all;
+}
+
+.markdown-body table th {
+  font-weight: bold;
+}
+
+.markdown-body table th,
+.markdown-body table td {
+  padding: 6px 13px;
+  border: 1px solid #ddd;
+}
+
+.markdown-body table tr {
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+}
+
+.markdown-body table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+.markdown-body img {
+  max-width: 100%;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.markdown-body code,
+.markdown-body samp {
+  padding: 0;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  margin: 0;
+  font-size: 85%;
+  background-color: rgba(0,0,0,0.04);
+  border-radius: 3px;
+}
+
+.markdown-body code:before,
+.markdown-body code:after {
+  letter-spacing: -0.2em;
+  content: "\00a0";
+}
+
+.markdown-body pre>code {
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+  word-break: normal;
+  white-space: pre;
+  background: transparent;
+  border: 0;
+}
+
+.markdown-body .codehilite {
+  margin-bottom: 16px;
+}
+
+.markdown-body .codehilite pre,
+.markdown-body pre {
+  padding: 16px;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: #f7f7f7;
+  border-radius: 3px;
+}
+
+.markdown-body .codehilite pre {
+  margin-bottom: 0;
+  word-break: normal;
+}
+
+.markdown-body pre {
+  word-wrap: normal;
+}
+
+.markdown-body pre code {
+  display: inline;
+  max-width: initial;
+  padding: 0;
+  margin: 0;
+  overflow: initial;
+  line-height: inherit;
+  word-wrap: normal;
+  background-color: transparent;
+  border: 0;
+}
+
+.markdown-body pre code:before,
+.markdown-body pre code:after {
+  content: normal;
+}
+
+/* Admonition */
+.markdown-body .admonition {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  position: relative;
+  border-radius: 3px;
+  border: 1px solid #e0e0e0;
+  border-left: 6px solid #333;
+  padding: 10px 10px 10px 30px;
+}
+
+.markdown-body .admonition table {
+  color: #333;
+}
+
+.markdown-body .admonition p {
+  padding: 0;
+}
+
+.markdown-body .admonition-title {
+  font-weight: bold;
+  margin: 0;
+}
+
+.markdown-body .admonition>.admonition-title {
+  color: #333;
+}
+
+.markdown-body .attention>.admonition-title {
+  color: #a6d796;
+}
+
+.markdown-body .caution>.admonition-title {
+  color: #d7a796;
+}
+
+.markdown-body .hint>.admonition-title {
+  color: #96c6d7;
+}
+
+.markdown-body .danger>.admonition-title {
+  color: #c25f77;
+}
+
+.markdown-body .question>.admonition-title {
+  color: #96a6d7;
+}
+
+.markdown-body .note>.admonition-title {
+  color: #d7c896;
+}
+
+.markdown-body .admonition:before,
+.markdown-body .attention:before,
+.markdown-body .caution:before,
+.markdown-body .hint:before,
+.markdown-body .danger:before,
+.markdown-body .question:before,
+.markdown-body .note:before {
+  font: normal normal 16px fontawesome-mini;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  line-height: 1.5;
+  color: #333;
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+.markdown-body .admonition:before {
+  content: "\f056\00a0";
+  color: 333;
+}
+
+.markdown-body .attention:before {
+  content: "\f058\00a0";
+  color: #a6d796;
+}
+
+.markdown-body .caution:before {
+  content: "\f06a\00a0";
+  color: #d7a796;
+}
+
+.markdown-body .hint:before {
+  content: "\f05a\00a0";
+  color: #96c6d7;
+}
+
+.markdown-body .danger:before {
+  content: "\f057\00a0";
+  color: #c25f77;
+}
+
+.markdown-body .question:before {
+  content: "\f059\00a0";
+  color: #96a6d7;
+}
+
+.markdown-body .note:before {
+  content: "\f040\00a0";
+  color: #d7c896;
+}
+
+.markdown-body .admonition::after {
+  content: normal;
+}
+
+.markdown-body .attention {
+  border-left: 6px solid #a6d796;
+}
+
+.markdown-body .caution {
+  border-left: 6px solid #d7a796;
+}
+
+.markdown-body .hint {
+  border-left: 6px solid #96c6d7;
+}
+
+.markdown-body .danger {
+  border-left: 6px solid #c25f77;
+}
+
+.markdown-body .question {
+  border-left: 6px solid #96a6d7;
+}
+
+.markdown-body .note {
+  border-left: 6px solid #d7c896;
+}
+
+.markdown-body .admonition>*:first-child {
+  margin-top: 0 !important;
+}
+
+.markdown-body .admonition>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* progress bar*/
+.markdown-body .progress {
+  display: block;
+  width: 300px;
+  margin: 10px 0;
+  height: 24px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #ededed;
+  position: relative;
+  box-shadow: inset -1px 1px 3px rgba(0, 0, 0, .1);
+}
+
+.markdown-body .progress-label {
+  position: absolute;
+  text-align: center;
+  font-weight: bold;
+  width: 100%; margin: 0;
+  line-height: 24px;
+  color: #333;
+  text-shadow: 1px 1px 0 #fefefe, -1px -1px 0 #fefefe, -1px 1px 0 #fefefe, 1px -1px 0 #fefefe, 0 1px 0 #fefefe, 0 -1px 0 #fefefe, 1px 0 0 #fefefe, -1px 0 0 #fefefe, 1px 1px 2px #000;
+  -webkit-font-smoothing: antialiased !important;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.markdown-body .progress-bar {
+  height: 24px;
+  float: left;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #96c6d7;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .5), inset 0 -1px 0 rgba(0, 0, 0, .1);
+  background-size: 30px 30px;
+  background-image: -webkit-linear-gradient(
+    135deg, rgba(255, 255, 255, .4) 27%,
+    transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%,
+    transparent 77%, transparent
+  );
+  background-image: -moz-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+  background-image: -ms-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+  background-image: -o-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+  background-image: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+}
+
+.markdown-body .progress-100plus .progress-bar {
+  background-color: #a6d796;
+}
+
+.markdown-body .progress-80plus .progress-bar {
+  background-color: #c6d796;
+}
+
+.markdown-body .progress-60plus .progress-bar {
+  background-color: #d7c896;
+}
+
+.markdown-body .progress-40plus .progress-bar {
+  background-color: #d7a796;
+}
+
+.markdown-body .progress-20plus .progress-bar {
+  background-color: #d796a6;
+}
+
+.markdown-body .progress-0plus .progress-bar {
+  background-color: #c25f77;
+}
+
+.markdown-body .candystripe-animate .progress-bar{
+  -webkit-animation: animate-stripes 3s linear infinite;
+  -moz-animation: animate-stripes 3s linear infinite;
+  animation: animate-stripes 3s linear infinite;
+}
+
+@-webkit-keyframes animate-stripes {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 60px 0;
+  }
+}
+
+@-moz-keyframes animate-stripes {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 60px 0;
+  }
+}
+
+@keyframes animate-stripes {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 60px 0;
+  }
+}
+
+.markdown-body .gloss .progress-bar {
+  box-shadow:
+    inset 0 4px 12px rgba(255, 255, 255, .7),
+    inset 0 -12px 0 rgba(0, 0, 0, .05);
+}
+
+/* Multimarkdown Critic Blocks */
+.markdown-body .critic_mark {
+  background: #ff0;
+}
+
+.markdown-body .critic_delete {
+  color: #c82829;
+  text-decoration: line-through;
+}
+
+.markdown-body .critic_insert {
+  color: #718c00 ;
+  text-decoration: underline;
+}
+
+.markdown-body .critic_comment {
+  color: #8e908c;
+  font-style: italic;
+}
+
+.markdown-body .headeranchor {
+  font: normal normal 16px octicons-anchor;
+  line-height: 1;
+  display: inline-block;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.headeranchor:before {
+  content: '\f05c';
+}
+
+.markdown-body .task-list-item {
+  list-style-type: none;
+}
+
+.markdown-body .task-list-item+.task-list-item {
+  margin-top: 3px;
+}
+
+.markdown-body .task-list-item input {
+  margin: 0 4px 0.25em -20px;
+  vertical-align: middle;
+}
+
+/* Media */
+@media only screen and (min-width: 480px) {
+  .markdown-body {
+    font-size:14px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .markdown-body {
+    font-size:16px;
+  }
+}
+
+@media print {
+  .markdown-body * {
+    background: transparent !important;
+    color: black !important;
+    filter:none !important;
+    -ms-filter: none !important;
+  }
+
+  .markdown-body {
+    font-size:12pt;
+    max-width:100%;
+    outline:none;
+    border: 0;
+  }
+
+  .markdown-body a,
+  .markdown-body a:visited {
+    text-decoration: underline;
+  }
+
+  .markdown-body .headeranchor-link {
+    display: none;
+  }
+
+  .markdown-body a[href]:after {
+    content: " (" attr(href) ")";
+  }
+
+  .markdown-body abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+
+  .markdown-body .ir a:after,
+  .markdown-body a[href^="javascript:"]:after,
+  .markdown-body a[href^="#"]:after {
+    content: "";
+  }
+
+  .markdown-body pre {
+    white-space: pre;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+
+  .markdown-body pre,
+  .markdown-body blockquote {
+    border: 1px solid #999;
+    padding-right: 1em;
+    page-break-inside: avoid;
+  }
+
+  .markdown-body .progress,
+  .markdown-body .progress-bar {
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+
+  .markdown-body .progress {
+    border: 1px solid #ddd;
+  }
+
+  .markdown-body .progress-bar {
+    height: 22px;
+    border-right: 1px solid #ddd;
+  }
+
+  .markdown-body tr,
+  .markdown-body img {
+    page-break-inside: avoid;
+  }
+
+  .markdown-body img {
+    max-width: 100% !important;
+  }
+
+  .markdown-body p,
+  .markdown-body h2,
+  .markdown-body h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  .markdown-body h2,
+  .markdown-body h3 {
+    page-break-after: avoid;
+  }
+}
+</style><title>2015-01-30-GCE-date-checks</title></head><body><article class="markdown-body"><hr />
+<p>layout: post<br />
+title:  &ldquo;Checks on GCE_to_FSDB Document&rdquo;<br />
+date:   2015-01-30 14:57:30<br />
+categories: GCE date checks</p>
+<hr />
+<h2 id="checks-on-gce_to_fsdb-document"><a name="user-content-checks-on-gce_to_fsdb-document" href="#checks-on-gce_to_fsdb-document" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Checks on GCE_to_FSDB Document</h2>
+<p>The purpose of this analysis is to review possible changes and fixes in the GCE output .csv files that may affect data quality in FSDB. My role was to review potential problems in the GCE output, see if those problems were fixed, and see if the fixes were propogating into future outputs. To do this I developed my own toolkit which replicated the graphical properties of GCE, and also allowed comparisons across datafields.</p>
+<p><strong>Note:</strong> Within this document I may use the terms &ldquo;NULL&rdquo;, &ldquo;NaN&rdquo;, and &ldquo;None&rdquo; interchangeably, to refer to data that does not have a value, but does have a type (such as &ldquo;integer&rdquo; or &ldquo;string&rdquo;). This is different from &ldquo;empty&rdquo; which might appear like this: &lsquo;&rsquo;, &lsquo; &lsquo;, &ldquo;&rdquo;, &rdquo; &ldquo;, &amp;nbsp, u&rsquo;&lsquo;, U+00A0, etc&hellip;</p>
+<p>How an &ldquo;empty&rdquo; is interpreted varies wildly, see <a href="http://en.wikipedia.org/wiki/Whitespace_character#Unicode">Wikipedia Article on WhiteSpace</a> for more information. My goal here is just to point out that &ldquo;empty&rdquo; and &ldquo;null&rdquo; are NOT the same.</p>
+<p><strong>Note:</strong> Additionally, I tried to keep consistent naming and units when possible. AirT is Celcius air temperature, RH is relative humidity in percent, DEWPT is the dew point temperature in Celcius, VAP is the Vapor Pressure is the equilibrium vapor pressure in milli-bars (mb), SATVP is saturated vapor pressure in milli-bars, and VPD is the vapor pressure defecit, also in millibars. </p>
+<p><strong>Note:</strong> The order of data by station is usually CENMET, VANMET, PRIMET, H15MET, UPLMET, and CS2MET. Analysis is done on the finest resolution data possible, if not specified.</p>
+<h1 id="table-of-contents"><a name="user-content-table-of-contents" href="#table-of-contents" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Table of Contents</h1>
+<ul>
+<li><a href="#symlink">(incomplete)Synchronized Flags across AIRT, DEWPT, VPD, RELHUM and VAP</a></li>
+<li><a href="#nanlink">(incomplete)Wintertime removals not reflected on all attributes</a></li>
+<li><a href="#qvals">(incomplete)Questionable Values with no rationale</a></li>
+<li><a href="#vvalsday">(incomplete)Step Test for &lsquo;V&rsquo; flags</a></li>
+<li><a href="#misstimes">(incomplete)Missing Times</a></li>
+</ul>
+<h2 id="synchronized-flags-and-nans-across-airt-dewpt-vpd-relhum-and-vap"><a name="user-content-synchronized-flags-and-nans-across-airt-dewpt-vpd-relhum-and-vap" href="#synchronized-flags-and-nans-across-airt-dewpt-vpd-relhum-and-vap" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Synchronized Flags and NaN&rsquo;s across AIRT, DEWPT, VPD, RELHUM and VAP<a id="symlink"></a></h2>
+<p>Air temperature, relative humidity, dew point, vapor pressure, vapor pressure defecit (VPD) are not synchronized. Quality or missing flags from air temperature and relative humidity should be passed along to the calculated dew point and VPD data.</p>
+<p>Flag Codes, at 5 minutes. If a less stringent flag is caught within a more stringent flag, both flags will be displayed. </p>
+<ul>
+<li>I: An air temperature is below - 35 deg C or above 50 deg C OR a subsequent value is at least 8 deg C above or below the preceding 5 minute value. This flag is carried into the vapor pressure, dew point, vapor pressure defecit, and relative humidity attributes.</li>
+<li>MM : On air temperature the &ldquo;M&rdquo; flag for NaN is thrown twice, so in all cases, &ldquo;MM&rdquo; will appear rather than just &ldquo;M&rdquo;. This flag is carried into the vapor pressure, dew point, vapor pressure defecit, and relative humidity attributes. </li>
+<li>VI : A subsequent air temperature value is at least 8 deg C above or below the preceding 5 minute value. Catches the &ldquo;V&rdquo; flag from this case. This flag is carried into the vapor pressure, dew point, vapor pressure defecit, and relative humidity attributes.</li>
+<li>V : A subsequent air temperature value is at least 6.5 deg C above or below the preceding 5 minute value.</li>
+<li>M : Will never appear on air temperature alone in the current state (01-28-2015). Can appear in vapor pressure, dew point, vapor pressure defecit, and relative humidity attributes if they are uniquely missing, but air temperature is not.</li>
+<li>VM : The air temperature value throws a flag value change of at least 6.5 degrees variance, and the other attribute (vapor pressure, dew point, vapor pressure defecit, or relative humidity) is uniquely missing. </li>
+<li>VIM : The air temperature value throws a flag value change of at least 8 degrees variance OR the air temperature value throws an I flag and the value change of air temperature from the previous is less than 8 degrees but more than six degrees, and the other attribute (vapor pressure, dew point, vapor pressure defecit, or relative humidity) is uniquely missing. </li>
+</ul>
+<p>Given the above, the following conjectures can be made:<br />
+<em> flags will not be synced amongst the attributes when a single M is thrown.<br />
+</em> flags will not be synced amongst the attributes when the VIM or VM codes are thrown (since they represent a single M).</p>
+<p>Therefore, it is most important to find the conditions of single &ldquo;M&rdquo; as these indicate when the derived attribute isn&rsquo;t present.</p>
+<h3 id="cenmet2014"><a name="user-content-cenmet2014" href="#cenmet2014" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>CENMET(2014):</h3>
+<table>
+<thead>
+<tr>
+<th align="left"></th>
+<th align="left">150 M</th>
+<th align="center"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><strong>Attribute</strong></td>
+<td align="left"><strong>How many of each flag</strong></td>
+<td align="center"><strong> Total Flags </strong></td>
+</tr>
+<tr>
+<td align="left">Air Temperature</td>
+<td align="left">&lsquo;MM&rsquo;:11,&rsquo;VI&rsquo;:3,&rsquo;V&rsquo;:5</td>
+<td align="center">19</td>
+</tr>
+<tr>
+<td align="left">Relative Humidity</td>
+<td align="left">&lsquo;MM&rsquo;:10, &lsquo;VI&rsquo;: 1, &lsquo;M&rsquo;:5, &lsquo;VM&rsquo;:4, &lsquo;VIM&rsquo;:2, &lsquo;V&rsquo;:1</td>
+<td align="center">23</td>
+</tr>
+<tr>
+<td align="left">Dew Point</td>
+<td align="left">&lsquo;MM&rsquo;:11, &lsquo;VI&rsquo;:1, &lsquo;M&rsquo;:5, &lsquo;VM&rsquo;:4, &lsquo;VIM&rsquo;:2, &lsquo;V&rsquo;:1</td>
+<td align="center">24</td>
+</tr>
+<tr>
+<td align="left">Vapor Pressure Defecit</td>
+<td align="left">&lsquo;MM&rsquo;:11, &lsquo;VI&rsquo;:1, &lsquo;M&rsquo;:5, &lsquo;VM&rsquo;:4, &lsquo;VIM&rsquo;:2, &lsquo;V&rsquo;:1</td>
+<td align="center">24</td>
+</tr>
+<tr>
+<td align="left">Vapor Pressure</td>
+<td align="left">&lsquo;MM&rsquo;:11, &lsquo;VI&rsquo;, &lsquo;M&rsquo;:1, &lsquo;VM&rsquo;:5, &lsquo;VIM&rsquo;:2, &lsquo;V&rsquo;:1</td>
+<td align="center">24</td>
+</tr>
+</tbody>
+</table>
+<p>For example, here is the hour surrounding the &lsquo;V&rsquo; flagged temperature values from METDAT (started on 2014-08-26). <strong>Note:</strong> The whole week from 2014-08-22 to 2014-08-26 is oddly behaved; also, SAT VP is not DEW PT, but they are related.</p>
+<table>
+<thead>
+<tr>
+<th>TmStamp</th>
+<th>AirT[C]</th>
+<th>VAP[mb]</th>
+<th>SATVP[mb]</th>
+<th>DEWPT[C]</th>
+<th>RH[%]</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>14:05:00</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NULL</td>
+</tr>
+<tr>
+<td>14:10:00</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NULL</td>
+</tr>
+<tr>
+<td>14:15:00</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NULL</td>
+</tr>
+<tr>
+<td>14:20:00</td>
+<td>-76.48</td>
+<td>-0.494</td>
+<td>2.051</td>
+<td>2.544</td>
+<td>-34.33</td>
+</tr>
+<tr>
+<td>14:25:00</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NULL</td>
+</tr>
+<tr>
+<td>14:30:00</td>
+<td>19.6</td>
+<td>16.36</td>
+<td>25.82</td>
+<td>9.46</td>
+<td>59.18</td>
+</tr>
+<tr>
+<td>14:35:00</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NULL</td>
+</tr>
+<tr>
+<td>14:40:00</td>
+<td>-49.51</td>
+<td>0.007</td>
+<td>0.134</td>
+<td>0.127</td>
+<td>-8.73</td>
+</tr>
+<tr>
+<td>14:45:00</td>
+<td>-22.76</td>
+<td>0.234</td>
+<td>1.124</td>
+<td>0.89</td>
+<td>17.53</td>
+</tr>
+<tr>
+<td>14:50:00</td>
+<td>-12.18</td>
+<td>0.682</td>
+<td>2.425</td>
+<td>1.743</td>
+<td>27.94</td>
+</tr>
+<tr>
+<td>14:55:00</td>
+<td>-13.36</td>
+<td>0.759</td>
+<td>2.495</td>
+<td>1.736</td>
+<td>26.71</td>
+</tr>
+</tbody>
+</table>
+<p>and here is the corresponding hour and its flags, from the PORTAL</p>
+<table>
+<thead>
+<tr>
+<th>TmStamp</th>
+<th>AirT[C]</th>
+<th>VAP[mb]</th>
+<th>SATVP[mb]</th>
+<th>DEWPT[C]</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>14:00</td>
+<td>nan</td>
+<td>&lsquo;MM&rsquo;</td>
+<td>nan</td>
+<td>&lsquo;MM&rsquo;</td>
+</tr>
+<tr>
+<td>14:05</td>
+<td>nan</td>
+<td>&lsquo;MM&rsquo;</td>
+<td>nan</td>
+<td>&lsquo;MM&rsquo;</td>
+</tr>
+<tr>
+<td>14:10</td>
+<td>nan</td>
+<td>&lsquo;MM&rsquo;</td>
+<td>nan</td>
+<td>&lsquo;MM&rsquo;</td>
+</tr>
+<tr>
+<td>14:15</td>
+<td>nan</td>
+<td>&lsquo;MM&rsquo;</td>
+<td>nan</td>
+<td>&lsquo;MM&rsquo;</td>
+</tr>
+<tr>
+<td>14:20</td>
+<td>nan</td>
+<td>&lsquo;MM&rsquo;</td>
+<td>nan</td>
+<td>&lsquo;MM&rsquo;</td>
+</tr>
+<tr>
+<td>14:25</td>
+<td>nan</td>
+<td>&lsquo;MM&rsquo;</td>
+<td>nan</td>
+<td>&lsquo;MM&rsquo;</td>
+</tr>
+<tr>
+<td>14:30</td>
+<td>19.600</td>
+<td>no flag</td>
+<td>59.18</td>
+<td>no flag</td>
+</tr>
+<tr>
+<td>14:35</td>
+<td>13.008</td>
+<td>&lsquo;V&rsquo;</td>
+<td>nan</td>
+<td>&lsquo;VM&rsquo;</td>
+</tr>
+<tr>
+<td>14:40</td>
+<td>6.416</td>
+<td>&lsquo;V&rsquo;</td>
+<td>nan</td>
+<td>&lsquo;VM&rsquo;</td>
+</tr>
+<tr>
+<td>14:45</td>
+<td>-0.176</td>
+<td>&lsquo;V&rsquo;</td>
+<td>nan</td>
+<td>&lsquo;VM&rsquo;</td>
+</tr>
+<tr>
+<td>14:50</td>
+<td>-6.768</td>
+<td>&lsquo;V&rsquo;</td>
+<td>nan</td>
+<td>&lsquo;VM&rsquo;</td>
+</tr>
+<tr>
+<td>14:55</td>
+<td>-13.36</td>
+<td>&lsquo;V&rsquo;</td>
+<td>26.71</td>
+<td>&lsquo;V&rsquo;</td>
+</tr>
+</tbody>
+</table>
+<p>Additionally, the &lsquo;VI&rsquo; flag for Air Temperature at this height gets three hits on 2014-08-27. <strong> Note: </strong> Based on the conditions of the flag value change, we can assume that the &lsquo;VI&rsquo; here is receiving the &lsquo;I&rsquo; from an impossible jump in value, rather than from an impossible starting value. Whether or not one calls a -15 degree August morning impossible, which it is &ldquo;not&rdquo; in this case, is fair grabs.</p>
+<table>
+<thead>
+<tr>
+<th>Time</th>
+<th>AirT[C]</th>
+<th>flags on AirT[C]</th>
+<th>RH[%]</th>
+<th>flags on RH[%]</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>08:20</td>
+<td>-11.060</td>
+<td>no flag</td>
+<td>28.810</td>
+<td>no flag</td>
+</tr>
+<tr>
+<td>08:25</td>
+<td>-15.116</td>
+<td>no flag</td>
+<td>24.880</td>
+<td>no flag</td>
+</tr>
+<tr>
+<td>08:30</td>
+<td>-15.440</td>
+<td>no flag</td>
+<td>24.540</td>
+<td>no flag</td>
+</tr>
+<tr>
+<td>08:35</td>
+<td>-5.403</td>
+<td>&lsquo;VI&rsquo;</td>
+<td>nan</td>
+<td>&lsquo;VIM&rsquo;</td>
+</tr>
+<tr>
+<td>08:40</td>
+<td>4.633</td>
+<td>&lsquo;VI&rsquo;</td>
+<td>nan</td>
+<td>&lsquo;VIM&rsquo;</td>
+</tr>
+<tr>
+<td>08:45</td>
+<td>14.67</td>
+<td>&lsquo;VI&rsquo;</td>
+<td>87.2</td>
+<td>no flag</td>
+</tr>
+<tr>
+<td>08:50</td>
+<td>14.730</td>
+<td>no flag</td>
+<td>87.5</td>
+<td>no flag</td>
+</tr>
+</tbody>
+</table>
+<p>Additional flags on relative humidity are accounted for by four missing values on 2014-08-26 on the relative humidity sensor (&lsquo;M&rsquo; code), as well as one missing value on the air temperature sensor on 2014-08-22 (&lsquo;M&rsquo; code from the air temperature sensor carried over). The other attributes appropriately reflect the combination of air temperature and relative humidity flags.</p>
+<p>It is key to note that the times before August 27th on the CENMET Air Temperature are highly suspect, but are not flagged in the portal. It is also important to note the discrepancies between METDAT and Portal, particularly on 2014-08-26 at about 14:00</p>
+<table>
+<thead>
+<tr>
+<th align="left"></th>
+<th align="left">450 M</th>
+<th align="center"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><strong>Attribute</strong></td>
+<td align="left"><strong>How many of each flag</strong></td>
+<td align="center"><strong> Total Flags </strong></td>
+</tr>
+<tr>
+<td align="left">Air Temperature</td>
+<td align="left">&lsquo;MM&rsquo;:16,&rsquo;VI&rsquo;:6,&rsquo;Q&rsquo;:72</td>
+<td align="center">94</td>
+</tr>
+<tr>
+<td align="left">Relative Humidity</td>
+<td align="left">&lsquo;MM&rsquo;:16, &lsquo;VI&rsquo;: 2, &lsquo;M&rsquo;:6865, &lsquo;VIM&rsquo;:4, &lsquo;Q&rsquo;: 71</td>
+<td align="center">6959</td>
+</tr>
+<tr>
+<td align="left">Dew Point</td>
+<td align="left">&lsquo;MM&rsquo;:16, &lsquo;VI&rsquo;:2, &lsquo;M&rsquo;:6865, &lsquo;VIM&rsquo;:4, &lsquo;Q&rsquo;: 71</td>
+<td align="center">6959</td>
+</tr>
+<tr>
+<td align="left">Vapor Pressure Defecit</td>
+<td align="left">&lsquo;MM&rsquo;:16, &lsquo;VI&rsquo;:2, &lsquo;M&rsquo;:6865, &lsquo;VIM&rsquo;:4, &lsquo;Q&rsquo;: 71</td>
+<td align="center">6959</td>
+</tr>
+<tr>
+<td align="left">Vapor Pressure</td>
+<td align="left">&lsquo;MM&rsquo;:16, &lsquo;VI&rsquo;:2, &lsquo;M&rsquo;:6865, &lsquo;VIM&rsquo;:4, &lsquo;Q&rsquo;: 71</td>
+<td align="center">6959</td>
+</tr>
+</tbody>
+</table>
+<p>The missing values of air temperature (&lsquo;MM&rsquo;) correspond with &lsquo;MM&rsquo; missing values in relative humidity, and these propogate to dew point, vapor pressure deficit, and vapor pressure.</p>
+<p>Here is the hour in METDAT which contains many of the 16 &lsquo;MM&rsquo; flags for Air Temperature. It is the same hour, and day, as was called at the 150 m height.</p>
+<table>
+<thead>
+<tr>
+<th>TmStamp</th>
+<th>AirT[C]</th>
+<th>VAP[mb]</th>
+<th>SATVP[mb]</th>
+<th>DEWPT[C]</th>
+<th>RH[%]</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>13:55:00</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NULL</td>
+</tr>
+<tr>
+<td>14:00:00</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NULL</td>
+</tr>
+<tr>
+<td>14:05:00</td>
+<td>-82.7</td>
+<td>1.573</td>
+<td>0.874</td>
+<td>NULL</td>
+<td>-40.98</td>
+</tr>
+<tr>
+<td>14:10:00</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NULL</td>
+</tr>
+<tr>
+<td>14:15:00</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NULL</td>
+</tr>
+<tr>
+<td>14:20:00</td>
+<td>-59.64</td>
+<td>0.799</td>
+<td>2.133</td>
+<td>NULL</td>
+<td>-18.75</td>
+</tr>
+<tr>
+<td>14:25:00</td>
+<td>-11.56</td>
+<td>3.869</td>
+<td>9.34</td>
+<td>NULL</td>
+<td>28.48</td>
+</tr>
+<tr>
+<td>14:30:00</td>
+<td>-36.71</td>
+<td>0.692</td>
+<td>1.01</td>
+<td>NULL</td>
+<td>3.768</td>
+</tr>
+<tr>
+<td>14:35:00</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NULL</td>
+</tr>
+<tr>
+<td>14:40:00</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NULL</td>
+</tr>
+<tr>
+<td>14:45:00</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NULL</td>
+</tr>
+<tr>
+<td>14:50:00</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NULL</td>
+</tr>
+<tr>
+<td>14:55:00</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NULL</td>
+</tr>
+</tbody>
+</table>
+<p>And here is that same hour in the Portal. </p>
+<table>
+<thead>
+<tr>
+<th>Time</th>
+<th>AirT[C]</th>
+<th>flags on AirT[C]</th>
+<th>RH[%]</th>
+<th>flags on RH[%]</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>13:55:00</td>
+<td>nan</td>
+<td>MM</td>
+<td>nan</td>
+<td>MM</td>
+</tr>
+<tr>
+<td>14:00:00</td>
+<td>nan</td>
+<td>MM</td>
+<td>nan</td>
+<td>MM</td>
+</tr>
+<tr>
+<td>14:05:00</td>
+<td>nan</td>
+<td>MM</td>
+<td>nan</td>
+<td>MM</td>
+</tr>
+<tr>
+<td>14:10:00</td>
+<td>nan</td>
+<td>MM</td>
+<td>nan</td>
+<td>MM</td>
+</tr>
+<tr>
+<td>14:15:00</td>
+<td>nan</td>
+<td>MM</td>
+<td>nan</td>
+<td>MM</td>
+</tr>
+<tr>
+<td>14:20:00</td>
+<td>nan</td>
+<td>MM</td>
+<td>nan</td>
+<td>MM</td>
+</tr>
+<tr>
+<td>14:25:00</td>
+<td>nan</td>
+<td>MM</td>
+<td>nan</td>
+<td>MM</td>
+</tr>
+<tr>
+<td>14:30:00</td>
+<td>nan</td>
+<td>MM</td>
+<td>nan</td>
+<td>MM</td>
+</tr>
+<tr>
+<td>14:35:00</td>
+<td>nan</td>
+<td>MM</td>
+<td>nan</td>
+<td>MM</td>
+</tr>
+<tr>
+<td>14:40:00</td>
+<td>nan</td>
+<td>MM</td>
+<td>nan</td>
+<td>MM</td>
+</tr>
+<tr>
+<td>14:45:00</td>
+<td>nan</td>
+<td>MM</td>
+<td>nan</td>
+<td>MM</td>
+</tr>
+<tr>
+<td>14:50:00</td>
+<td>nan</td>
+<td>MM</td>
+<td>nan</td>
+<td>MM</td>
+</tr>
+<tr>
+<td>14:55:00</td>
+<td>nan</td>
+<td>MM</td>
+<td>nan</td>
+<td>MM</td>
+</tr>
+</tbody>
+</table>
+<p>While several values have been removed from portal that are likely to be &ldquo;I&rdquo;, they are marked as &ldquo;MM&rdquo; despite having values in the data-stream. Based on this output, there is (currently) not a way to distinguish from impossible but extant values and missing values on the Portal, since the &ldquo;I&rdquo; flag is not even thrown on these odd returns.</p>
+<p>Of particular interest is that the value at 14:25, which appears to have a reasonable relative humidity value of 28.48, and even the subsequent value of 3.768, has been removed from the Portal stram and appears as nan.</p>
+<p>There are three values on 2014-08-22 also missing from air temperature on the portal. They have corresponding missing values for relative humidity on the Portal, and in both cases are flagged &lsquo;MM&rsquo;. However, these values are existant (although not likely reasonable) in METDAT for air temperature, and possible reasonable for relative humidity in METDAT.</p>
+<p>Here are the values on the Portal:</p>
+<table>
+<thead>
+<tr>
+<th>Time</th>
+<th>AirT[C]</th>
+<th>flags on AirT[C]</th>
+<th>RH[%]</th>
+<th>flags on RH[%]</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10:45:00</td>
+<td>nan</td>
+<td>MM</td>
+<td>nan</td>
+<td>MM</td>
+</tr>
+<tr>
+<td>10:50:00</td>
+<td>nan</td>
+<td>MM</td>
+<td>nan</td>
+<td>MM</td>
+</tr>
+<tr>
+<td>10:55:00</td>
+<td>nan</td>
+<td>MM</td>
+<td>nan</td>
+<td>MM</td>
+</tr>
+</tbody>
+</table>
+<p>And their corresponding values in METDAT:</p>
+<table>
+<thead>
+<tr>
+<th>TmStamp</th>
+<th>AirT[C]</th>
+<th>VAP[mb]</th>
+<th>SATVP[mb]</th>
+<th>DEWPT[C]</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10:45:00</td>
+<td>-37.42</td>
+<td>0.242</td>
+<td>0.248</td>
+<td>-69.69</td>
+</tr>
+<tr>
+<td>10:50:00</td>
+<td>-28.75</td>
+<td>0.528</td>
+<td>0.596</td>
+<td>-50.74</td>
+</tr>
+<tr>
+<td>10:55:00</td>
+<td>-20.47</td>
+<td>0.991</td>
+<td>1.215</td>
+<td>-38.55</td>
+</tr>
+</tbody>
+</table>
+<p>The six values flagged as VI on Portal are flagged consistently with the value in the relative humidity column, BUT the values on the Portal and those in METDAT are not the same. These values are from 2014-08-26.</p>
+<table>
+<thead>
+<tr>
+<th>Time</th>
+<th>AirT(MET)</th>
+<th>RH(MET)</th>
+<th>AirT(Portal)</th>
+<th>RH(Portal)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>15:00:00</td>
+<td>38.85</td>
+<td>78.03</td>
+<td>38.850</td>
+<td>78.039</td>
+</tr>
+<tr>
+<td>15:05:00</td>
+<td>18.1</td>
+<td>57.64</td>
+<td>28.538</td>
+<td>nan</td>
+</tr>
+<tr>
+<td>15:10:00</td>
+<td>6.576</td>
+<td>46.31</td>
+<td>18.226</td>
+<td>nan</td>
+</tr>
+<tr>
+<td>15:15:00</td>
+<td>7.914</td>
+<td>47.65</td>
+<td>7.914</td>
+<td>47.650</td>
+</tr>
+</tbody>
+</table>
+<p>The values of relative humidity that are &ldquo;nan&rdquo; in PORTAL have the additional &ldquo;M&rdquo; associated with being missing, so they are &ldquo;VIM&rdquo; (therefore the 6 &lsquo;VI&rsquo; from air temperature become 2 &lsquo;VI&rsquo; and 4 &lsquo;VIM&rsquo;). The second day of this trend is on 2014-08-27:</p>
+<table>
+<thead>
+<tr>
+<th>Time</th>
+<th>AirT(MET)</th>
+<th>RH(MET)</th>
+<th>AirT(Portal)</th>
+<th>RH(Portal)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>08:40:00</td>
+<td>7.184</td>
+<td>60.83</td>
+<td>-8.297</td>
+<td>nan</td>
+</tr>
+<tr>
+<td>08:45:00</td>
+<td>16.77</td>
+<td>64.03</td>
+<td>4.447</td>
+<td>nan</td>
+</tr>
+<tr>
+<td>08:50:00</td>
+<td>17.19</td>
+<td>61.3</td>
+<td>17.19</td>
+<td>61.3</td>
+</tr>
+</tbody>
+</table>
+<p>Again, the problem of disagreement between the numbers on METDAT and on Portal appears. The Portal temperatures in this case have the &ldquo;VI&rdquo; (change in subsequent air temperature values of more than 8 degrees)  which propogates into the RH value, were it to be present, but the METDAT values do not agree, and seem realistic on both the air temperature and relative humidity values.</p>
+<p>The 72 questionable values of air temperature on CENMET at 450 m are addressed here: <a href="#qvals">Questionable values</a>.</p>
+<p>The nearly 7000 missing relative humidity values on CENMET are for the most part correlated with those on the Portal, except for on 2014-08-27 09:55:00 where there is &lsquo;NaN&rsquo; on Portal, but a value of 34.31 in the database. The temperature values are the same.</p>
+<h3 id="cenmet-2015"><a name="user-content-cenmet-2015" href="#cenmet-2015" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>CENMET (2015):</h3>
+<p>No values for air temperature, dew point, relative humidity, vapor pressure defecit, or vapor pressure are flagged in 2015.</p>
+<h3 id="vanmet-2014"><a name="user-content-vanmet-2014" href="#vanmet-2014" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>VANMET (2014):</h3>
+<h3 id="vanmet-2015"><a name="user-content-vanmet-2015" href="#vanmet-2015" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>VANMET (2015):</h3>
+<h2 id="wintertime-removals-not-reflected-on-all-attributes"><a name="user-content-wintertime-removals-not-reflected-on-all-attributes" href="#wintertime-removals-not-reflected-on-all-attributes" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Wintertime removals not reflected on all attributes<a id="nanlink"></a></h2>
+<p>Air temperature sensors were removed for the winter at high elevation sites yet data was still included in the data stream and much of it were not flagged. Whenever sensors are removed, values should be set to NULL (SQL: NULL, MATLAB: NaN, Python: None) and flagged missing. Whenever sensors are removed, values should be set to NULL and flagged missing. The calculated dew point and vapor pressure deficit values were also erroneous for this period and not set to null or flagged missing. Suggest an automatic detection for removed sensors be established.</p>
+<h2 id="questionable-values-with-no-clear-rationale"><a name="user-content-questionable-values-with-no-clear-rationale" href="#questionable-values-with-no-clear-rationale" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Questionable values with no clear rationale<a id="qvals"></a></h2>
+<p>Many values are flagged ‘Q’ with no other explanation.</p>
+<h3 id="on-cenmet-2014"><a name="user-content-on-cenmet-2014" href="#on-cenmet-2014" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>On Cenmet (2014):</h3>
+<p>The 450 m air temperature generates 72 &ldquo;questionable&rdquo; (&lsquo;Q&rsquo;) values. Graphing these values reveals that they are indeed within the range of values that we would consider to be &lsquo;Q&rsquo; based on the flags, and all precede the 2014-08-27 jump of the CENMET air temperature sensor to a more reasonable stream. Given the oddness of this part of the data stream in general, we suggest that these values all be flagged consistently. </p>
+<p>The additional &lsquo;Q&rsquo;s are associated with the missing relative humidity measurements on the same sensor. The &lsquo;Q&rsquo; is carried along to make a &lsquo;QM&rsquo;.</p>
+<h2 id="step-test-for-v-flags"><a name="user-content-step-test-for-v-flags" href="#step-test-for-v-flags" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Step Test for &lsquo;V&rsquo; flags<a id="vvalsday"></a></h2>
+<p>A step test looks for jumps in values based on a running mean and jumps are flagged as “v” in the hi-res data. The jump is be set for 6.5 degrees air temperature, which is probably ok for 5 or 15 minute data but falsely flag many values in hourly and daily data stream. These “v” flagged daily values are actually removed from the data stream in daily data sets and most of these are actually good values. Suggest not removing these “v”-flagged values or not running this algorithm on daily timestep data.</p>
+<h2 id="missing-times"><a name="user-content-missing-times" href="#missing-times" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Missing Times<a id="misstime"></a></h2>
+<p>There are time gaps in data streams for several hours. These seem to occur when program changes are made, i.e., VANMET 09-13-2013. Suggest gap filling null values with missing codes.</p>
+<h3 id="cenmet"><a name="user-content-cenmet" href="#cenmet" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>CENMET:</h3>
+<ul>
+<li>CENMET 225 logger 2014 range: 16-May-2012 to 31-Dec-2014<ul>
+<li>5 min (precip, snowdepth, etc.), missing values between 2012-12-21 15:55:00 and 2012-12-26 12:15:00; </li>
+<li>15 min (airtemp and solar), missing dates: 2014-08-26 11:00:00 2014 to 2014-08-26 13:45:00 (inclusive), hourly appears to have all datetimes okay but is also split into the 225 file for 2015 (see below)</li>
+</ul>
+</li>
+<li>CENMET 225 logger, 2015 range: 11-Dec-2014 to 03-Jan-2015,<ul>
+<li>5 min (precip, snowdepth, etc.) all datetimes are okay,</li>
+<li>15 min (just solar), all datetimes are okay,</li>
+<li>hourly - file is mapped to the 16-May-2012 to 31-Dec-2014 study period, does not relate</li>
+</ul>
+</li>
+<li>CENMET 233 logger, part a, 2014 range: 22-Aug-2014 to 31-Dec-2014<ul>
+<li>5 min (airtemp, dewpoint, soiltemp), all datetimes are okay </li>
+<li>hourly, all datetimes are okay</li>
+<li>daily, all datetimes are okay</li>
+</ul>
+</li>
+<li>
+<p>CENMET 233 logger, part a, 2015 range: 12-Dec-2014 to 28-Jan-2015</p>
+<ul>
+<li>5 min(airtemp, relhum, wind, etc.), all datetimes are okay</li>
+<li>hourly, all datetimes are okay</li>
+<li>daily, all datetimes are okay</li>
+</ul>
+</li>
+<li>
+<p>overlap on CENMET 225 from 12 December to 31 December 2014</p>
+</li>
+<li>overlap on CENMET 233 part a from 12 December to 31 December 2014</li>
+<li>CENMET hourly files for logger 225 are split by attribute from the 2012-2014 time period with replication of the soil attributes in both to the 2014 and 2015 &ldquo;hourly&rdquo; locations. as of 01-30-2015, I have reported this to Adam, as I assume it is a simple mistake that can be fixed. </li>
+<li><strong>Note</strong>: column organization on CENMET 233 hourly data has a 6 column date structure rather than the date structure reflected in other data sets</li>
+</ul>
+<h3 id="vanmet"><a name="user-content-vanmet" href="#vanmet" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>VANMET:</h3>
+<p>All data prior to September of 2014 has been removed from the Portal, so missing date-times cannot be validated against what was previously found. Current status is as follows:</p>
+<ul>
+<li>VANMET 231 logger, 2014 range: 18-Sep-2013 to 31-Dec-2014<ul>
+<li>5 min, hourly, daily (airtemp, etc.)  all datetimes are okay</li>
+</ul>
+</li>
+<li>VANMET 231 logger 2015 range: 12-Dec-2014 to 30-Jan-2015 (current)<ul>
+<li>5 min, hourly, daily (airtemp, etc.)  all datetimes are okay</li>
+</ul>
+</li>
+<li>VANMET 232 logger 2014 range: 12-Sep-2013 to 31-Dec-2014<ul>
+<li>5 min, hourly, daily (snow water, etc. in part &lsquo;a&rsquo;, wind in part &lsquo;b&rsquo;) , all datetimes are okay, </li>
+</ul>
+</li>
+<li>
+<p>VANMET 232 logger 2015 range: 11-Dec-2014 - 30-Jan-2015 </p>
+<ul>
+<li>5 min, hourly, daily (snow water, in part &lsquo;a&rsquo;, wind in part &lsquo;b&rsquo;)(current) all datetimes are okay</li>
+</ul>
+</li>
+<li>
+<p>VARAMET 301, part a, range 2014: 21-May-2012 to 24-Dec-2014, 5 min (precip, snow depth, snow water e) </p>
+<ul>
+<li>5 minute missing between:<ul>
+<li>2012-12-21 15:55:00 and 2012-12-26 12:00:00 (records also missing in METDAT; missing values show round-off error on PORTAL: 2012-12-21 15:54:59, etc.)</li>
+<li>2013-07-18 20:50:00 and 2013-07-19 00:15:00 (missing also in METDAT, values show round off error on Portal, 2013-07-18 20:54:59)</li>
+<li>2014-09-21 07:40:00 and 2014-09-22 02:15:00, (missing also in METDAT, preceded by a long strand of NaN&rsquo;ed out data, values generated are incorrect, i.e. 2014-09-21 07:39:59)</li>
+<li>and 2014-10-02 00:55:00 and 2014-10-09 08:25:00 (same issue, preceded by NaN, also missing in METDAT, Portal displays rounding errors)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>VARAMET 301, part a, range 2015: 12-Dec-2014 to 30-Jan-2015 (current), 5min (precip, snow depth, snow water e) </p>
+<ul>
+<li>5 minute missing 2014-12-24 13:25:00 through 2014-12-29 11:40:00</li>
+</ul>
+</li>
+<li>VARAMET 301, part b, range 2014: 21-May-2012 to 24-Dec-2014, 15 min (only contains air temperature at 450) ; all date times are okay</li>
+<li>
+<p>VARAMET 301, part b, range 2015: 12-Dec-2014 to 30-Jan-2015 (current), 15min (only contains air temperature at 450); all date times are okay</p>
+</li>
+<li>
+<p>overlap on VANMET 231 from 12-Dec-2014 to 31-Dec-2014</p>
+</li>
+<li>overlap on VANMET 232 from 11-Dec-2014 to 31-Dec-2014. </li>
+<li>missing chunk of data from VARAMET between 24-Dec 2014 and 29-Dec-2014, date stamps are present but data is NaN and stamps are off due to rounding.</li>
+<li>some values register in the inlocs table, see <a href="#app1">Appendix1</a> </li>
+</ul>
+<h3 id="primet"><a name="user-content-primet" href="#primet" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>PRIMET:</h3>
+<ul>
+<li>PRIMET 226 logger 2013: <ul>
+<li>5 min (SWE, etc.) missing dates between 2012-05-15 12:00:00 and 2012-05-15 12:45:00, 2012-11-25 20:55:00 and 2012-11-26 13:35:00, and 2012-12-21 15:55:00 and 2012-12-26 13:15:00</li>
+<li>15 minute logger(airtemp, solar), all datetimes are okay</li>
+<li>hourly (soil and vpd), all datetimes are okay</li>
+</ul>
+</li>
+<li>PRIMET 226, part a, 2014 range: 29-Apr-2013 to 31-Dec-2014<ul>
+<li>5 min (airtemp, relhum, etc.), all datetimes are okay</li>
+<li>hourly (airtemp, relhum, etc.), all datetimes are okay</li>
+<li>daily all datetimes are okay</li>
+</ul>
+</li>
+<li>PRIMET 226 logger, part a, 2015 range: 19-Dec-2014 to 30-Jan-2015 (current)<ul>
+<li>5 min (airtemp, snow depth, wind), all datetimes are okay</li>
+<li>hourly all datetimes are okay</li>
+<li>daily all datetimes are okay</li>
+</ul>
+</li>
+<li>PRIMET 229 logger, part a, 2014 range: 2014 16-Apr-2013 to 31-Dec-2014<ul>
+<li>5 min (airtemp and solar) &ndash; values incur round-off error between: 2013-08-19 22:45:00 (written as 2013-08-19 22:44:59) and 2013-08-22 10:45:00 (written as 2013-08-22 10:49:59). During much of this missing period, all data is recorded as NaN.</li>
+<li>hourly (most attributes other than wind) all datetimes are okay</li>
+<li>daily all datetimes are okay</li>
+</ul>
+</li>
+<li>PRIMET 229 logger, part a, 2015 range: 19-Dec-2014 to 30-Jan-2015 (current)<ul>
+<li>5 min (airtemp and solar), all datetimes are okay</li>
+<li>hourly (most attributes other than wind) all datetimes are okay</li>
+<li>daily all datetimes are okay</li>
+</ul>
+</li>
+<li>PRIMET 229 logger, part b, range: 2014, 16-Apr-2013 to 31-Dec-2014<ul>
+<li>5 min (wind and sonic), values incur round-off error between: 2013-08-19 22:45:00 (written as 2013-08-19 22:44:59) and 2013-08-22 10:45:00 (written as 2013-08-22 10:49:59). During much of this missing period, all data is recorded as NaN.</li>
+<li>hourly (wind and sonic wind), all datetimes are okay</li>
+<li>daily all datetimes are okay</li>
+</ul>
+</li>
+<li>PRIMET 229 logger, part b, 2015 range: 19-Dec-2014 to 30-Jan-2015 (current)<ul>
+<li>5 min (wind and sonic wind) all datetimes are okay</li>
+<li>hourly (wind and sonic wind), all datetimes are okay</li>
+<li>daily all datetimes are okay</li>
+</ul>
+</li>
+<li>PRIMET 230 logger, part a, 2014 range: 02-May-2013 to 31-Dec-2014,<ul>
+<li>5 min (soil, atm, etc.) all datetimes are okay</li>
+<li>hourly(soil, atm, etc.), all datetimes are okay</li>
+<li>daily all datetimes are okay</li>
+</ul>
+</li>
+<li>
+<p>PRIMET 230 logger, part a, 2015 range: 19-Dec-2014 to 30-Jan-2015,</p>
+<ul>
+<li>5 min (soil,atm., etc.) all datetimes are okay</li>
+<li>hourly(soil, atm., etc), all datetimes are okay</li>
+<li>daily all datetimes are okay</li>
+</ul>
+</li>
+<li>
+<p>PRIMET 226 logger overlap 29 Apr - 02 May 2013</p>
+</li>
+<li>PRIMET 226 part a logger overlap 19 Dec - 31 Dec 2014</li>
+<li>PRIMET 229 part a logger overlap 19 Dec - 31 Dec 2014</li>
+<li>PRIMET 229 part b logger overlap 19 Dec - 31 Dec 2014</li>
+<li>PRIMET 230 part a (no part b) logger overlap, 19 Dec- 31 Dec 2014 </li>
+<li>Round off errors on all 229 logger parts in August 2013. Correspond to large chunks of all NaN data.</li>
+<li>Missing values from 5 minute data from three periods on the 2013 logger.</li>
+</ul>
+<h3 id="h15met"><a name="user-content-h15met" href="#h15met" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>H15MET:</h3>
+<ul>
+<li>H15MET 207, 5 minute 2013 range: 01-Jan-2013 to 31-Dec-2013, daily range 02-Jan-2013 to 31-Dec-2013 - all datetimes are okay</li>
+<li>
+<p>H15MET 208, 15 minute 2013 range : 31-Jan-2013 to 31-Dec-2013, daily range 01-Feb-2013 to 31-Dec-2013 - all datetimes are okay</p>
+</li>
+<li>
+<p><strong>Note: </strong> the date stamps on H15met are still formated as date-</p>
+</li>
+</ul>
+<h3 id="uplmet"><a name="user-content-uplmet" href="#uplmet" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>UPLMET:</h3>
+<ul>
+<li>
+<p>UPLMET 227 logger 2014 range: 29-May-2012 to 28-Dec-2014</p>
+<ul>
+<li>
+<p>5 minute (snow, precip, etc.). Missing data between 2012-07-30 12:55:00 and 2012-07-31 15:30:0 caused by round off errors? (2012-07-30 12:59:59 is displayed, for example). The missing period is also missing in METDAT (here is the TmStamp, Year, Julian date, and hhmm columns from UPL_227_105.</p>
+<pre><code>2012-07-30 06:55:00 2012 212 655
+2012-07-31 15:35:00 2012 213 1535
+</code></pre>
+</li>
+<li>
+<p>between 2012-12-21 15:55:00 and 2012-12-26 12:20:00, in the backup table UPLO227_<em>inlocs_</em> just preceding this period, the TmStamp does not appear to be registering on the 5 minute: <br />
+        2012-12-21 10:03:52 is the entry in <strong>inlocs</strong><br />
+        2012-12-21 10:00:00 is the entry in UPLO_227_105</p>
+</li>
+<li>
+<p>and between 2014-09-13 17:30:00 and 2014-09-14 07:50:00. Once again the Portal values have round-off error, such as 2014-09-13  17:29:59, which persists to the end of the missing period. Neither _<em>inlocs_</em> or UPLO_227_105 records any values.</p>
+</li>
+<li>
+<p>15 minute (airT, solar, atm pressure), all datetimes are okay. Even during the times when the five minute data is not recording at all, those 5 minute values are coming in on the 15 minute tables just fine.</p>
+</li>
+<li>all hourly and daily values are okay</li>
+</ul>
+</li>
+<li>
+<p>UPLMET 227 logger 2015 range: 11-Dec-2014 to 31-Dec-2014</p>
+<ul>
+<li>5 minute (snow, precip, etc.) all date times are okay</li>
+<li>15 minute (airT, solar, atm pressure) all date times are okay</li>
+<li>all hourly and daily values are okay</li>
+</ul>
+</li>
+</ul>
+<h3 id="cs2met"><a name="user-content-cs2met" href="#cs2met" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>CS2MET:</h3>
+<h2 id="coupled-q-values"><a name="user-content-coupled-q-values" href="#coupled-q-values" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Coupled Q values<a id="coupleQ"></a></h2>
+<p>Suggest follow-up be made for all “Q”-flagged values. The best recourse might be a comparison with other nearby same-site sensors or other sites. For example, valid temperatures of minus 15 to minus 17 occurred at all stations Dec 2013, but were flagged “Q”. These “Q” flags should be removed and possibly flagged as “verified as correct”.</p>
+<h3 id="cenmet-2014"><a name="user-content-cenmet-2014" href="#cenmet-2014" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>CENMET (2014)</h3>
+<p>Air Temperature has 72 Q values flagged for the 450 m sensor, but no Q values flagged for the 150 m sensor. Both sensors display very abnormally &ldquo;low&rdquo; values of air temperature for an early August time. Flags should match. </p>
+<h2 id="appendix1"><a name="user-content-appendix1" href="#appendix1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Appendix1<a id="app1"></a></h2>
+<p>This is an informal description of a pattern seen sometimes; I am not sure what it means, but I think it might have to do with when the loggers are being repaired or changed.  Here&rsquo;s an example, on this csv: </p>
+<p><a href="http://andrewsforest.oregonstate.edu/lter/about/weather/portal/VARA/data/varmet_301_a_5min_2014.csv">VARAMET_301_2014</a> where the 7:40 value is actually 07:39:59 </p>
+<pre><code>    &ldquo;VARMET&rdquo;,2014-09-2107:25:00,NaN,301,35.0,NaN,&rdquo;M&rdquo;,NaN,&rdquo;&ldquo;,NaN,&rdquo;&ldquo;,NaN,NaN,&rdquo;&ldquo;,NaN,&rdquo;&ldquo;,NaN,&rdquo;M&rdquo;
+    &ldquo;VARMET&rdquo;,2014-09-21 07:30:00,NaN,301,35.0,NaN,&rdquo;M&rdquo;,NaN,&rdquo;&ldquo;,NaN,&rdquo;&ldquo;,NaN,NaN,&rdquo;&ldquo;,NaN,&rdquo;&ldquo;,NaN,&rdquo;M&rdquo;
+    &ldquo;VARMET&rdquo;,2014-09-21 07:35:00,NaN,301,35.0,NaN,&rdquo;M&rdquo;,NaN,&rdquo;&ldquo;,NaN,&rdquo;&ldquo;,NaN,NaN,&rdquo;&ldquo;,NaN,&rdquo;&ldquo;,NaN,&rdquo;M&rdquo;
+    &ldquo;VARMET&rdquo;,2014-09-21 07:39:59,NaN,301,35.0,NaN,&rdquo;M&rdquo;,NaN,&rdquo;&ldquo;,NaN,&rdquo;&ldquo;,NaN,NaN,&rdquo;&ldquo;,NaN,&rdquo;&ldquo;,NaN,&rdquo;M&rdquo;
+    &ldquo;VARMET&rdquo;,2014-09-21 07:44:59,NaN,301,35.0,NaN,&rdquo;M&rdquo;,NaN,&rdquo;&ldquo;,NaN,&rdquo;&ldquo;,NaN,NaN,&rdquo;&ldquo;,NaN,&rdquo;&ldquo;,NaN,&rdquo;M&rdquo;
+    &ldquo;VARMET&rdquo;,2014-09-21 07:49:59,NaN,301,35.0,NaN,&rdquo;M&rdquo;,NaN,&rdquo;&ldquo;,NaN,&rdquo;&ldquo;,NaN,NaN,&rdquo;&ldquo;,NaN,&rdquo;&ldquo;,NaN,&rdquo;M&rdquo;
+    &ldquo;VARMET&rdquo;,2014-09-21 07:54:59,NaN,301,35.0,NaN,&rdquo;M&rdquo;,NaN,&rdquo;&ldquo;,NaN,&rdquo;&ldquo;,NaN,NaN,&rdquo;&ldquo;,NaN,&rdquo;&ldquo;,NaN,&rdquo;M&rdquo;</code></pre>
+<p>This is preceded, though, by a fairly lengthy amount of NaN values, which appear to be that the logger is not getting any data, because even if I look at the surrounding hours, I get 0 rows returned in METDAT. </p>
+<pre><code>    select * from metdat.dbo.VARA_301_105 where TmStamp &gt; &lsquo;2014-09-21 06:00:00&rsquo; and TmStamp &lt; &lsquo;2014-09-21 09:00:00&rsquo;
+
+    TmStamp RecNum  LOGGERID    PROGID  Year_RTM    Day_RTM Hour_Minute_RTMPRECIP   OR_TEMP SNOWDEPTH   QUALITY SWE_AVG</code></pre>
+<p>What&rsquo;s odd here is the lack of consistency; I see pattern of having the date-value get &lsquo;off&rsquo; by one second in the Portal and the data disappearing in METDAT synchonously somtimes, so I originally hypothesized that when values stop coming in, the GCE would gap fill in what is missing, but due to the glitch in MATLAB datetime objects is getting a rounding error. But on other sites, like this VARAMET, the data disappears from METDAT at least a full hour earlier than the date-number gets &ldquo;off&rdquo; on the Portal. And on the opposite extreme, the majority behavior is as expected: the data is missing, flagged as such, marked as NaN, and also METDAT has a full stream of NULL values. </p>
+<p>If we look back to the prior hour on Portal,  the data behaves as we expect </p>
+<pre><code>    &ldquo;VARMET&rdquo;,2014-09-21 06:00:00,NaN,301,35.0,NaN,&rdquo;M&rdquo;,NaN,&rdquo;&ldquo;,NaN,&rdquo;&ldquo;,NaN,NaN,&rdquo;&ldquo;,NaN,&rdquo;&ldquo;,NaN,&rdquo;M&rdquo;
+    &ldquo;VARMET&rdquo;,2014-09-21 06:05:00,NaN,301,35.0,NaN,&rdquo;M&rdquo;,NaN,&rdquo;&ldquo;,NaN,&rdquo;&ldquo;,NaN,NaN,&rdquo;&ldquo;,NaN,&rdquo;&ldquo;,NaN,&rdquo;M&rdquo;
+    &ldquo;VARMET&rdquo;,2014-09-21 06:10:00,NaN,301,35.0,NaN,&rdquo;M&rdquo;,NaN,&rdquo;&ldquo;,NaN,&rdquo;&ldquo;,NaN,NaN,&rdquo;&ldquo;,NaN,&rdquo;&ldquo;,NaN,&rdquo;M&rdquo;
+    &ldquo;VARMET&rdquo;,2014-09-21 06:15:00,NaN,301,35.0,NaN,&rdquo;M&rdquo;,NaN,&rdquo;&ldquo;,NaN,&rdquo;&ldquo;,NaN,NaN,&rdquo;&ldquo;,NaN,&rdquo;&ldquo;,NaN,&rdquo;M&rdquo;
+    &ldquo;VARMET&rdquo;,2014-09-21 06:20:00,NaN,301,35.0,NaN,&rdquo;M&rdquo;,NaN,&rdquo;&ldquo;,NaN,&rdquo;&ldquo;,NaN,NaN,&rdquo;&ldquo;,NaN,&rdquo;&ldquo;,NaN,&rdquo;M&rdquo;</code></pre>
+<p>In this set, the 4th column from the right end should be &ldquo;snow depth.&rdquo; It is NaN. In METDAT, it is not there, so it is NULL. But if I open the table VAN_228__inlocs__, I see exactly one record in that 3 hour interval between 6 and 9 am on that day, which is: </p>
+<pre><code>    TmStamp RecNum  PRECIP  PUMPVOLTS   AIR_450 RAW_DIST    SWE BATTERY_V   TKELVIN REF_TEMP    MULT1   DISTTOSNW   DISTTOGND   SNOWDEPTH   OR_TEMP CON_TEMP    RUN_TIME    LOGGERID    PROGID  QUALITY
+
+    2014-09-21 06:18:47.8000000 33  39.45435    12.87784    18.4769-0.4315314   12.33467    291.6269    273.15  1.033268    0   5.6 5.6 17.4444 4   900 301 35  0
+</code></pre>
+<p>So, some measurement is being recorded for &ldquo;snow depth&rdquo; and if I am counting right it is &ldquo;5.6&rdquo; in this case. But that is the only measurement in that window. I &ldquo;googled&rdquo; _<em>inlocs</em>_ to try to understand their role in logger-net and it seems like this table is generated &ldquo;whenever the logger is checked for data&rdquo;&ndash; what that means, I do not really know. But it also doesn&rsquo;t seem to be very consistent, for example, when the data is missing from 2012-12-21 15:25 to 2012-12-26, the last entry in _<em>inlocs</em>_ is at 10:04 am and it doesn&rsquo;t register again until 13:45 on 2013-01-02.</p>
+<p>In short, it seems like there is a system error here, but I don&rsquo;t know what it is!</p></article></body></html>

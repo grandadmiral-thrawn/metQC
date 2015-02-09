@@ -9,6 +9,12 @@ date: 2015-02-03T14:30:24-08:00
   * [The Approach](#approach)
   * [Basic Statistics for Air Temperature](#statlink)
   * [Take Home Points](#takehome)
+        * [CENMET Maximums](#cenmetmax)
+        * [PRIMET Maximums](#primetmax)
+        * [VANMET Maximums](#vanmetmax)
+        * [CENMET Minimums](#cenmetmin)
+        * [PRIMET Minimums](#primetmin)
+        * [VANMET Minimums](#vanmetmin)
   * [Jump Right To Images](#images)
 
 ## The Problem<a id="qlink"></a>
@@ -46,8 +52,10 @@ The tables that follow describe histogrammed results generated for each station,
 
 Additionally, I independently validated 3 randomly selected indices (which correspond to dates) of observations in several of the five minute data set versus what is being reported on the Portal. These indices were selected using a random number generator from 0 to the number of observations for each station. The times of minimum and times of maximum daily temperature come from METDAT off of the daily (440) table.
 
-#### CENMET 150 : DIFFERENCES BETWEEN FIVE-MINUTE MAX and DAILY MAX FOR AIR TEMPERATURE
+CENMET 150 : DIFFERENCES BETWEEN FIVE-MINUTE MAX and DAILY MAX FOR AIR TEMPERATURE, RELATIVE HUMIDITY, and DEW POINT. <a id = "cenmetmax"></a>
+----------------
 
+#### AIR TEMPERATURE 
 * ** Overview: ** 153 values collected
 * ** Maximum difference ** 0.51 C on 2014-09-09
 
@@ -73,7 +81,9 @@ Validations conducted on air temperature at CENMET 150m: 2014-10-29, 2014-10-07,
 
 The reported five minute values are in sync with those in the database.
 
-#### CENMET 150: DIFFERENCES BETWEEN FIVE-MINUTE MAX and DAILY MAX FOR RELATIVE HUMIDITY
+----------------
+
+CENMET 150: DIFFERENCES BETWEEN FIVE-MINUTE MAX and DAILY MAX FOR RELATIVE HUMIDITY
 
 * The maximum difference between five- minute relative humidity maximum and daily relative humidity maximum was 55.13 percent and occured on 2014-09-11.
 * on this day, the daily measurement was 96.3 percent for the maximum while the five-minute measurement was only 40.3 percent. The value of 96.3 percent is more similar to the other measurements on this sensor during that week, which were also in the 90's. This value is also more similar to the measured values of 100.0 on PRIMET on this day at 150 m for the daily and 95.5 on this day for the five-minute.
@@ -135,7 +145,7 @@ Validations: 2014-10-16, 2014-12-13, 2014-09-28
  
 * The Portal five minute value and the database five minute value for the minimum are in sync, but this actual minimum value on 2014-10-16 was about three-one-hundreths of a degree colder and occured about 15 minutes earlier, as 4.218 at 01:57. 
 
-#### CENMET 450 : DIFFERENCES BETWEEN FIVE-MINUTE MAX and DAILY MAX 
+#### CENMET 450 : DIFFERENCES BETWEEN FIVE-MINUTE MAX and DAILY MAX FOR AIR TEMPERATURE, DEWPOINT.
 
 * ** Overview: ** 160 values collected
 * ** Maximum difference ** 4.51 C, 2014-11-06
@@ -164,6 +174,8 @@ Validations: 2014-08-30, 2014-12-09, 2014-02-02
 |2014-02-02 | 7.536  | 7.536  | 14:40 | 14:38 |1.516 | 1.516 | 22:20 | 22:13 |
 
 * On the December 9th value, it appears that the minimums observed by Portal and the minimum of the five minutes are about fifteen minutes earlier than the actual daily minimum, which was 6.295. This is within a tenth of a degree of the five minute minimum, however.
+
+* On 2014-08-26, the CENMET 450 probe is changed and duplicate dew points are generated, which cases an error in the maximum values. Removal of this day
 
 #### CENMET 450: DIFFERENCES BETWEEN FIVE-MINUTE MAX AND DAILY MAX FOR RELATIVE HUMIDITY.
 
@@ -364,6 +376,14 @@ Validations: 2014-07-30, 2014-08-22, 2014-12-07
 
 * I have not yet validated these results against the results in the Portal system
 
+#### VANMET 450: DEWPOINT, DIFFERENCES BETWEEN FIVE-MINUTE MAX and DAILY-MAX
+
+* The maximum difference between the daily maximum from 5 minute values versus the instantaneous maximum was 18.9 degrees due to this erroneous value, 
+
+| DATE | Five Minute Table | Value | Daily Table | Value |
+|-----|-----|-----|-----|-----|
+| 2014-11-08 00:00:00 | Van_231_Table105 | 9.3 |Van_231_Table440 |-9.6|
+
 #### CENMET 150 : DIFFERENCES BETWEEN FIVE-MINUTE MIN and DAILY MIN
 
 * ** Overview: ** 160 values collected
@@ -506,6 +526,14 @@ No minimum values on PRIMET differ by more than 0.6 degrees at the 250 m height
 * ** Note: ** the above "averages" are actually medians to remove outlier effect 
 
 * validations are included in the maximums section
+
+#### VANMET 450: DEWPOINT, DIFFERENCES BETWEEN THE FIVE MINUTE MIN AND 
+
+* Found an erroneous minimum in the daily dataset of -72 dew point. 
+
+| DATE | Five Minute Table | Value | Daily Table | Value |
+    |-----|-----|-----|-----|-----|
+| 2014-06-08 00:00:00 |Van_231_Table105| 5.781 |Van_231_Table440  |-72.32|
 
 
 #### TAKE HOME POINTS:<a id="takehome"></a>
