@@ -12,7 +12,8 @@ github_username:  dataronin
 pygments: true
 
 # Build settings
-markdown: redcarpet2
+#markdown: kramdown
+markdown: maruku
 
 # Make redcarpet behave like GitHub Flavored Markdown
 redcarpet:

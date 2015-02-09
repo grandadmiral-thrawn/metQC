@@ -39,7 +39,7 @@ Here are a few examples of flags, and their number, on CENMET, at the 150 m heig
 
 ### CENMET(2014), summary of flags:
 
-|| 150 M ||
+| 150 M |
 |:--|:----|:--:|
 | **Attribute** | **How many of each flag** | ** Total Flags **|
 | Air Temperature |'MM':11,'VI':3,'V':5 | 19 |
