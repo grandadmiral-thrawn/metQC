@@ -4,17 +4,23 @@ title: "Min_max_checks"
 date: 2015-02-03T14:30:24-08:00
 ---
 
-# Table of Contents
-  * [The Problem](#qlink)
-  * [The Approach](#approach)
-  * [AIR TEMPERATURE Maximums](#atmax)
-  * [RELATIVE HUMIDITY Maximums](#rhmax)
-  * [DEW POINT Maximums](#DPmax)
-  * [AIR TEMPERATURE Minimums](#ATmin)
-  * [RELATIVE HUMIDITY Minimums](#RHmin)
-  * [DEW POINT Minimums](#DPmin)
-  * [Take Home Points](#takehome)
-  * [Jump Right To Images](#images)
+# Key Points!
+
+  * [The Problem](#qlink) and [The Approach](#approach) to understanding the implications of differences between five minute and daily values are outlined here. 
+
+  * [AIR TEMPERATURE Maximums](#atmax) from daily data (instantaneous measurements as we have been getting in the past) were all within less than one degree of difference from air temperature maximums taken from getting the maximum of the five minute values of the day. Sometimes the time of maximum was a little different than the closest five minute interval (if there were several very hot intervals in the day). Both the instantaneous and five-minute maximums were about 60 percent greater than the daily mean. At fifteen minutes, using only the most recent data, there was good agreement between the methods, however, our past analysis indicated that there is more discrepancy between fifteen minute maximums and five minute maximums than within a five minute window. 
+
+  * [RELATIVE HUMIDITY Maximums](#rhmax). Differences between the relative humidity maximums from the daily data and from the five minute data were generally less than 12 percent. However, the maximum relative humidity is also well constrained at 100 percent. Between the maximum relative humidity and the mean is generally less than 20 percent difference, however this trend is not as strong across sites as it was with temperature. There is more variability between daily (instantaneous) and daily (five minute) data in relative humidity than in temperature.
+
+  * [DEW POINT Maximums](#dpmax) depend on consistency between maximums of air temperature and of relative humidity. Since there is a chance that one or both of these will not be similar to the five minute measurement, the dew point calculation is also affected. Since relative humidity is the more variable of the two, in general, if the maximum relative humidity of the day differs significantly from the found maximum in the five minute data, the maximum dew point of the day will also differ. Another issue is that sometimes dew point is "calculated" even when both relative humidity and air temperature are off (see the [flags](http://dataronin.github.io/metQC/2015/02/09/outline_of_flags_and_problems_on_portal.html) document). A third problem is that if error occurs in one of the component measurements, the dew point might be predicted to be greater than the temperature of the day (which is impossible). The majority of dew points maximums were less than two degrees different than the five minute maximums. The difference between the dew point maximum and the daily mean dew point was about 40 percent for the instantaneous method and 32 percent for the five-minute data method. I attribute that difference to when dew point was computed despite one or both of its components being missing.
+
+  * [AIR TEMPERATURE Minimums](#atmin) from the daily data (instantaneous...) were also within less than one degree of difference from the minimums taken from the minimum five minute mean of the day. The minimums were about 40 percent less than the daily mean. In general, there was less variability between minimums than maximums. On PRIMET at 450 m there were several outlier measurements. 
+
+  * [RELATIVE HUMIDITY Minimums](#rhin) The minimums from the daily data for relative humidity can be very different than the five minute minimums, particularly when the five minute minimums are at 100 percent humidity and the daily minimum has displayed as value which is not 100 percent humidity. While the minimum five minute mean humidity suggests that the lowest humidity is about 37 less than the mean over the course of the day, the daily method indicates that it is closer to 44 percent. 
+
+  * [DEW POINT Minimums](#dpmin) In general, it was seen that the average difference between dew point minimum by methods was about 1.5 degrees C. Similar to the dew point maximums, error propogating from air temperature and (strongly from) relative humidity affect the minimum dew point. When using the five minute method, the minimum dew point was usually about 29 percent lower than the daily mean dew point; when using the instantaneous method it was about 33 percent lower. The most nefarious problem with dew points is the calculation of the dew point in the log even when relative humidity or air temperature are missing. 
+
+At the bottom of this document are a few more summary take home points, the body of this document is examples of problems and charts.
 
 ## The Problem<a id="qlink"></a>
 
@@ -107,7 +113,7 @@ Validations conducted on air temperature at CENMET 150m on 2014-10-29, 2014-10-0
 |2014-11-24 | 9.13  | 9.13  | 13:25 | 13:24 | 1.04 | 1.04 | 6:24 | 6:25 |
 
 
-( The reported values are in sync with those in the database)
+(The reported values are in sync with those in the database)
 
 At the 250 m height, AIRCEN02 reports:
 
@@ -170,7 +176,7 @@ Validations were conducted for 2014-10-16, 2014-12-13, and 2014-09-28
 
 The graph below shows the distribution of the air temperature maximums on CENMET at 350 m height
 
-<iframe src= "http://bl.ocks.org/dataRonin/83465daf2ee7fe16255c" width="650" height="600" scrolling="no"></iframe>
+<iframe src= "http://bl.ocks.org/dataRonin/raw/83465daf2ee7fe16255c" width="650" height="600" scrolling="yes"></iframe>
 
 
 
@@ -319,7 +325,7 @@ Other than these days, the maximum differences on air temperature at VANMET were
 
 Here is an image of the difference between daily maximums and 15 minute maximums on H15MET. ** THE OUTLIER DAY HAS NOT BEEN REMOVED PRIOR TO THE GENERATION OF THIS HISTOGRAM **
 
-<iframe src= "http://bl.ocks.org/dataRonin/0f1988059058a28dc705" width="650" height="600" scrolling="no"></iframe>
+<iframe src= "http://bl.ocks.org/dataRonin/raw/0f1988059058a28dc705" width="650" height="600" scrolling="yes"></iframe>
 
 
 At H15MET, the percent difference between the 15 minute daily temperatures as the maximum of the day versus the instantaneous maximum of the day showed that only one value had a difference of more than 0.2 degrees. This value came from the day 2013-02-01, and the daily instruction appears to be incorrect, showing a maximum value of 23.25 C (and a minimum value of -85 C).
@@ -345,7 +351,7 @@ At the 150 m height, RHCEN01:
 
 The graph below shows the distribution of maximums on VANMET 150 before the outliers are removed. ** Please be aware that the y-axis should be multiplied by 10 to get an appropriate probability.** I.e. prior to outlier removal, about 82 percent of maximum values were still between 0 and 10 percent relative humidity of one another. I am not sure why the histogramming function is generating this error, but it is internal and I will look into it. 
 
-<iframe src= "http://bl.ocks.org/dataRonin/784c6890f5b9feea97ad" width="650" height="600" scrolling="no"></iframe>
+<iframe src= "http://bl.ocks.org/dataRonin/raw/784c6890f5b9feea97ad" width="650" height="600" scrolling="yes"></iframe>
 
 
 Relative humidity maximums on CENMET 450 (a discussion):
@@ -373,25 +379,47 @@ Relative humidity maximums on VANMET (a discussion):
 * Only 67 percent of vanmets values are within 10 percent of the mean.
 
 
+DEWPOINT, DIFFERENCES BETWEEN FIVE-MINUTE MAX and DAILY-MAX<a id='dpmax'></a>
+-------------------------------
 
+Since dew point is affected by air temperature and relative humidity, dew point maximums also follow these trends. If the quality of relative humidity and air temperature are controlled, the dewpoint will follow the same. 
 
-#### VANMET 450: DEWPOINT, DIFFERENCES BETWEEN FIVE-MINUTE MAX and DAILY-MAX
+The challenge is that sometimes, if air temperature and relative humidity are not being calculated, dew point is calculated anyway. In these cases, the dew point readings do not reflect actual observations, but spew from the loggers. Thus, the daily maximum and minimum values, as well as the five minute values, could either or both be tainted by these fake values. Here is an example:
 
-* The maximum difference between the daily maximum from 5 minute values versus the instantaneous maximum was 18.9 degrees due to this erroneous value, 
+* The maximum difference between the daily maximum from 5 minute values versus the instantaneous maximum was 18.9 degrees due to this erroneous value.
+
+Here is an example of a large difference between dew points on VANMET  at 150 m at 5 minutes versus its daily corrresponding value. In this case, dew point was being thrown e
+
 
 | DATE | Five Minute Table | Value | Daily Table | Value |
 |-----|-----|-----|-----|-----|
 | 2014-11-08 00:00:00 | Van_231_Table105 | 9.3 |Van_231_Table440 |-9.6|
 
-#### CENMET 150 : DIFFERENCES BETWEEN FIVE-MINUTE MIN and DAILY MIN
+Here is an example of where real values were being output for air temperature and relative humidity on a particularly cold day on PRIMET, and the output dew point appeared problematic.
+
+
+| DATE | Five Minute Table | Value | Daily Table | Value |
+|-----|-----|-----|-----|-----|
+| 2014-12-30 00:00:00 | PRIM_226_table105 | -5.088 | PRIM_226_table440 | 2.444 |
+
+What will be problematic for calculations is if the dew point computed appears to be greater than the temperature of the day because erroneous values are thrown into the temperature data extensively.
+
+Here is an image of dew point maximums differences on PRIMET at 150 m prior to the removal of that cold day outlier. Once that outlier was removed, the largest difference was 1.43 C.
+
+<iframe src= "http://bl.ocks.org/dataRonin/raw/8eb803aa6cdabd520fe6" width="650" height="600" scrolling="yes"></iframe>
+
+
+AIR TEMPERATURE MINIMUMS <a id='atmin'></a>
+-------------------------
+
+On CENMET 150, 
 
 * ** Overview: ** 160 values collected
+
 * ** Maximum difference ** (between minimums) 0.304 on 2014-10-01
     
-
 * The daily minimum temperatures are on average 42.2 percent less than the mean temperature for the day as calculated on the daily summary
 * The five-minute minimum temperatures are on average 41.5 percent less than the mean temperature for the day as calculated as the mean of all the five minute temperatures
-* ** Note: ** the above "averages" are actually medians to remove outlier effect 
 
 | BIN EDGES | NUMBER OF VALUES | PERCENT OF VALUES |
 |--------|--------|------|
@@ -401,17 +429,12 @@ Relative humidity maximums on VANMET (a discussion):
 |0.3 to 0.4 | 4  | 3 |
 | 0.4 to 0.5 | 2 | 1 |
 
-* validations are included in the maximums section
 
-#### CENMET 250 : DIFFERENCES BETWEEN FIVE-MINUTE MIN and DAILY MIN
-
-* ** Overview: ** 160 values collected
-* ** Maximum difference ** (between minimums) 0.312 on 2014-10-01
+at 250 m, the maximum difference (between minimums) 0.312 on 2014-10-01
     
-
 * The daily minimum temperatures are on average 40.4 percent less than the mean temperature for the day as calculated on the daily summary
 * The five-minute minimum temperatures are on average 40.2 percent less than the mean temperature for the day as calculated as the mean of all the five minute temperatures
-* ** Note: ** the above "averages" are actually medians to remove outlier effect 
+
 
 | BIN EDGES | NUMBER OF VALUES | PERCENT OF VALUES |
 |--------|--------|------|
@@ -421,17 +444,11 @@ Relative humidity maximums on VANMET (a discussion):
 | 0.18 to 0.24 | 2  | 2 |
 | >0.24 | 2 | 1 |
 
-* validations are included in the maximums section
-
-#### CENMET 350 : DIFFERENCES BETWEEN FIVE-MINUTE MIN and DAILY MIN
-
-* ** Overview: ** 160 values collected
-* ** Maximum difference ** (between minimums) 0.321 C on 2014-10-01
+at CENMET 350, the maximum difference (between minimums) 0.321 C on 2014-10-01
     
-
 * The daily minimum temperatures are on average 39.88 percent less than the mean temperature for the day as calculated on the daily summary
 * The five-minute minimum temperatures are on average 32.9 percent less than the mean temperature for the day as calculated as the mean of all the five minute temperatures
-* ** Note: ** the above "averages" are actually medians to remove outlier effect 
+
 
 | BIN EDGES | NUMBER OF VALUES | PERCENT OF VALUES |
 |--------|--------|------|
@@ -441,17 +458,12 @@ Relative humidity maximums on VANMET (a discussion):
 | 0.18 to 0.24 | 2  | 2 |
 | >0.24 | 2 | 1 |
 
-* validations are included in the maximums section
 
-#### CENMET 450 : DIFFERENCES BETWEEN FIVE-MINUTE MIN and DAILY MIN
-
-* ** Overview: ** 160 values collected
-* ** Maximum difference ** (between minimums) 0.257 on 2014-10-01
+on CENMET at 450 m, the maximum difference (between minimums) 0.257 on 2014-10-01
     
-
 * The daily minimum temperatures are on average 40.4 percent less than the mean temperature for the day as calculated on the daily summary
 * The five-minute minimum temperatures are on average 40.2 percent less than the mean temperature for the day as calculated as the mean of all the five minute temperatures
-* ** Note: ** the above "averages" are actually medians to remove outlier effect 
+
 
 | BIN EDGES | NUMBER OF VALUES | PERCENT OF VALUES |
 |--------|--------|------|
@@ -461,19 +473,13 @@ Relative humidity maximums on VANMET (a discussion):
 | 0.2 to 0.25 | 1  | 3 |
 | >0.25 | 2 | 1 |
 
-* validations are included in the maximums section
 
-#### PRIMET 150 : DIFFERENCES BETWEEN FIVE-MINUTE MIN and DAILY MIN for AIRTEMP and RELATIVE HUMIDITY.
-
-* ** Overview: ** 267 / 267 values collected
-* ** Maximum difference ** 0.25 C on 2014- 07-21.
+On PRIMET, similar trends are observed; a maximum difference between minimums of 0.25 C on 2014- 07-21.
 
 * The daily minimum temperatures are on average 40.4 percent less than the mean temperature for the day as calculated on the daily summary
 * The five-minute minimum temperatures are on average 39.5 percent less than the mean temperature for the day as calculated as the mean of all the five minute temperatures
 
-* ** Note: ** the above "averages" are actually medians to remove outlier effect 
-
-One outlier of note: 
+However, there is a notorious outlier on 2014-06-13. 
 
 
 | DATE | Five Minute Table | Value | Daily Table | Value |
@@ -481,51 +487,28 @@ One outlier of note:
 | 2014-06-13 00:00:00 | PRIM_226_table105 | 8.55 | PRIM_226_table440 |-23.94 |
 
 
-On the same day, the relative humidty also had a simiilar large difference in minimum values
+Here are some data from the 250, 350, and 450 m heights for minimum temperatures on PRIMET. 
 
-* On average, the daily minimum relative humidities were about 30 percent less than the mean from both summary sets.
-* On average, the daily maximum relative humidities were about 8 percent higher than the mean.
-* 216 of the 260 values had a 100 percent maximum humidity. 
-* 30 of the 260 values had a 100 percent minimum humidity for the day (indicating they were humid all day)
+At 250 m, 
 
-
-| DATE | Five Minute Table | Value | Daily Table | Value |
-|-----|-----|-----|-----|-----|
-| 2014-06-13 00:00:00 | PRIM_226_table105 | 99.00 | PRIM_226_table440 |-25.3 |
-
-Following removal of the outlier, the data behaved much more robustly; No minimum values on PRIMET's air temperature differ by more than 0.6 degrees at the 150 m height. 
-
-* validations are included in the maximums section
-
-#### PRIMET 250 : DIFFERENCES BETWEEN FIVE-MINUTE MIN and DAILY MIN 
-
-* ** Overview: ** 267 / 267 values collected
-* ** Maximum difference ** 0.21 C on 2014-07-21
+* Largest difference between minimums was 0.21 C on 2014-07-21
 
 * The daily minimum temperatures are on average 39.5 percent less than the mean temperature for the day as calculated on the daily summary
 * The five-minute minimum temperatures are on average 39.4 percent less than the mean temperature for the day as calculated as the mean of all the five minute temperatures
-* ** Note: ** the above "averages" are actually medians to remove outlier effect 
 
+* No minimum values on PRIMET differ by more than 0.6 degrees at the 250 m height
 
-No minimum values on PRIMET differ by more than 0.6 degrees at the 250 m height
+At 350 m,
 
-* validations are included in the maximums section
-
-#### PRIMET 350 : DIFFERENCES BETWEEN FIVE-MINUTE MIN and DAILY MIN 
-
-* ** Overview: ** 267 / 267 values collected
-* ** Maximum difference ** 0.19 C on 2014-07-21
+* Largest difference between minimums was 0.19 C on 2014-07-21
 
 * The daily minimum temperatures are on average 39.5 percent less than the mean temperature for the day as calculated on the daily summary
+
 * The five-minute minimum temperatures are on average 39.4 percent less than the mean temperature for the day as calculated as the mean of all the five minute temperatures
-* ** Note: ** the above "averages" are actually medians to remove outlier effect 
 
-* validations are included in the maximums section
+At 450 m, 
 
-#### PRIMET 450 : DIFFERENCES BETWEEN FIVE-MINUTE MIN and DAILY MIN 
-
-* ** Overview: ** 265 / 267 values collected
-* ** Maximum difference ** 0.15 C on 2014-06-25
+* Largest difference was 0.15 C on 2014-06-25
 
     * I removed two major outliers in order to reduce the minimum difference from 32 degrees to less than one degree. Here are those points: 
 
@@ -535,46 +518,89 @@ No minimum values on PRIMET differ by more than 0.6 degrees at the 250 m height
     | 2014-01-28| "PRIM_226_table105" | 1.125 | "PRIM_226_Table440" | -31.16 |
 
 * The daily minimum temperatures are on average 40.5 percent less than the mean temperature for the day as calculated on the daily summary
+
 * The five-minute minimum temperatures are on average 39.9 percent less than the mean temperature for the day as calculated as the mean of all the five minute temperatures
-* ** Note: ** the above "averages" are actually medians to remove outlier effect 
-
-* validations are included in the maximums section
 
 
-#### VANMET 150: DIFFERENCES BETWEEN 5 MINUTE DAILY RELATIVE HUMIDITY, and DEWPOINT. 
+RELATIVE HUMIDITY MINIMUMS <a id="rhmin"></a>
+--------------------------
 
-Similar to the other stations, VANMET showed 
+On PRIMET, at 150 m, the daily minimum relative humidities were about 30 percent less than the mean from both the five minute and the daily data.
 
-Before removing the largest outlier of 98 percent difference on 2014-06-13 (a day which was also problematic for PRIMET at 150m), VANMET's largest difference was expansive. However, even after removal the largest difference between the daily minimum relative humidity percent and the minimum percent from five minute intervals for the day is 67 percent relative humidity.
+* 216 of the 260 values had a 100 percent maximum humidity. 
 
-For the five-minute method, the difference between the five minute minimum relative humidity and the mean is approximately 37 , for the daily method, the difference is closer to 44 percent. 
+* 30 of the 260 values had a 100 percent minimum humidity for the day (indicating they were humid all day)
 
-An interesting test I looked at on this site was where the five minute minimum relative humidity was 100 %, was the daily minimum relative humidity also 100%? If it was, this might indicate persistance issues-- however, in all but three cases, on days where the five minute minimum is 100 percent, the daily minimum is actually much lower. Below, the dotted blue line is the minimum relative humidity daily course from the daily minimums, the blue squares are when the daily minimum is 100 percent humidity, and the red squares are when the five minute minimums are 100 percent. 
+
+Here is an example of relative humidity minimums on PRIMET that are very different from one another. This is also the same day that the air temperature was giving bad values. 
+
+| DATE | Five Minute Table | Value | Daily Table | Value |
+|-----|-----|-----|-----|-----|
+| 2014-06-13 00:00:00 | PRIM_226_table105 | 99.00 | PRIM_226_table440 |-25.3 |
+
+
+Similar to PRIMET, VANMET at 150 m showed the largest outlier of 98 percent difference on 2014-06-13 (a day which was also problematic for PRIMET at 150m). However, even after removal the largest difference between the daily minimum relative humidity percent and the minimum percent from five minute intervals for the day is 67 percent relative humidity decrease. 
+
+In short, the differences between the daily minimum relative humidities and the minimum of the five-minute mean relative humidities are very different. 
+
+For the five-minute method, the difference between the five minute minimum relative humidity and the mean is approximately 37, for the daily method, the difference is closer to 44 percent. 
+
+An interesting test I looked at on this site was where the five minute minimum relative humidity was 100 %, was the daily minimum relative humidity also 100%? If this was true, then it might indicate either real, high humidity or instrument error which appeared that the 100 percent value was "stuck"-- however, in all but three (of 15 cases) cases, on days where the five minute minimum is 100 percent, the daily minimum is actually much lower.
+
+Below, the dotted blue line is the minimum relative humidity daily course from the daily minimums, the blue squares are when the daily minimum is 100 percent humidity, and the red squares are when the five minute minimums are 100 percent. 
 
 <iframe src= "http://bl.ocks.org/dataRonin/63d7f6595a57033dceb8" width="800" height="600" scrolling="no"></iframe>
 
-In short this shows that the daily minimum may indeed be much lower than the five minute minimum relative humidity. 
+In short this shows that the daily minimum may indeed read much lower than the five minute minimum relative humidity. 
 
-The dewpoint on VANMET also showed strong discrepancy between the five minute values and the daily values. Since we see that the air temperature is relatively stable between these, suffice it that the relative humidity appears to drive the difference in dew points. Two 
-values were removed:
+DEWPOINT MINIMUMS, 5 MINUTE VERSUS DAILY MINIMUMS <a id="dpmin"></a>
+-----------------------------------
 
-* Found an erroneous minimum in the daily dataset of -72 dew point. 
+
+The graphic below shows the difference between the minimum dew points on PRIMET using both methods. It is clear that the majority of values fall within a fairly constrained range, but when there is a discrepancy, it is more than for air temperature. 
+
+
+<iframe src= "http://bl.ocks.org/dataRonin/raw/ca9bbdb63fb2c0560cfe" width="650" height="600" scrolling="yes"></iframe>
+
+
+For example, in this PRIMET data set, most of the dew point differences for minimums are within a degree of one another.
+
+
+| BIN EDGES | NUMBER OF VALUES | PERCENT OF VALUES |
+|--------|--------|------|
+| ~0 to 0.9| 272 | 96 |
+| 0.9 to 1.9 | 4 | 3 |
+| 1.9 to 2.9 | 0 | 0 |
+| 2.9 to 3.9 | 0  | 0 |
+| >3.9 | 2 | 1 |
+
+
+The dewpoint on VANMET also showed a greater magnitude in the discrepancy between the five minute values and the daily values when there was a notable difference between the two methods.
+
+In general, the quality of air temperature is better known and more stable than that of relative humidity, and it is of a smaller magnitude, so errors given to due point usually come in tandem with errors in one of the values of relative humidity. The second case that occurs is when dewpoint is measured even though air temperature and relative humidity were not (a faulty log), and therefore comparing random values to random values results in random differences.
+
+Here is an example of where I found dan erroneous minimum in the daily dataset of -72 dew point. 
 
 | DATE | Five Minute Table | Value | Daily Table | Value |
     |-----|-----|-----|-----|-----|
 | 2014-06-08 00:00:00 |Van_231_Table105| 5.781 |Van_231_Table440  |-72.32|
 
-"2014-11-15 00:00:00","Van_231_Table105","-10.8888","-6.397","-17.28","Van_231_Table440","0.575","4.162","-6.625","2014-11-14 00:15:00","2014-11-14 23:59:30",10.559000000000001,10.655000000000001,-0.4125,6.2383,-0.587,12.5217
+* Using the minimum of the five minute mean, the difference between the minimum dew point for a day and the mean dewpoint of the day is approximately 29 percent.
 
+* Using the daily minimum, the difference between the minimum dew point for the day and the mean of the day is 34 percent. 
 
 #### TAKE HOME POINTS for AIR TEMPERATURE:<a id="takehome"></a>
 
 Given the consistency between the above results, I have developed some take-home points that may be useful for future flagging on AIR TEMPERATURE.
 
 * maximums are about 65 percent greater than daily mean in both five minute and instantaneous methods
+
 * minumums are about 40 percent less than daily mean in both five minute and instantaneous methods
+
 * maximums are less stable than minimums (in general the variability on both is small at the sub five minute scale, but it is even less on minimums than maximums)
+
 * all of the max daily temperatures from instantaneous are less than one and a half degrees off the five- minute values after a few spikes (described) were removed.
+
 * the true daily maximum/minimum usually occurs within the same five minute interval as the five-minute maximum/minimum selected from the day, but not always
 
 * it seems like the retention of the time of max and time of min is an important feature, but that the five minute data does seem to provide an adequate representation. 
@@ -599,3 +625,36 @@ Given the consistency between the above results, I have developed some take-home
             flag = "Q";
         else flag = "A";
         end
+
+
+
+#### TAKE HOME POINTS for RELATIVE HUMIDITY :
+
+Given the consistency between the above results, I have developed some take-home points that may be useful for future flagging on RELATIVE HUMIDITY
+
+* maximums are about 8 percent greater than daily mean in both five minute and instantaneous methods
+
+* minumums are about 40 percent less than daily mean in both five minute and instantaneous methods
+
+* maximums are more stable than minimums (in general the variability on both is small at the sub five minute scale, but it is even less on minimums than maximums)
+
+* removal of outliers improves the correspondance between methods, but there is still a greater range of discrepancy.
+
+* the true daily maximum/minimum usually occurs within the same five minute interval as the five-minute maximum/minimum selected from the day, but not always
+
+* It appears that good quality control on the relative humidity input, especially in reference to other relative humidities on the same probe or nearby, is essential for giving a robust minimum or maximum. Because the range over which relative humidity can swing, it can have a strong effect.
+
+#### Take HOME POINTS FOR DEW POINT:
+
+In short, dew point is dependant on control of relative humidity and air temperature.
+
+* Discrepancies arise more when relative humidity is erroneous than air temperature because it is more variable and has a greater range
+
+* Discrepancies arise when dew point is computed even though it is not coming from a real value of airtemp or relative humidity.
+
+* Because of its dependancies, dew point is more extreme when calculated with the instantaneous method (about 5 percent more extreme). 
+
+* Difference from the mean with the five minute method are about thirty-five percent for maximums and thirty percent for minimums; they are about fourty four percent for the daily method maximums and thirty three percent for daily method minimums.
+
+* NO DEW POINT CAN BE GREATER THAN AIR TEMPERATURE.
+
