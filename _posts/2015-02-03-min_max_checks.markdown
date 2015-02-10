@@ -7,19 +7,18 @@ date: 2015-02-03T14:30:24-08:00
 # Table of Contents
   * [The Problem](#qlink)
   * [The Approach](#approach)
-  * [Basic Statistics for Air Temperature](#statlink)
+  * [AIR TEMPERATURE Maximums](#atmax)
+  * [RELATIVE HUMIDITY Maximums](#rhmax)
+  * [DEW POINT Maximums](#DPmax)
+  * [AIR TEMPERATURE Minimums](#ATmin)
+  * [RELATIVE HUMIDITY Minimums](#RHmin)
+  * [DEW POINT Minimums](#DPmin)
   * [Take Home Points](#takehome)
-        * [CENMET Maximums](#cenmetmax)
-        * [PRIMET Maximums](#primetmax)
-        * [VANMET Maximums](#vanmetmax)
-        * [CENMET Minimums](#cenmetmin)
-        * [PRIMET Minimums](#primetmin)
-        * [VANMET Minimums](#vanmetmin)
   * [Jump Right To Images](#images)
 
 ## The Problem<a id="qlink"></a>
 
-Data collected on METDAT of the instantaneous minimum and maximums of air temperature, solar, and wind for a single day is no longer being maintained. Recently, we have used the five- or fifteen- minute minimum or maximum from the day to approximate these instantaneous values. But what do we lose if we choose to not capture these values?
+Data collected in the past included the instantaneous minimum and maximums of air temperature, relative humidity, solar radiation, and wind speed and direction (only maximum for wind) on a single day. This information is no longer being collected. Recently, we have used the five- or fifteen- minute minimum or maximum from the day to approximate these instantaneous values. But what do we lose if we choose to not capture these values?
 
 Example (hypothetical):
 
@@ -29,9 +28,9 @@ Example (hypothetical):
 
 ## The Approach<a id="approach"></a>
 
-## Data Extent for Air Temperature<a id= "statlink"></a>
+## Data Extent for Air Temperature and Relative Humidity (and by derivation, dew point and vapor pressure defecit) <a id= "statlink"></a>
 
-The table below describes the extent of the data used in this analysis.  The DAYS SHARED attribute is the number of days I used during which both five- and daily- data acquisitions appeared to be operational; values gathered were not labelled as "NULL" and within a reasonable range, here defined at greater than -50 C or less than 50 C for any air temperature. The LAST GATHERED attribute is the last day from which I collected data. There may be a few days of good data following this date.
+The table below describes the extent of the data used in this analysis.  The DAYS SHARED attribute is the number of days I used during which both five- and daily- data acquisitions appeared to be operational. During these times there were no long "streaks" of values gathered labelled as "NULL" and the values fell within an earthly range, here defined at greater than -50 C or less than 50 C for any air temperature. The LAST GATHERED attribute is the last day from which I collected data. There may be a few days of good data following this date.
 
 | STATION | HEIGHT | DAYS SHARED | FIRST SHARED | LAST GATHERED |
 |------|------|------|------|------|
@@ -48,20 +47,44 @@ The table below describes the extent of the data used in this analysis.  The DAY
 | VANMET | 350 | 260| 2014-05-19 | 2015-02-03 |
 | VANMET | 450 | 260| 2014-05-19 | 2015-02-03 |
 
-The tables that follow describe histogrammed results generated for each station, each height, and each air temperature, but do not address the aspirated air temperature. The histograms were generated using 5 evenly spaced bins. In some cases, one or two values which were clearly erroneous for either of the two data sets were removed as they greatly skewed the distribution. When this removal fell well into the realm of impossibility, I noted the date and value and then removed it. When it was potentially questionable, I noted it for further exploration (see the [PRIMET maximums](#primetmax) ).
+The tables that follow describe results generated for a few stations. 
+I did not address here the aspirated sensors for air temperature. After bring in, merging, and [filtering outliers](#outliers), I computed a basic set of metrics, and fed them into histograms to create probability distributions to exemplify and compare the behaviors of each set.
 
-Additionally, I independently validated 3 randomly selected indices (which correspond to dates) of observations in several of the five minute data set versus what is being reported on the Portal. These indices were selected using a random number generator from 0 to the number of observations for each station. The times of minimum and times of maximum daily temperature come from METDAT off of the daily (440) table.
+  * date-time for the daily date
+  * maximums on the daily
+  * minimums on the daily
+  * maximums on the five minutes (max of five minute means for a day)
+  * minimums on the five minutes (min of five minute means for a day)
+  * difference between corresponding daily and five minute maxes (absolute value difference)
+  * difference between corresponding daily and five minute minimums (absolute value difference)
+  * percent of difference between the daily max and the daily mean 
+  * percent of difference between the max of the five minute means for the day and the mean of five minute means for the day
+  * percent of difference between the daily min and the daily mean
+  * percent of difference between the minimum of the daily five minute means and the daily mean
 
-CENMET 150 : DIFFERENCES BETWEEN FIVE-MINUTE MAX and DAILY MAX FOR AIR TEMPERATURE, RELATIVE HUMIDITY, and DEW POINT. <a id = "cenmetmax"></a>
+
+<a id="outliers"></a> When generating histograms, I used 5 evenly spaced bins. In some cases, one or two values which were clearly erroneous for either of the two data sets were removed as they greatly skewed the distribution. When this removal fell well into the realm of impossibility, I noted the date and value and then removed it. When it was potentially questionable, I noted it for further exploration (see the [PRIMET maximums](#atmax) for an example).
+
+Additionally, I independently validated 3 randomly selected days by randomly selecting a row using a random number generator between the collected data and the daily data being reported on the Portal. I also checked that the times of minimum and times of maximums reported on Portal for the five minute observation were the same as the ones that encompassed the maximum (or minimum) daily variables taken from instantaneous measurements daily temperature come from METDAT off of the daily (440) table. The key problem I found in this was that observations between 23:55 PM and Midnight could get assigned to the wrong time stamp, due to the timing discrepancy between the 2400 as midnight method versus the 0000 as midnight method. Although I initially thought I had found an example of this, I was incorrect; however, it did open my eyes to the fact that this error could exist, and would result in the daily minimum or maximum value being cast to the prior day, should it not be taken using the daily synopsis technique. In short, this is an inconsistency between the two methods that will not be resolved unless the TmStamp is reformated in either the newer or older data sets. 
+
+* ** Note: ** When calculating the average difference between the daily mean value and the daily max or min value, I used the median rather than the statistical mean, as often one outlier that I could not immediately determine if real or incorrect would skew the distribution too much. 
+
+AIR TEMPERATURE MAXIMUMS <a id = "atmax"></a>
 ----------------
 
-#### AIR TEMPERATURE 
+Here are a few examples of air temperature maximums, collected from the four sensors on CENMET:
+
+At the 150 m height, AIRCEN01:
+
 * ** Overview: ** 153 values collected
+
 * ** Maximum difference ** 0.51 C on 2014-09-09
 
 * The daily maximum temperatures are on average 70.71 percent greater than the mean temperature for the day as calculated on the daily summary
 * The five-minute maximum temperatures are on average 68.6 percent greater than the mean temperature for the day as calculated as the mean of all the five minute temperatures
-* ** Note: ** the above "averages" are actually medians to remove outlier effect 
+
+
+* Tables like this contain the boundaries of the grouping bins in a histogram, the count of the values encompassed by that bin, and the percent of the total values in that bin. The below would be read as "forty-four percent of all differences between the daily measurement of maximum temperature and the maximum of the five minute mean fell within a window of less than 0.1 degrees C"
 
 | BIN EDGES | NUMBER OF VALUES | PERCENT OF VALUES |
 |--------|--------|------|
@@ -69,9 +92,13 @@ CENMET 150 : DIFFERENCES BETWEEN FIVE-MINUTE MAX and DAILY MAX FOR AIR TEMPERATU
 | 0.1 to 0.2 | 63 | 39 |
 | 0.2 to 0.3 | 20 | 13 |
 | 0.3 to 0.4 | 5 | 3 |
-| > 0.5  | 1 | 1 |
+| > 0.5  | 1 | 1 | 
 
-Validations conducted on air temperature at CENMET 150m: 2014-10-29, 2014-10-07, 2014-11-24
+
+
+Validations conducted on air temperature at CENMET 150m on 2014-10-29, 2014-10-07, 2014-11-24.
+
+* Tables like this contain the date being validated, the maximum value for the day on Portal, the maximum value for the day in METDAT, etc. with PORT being "Portal" and MET being "METDAT"
 
 | DATE | PORT MAX | MET MAX | PORT TMX | MET TMX| PORT MIN | MET MIN | PORT TMIN | MET TMIN|
 |-|-|-|-|-|-|-|-|-|
@@ -79,25 +106,18 @@ Validations conducted on air temperature at CENMET 150m: 2014-10-29, 2014-10-07,
 |2014-10-07 | 30.19 | 30.19 | 14:40 | 14:37 | 12.00 | 12.03 | 6:35 | 6:33 |
 |2014-11-24 | 9.13  | 9.13  | 13:25 | 13:24 | 1.04 | 1.04 | 6:24 | 6:25 |
 
-The reported five minute values are in sync with those in the database.
 
-----------------
+( The reported values are in sync with those in the database)
 
-CENMET 150: DIFFERENCES BETWEEN FIVE-MINUTE MAX and DAILY MAX FOR RELATIVE HUMIDITY
-
-* The maximum difference between five- minute relative humidity maximum and daily relative humidity maximum was 55.13 percent and occured on 2014-09-11.
-* on this day, the daily measurement was 96.3 percent for the maximum while the five-minute measurement was only 40.3 percent. The value of 96.3 percent is more similar to the other measurements on this sensor during that week, which were also in the 90's. This value is also more similar to the measured values of 100.0 on PRIMET on this day at 150 m for the daily and 95.5 on this day for the five-minute.
-* On average, the maximum relative humidity is only 8 percent greater than the mean for both the daily and five minute methods on CENMET 150 at 150 m. 
-* 91 percent of daily maximum values and maximum values for the day from five minute means are within 10 percent of one another. 
-
-#### CENMET 250 : DIFFERENCES BETWEEN FIVE-MINUTE MAX and DAILY MAX 
+At the 250 m height, AIRCEN02 reports:
 
 * ** Overview: ** 160 values collected
+
 * ** Maximum difference ** 0.69 C on 2014-11-26
             
 * The daily maximum temperatures are on average 67.11 percent greater than the mean temperature for the day as calculated on the daily summary
 * The five-minute maximum temperatures are on average 64.11 percent greater than the mean temperature for the day as calculated as the mean of all the five minute temperatures
-* ** Note: ** the above "averages" are actually medians to remove outlier effect 
+
 
 | BIN EDGES | NUMBER OF VALUES | PERCENT OF VALUES |
 |--------|--------|------|
@@ -107,7 +127,7 @@ CENMET 150: DIFFERENCES BETWEEN FIVE-MINUTE MAX and DAILY MAX FOR RELATIVE HUMID
 | 0.41 to 0.55 | 5 | 2 |
 | > 0.55 | 1 | 1 |
 
-Validations: 2014-09-02, 2014-11-07, 2014-12-06
+Validations were conducted for 2014-09-02, 2014-11-07, and 2014-12-06
 
 | DATE | PORT MAX | MET MAX | PORT TMX | MET TMX| PORT MIN | MET MIN | PORT TMIN | MET TMIN|
 |-|-|-|-|-|-|-|-|-|
@@ -115,16 +135,18 @@ Validations: 2014-09-02, 2014-11-07, 2014-12-06
 |2014-11-07 | 13.66 | 13.66 | 15:30 | 15:30 | 1.813 | 1.813 | 7:20 | 07:18 |
 |2014-12-06 | 7.442  | 7.442  | 11:20 | 11:16 | 1.851 | 1.851 | 22:00 | 21:59 |
 
-The reported five minute values are in sync with those in the database.
+(The reported values are in sync with those in the database)
 
-#### CENMET 350 : DIFFERENCES BETWEEN FIVE-MINUTE MAX and DAILY MAX 
+
+At 350 m height, AIRCEN03 reports: 
 
 * ** Overview: ** 160 values collected
+
 * ** Maximum difference ** 1.32 on 2014-11-26
     
 * The daily maximum temperatures are on average 63.63 percent greater than the mean temperature for the day as calculated on the daily summary
 * The five-minute maximum temperatures are on average 61.41 percent greater than the mean temperature for the day as calculated as the mean of all the five minute temperatures
-* ** Note: ** the above "averages" are actually medians to remove outlier effect 
+
 
 | BIN EDGES | NUMBER OF VALUES | PERCENT OF VALUES |
 |--------|--------|------|
@@ -135,7 +157,7 @@ The reported five minute values are in sync with those in the database.
 | > 1.1 | 1 | 1 |
 
 
-Validations: 2014-10-16, 2014-12-13, 2014-09-28
+Validations were conducted for 2014-10-16, 2014-12-13, and 2014-09-28
 
 | DATE | PORT MAX | MET MAX | PORT TMX | MET TMX| PORT MIN | MET MIN | PORT TMIN | MET TMIN|
 |-|-|-|-|-|-|-|-|-|
@@ -145,9 +167,17 @@ Validations: 2014-10-16, 2014-12-13, 2014-09-28
  
 * The Portal five minute value and the database five minute value for the minimum are in sync, but this actual minimum value on 2014-10-16 was about three-one-hundreths of a degree colder and occured about 15 minutes earlier, as 4.218 at 01:57. 
 
-#### CENMET 450 : DIFFERENCES BETWEEN FIVE-MINUTE MAX and DAILY MAX FOR AIR TEMPERATURE, DEWPOINT.
+
+The graph below shows the distribution of the air temperature maximums on CENMET at 350 m height
+
+<iframe src= "http://bl.ocks.org/dataRonin/83465daf2ee7fe16255c" width="650" height="600" scrolling="no"></iframe>
+
+
+
+At 450 m height, AIRCEN04 reports:
 
 * ** Overview: ** 160 values collected
+
 * ** Maximum difference ** 4.51 C, 2014-11-06
     
     * In this case the maximum value was 19.54 C on the daily measurement and the minimum value was 15.24 C on the five minute measurement. Both datasets expressed similar daily means (8.38 C for the daily and 8.40 C for the five minute)
@@ -155,7 +185,7 @@ Validations: 2014-10-16, 2014-12-13, 2014-09-28
 
 * The daily maximum temperatures are on average 69.17 percent greater than the mean temperature for the day as calculated on the daily summary
 * The five-minute maximum temperatures are on average 67.47 percent greater than the mean temperature for the day as calculated as the mean of all the five minute temperatures
-* ** Note: ** the above "averages" are actually medians to remove outlier effect 
+
 
 | BIN EDGES | NUMBER OF VALUES | PERCENT OF VALUES |
 |--------|--------|------|
@@ -165,7 +195,7 @@ Validations: 2014-10-16, 2014-12-13, 2014-09-28
 | 2.71 to 3.61 | 0 | 0 |
 | > 3.61 | 1 | 1 |
 
-Validations: 2014-08-30, 2014-12-09, 2014-02-02
+Validations were conducted on 2014-08-30, 2014-12-09, and 2014-02-02
 
 | DATE | PORT MAX | MET MAX | PORT TMX | MET TMX| PORT MIN | MET MIN | PORT TMIN | MET TMIN|
 |-|-|-|-|-|-|-|-|-|
@@ -173,31 +203,31 @@ Validations: 2014-08-30, 2014-12-09, 2014-02-02
 |2014-12-09 |11.170 | 11.417 | 10:20 | 10:17 | 6.331 | 6.331 | 06:25 |06:38 |
 |2014-02-02 | 7.536  | 7.536  | 14:40 | 14:38 |1.516 | 1.516 | 22:20 | 22:13 |
 
-* On the December 9th value, it appears that the minimums observed by Portal and the minimum of the five minutes are about fifteen minutes earlier than the actual daily minimum, which was 6.295. This is within a tenth of a degree of the five minute minimum, however.
+** Note about time difference **
 
-* On 2014-08-26, the CENMET 450 probe is changed and duplicate dew points are generated, which cases an error in the maximum values. Removal of this day
+On the December 9th value, it appears that the minimums observed by Portal and the minimum of the five minutes are about fifteen minutes earlier than the actual daily minimum, which was 6.295. This is within a tenth of a degree of the five minute minimum, however.
 
-#### CENMET 450: DIFFERENCES BETWEEN FIVE-MINUTE MAX AND DAILY MAX FOR RELATIVE HUMIDITY.
 
-* Similar to the 150 m value, the maximum difference between the two methods occurs on 2014-09-11. On this day, the daily measurement is 87.7 percent whereas the five-minute measurement is 21 percent.
-* The since the values at the other height also have this discrepancy, it is acknowledged here that the 87.7 percent is more similar to the other sites (VANMET- the PRIMET 450 was not operational at this time) and to the trend of the surrounding week.
-* The average percent difference in relative humidity from the mean relative humidity is 16 percent in both the five minute and daily methods.
+On PRIMET, similar trends were observed. Here I will also showcase a few outliers that affect the distributions prior to their removal.
 
-#### PRIMET 150 : DIFFERENCES BETWEEN FIVE-MINUTE MAX and DAILY MAX <a id="primetmax"></a>
+* ** Overview: ** 266/267 values collected at 150 m
 
-* ** Overview: ** 267 values collected
-* ** Maximum difference ** 9.158 on 2014-11-11, after removal 0.51 on 2014-01-18
+* ** Maximum difference ** 9.158 on 2014-11-12, after removal 0.51 on 2014-01-18
 
 | DATE | Five Minute Table | Value | Daily Table | Value |
 |-----|-----|-----|-----|-----|
 | 2014-11-12 00:00:00 | PRIM_226_table105 | 8.24 | PRIM_226_table440 |-0.918| 
 
-    * The five-minute maximum on this day is 8.24, although both the daily mean and the five minute mean are consistent (0.798 C five minute versus -1.21 C daily, recalling that this outlier is also certainly pulling the daily mean)
-    * days preceding this one show similar daily maximums to the five-minute value of 9 C, while days following this one show similar daily maximums to the daily value, between zero and two degrees. 
+* The five-minute maximum on this day is 8.24, although both the daily mean and the five minute mean are consistent (0.798 C five minute versus -1.21 C daily, recalling that this outlier is also certainly pulling the daily mean)
+
+* Days preceding this one show similar daily maximums to the five-minute value of 9 C, while days following this one show similar daily maximums to the daily value, between zero and two degrees. 
+
+* Besides this outlier, all values were less than half of a degree of difference between methods.
 
 * The daily maximum temperatures are on average 59 percent greater than the mean temperature for the day as calculated on the daily summary
+
 * The five-minute maximum temperatures are on average 58 percent greater than the mean temperature for the day as calculated as the mean of all the five minute temperatures
-* ** Note: ** the above "averages" are actually medians to remove outlier effect 
+
 
 | BIN EDGES | NUMBER OF VALUES | PERCENT OF VALUES |
 |--------|--------|------|
@@ -207,9 +237,9 @@ Validations: 2014-08-30, 2014-12-09, 2014-02-02
 |0.4 to 0.5 | 11  | 0.4 |
 | >0.5 | 2 | 1 |
 
-* Besides the outlier, all values were less than half of a degree of difference between methods.
 
-Validations: 2014-12-29, 2014-11-14, 2014-07-04
+
+Validations were conducted on 2014-12-29, 2014-11-14, 2014-07-04
 
 | DATE | PORT MAX | MET MAX | PORT TMX | MET TMX| PORT MIN | MET MIN | PORT TMIN | MET TMIN|
 |-|-|-|-|-|-|-|-|-|
@@ -217,31 +247,46 @@ Validations: 2014-12-29, 2014-11-14, 2014-07-04
 |2014-12-09 |7.19 | 7.189 | 12:45 | 12:45 | -0.345 | -0.346 | 23:55 |23:58|
 |2014-07-04 | 28.19  | 28.19  | 14:15 | 14:38 |10.84 | 10.84 | 04:30 | 04:26 |
 
-* On the 2014-12-29 and 2014-07-04 measurements, the values are similar between the Portal and METDAT, but the time of the maximum differs.
+** Note about time difference **
 
-#### PRIMET 150: DIFFERENCES BETWEEN FIVE-MINUTE MAXIMUM FOR RELATIVE HUMIDITY AND THE DAILY MAXIMUM FOR RELATIVE HUMIDITY.
+On the 2014-12-29 and 2014-07-04 measurements, the values are similar between the Portal and METDAT, but the time of the maximum differs.
 
-* The greatest difference between the five-minute and instantaneous maximums was 12 % on 2014-09-12. On this day the daily value exceeded the 5 minute value at 95 percent versus 83 percent. 
-* 92 percent of differences between methods were less than 12 percent. 
-
-#### PRIMET 250 : DIFFERENCES BETWEEN FIVE-MINUTE MAX and DAILY MAX 
+On PRIMET at 250 m, AIRPRI02 reports:
 
 * ** Overview: ** 266/267 values collected
-* ** Maximum difference ** 8.838 on 2014-11-11, after removal of outlier, 0.68 is maximum difference which occurs on 2014-10-08.
 
-This data on 2014-11-11 is continuously suspect, here is the 250 example. It's removal reduces the maximum difference to less than a degree
+* ** Maximum difference ** 8.838 on 2014-11-12, after removal of outlier, 0.68 is maximum difference which occurs on 2014-10-08.
+
+** A NOTE ABOUT A POTENTIALLY PROBLEMATIC DAY AT PRIMET**
+
+The data on 2014-11-11 is continuously suspect, here is the 250 example.It's removal reduces the maximum difference to less than a degree
 
 | DATE | Five Minute Table | Value | Daily Table | Value |
 |-----|-----|-----|-----|-----|    
 | 2014-11-12 00:00:00 |PRIM_226_table105 | 8.48 | PRIM_226_table440 |-0.358 |
 
-* The daily maximum temperatures are on average 56 percent greater than the mean temperature for the day as calculated on the daily summary
-* The five-minute maximum temperatures are on average 56 percent greater than the mean temperature for the day as calculated as the mean of all the five minute temperatures
-* ** Note: ** the above "averages" are actually medians to remove outlier effect 
+Likewise, this day is a problem at 350 m
+
+| DATE | Five Minute Table | Value | Daily Table | Value |
+|-----|-----|-----|-----|-----| 
+|2014-11-12 00:00:00 |PRIM_226_table105 |8.66 |PRIM_226_table440 |-0.199|
+
+Maximum difference ** 8.859 on 2014-11-11, after removal it is 0.64
+
+and at 450 m 
+
+| DATE | Five Minute Table | Value | Daily Table | Value |
+|-----|-----|-----|-----|-----| 
+|2014-11-12 00:00:00 |PRIM_226_table105 |8.66 |PRIM_226_table440 |-0.199|
+
+
+* The daily maximum temperatures at 250, 350, and 450 m are on average 56 percent greater than the mean temperature for the day as calculated on the daily summary
+
+* The five-minute maximum temperatures are also on average 56 percent greater than the mean temperature for the day as calculated as the mean of all the five minute temperatures
 
 * Besides the outlier, all values were less than one degree of difference between methods.
 
-Validations: 2014-07-30, 2014-08-22, 2014-12-07
+Validations were conducted on 2014-07-30, 2014-08-22, and 2014-12-07
 
 | DATE | PORT MAX | MET MAX | PORT TMX | MET TMX| PORT MIN | MET MIN | PORT TMIN | MET TMIN|
 |-|-|-|-|-|-|-|-|-|
@@ -249,132 +294,86 @@ Validations: 2014-07-30, 2014-08-22, 2014-12-07
 |2014-08-22| 26.11 | 26.11| 12:45 | 12:45 | 9.18 | 9.18 | 23:55 |3:55|
 |2014-12-07 | 9.33  | 9.33  | 14:40 | 14:38 |0.626 | 0.626 | 07:25 | 07:24|
 
-#### PRIMET 350 : DIFFERENCES BETWEEN FIVE-MINUTE MAX and DAILY MAX 
+On VANMET, similar trends were seen. A few more examples:
 
-* ** Overview: ** 266/267 values collected
-* ** Maximum difference ** 8.859 on 2014-11-11, after removal it is 0.64
-
-
-| DATE | Five Minute Table | Value | Daily Table | Value |
-|-----|-----|-----|-----|-----| 
-|2014-11-12 00:00:00 |PRIM_226_table105 |8.66 |PRIM_226_table440 |-0.199|
-
-* This is the same trend as from the other sensors. 
-
-* The daily maximum temperatures are on average 56 percent greater than the mean temperature for the day as calculated on the daily summary
-* The five-minute maximum temperatures are on average 56 percent greater than the mean temperature for the day as calculated as the mean of all the five minute temperatures
-* ** Note: ** the above "averages" are actually medians to remove outlier effect 
-
-* Besides the outlier, all values were less than 0.68 degree of difference between methods.
-
-#### PRIMET 450 : DIFFERENCES BETWEEN FIVE-MINUTE MAX and DAILY MAX 
-
-* ** Overview: ** 267 values collected
-* ** Maximum difference ** 8.867 on 2014-11-11, after removal of outlier the maximum difference is only 0.45 C
-
-| DATE | Five Minute Table | Value | Daily Table | Value |
-|-----|-----|-----|-----|-----| 
-| 2014-11-12 00:00:00 | PRIM_226_table105 | 8.51 |PRIM_226_table440|-0.357|
-
-* The daily maximum temperatures are on average 56 percent greater than the mean temperature for the day as calculated on the daily summary
-* The five-minute maximum temperatures are on average 55 percent greater than the mean temperature for the day as calculated as the mean of all the five minute temperatures
-* ** Note: ** the above "averages" are actually medians to remove outlier effect 
-
-* Besides the outlier, all values were less than one degree of difference between methods.
-
-#### PRIMET 450 RELATIVE HUMIDITY WAS NOT FUNCTIONING AT THIS TIME.
-
-#### VANMET 150 : DIFFERENCES BETWEEN FIVE-MINUTE MAX and DAILY MAX
-
-* ** Overview: ** 260 values collected
-* ** Maximum difference ** 4.28 on 2014-06-13, once removed 0.65 on 2014-05-25
+* The day of 2014-06-13 is a problematic day on the 150 m and 450 m sensors at VANMET; here at 150 m:
 
 | DATE | Five Minute Table | Value | Daily Table | Value |
 |-----|-----|-----|-----|-----|
 |2014-06-13 00:00:00|"Van_231_Table105"|"14.35"|"Van_231_Table440" |"18.63"|
 
-* The daily maximum temperatures are on average 58.2 percent greater than the mean temperature for the day as calculated on the daily summary
-* The five-minute maximum temperatures are on average 41.5 percent greater than the mean temperature for the day as calculated as the mean of all the five minute temperatures
-* ** Note: ** the above "averages" are actually medians to remove outlier effect 
 
-| BIN EDGES | NUMBER OF VALUES | PERCENT OF VALUES |
-|--------|--------|------|
-| ~0 to 0.13 | 149 | 58 |
-| 0.13 to 0.26 | 80 | 31 |
-| 0.26 to 0.39 | 23 | 9 |
-|0.39 to 0.52 | 6  | 2 |
-| >0.52 | 2 | 1 |
-
-* I have not yet validated these results against the results in the Portal webpage
-
-####: VANMET 350: DIFFERENCES IN FIVE MINUTE MAX and DAILY MAX.
-
-* on VANMET, the same september period emerges for having discrepancies between the five minute maximum and daily maximum values.
-* However, the mean difference between the maximum and median relative humidty at VANMET is 20.5 degrees in the maximum values from daily and 20.4 in the version in the five minute data.
-* Only 67 percent of vanmets values are within 10 percent of the mean.
-
-#### VANMET 250 : DIFFERENCES BETWEEN FIVE-MINUTE MAX and DAILY MAX
-
-* ** Overview: ** 260 values collected
-* ** Maximum difference **  0.96 on 2014-06-08
-
-* The daily maximum temperatures are on average 55.8 percent greater than the mean temperature for the day as calculated on the daily summary
-* The five-minute maximum temperatures are on average 53 percent greater than the mean temperature for the day as calculated as the mean of all the five minute temperatures
-* ** Note: ** the above "averages" are actually medians to remove outlier effect 
-
-| BIN EDGES | NUMBER OF VALUES | PERCENT OF VALUES |
-|--------|--------|------|
-| ~0 to 0.13 | 149 | 50 |
-| 0.13 to 0.26 | 80 | 34 |
-| 0.26 to 0.39 | 23 | 13 |
-|0.39 to 0.52 | 6  | 3 |
-| >0.52 | 2 | 1 |
-
-* I have not yet validated these results against the results in the Portal webpage
-
-#### VANMET 350 : DIFFERENCES BETWEEN FIVE-MINUTE MAX and DAILY MAX
-
-* ** Overview: ** 260 values collected
-* ** Maximum difference **  0.9 on 2014-06-08
-
-* The daily maximum temperatures are on average 55.3 percent greater than the mean temperature for the day as calculated on the daily summary
-* The five-minute maximum temperatures are on average 53.7 percent greater than the mean temperature for the day as calculated as the mean of all the five minute temperatures
-* ** Note: ** the above "averages" are actually medians to remove outlier effect 
-
-| BIN EDGES | NUMBER OF VALUES | PERCENT OF VALUES |
-|--------|--------|------|
-| ~0 to 0.19 | 185 | 71 |
-| 0.19 to 0.38 | 50 | 19 |
-| 0.38 to 0.57 | 18 | 7 |
-|0.57 to 0.76 | 5  | 2 |
-| >0.76 | 2 | 1 |
-
-* I have not yet validated these results against the results in the Portal webpage
-
-#### VANMET 450 : DIFFERENCES BETWEEN FIVE-MINUTE MAX and DAILY MAX
-
-* ** Overview: ** 258/260 values collected
-* ** Maximum difference **  6.31 on 2014-06-08, once removed 0.54 on 2014-12-01
+and at 450 m:
 
 | DATE | Five Minute Table | Value | Daily Table | Value |
 |-----|-----|-----|-----|-----|
 | 2014-06-13 00:00:00 |Van_231_Table105 | 12.94 |Van_231_Table440 |19.28|
 
 
+Other than these days, the maximum differences on air temperature at VANMET were less than 0.68.  Maximum values were approximately 55 percent greater than the mean for both methods. 
 
-* The daily maximum temperatures are on average 55.3 percent greater than the mean temperature for the day as calculated on the daily summary
-* The five-minute maximum temperatures are on average 53.7 percent greater than the mean temperature for the day as calculated as the mean of all the five minute temperatures
-* ** Note: ** the above "averages" are actually medians to remove outlier effect 
 
-| BIN EDGES | NUMBER OF VALUES | PERCENT OF VALUES |
-|--------|--------|------|
-| ~0 to 0.1 | 122 | 47 |
-| 0.1 to 0.2 | 78 | 30 |
-| 0.2 to 0.3 | 44 | 17 |
-|0.3 to 0.4 | 8  | 3 |
-| >0.4 | 6 | 2 |
+---------
 
-* I have not yet validated these results against the results in the Portal system
+### although data was only available at a 15 minute resolution for H15MET and UPLMET, I went ahead and looked at this data to see if it also reflected similar trends.
+
+Here is an image of the difference between daily maximums and 15 minute maximums on H15MET. ** THE OUTLIER DAY HAS NOT BEEN REMOVED PRIOR TO THE GENERATION OF THIS HISTOGRAM **
+
+<iframe src= "http://bl.ocks.org/dataRonin/0f1988059058a28dc705" width="650" height="600" scrolling="no"></iframe>
+
+
+At H15MET, the percent difference between the 15 minute daily temperatures as the maximum of the day versus the instantaneous maximum of the day showed that only one value had a difference of more than 0.2 degrees. This value came from the day 2013-02-01, and the daily instruction appears to be incorrect, showing a maximum value of 23.25 C (and a minimum value of -85 C).
+
+The average difference between maximum and mean air temperature for a day was 51 percent for both methods at H15MET.
+
+----------------
+
+RELATIVE HUMIDITY MAXIMUMS <a id = "rhmax"></a>
+----------------
+
+Here are a few examples of relative humidity maximums, collected from several sensors:
+
+At the 150 m height, RHCEN01:
+
+* The maximum difference between five- minute relative humidity maximum and daily relative humidity maximum was 55.13 percent and occured on 2014-09-11.
+
+* on this day, the daily measurement was 96.3 percent for the maximum while the five-minute measurement was only 40.3 percent. The value of 96.3 percent is more similar to the other measurements on this sensor during that week, which were also in the 90's. This value is also more similar to the measured values of 100.0 on PRIMET on this day at 150 m for the daily and 95.5 on this day for the five-minute.
+
+* On average, the maximum relative humidity is only 8 percent greater than the mean for both the daily and five minute methods on CENMET 150 at 150 m. 
+
+* After removing outliers, 91 percent of daily maximum values and maximum values for the day from five minute means are within 10 percent of one another. 
+
+The graph below shows the distribution of maximums on VANMET 150 before the outliers are removed. ** Please be aware that the y-axis should be multiplied by 10 to get an appropriate probability.** I.e. prior to outlier removal, about 82 percent of maximum values were still between 0 and 10 percent relative humidity of one another. I am not sure why the histogramming function is generating this error, but it is internal and I will look into it. 
+
+<iframe src= "http://bl.ocks.org/dataRonin/784c6890f5b9feea97ad" width="650" height="600" scrolling="no"></iframe>
+
+
+Relative humidity maximums on CENMET 450 (a discussion):
+
+* Comparing the 150 m and 450 m height, it is evident that when there is a large difference between the relative humidity maximum measured on the daily measurement versus the daily maximum as computed from the five minute means, this difference is often due to an error that is sensor specific. For example, the maximum difference between the two methods occurs on the CENMET relative humidity sensors on 2014-09-11. On this day, the daily measurement is 87.7 percent relative humidity whereas the five-minute measurement is 21 percent.
+
+* Air temperature on this day were also problematic and removed from the data, and measurements of the difference in humidities on VANMET and PRIMET are more similar to the 87.7 percent. Furthermore, the rest of the week also has a relative humidity that is greater than 60 percent for daily measurements and five minute measurements.
+
+* The average percent difference in relative humidity maximums from the mean relative humidity is 16 percent in both the five minute and daily methods.
+
+Relative humidity maximums on PRIMET (a discussion):
+
+* the 450 m sensor does not appear to be functional for a long duration of the time period.
+
+* based on observations at 150 m, 
+  * The greatest difference between the five-minute and instantaneous maximums was 12 % on 2014-09-12. On this day the daily value exceeded the 5 minute value at 95 percent versus 83 percent. 
+  * 92 percent of differences between methods were less than 12 percent. 
+
+Relative humidity maximums on VANMET (a discussion):
+
+* on VANMET, the same 2014-09-11 emerges for having discrepancies between the five minute maximum and daily maximum values.
+
+* However, the mean difference between the maximum and median relative humidity at VANMET is 20.5 degrees in the maximum values from daily and 20.4 in the version in the five minute data; this may be within acceptable tolerance.
+
+* Only 67 percent of vanmets values are within 10 percent of the mean.
+
+
+
 
 #### VANMET 450: DEWPOINT, DIFFERENCES BETWEEN FIVE-MINUTE MAX and DAILY-MAX
 
@@ -464,13 +463,14 @@ Validations: 2014-07-30, 2014-08-22, 2014-12-07
 
 * validations are included in the maximums section
 
-#### PRIMET 150 : DIFFERENCES BETWEEN FIVE-MINUTE MIN and DAILY MIN 
+#### PRIMET 150 : DIFFERENCES BETWEEN FIVE-MINUTE MIN and DAILY MIN for AIRTEMP and RELATIVE HUMIDITY.
 
 * ** Overview: ** 267 / 267 values collected
-* ** Maximum difference ** 0.25 C on 2014- 07-21
+* ** Maximum difference ** 0.25 C on 2014- 07-21.
 
 * The daily minimum temperatures are on average 40.4 percent less than the mean temperature for the day as calculated on the daily summary
 * The five-minute minimum temperatures are on average 39.5 percent less than the mean temperature for the day as calculated as the mean of all the five minute temperatures
+
 * ** Note: ** the above "averages" are actually medians to remove outlier effect 
 
 One outlier of note: 
@@ -480,7 +480,20 @@ One outlier of note:
 |-----|-----|-----|-----|-----|
 | 2014-06-13 00:00:00 | PRIM_226_table105 | 8.55 | PRIM_226_table440 |-23.94 |
 
-No minimum values on PRIMET differ by more than 0.6 degrees at the 150 m height
+
+On the same day, the relative humidty also had a simiilar large difference in minimum values
+
+* On average, the daily minimum relative humidities were about 30 percent less than the mean from both summary sets.
+* On average, the daily maximum relative humidities were about 8 percent higher than the mean.
+* 216 of the 260 values had a 100 percent maximum humidity. 
+* 30 of the 260 values had a 100 percent minimum humidity for the day (indicating they were humid all day)
+
+
+| DATE | Five Minute Table | Value | Daily Table | Value |
+|-----|-----|-----|-----|-----|
+| 2014-06-13 00:00:00 | PRIM_226_table105 | 99.00 | PRIM_226_table440 |-25.3 |
+
+Following removal of the outlier, the data behaved much more robustly; No minimum values on PRIMET's air temperature differ by more than 0.6 degrees at the 150 m height. 
 
 * validations are included in the maximums section
 
@@ -527,7 +540,23 @@ No minimum values on PRIMET differ by more than 0.6 degrees at the 250 m height
 
 * validations are included in the maximums section
 
-#### VANMET 450: DEWPOINT, DIFFERENCES BETWEEN THE FIVE MINUTE MIN AND 
+
+#### VANMET 150: DIFFERENCES BETWEEN 5 MINUTE DAILY RELATIVE HUMIDITY, and DEWPOINT. 
+
+Similar to the other stations, VANMET showed 
+
+Before removing the largest outlier of 98 percent difference on 2014-06-13 (a day which was also problematic for PRIMET at 150m), VANMET's largest difference was expansive. However, even after removal the largest difference between the daily minimum relative humidity percent and the minimum percent from five minute intervals for the day is 67 percent relative humidity.
+
+For the five-minute method, the difference between the five minute minimum relative humidity and the mean is approximately 37 , for the daily method, the difference is closer to 44 percent. 
+
+An interesting test I looked at on this site was where the five minute minimum relative humidity was 100 %, was the daily minimum relative humidity also 100%? If it was, this might indicate persistance issues-- however, in all but three cases, on days where the five minute minimum is 100 percent, the daily minimum is actually much lower. Below, the dotted blue line is the minimum relative humidity daily course from the daily minimums, the blue squares are when the daily minimum is 100 percent humidity, and the red squares are when the five minute minimums are 100 percent. 
+
+<iframe src= "http://bl.ocks.org/dataRonin/63d7f6595a57033dceb8" width="800" height="600" scrolling="no"></iframe>
+
+In short this shows that the daily minimum may indeed be much lower than the five minute minimum relative humidity. 
+
+The dewpoint on VANMET also showed strong discrepancy between the five minute values and the daily values. Since we see that the air temperature is relatively stable between these, suffice it that the relative humidity appears to drive the difference in dew points. Two 
+values were removed:
 
 * Found an erroneous minimum in the daily dataset of -72 dew point. 
 
@@ -535,10 +564,12 @@ No minimum values on PRIMET differ by more than 0.6 degrees at the 250 m height
     |-----|-----|-----|-----|-----|
 | 2014-06-08 00:00:00 |Van_231_Table105| 5.781 |Van_231_Table440  |-72.32|
 
+"2014-11-15 00:00:00","Van_231_Table105","-10.8888","-6.397","-17.28","Van_231_Table440","0.575","4.162","-6.625","2014-11-14 00:15:00","2014-11-14 23:59:30",10.559000000000001,10.655000000000001,-0.4125,6.2383,-0.587,12.5217
 
-#### TAKE HOME POINTS:<a id="takehome"></a>
 
-Given the consistency between the above results, I have developed some take-home points that may be useful for future flagging.
+#### TAKE HOME POINTS for AIR TEMPERATURE:<a id="takehome"></a>
+
+Given the consistency between the above results, I have developed some take-home points that may be useful for future flagging on AIR TEMPERATURE.
 
 * maximums are about 65 percent greater than daily mean in both five minute and instantaneous methods
 * minumums are about 40 percent less than daily mean in both five minute and instantaneous methods
@@ -568,274 +599,3 @@ Given the consistency between the above results, I have developed some take-home
             flag = "Q";
         else flag = "A";
         end
-
-#### Images: <a id="images"></a>
-
-Here's an example of a distribution of the differences between maximum values using the daily method and using the five minute method on CENMET. It is good that there is a lot of left skew indicating that most of the differences are very small. 
-
-<style>
-
-</style>
-
-<div id="fig_el7576343718117284082490231"></div>
-<script>
-function mpld3_load_lib(url, callback){
-  var s = document.createElement('script');
-  s.src = url;
-  s.async = true;
-  s.onreadystatechange = s.onload = callback;
-  s.onerror = function(){console.warn("failed to load library " + url);};
-  document.getElementsByTagName("head")[0].appendChild(s);
-}
-
-if(typeof(mpld3) !== "undefined" && mpld3._mpld3IsLoaded){
-   // already loaded: just create the figure
-   !function(mpld3){
-       
-       mpld3.draw_figure("fig_el7576343718117284082490231", {"axes": [{"xlim": [0.0, 0.60000000000000009], "yscale": "linear", "axesbg": "#FFFFFF", "texts": [{"v_baseline": "hanging", "h_anchor": "middle", "color": "#000000", "text": "Value", "coordinates": "axes", "zorder": 3, "alpha": 1, "fontsize": 12.0, "position": [0.5, -0.059895833333333329], "rotation": -0.0, "id": "el757634372077520"}, {"v_baseline": "auto", "h_anchor": "middle", "color": "#000000", "text": "Probability", "coordinates": "axes", "zorder": 3, "alpha": 1, "fontsize": 12.0, "position": [-0.059979838709677422, 0.5], "rotation": -90.0, "id": "el757634372151568"}], "zoomable": true, "images": [], "xdomain": [0.0, 0.60000000000000009], "ylim": [0.0, 4.5], "paths": [{"edgecolor": "#000000", "facecolor": "#FF0000", "edgewidth": 1.0, "pathcodes": ["M", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "Z"], "yindex": 1, "coordinates": "data", "dasharray": "10,0", "zorder": 1, "alpha": 1, "xindex": 0, "data": "data01", "id": "el757634434670480"}], "sharey": [], "sharex": [], "axesbgalpha": null, "axes": [{"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 12.0, "position": "bottom", "nticks": 8, "tickvalues": null}, {"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 12.0, "position": "left", "nticks": 10, "tickvalues": null}], "lines": [], "markers": [], "id": "el757634371983632", "ydomain": [0.0, 4.5], "collections": [], "xscale": "linear", "bbox": [0.125, 0.099999999999999978, 0.77500000000000002, 0.80000000000000004]}], "height": 480.0, "width": 640.0, "plugins": [{"type": "reset"}, {"enabled": false, "button": true, "type": "zoom"}, {"enabled": false, "button": true, "type": "boxzoom"}], "data": {"data01": [[0.004000000000000448, 0.0], [0.004000000000000448, 4.384881422924892], [0.10520000000000067, 4.384881422924892], [0.10520000000000067, 3.890810276679834], [0.2064000000000009, 3.890810276679834], [0.2064000000000009, 1.2351778656126458], [0.3076000000000011, 1.2351778656126458], [0.3076000000000011, 0.3087944664031613], [0.40880000000000133, 0.3087944664031613], [0.40880000000000133, 0.06175889328063226], [0.5100000000000016, 0.06175889328063226], [0.5100000000000016, 0.0], [0.40880000000000133, 0.0], [0.40880000000000133, 0.0], [0.3076000000000011, 0.0], [0.3076000000000011, 0.0], [0.2064000000000009, 0.0], [0.2064000000000009, 0.0], [0.10520000000000067, 0.0], [0.10520000000000067, 0.0]]}, "id": "el757634371811728"});
-   }(mpld3);
-}else if(typeof define === "function" && define.amd){
-   // require.js is available: use it to load d3/mpld3
-   require.config({paths: {d3: "https://mpld3.github.io/js/d3.v3.min"}});
-   require(["d3"], function(d3){
-      window.d3 = d3;
-      mpld3_load_lib("https://mpld3.github.io/js/mpld3.v0.2.js", function(){
-         
-         mpld3.draw_figure("fig_el7576343718117284082490231", {"axes": [{"xlim": [0.0, 0.60000000000000009], "yscale": "linear", "axesbg": "#FFFFFF", "texts": [{"v_baseline": "hanging", "h_anchor": "middle", "color": "#000000", "text": "Value", "coordinates": "axes", "zorder": 3, "alpha": 1, "fontsize": 12.0, "position": [0.5, -0.059895833333333329], "rotation": -0.0, "id": "el757634372077520"}, {"v_baseline": "auto", "h_anchor": "middle", "color": "#000000", "text": "Probability", "coordinates": "axes", "zorder": 3, "alpha": 1, "fontsize": 12.0, "position": [-0.059979838709677422, 0.5], "rotation": -90.0, "id": "el757634372151568"}], "zoomable": true, "images": [], "xdomain": [0.0, 0.60000000000000009], "ylim": [0.0, 4.5], "paths": [{"edgecolor": "#000000", "facecolor": "#FF0000", "edgewidth": 1.0, "pathcodes": ["M", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "Z"], "yindex": 1, "coordinates": "data", "dasharray": "10,0", "zorder": 1, "alpha": 1, "xindex": 0, "data": "data01", "id": "el757634434670480"}], "sharey": [], "sharex": [], "axesbgalpha": null, "axes": [{"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 12.0, "position": "bottom", "nticks": 8, "tickvalues": null}, {"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 12.0, "position": "left", "nticks": 10, "tickvalues": null}], "lines": [], "markers": [], "id": "el757634371983632", "ydomain": [0.0, 4.5], "collections": [], "xscale": "linear", "bbox": [0.125, 0.099999999999999978, 0.77500000000000002, 0.80000000000000004]}], "height": 480.0, "width": 640.0, "plugins": [{"type": "reset"}, {"enabled": false, "button": true, "type": "zoom"}, {"enabled": false, "button": true, "type": "boxzoom"}], "data": {"data01": [[0.004000000000000448, 0.0], [0.004000000000000448, 4.384881422924892], [0.10520000000000067, 4.384881422924892], [0.10520000000000067, 3.890810276679834], [0.2064000000000009, 3.890810276679834], [0.2064000000000009, 1.2351778656126458], [0.3076000000000011, 1.2351778656126458], [0.3076000000000011, 0.3087944664031613], [0.40880000000000133, 0.3087944664031613], [0.40880000000000133, 0.06175889328063226], [0.5100000000000016, 0.06175889328063226], [0.5100000000000016, 0.0], [0.40880000000000133, 0.0], [0.40880000000000133, 0.0], [0.3076000000000011, 0.0], [0.3076000000000011, 0.0], [0.2064000000000009, 0.0], [0.2064000000000009, 0.0], [0.10520000000000067, 0.0], [0.10520000000000067, 0.0]]}, "id": "el757634371811728"});
-      });
-    });
-}else{
-    // require.js not available: dynamically load d3 & mpld3
-    mpld3_load_lib("https://mpld3.github.io/js/d3.v3.min.js", function(){
-         mpld3_load_lib("https://mpld3.github.io/js/mpld3.v0.2.js", function(){
-                 
-                 mpld3.draw_figure("fig_el7576343718117284082490231", {"axes": [{"xlim": [0.0, 0.60000000000000009], "yscale": "linear", "axesbg": "#FFFFFF", "texts": [{"v_baseline": "hanging", "h_anchor": "middle", "color": "#000000", "text": "Value", "coordinates": "axes", "zorder": 3, "alpha": 1, "fontsize": 12.0, "position": [0.5, -0.059895833333333329], "rotation": -0.0, "id": "el757634372077520"}, {"v_baseline": "auto", "h_anchor": "middle", "color": "#000000", "text": "Probability", "coordinates": "axes", "zorder": 3, "alpha": 1, "fontsize": 12.0, "position": [-0.059979838709677422, 0.5], "rotation": -90.0, "id": "el757634372151568"}], "zoomable": true, "images": [], "xdomain": [0.0, 0.60000000000000009], "ylim": [0.0, 4.5], "paths": [{"edgecolor": "#000000", "facecolor": "#FF0000", "edgewidth": 1.0, "pathcodes": ["M", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "Z"], "yindex": 1, "coordinates": "data", "dasharray": "10,0", "zorder": 1, "alpha": 1, "xindex": 0, "data": "data01", "id": "el757634434670480"}], "sharey": [], "sharex": [], "axesbgalpha": null, "axes": [{"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 12.0, "position": "bottom", "nticks": 8, "tickvalues": null}, {"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 12.0, "position": "left", "nticks": 10, "tickvalues": null}], "lines": [], "markers": [], "id": "el757634371983632", "ydomain": [0.0, 4.5], "collections": [], "xscale": "linear", "bbox": [0.125, 0.099999999999999978, 0.77500000000000002, 0.80000000000000004]}], "height": 480.0, "width": 640.0, "plugins": [{"type": "reset"}, {"enabled": false, "button": true, "type": "zoom"}, {"enabled": false, "button": true, "type": "boxzoom"}], "data": {"data01": [[0.004000000000000448, 0.0], [0.004000000000000448, 4.384881422924892], [0.10520000000000067, 4.384881422924892], [0.10520000000000067, 3.890810276679834], [0.2064000000000009, 3.890810276679834], [0.2064000000000009, 1.2351778656126458], [0.3076000000000011, 1.2351778656126458], [0.3076000000000011, 0.3087944664031613], [0.40880000000000133, 0.3087944664031613], [0.40880000000000133, 0.06175889328063226], [0.5100000000000016, 0.06175889328063226], [0.5100000000000016, 0.0], [0.40880000000000133, 0.0], [0.40880000000000133, 0.0], [0.3076000000000011, 0.0], [0.3076000000000011, 0.0], [0.2064000000000009, 0.0], [0.2064000000000009, 0.0], [0.10520000000000067, 0.0], [0.10520000000000067, 0.0]]}, "id": "el757634371811728"});
-            })
-         });
-}
-</script>
-
-Here's a sample distribution on PRIMET, 150 m. 
-
-
-<style>
-
-</style>
-
-<div id="fig_el8906543718156961093860287"></div>
-<script>
-function mpld3_load_lib(url, callback){
-  var s = document.createElement('script');
-  s.src = url;
-  s.async = true;
-  s.onreadystatechange = s.onload = callback;
-  s.onerror = function(){console.warn("failed to load library " + url);};
-  document.getElementsByTagName("head")[0].appendChild(s);
-}
-
-if(typeof(mpld3) !== "undefined" && mpld3._mpld3IsLoaded){
-   // already loaded: just create the figure
-   !function(mpld3){
-       
-       mpld3.draw_figure("fig_el8906543718156961093860287", {"axes": [{"xlim": [0.0, 14.0], "yscale": "linear", "axesbg": "#FFFFFF", "texts": [{"v_baseline": "hanging", "h_anchor": "middle", "color": "#000000", "text": "Value", "coordinates": "axes", "zorder": 3, "alpha": 1, "fontsize": 12.0, "position": [0.5, -0.059895833333333329], "rotation": -0.0, "id": "el890654372093968"}, {"v_baseline": "auto", "h_anchor": "middle", "color": "#000000", "text": "Probability", "coordinates": "axes", "zorder": 3, "alpha": 1, "fontsize": 12.0, "position": [-0.076612903225806453, 0.5], "rotation": -90.0, "id": "el890654372159056"}], "zoomable": true, "images": [], "xdomain": [0.0, 14.0], "ylim": [0.0, 0.40000000000000002], "paths": [{"edgecolor": "#000000", "facecolor": "#FF0000", "edgewidth": 1.0, "pathcodes": ["M", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "Z"], "yindex": 1, "coordinates": "data", "dasharray": "10,0", "zorder": 1, "alpha": 1, "xindex": 0, "data": "data01", "id": "el890654434669264"}], "sharey": [], "sharex": [], "axesbgalpha": null, "axes": [{"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 12.0, "position": "bottom", "nticks": 8, "tickvalues": null}, {"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 12.0, "position": "left", "nticks": 10, "tickvalues": null}], "lines": [], "markers": [], "id": "el890654371971408", "ydomain": [0.0, 0.40000000000000002], "collections": [], "xscale": "linear", "bbox": [0.125, 0.099999999999999978, 0.77500000000000002, 0.80000000000000004]}], "height": 480.0, "width": 640.0, "plugins": [{"type": "reset"}, {"enabled": false, "button": true, "type": "zoom"}, {"enabled": false, "button": true, "type": "boxzoom"}], "data": {"data01": [[0.0, 0.0], [0.0, 0.3793018379178489], [2.419999999999999, 0.3793018379178489], [2.419999999999999, 0.015418773899099548], [4.839999999999998, 0.015418773899099548], [4.839999999999998, 0.015418773899099548], [7.259999999999997, 0.015418773899099548], [7.259999999999997, 0.0015418773899099551], [9.679999999999996, 0.0015418773899099551], [9.679999999999996, 0.0015418773899099555], [12.099999999999994, 0.0015418773899099555], [12.099999999999994, 0.0], [9.679999999999996, 0.0], [9.679999999999996, 0.0], [7.259999999999997, 0.0], [7.259999999999997, 0.0], [4.839999999999998, 0.0], [4.839999999999998, 0.0], [2.419999999999999, 0.0], [2.419999999999999, 0.0]]}, "id": "el890654371815696"});
-   }(mpld3);
-}else if(typeof define === "function" && define.amd){
-   // require.js is available: use it to load d3/mpld3
-   require.config({paths: {d3: "https://mpld3.github.io/js/d3.v3.min"}});
-   require(["d3"], function(d3){
-      window.d3 = d3;
-      mpld3_load_lib("https://mpld3.github.io/js/mpld3.v0.2.js", function(){
-         
-         mpld3.draw_figure("fig_el8906543718156961093860287", {"axes": [{"xlim": [0.0, 14.0], "yscale": "linear", "axesbg": "#FFFFFF", "texts": [{"v_baseline": "hanging", "h_anchor": "middle", "color": "#000000", "text": "Value", "coordinates": "axes", "zorder": 3, "alpha": 1, "fontsize": 12.0, "position": [0.5, -0.059895833333333329], "rotation": -0.0, "id": "el890654372093968"}, {"v_baseline": "auto", "h_anchor": "middle", "color": "#000000", "text": "Probability", "coordinates": "axes", "zorder": 3, "alpha": 1, "fontsize": 12.0, "position": [-0.076612903225806453, 0.5], "rotation": -90.0, "id": "el890654372159056"}], "zoomable": true, "images": [], "xdomain": [0.0, 14.0], "ylim": [0.0, 0.40000000000000002], "paths": [{"edgecolor": "#000000", "facecolor": "#FF0000", "edgewidth": 1.0, "pathcodes": ["M", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "Z"], "yindex": 1, "coordinates": "data", "dasharray": "10,0", "zorder": 1, "alpha": 1, "xindex": 0, "data": "data01", "id": "el890654434669264"}], "sharey": [], "sharex": [], "axesbgalpha": null, "axes": [{"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 12.0, "position": "bottom", "nticks": 8, "tickvalues": null}, {"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 12.0, "position": "left", "nticks": 10, "tickvalues": null}], "lines": [], "markers": [], "id": "el890654371971408", "ydomain": [0.0, 0.40000000000000002], "collections": [], "xscale": "linear", "bbox": [0.125, 0.099999999999999978, 0.77500000000000002, 0.80000000000000004]}], "height": 480.0, "width": 640.0, "plugins": [{"type": "reset"}, {"enabled": false, "button": true, "type": "zoom"}, {"enabled": false, "button": true, "type": "boxzoom"}], "data": {"data01": [[0.0, 0.0], [0.0, 0.3793018379178489], [2.419999999999999, 0.3793018379178489], [2.419999999999999, 0.015418773899099548], [4.839999999999998, 0.015418773899099548], [4.839999999999998, 0.015418773899099548], [7.259999999999997, 0.015418773899099548], [7.259999999999997, 0.0015418773899099551], [9.679999999999996, 0.0015418773899099551], [9.679999999999996, 0.0015418773899099555], [12.099999999999994, 0.0015418773899099555], [12.099999999999994, 0.0], [9.679999999999996, 0.0], [9.679999999999996, 0.0], [7.259999999999997, 0.0], [7.259999999999997, 0.0], [4.839999999999998, 0.0], [4.839999999999998, 0.0], [2.419999999999999, 0.0], [2.419999999999999, 0.0]]}, "id": "el890654371815696"});
-      });
-    });
-}else{
-    // require.js not available: dynamically load d3 & mpld3
-    mpld3_load_lib("https://mpld3.github.io/js/d3.v3.min.js", function(){
-         mpld3_load_lib("https://mpld3.github.io/js/mpld3.v0.2.js", function(){
-                 
-                 mpld3.draw_figure("fig_el8906543718156961093860287", {"axes": [{"xlim": [0.0, 14.0], "yscale": "linear", "axesbg": "#FFFFFF", "texts": [{"v_baseline": "hanging", "h_anchor": "middle", "color": "#000000", "text": "Value", "coordinates": "axes", "zorder": 3, "alpha": 1, "fontsize": 12.0, "position": [0.5, -0.059895833333333329], "rotation": -0.0, "id": "el890654372093968"}, {"v_baseline": "auto", "h_anchor": "middle", "color": "#000000", "text": "Probability", "coordinates": "axes", "zorder": 3, "alpha": 1, "fontsize": 12.0, "position": [-0.076612903225806453, 0.5], "rotation": -90.0, "id": "el890654372159056"}], "zoomable": true, "images": [], "xdomain": [0.0, 14.0], "ylim": [0.0, 0.40000000000000002], "paths": [{"edgecolor": "#000000", "facecolor": "#FF0000", "edgewidth": 1.0, "pathcodes": ["M", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "Z"], "yindex": 1, "coordinates": "data", "dasharray": "10,0", "zorder": 1, "alpha": 1, "xindex": 0, "data": "data01", "id": "el890654434669264"}], "sharey": [], "sharex": [], "axesbgalpha": null, "axes": [{"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 12.0, "position": "bottom", "nticks": 8, "tickvalues": null}, {"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 12.0, "position": "left", "nticks": 10, "tickvalues": null}], "lines": [], "markers": [], "id": "el890654371971408", "ydomain": [0.0, 0.40000000000000002], "collections": [], "xscale": "linear", "bbox": [0.125, 0.099999999999999978, 0.77500000000000002, 0.80000000000000004]}], "height": 480.0, "width": 640.0, "plugins": [{"type": "reset"}, {"enabled": false, "button": true, "type": "zoom"}, {"enabled": false, "button": true, "type": "boxzoom"}], "data": {"data01": [[0.0, 0.0], [0.0, 0.3793018379178489], [2.419999999999999, 0.3793018379178489], [2.419999999999999, 0.015418773899099548], [4.839999999999998, 0.015418773899099548], [4.839999999999998, 0.015418773899099548], [7.259999999999997, 0.015418773899099548], [7.259999999999997, 0.0015418773899099551], [9.679999999999996, 0.0015418773899099551], [9.679999999999996, 0.0015418773899099555], [12.099999999999994, 0.0015418773899099555], [12.099999999999994, 0.0], [9.679999999999996, 0.0], [9.679999999999996, 0.0], [7.259999999999997, 0.0], [7.259999999999997, 0.0], [4.839999999999998, 0.0], [4.839999999999998, 0.0], [2.419999999999999, 0.0], [2.419999999999999, 0.0]]}, "id": "el890654371815696"});
-            })
-         });
-}
-</script>
-
-Here are some images from Relative Humidity, doing the same analyses
-
- Differences in Maximums on CENMET for Relative Humidity
-
-
-<style>
-
-</style>
-
-<div id="fig_el894314439172816866256538"></div>
-<script>
-function mpld3_load_lib(url, callback){
-  var s = document.createElement('script');
-  s.src = url;
-  s.async = true;
-  s.onreadystatechange = s.onload = callback;
-  s.onerror = function(){console.warn("failed to load library " + url);};
-  document.getElementsByTagName("head")[0].appendChild(s);
-}
-
-if(typeof(mpld3) !== "undefined" && mpld3._mpld3IsLoaded){
-   // already loaded: just create the figure
-   !function(mpld3){
-       
-       mpld3.draw_figure("fig_el894314439172816866256538", {"axes": [{"xlim": [0.0, 60.0], "yscale": "linear", "axesbg": "#FFFFFF", "texts": [{"v_baseline": "hanging", "h_anchor": "middle", "color": "#000000", "text": "Value", "coordinates": "axes", "zorder": 3, "alpha": 1, "fontsize": 12.0, "position": [0.5, -0.059895833333333329], "rotation": -0.0, "id": "el894314438995536"}, {"v_baseline": "auto", "h_anchor": "middle", "color": "#000000", "text": "Probability", "coordinates": "axes", "zorder": 3, "alpha": 1, "fontsize": 12.0, "position": [-0.076675907258064516, 0.5], "rotation": -90.0, "id": "el894314438727952"}], "zoomable": true, "images": [], "xdomain": [0.0, 60.0], "ylim": [0.0, 0.089999999999999997], "paths": [{"edgecolor": "#000000", "facecolor": "#FF0000", "edgewidth": 1.0, "pathcodes": ["M", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "Z"], "yindex": 1, "coordinates": "data", "dasharray": "10,0", "zorder": 1, "alpha": 1, "xindex": 0, "data": "data01", "id": "el894314371179792"}], "sharey": [], "sharex": [], "axesbgalpha": null, "axes": [{"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 12.0, "position": "bottom", "nticks": 7, "tickvalues": null}, {"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 12.0, "position": "left", "nticks": 10, "tickvalues": null}], "lines": [], "markers": [], "id": "el894314439448720", "ydomain": [0.0, 0.089999999999999997], "collections": [], "xscale": "linear", "bbox": [0.125, 0.099999999999999978, 0.77500000000000002, 0.80000000000000004]}], "height": 480.0, "width": 640.0, "plugins": [{"type": "reset"}, {"enabled": false, "button": true, "type": "zoom"}, {"enabled": false, "button": true, "type": "boxzoom"}], "data": {"data01": [[0.0, 0.0], [0.0, 0.082785298174716], [11.026, 0.082785298174716], [11.026, 0.0036910642498281018], [22.052, 0.0036910642498281018], [22.052, 0.002636474464162929], [33.078, 0.002636474464162929], [33.078, 0.0010545897856651723], [44.104, 0.0010545897856651723], [44.104, 0.0005272948928325862], [55.129999999999995, 0.0005272948928325862], [55.129999999999995, 0.0], [44.104, 0.0], [44.104, 0.0], [33.078, 0.0], [33.078, 0.0], [22.052, 0.0], [22.052, 0.0], [11.026, 0.0], [11.026, 0.0]]}, "id": "el894314439172816"});
-   }(mpld3);
-}else if(typeof define === "function" && define.amd){
-   // require.js is available: use it to load d3/mpld3
-   require.config({paths: {d3: "https://mpld3.github.io/js/d3.v3.min"}});
-   require(["d3"], function(d3){
-      window.d3 = d3;
-      mpld3_load_lib("https://mpld3.github.io/js/mpld3.v0.2.js", function(){
-         
-         mpld3.draw_figure("fig_el894314439172816866256538", {"axes": [{"xlim": [0.0, 60.0], "yscale": "linear", "axesbg": "#FFFFFF", "texts": [{"v_baseline": "hanging", "h_anchor": "middle", "color": "#000000", "text": "Value", "coordinates": "axes", "zorder": 3, "alpha": 1, "fontsize": 12.0, "position": [0.5, -0.059895833333333329], "rotation": -0.0, "id": "el894314438995536"}, {"v_baseline": "auto", "h_anchor": "middle", "color": "#000000", "text": "Probability", "coordinates": "axes", "zorder": 3, "alpha": 1, "fontsize": 12.0, "position": [-0.076675907258064516, 0.5], "rotation": -90.0, "id": "el894314438727952"}], "zoomable": true, "images": [], "xdomain": [0.0, 60.0], "ylim": [0.0, 0.089999999999999997], "paths": [{"edgecolor": "#000000", "facecolor": "#FF0000", "edgewidth": 1.0, "pathcodes": ["M", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "Z"], "yindex": 1, "coordinates": "data", "dasharray": "10,0", "zorder": 1, "alpha": 1, "xindex": 0, "data": "data01", "id": "el894314371179792"}], "sharey": [], "sharex": [], "axesbgalpha": null, "axes": [{"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 12.0, "position": "bottom", "nticks": 7, "tickvalues": null}, {"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 12.0, "position": "left", "nticks": 10, "tickvalues": null}], "lines": [], "markers": [], "id": "el894314439448720", "ydomain": [0.0, 0.089999999999999997], "collections": [], "xscale": "linear", "bbox": [0.125, 0.099999999999999978, 0.77500000000000002, 0.80000000000000004]}], "height": 480.0, "width": 640.0, "plugins": [{"type": "reset"}, {"enabled": false, "button": true, "type": "zoom"}, {"enabled": false, "button": true, "type": "boxzoom"}], "data": {"data01": [[0.0, 0.0], [0.0, 0.082785298174716], [11.026, 0.082785298174716], [11.026, 0.0036910642498281018], [22.052, 0.0036910642498281018], [22.052, 0.002636474464162929], [33.078, 0.002636474464162929], [33.078, 0.0010545897856651723], [44.104, 0.0010545897856651723], [44.104, 0.0005272948928325862], [55.129999999999995, 0.0005272948928325862], [55.129999999999995, 0.0], [44.104, 0.0], [44.104, 0.0], [33.078, 0.0], [33.078, 0.0], [22.052, 0.0], [22.052, 0.0], [11.026, 0.0], [11.026, 0.0]]}, "id": "el894314439172816"});
-      });
-    });
-}else{
-    // require.js not available: dynamically load d3 & mpld3
-    mpld3_load_lib("https://mpld3.github.io/js/d3.v3.min.js", function(){
-         mpld3_load_lib("https://mpld3.github.io/js/mpld3.v0.2.js", function(){
-                 
-                 mpld3.draw_figure("fig_el894314439172816866256538", {"axes": [{"xlim": [0.0, 60.0], "yscale": "linear", "axesbg": "#FFFFFF", "texts": [{"v_baseline": "hanging", "h_anchor": "middle", "color": "#000000", "text": "Value", "coordinates": "axes", "zorder": 3, "alpha": 1, "fontsize": 12.0, "position": [0.5, -0.059895833333333329], "rotation": -0.0, "id": "el894314438995536"}, {"v_baseline": "auto", "h_anchor": "middle", "color": "#000000", "text": "Probability", "coordinates": "axes", "zorder": 3, "alpha": 1, "fontsize": 12.0, "position": [-0.076675907258064516, 0.5], "rotation": -90.0, "id": "el894314438727952"}], "zoomable": true, "images": [], "xdomain": [0.0, 60.0], "ylim": [0.0, 0.089999999999999997], "paths": [{"edgecolor": "#000000", "facecolor": "#FF0000", "edgewidth": 1.0, "pathcodes": ["M", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "Z"], "yindex": 1, "coordinates": "data", "dasharray": "10,0", "zorder": 1, "alpha": 1, "xindex": 0, "data": "data01", "id": "el894314371179792"}], "sharey": [], "sharex": [], "axesbgalpha": null, "axes": [{"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 12.0, "position": "bottom", "nticks": 7, "tickvalues": null}, {"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 12.0, "position": "left", "nticks": 10, "tickvalues": null}], "lines": [], "markers": [], "id": "el894314439448720", "ydomain": [0.0, 0.089999999999999997], "collections": [], "xscale": "linear", "bbox": [0.125, 0.099999999999999978, 0.77500000000000002, 0.80000000000000004]}], "height": 480.0, "width": 640.0, "plugins": [{"type": "reset"}, {"enabled": false, "button": true, "type": "zoom"}, {"enabled": false, "button": true, "type": "boxzoom"}], "data": {"data01": [[0.0, 0.0], [0.0, 0.082785298174716], [11.026, 0.082785298174716], [11.026, 0.0036910642498281018], [22.052, 0.0036910642498281018], [22.052, 0.002636474464162929], [33.078, 0.002636474464162929], [33.078, 0.0010545897856651723], [44.104, 0.0010545897856651723], [44.104, 0.0005272948928325862], [55.129999999999995, 0.0005272948928325862], [55.129999999999995, 0.0], [44.104, 0.0], [44.104, 0.0], [33.078, 0.0], [33.078, 0.0], [22.052, 0.0], [22.052, 0.0], [11.026, 0.0], [11.026, 0.0]]}, "id": "el894314439172816"});
-            })
-         });
-}
-</script>
-
-
-Differences between "Minimums" in Relative Humidity on CENMET, 150
-
-<style>
-
-</style>
-
-<div id="fig_el894314436265552162221783"></div>
-<script>
-function mpld3_load_lib(url, callback){
-  var s = document.createElement('script');
-  s.src = url;
-  s.async = true;
-  s.onreadystatechange = s.onload = callback;
-  s.onerror = function(){console.warn("failed to load library " + url);};
-  document.getElementsByTagName("head")[0].appendChild(s);
-}
-
-if(typeof(mpld3) !== "undefined" && mpld3._mpld3IsLoaded){
-   // already loaded: just create the figure
-   !function(mpld3){
-       
-       mpld3.draw_figure("fig_el894314436265552162221783", {"axes": [{"xlim": [0.0, 70.0], "yscale": "linear", "axesbg": "#FFFFFF", "texts": [{"v_baseline": "hanging", "h_anchor": "middle", "color": "#000000", "text": "Value", "coordinates": "axes", "zorder": 3, "alpha": 1, "fontsize": 12.0, "position": [0.5, -0.059895833333333329], "rotation": -0.0, "id": "el894314439282576"}, {"v_baseline": "auto", "h_anchor": "middle", "color": "#000000", "text": "Probability", "coordinates": "axes", "zorder": 3, "alpha": 1, "fontsize": 12.0, "position": [-0.09375, 0.5], "rotation": -90.0, "id": "el894314440887120"}], "zoomable": true, "images": [], "xdomain": [0.0, 70.0], "ylim": [0.0, 0.040000000000000001], "paths": [{"edgecolor": "#000000", "facecolor": "#FF0000", "edgewidth": 1.0, "pathcodes": ["M", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "Z"], "yindex": 1, "coordinates": "data", "dasharray": "10,0", "zorder": 1, "alpha": 1, "xindex": 0, "data": "data01", "id": "el894314438770000"}], "sharey": [], "sharex": [], "axesbgalpha": null, "axes": [{"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 12.0, "position": "bottom", "nticks": 8, "tickvalues": null}, {"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 12.0, "position": "left", "nticks": 10, "tickvalues": null}], "lines": [], "markers": [], "id": "el894314436364368", "ydomain": [0.0, 0.040000000000000001], "collections": [], "xscale": "linear", "bbox": [0.125, 0.099999999999999978, 0.77500000000000002, 0.80000000000000004]}], "height": 480.0, "width": 640.0, "plugins": [{"type": "reset"}, {"enabled": false, "button": true, "type": "zoom"}, {"enabled": false, "button": true, "type": "boxzoom"}], "data": {"data01": [[0.09000000000000341, 0.0], [0.09000000000000341, 0.03865780114427091], [13.024000000000004, 0.03865780114427091], [13.024000000000004, 0.024273503044077084], [25.958000000000006, 0.024273503044077084], [25.958000000000006, 0.008540676996990083], [38.89200000000001, 0.008540676996990083], [38.89200000000001, 0.004045583840679515], [51.82600000000001, 0.004045583840679515], [51.82600000000001, 0.0017980372625242289], [64.76, 0.0017980372625242289], [64.76, 0.0], [51.82600000000001, 0.0], [51.82600000000001, 0.0], [38.89200000000001, 0.0], [38.89200000000001, 0.0], [25.958000000000006, 0.0], [25.958000000000006, 0.0], [13.024000000000004, 0.0], [13.024000000000004, 0.0]]}, "id": "el894314436265552"});
-   }(mpld3);
-}else if(typeof define === "function" && define.amd){
-   // require.js is available: use it to load d3/mpld3
-   require.config({paths: {d3: "https://mpld3.github.io/js/d3.v3.min"}});
-   require(["d3"], function(d3){
-      window.d3 = d3;
-      mpld3_load_lib("https://mpld3.github.io/js/mpld3.v0.2.js", function(){
-         
-         mpld3.draw_figure("fig_el894314436265552162221783", {"axes": [{"xlim": [0.0, 70.0], "yscale": "linear", "axesbg": "#FFFFFF", "texts": [{"v_baseline": "hanging", "h_anchor": "middle", "color": "#000000", "text": "Value", "coordinates": "axes", "zorder": 3, "alpha": 1, "fontsize": 12.0, "position": [0.5, -0.059895833333333329], "rotation": -0.0, "id": "el894314439282576"}, {"v_baseline": "auto", "h_anchor": "middle", "color": "#000000", "text": "Probability", "coordinates": "axes", "zorder": 3, "alpha": 1, "fontsize": 12.0, "position": [-0.09375, 0.5], "rotation": -90.0, "id": "el894314440887120"}], "zoomable": true, "images": [], "xdomain": [0.0, 70.0], "ylim": [0.0, 0.040000000000000001], "paths": [{"edgecolor": "#000000", "facecolor": "#FF0000", "edgewidth": 1.0, "pathcodes": ["M", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "Z"], "yindex": 1, "coordinates": "data", "dasharray": "10,0", "zorder": 1, "alpha": 1, "xindex": 0, "data": "data01", "id": "el894314438770000"}], "sharey": [], "sharex": [], "axesbgalpha": null, "axes": [{"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 12.0, "position": "bottom", "nticks": 8, "tickvalues": null}, {"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 12.0, "position": "left", "nticks": 10, "tickvalues": null}], "lines": [], "markers": [], "id": "el894314436364368", "ydomain": [0.0, 0.040000000000000001], "collections": [], "xscale": "linear", "bbox": [0.125, 0.099999999999999978, 0.77500000000000002, 0.80000000000000004]}], "height": 480.0, "width": 640.0, "plugins": [{"type": "reset"}, {"enabled": false, "button": true, "type": "zoom"}, {"enabled": false, "button": true, "type": "boxzoom"}], "data": {"data01": [[0.09000000000000341, 0.0], [0.09000000000000341, 0.03865780114427091], [13.024000000000004, 0.03865780114427091], [13.024000000000004, 0.024273503044077084], [25.958000000000006, 0.024273503044077084], [25.958000000000006, 0.008540676996990083], [38.89200000000001, 0.008540676996990083], [38.89200000000001, 0.004045583840679515], [51.82600000000001, 0.004045583840679515], [51.82600000000001, 0.0017980372625242289], [64.76, 0.0017980372625242289], [64.76, 0.0], [51.82600000000001, 0.0], [51.82600000000001, 0.0], [38.89200000000001, 0.0], [38.89200000000001, 0.0], [25.958000000000006, 0.0], [25.958000000000006, 0.0], [13.024000000000004, 0.0], [13.024000000000004, 0.0]]}, "id": "el894314436265552"});
-      });
-    });
-}else{
-    // require.js not available: dynamically load d3 & mpld3
-    mpld3_load_lib("https://mpld3.github.io/js/d3.v3.min.js", function(){
-         mpld3_load_lib("https://mpld3.github.io/js/mpld3.v0.2.js", function(){
-                 
-                 mpld3.draw_figure("fig_el894314436265552162221783", {"axes": [{"xlim": [0.0, 70.0], "yscale": "linear", "axesbg": "#FFFFFF", "texts": [{"v_baseline": "hanging", "h_anchor": "middle", "color": "#000000", "text": "Value", "coordinates": "axes", "zorder": 3, "alpha": 1, "fontsize": 12.0, "position": [0.5, -0.059895833333333329], "rotation": -0.0, "id": "el894314439282576"}, {"v_baseline": "auto", "h_anchor": "middle", "color": "#000000", "text": "Probability", "coordinates": "axes", "zorder": 3, "alpha": 1, "fontsize": 12.0, "position": [-0.09375, 0.5], "rotation": -90.0, "id": "el894314440887120"}], "zoomable": true, "images": [], "xdomain": [0.0, 70.0], "ylim": [0.0, 0.040000000000000001], "paths": [{"edgecolor": "#000000", "facecolor": "#FF0000", "edgewidth": 1.0, "pathcodes": ["M", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "Z"], "yindex": 1, "coordinates": "data", "dasharray": "10,0", "zorder": 1, "alpha": 1, "xindex": 0, "data": "data01", "id": "el894314438770000"}], "sharey": [], "sharex": [], "axesbgalpha": null, "axes": [{"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 12.0, "position": "bottom", "nticks": 8, "tickvalues": null}, {"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 12.0, "position": "left", "nticks": 10, "tickvalues": null}], "lines": [], "markers": [], "id": "el894314436364368", "ydomain": [0.0, 0.040000000000000001], "collections": [], "xscale": "linear", "bbox": [0.125, 0.099999999999999978, 0.77500000000000002, 0.80000000000000004]}], "height": 480.0, "width": 640.0, "plugins": [{"type": "reset"}, {"enabled": false, "button": true, "type": "zoom"}, {"enabled": false, "button": true, "type": "boxzoom"}], "data": {"data01": [[0.09000000000000341, 0.0], [0.09000000000000341, 0.03865780114427091], [13.024000000000004, 0.03865780114427091], [13.024000000000004, 0.024273503044077084], [25.958000000000006, 0.024273503044077084], [25.958000000000006, 0.008540676996990083], [38.89200000000001, 0.008540676996990083], [38.89200000000001, 0.004045583840679515], [51.82600000000001, 0.004045583840679515], [51.82600000000001, 0.0017980372625242289], [64.76, 0.0017980372625242289], [64.76, 0.0], [51.82600000000001, 0.0], [51.82600000000001, 0.0], [38.89200000000001, 0.0], [38.89200000000001, 0.0], [25.958000000000006, 0.0], [25.958000000000006, 0.0], [13.024000000000004, 0.0], [13.024000000000004, 0.0]]}, "id": "el894314436265552"});
-            })
-         });
-}
-</script>
-
-Differences in Maximums on Vanmet for Relative Humidity
-
-<style>
-
-</style>
-
-<div id="fig_el8943144392849445631979735"></div>
-<script>
-function mpld3_load_lib(url, callback){
-  var s = document.createElement('script');
-  s.src = url;
-  s.async = true;
-  s.onreadystatechange = s.onload = callback;
-  s.onerror = function(){console.warn("failed to load library " + url);};
-  document.getElementsByTagName("head")[0].appendChild(s);
-}
-
-if(typeof(mpld3) !== "undefined" && mpld3._mpld3IsLoaded){
-   // already loaded: just create the figure
-   !function(mpld3){
-       
-       mpld3.draw_figure("fig_el8943144392849445631979735", {"axes": [{"xlim": [0.0, 60.0], "yscale": "linear", "axesbg": "#FFFFFF", "texts": [{"v_baseline": "hanging", "h_anchor": "middle", "color": "#000000", "text": "Value", "coordinates": "axes", "zorder": 3, "alpha": 1, "fontsize": 12.0, "position": [0.5, -0.059895833333333329], "rotation": -0.0, "id": "el894314371109392"}, {"v_baseline": "auto", "h_anchor": "middle", "color": "#000000", "text": "Probability", "coordinates": "axes", "zorder": 3, "alpha": 1, "fontsize": 12.0, "position": [-0.076675907258064516, 0.5], "rotation": -90.0, "id": "el894314436413584"}], "zoomable": true, "images": [], "xdomain": [0.0, 60.0], "ylim": [0.0, 0.070000000000000007], "paths": [{"edgecolor": "#000000", "facecolor": "#FF0000", "edgewidth": 1.0, "pathcodes": ["M", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "Z"], "yindex": 1, "coordinates": "data", "dasharray": "10,0", "zorder": 1, "alpha": 1, "xindex": 0, "data": "data01", "id": "el894314441008400"}], "sharey": [], "sharex": [], "axesbgalpha": null, "axes": [{"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 12.0, "position": "bottom", "nticks": 7, "tickvalues": null}, {"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 12.0, "position": "left", "nticks": 9, "tickvalues": null}], "lines": [], "markers": [], "id": "el894314439253776", "ydomain": [0.0, 0.070000000000000007], "collections": [], "xscale": "linear", "bbox": [0.125, 0.099999999999999978, 0.77500000000000002, 0.80000000000000004]}], "height": 480.0, "width": 640.0, "plugins": [{"type": "reset"}, {"enabled": false, "button": true, "type": "zoom"}, {"enabled": false, "button": true, "type": "boxzoom"}], "data": {"data01": [[0.0, 0.0], [0.0, 0.06223297608048893], [10.774000000000001, 0.06223297608048893], [10.774000000000001, 0.016358382284014233], [21.548000000000002, 0.016358382284014233], [21.548000000000002, 0.005689872098787559], [32.322, 0.005689872098787559], [32.322, 0.005334255092613337], [43.096000000000004, 0.005334255092613337], [43.096000000000004, 0.0032005530555680017], [53.870000000000005, 0.0032005530555680017], [53.870000000000005, 0.0], [43.096000000000004, 0.0], [43.096000000000004, 0.0], [32.322, 0.0], [32.322, 0.0], [21.548000000000002, 0.0], [21.548000000000002, 0.0], [10.774000000000001, 0.0], [10.774000000000001, 0.0]]}, "id": "el894314439284944"});
-   }(mpld3);
-}else if(typeof define === "function" && define.amd){
-   // require.js is available: use it to load d3/mpld3
-   require.config({paths: {d3: "https://mpld3.github.io/js/d3.v3.min"}});
-   require(["d3"], function(d3){
-      window.d3 = d3;
-      mpld3_load_lib("https://mpld3.github.io/js/mpld3.v0.2.js", function(){
-         
-         mpld3.draw_figure("fig_el8943144392849445631979735", {"axes": [{"xlim": [0.0, 60.0], "yscale": "linear", "axesbg": "#FFFFFF", "texts": [{"v_baseline": "hanging", "h_anchor": "middle", "color": "#000000", "text": "Value", "coordinates": "axes", "zorder": 3, "alpha": 1, "fontsize": 12.0, "position": [0.5, -0.059895833333333329], "rotation": -0.0, "id": "el894314371109392"}, {"v_baseline": "auto", "h_anchor": "middle", "color": "#000000", "text": "Probability", "coordinates": "axes", "zorder": 3, "alpha": 1, "fontsize": 12.0, "position": [-0.076675907258064516, 0.5], "rotation": -90.0, "id": "el894314436413584"}], "zoomable": true, "images": [], "xdomain": [0.0, 60.0], "ylim": [0.0, 0.070000000000000007], "paths": [{"edgecolor": "#000000", "facecolor": "#FF0000", "edgewidth": 1.0, "pathcodes": ["M", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "Z"], "yindex": 1, "coordinates": "data", "dasharray": "10,0", "zorder": 1, "alpha": 1, "xindex": 0, "data": "data01", "id": "el894314441008400"}], "sharey": [], "sharex": [], "axesbgalpha": null, "axes": [{"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 12.0, "position": "bottom", "nticks": 7, "tickvalues": null}, {"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 12.0, "position": "left", "nticks": 9, "tickvalues": null}], "lines": [], "markers": [], "id": "el894314439253776", "ydomain": [0.0, 0.070000000000000007], "collections": [], "xscale": "linear", "bbox": [0.125, 0.099999999999999978, 0.77500000000000002, 0.80000000000000004]}], "height": 480.0, "width": 640.0, "plugins": [{"type": "reset"}, {"enabled": false, "button": true, "type": "zoom"}, {"enabled": false, "button": true, "type": "boxzoom"}], "data": {"data01": [[0.0, 0.0], [0.0, 0.06223297608048893], [10.774000000000001, 0.06223297608048893], [10.774000000000001, 0.016358382284014233], [21.548000000000002, 0.016358382284014233], [21.548000000000002, 0.005689872098787559], [32.322, 0.005689872098787559], [32.322, 0.005334255092613337], [43.096000000000004, 0.005334255092613337], [43.096000000000004, 0.0032005530555680017], [53.870000000000005, 0.0032005530555680017], [53.870000000000005, 0.0], [43.096000000000004, 0.0], [43.096000000000004, 0.0], [32.322, 0.0], [32.322, 0.0], [21.548000000000002, 0.0], [21.548000000000002, 0.0], [10.774000000000001, 0.0], [10.774000000000001, 0.0]]}, "id": "el894314439284944"});
-      });
-    });
-}else{
-    // require.js not available: dynamically load d3 & mpld3
-    mpld3_load_lib("https://mpld3.github.io/js/d3.v3.min.js", function(){
-         mpld3_load_lib("https://mpld3.github.io/js/mpld3.v0.2.js", function(){
-                 
-                 mpld3.draw_figure("fig_el8943144392849445631979735", {"axes": [{"xlim": [0.0, 60.0], "yscale": "linear", "axesbg": "#FFFFFF", "texts": [{"v_baseline": "hanging", "h_anchor": "middle", "color": "#000000", "text": "Value", "coordinates": "axes", "zorder": 3, "alpha": 1, "fontsize": 12.0, "position": [0.5, -0.059895833333333329], "rotation": -0.0, "id": "el894314371109392"}, {"v_baseline": "auto", "h_anchor": "middle", "color": "#000000", "text": "Probability", "coordinates": "axes", "zorder": 3, "alpha": 1, "fontsize": 12.0, "position": [-0.076675907258064516, 0.5], "rotation": -90.0, "id": "el894314436413584"}], "zoomable": true, "images": [], "xdomain": [0.0, 60.0], "ylim": [0.0, 0.070000000000000007], "paths": [{"edgecolor": "#000000", "facecolor": "#FF0000", "edgewidth": 1.0, "pathcodes": ["M", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "Z"], "yindex": 1, "coordinates": "data", "dasharray": "10,0", "zorder": 1, "alpha": 1, "xindex": 0, "data": "data01", "id": "el894314441008400"}], "sharey": [], "sharex": [], "axesbgalpha": null, "axes": [{"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 12.0, "position": "bottom", "nticks": 7, "tickvalues": null}, {"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 12.0, "position": "left", "nticks": 9, "tickvalues": null}], "lines": [], "markers": [], "id": "el894314439253776", "ydomain": [0.0, 0.070000000000000007], "collections": [], "xscale": "linear", "bbox": [0.125, 0.099999999999999978, 0.77500000000000002, 0.80000000000000004]}], "height": 480.0, "width": 640.0, "plugins": [{"type": "reset"}, {"enabled": false, "button": true, "type": "zoom"}, {"enabled": false, "button": true, "type": "boxzoom"}], "data": {"data01": [[0.0, 0.0], [0.0, 0.06223297608048893], [10.774000000000001, 0.06223297608048893], [10.774000000000001, 0.016358382284014233], [21.548000000000002, 0.016358382284014233], [21.548000000000002, 0.005689872098787559], [32.322, 0.005689872098787559], [32.322, 0.005334255092613337], [43.096000000000004, 0.005334255092613337], [43.096000000000004, 0.0032005530555680017], [53.870000000000005, 0.0032005530555680017], [53.870000000000005, 0.0], [43.096000000000004, 0.0], [43.096000000000004, 0.0], [32.322, 0.0], [32.322, 0.0], [21.548000000000002, 0.0], [21.548000000000002, 0.0], [10.774000000000001, 0.0], [10.774000000000001, 0.0]]}, "id": "el894314439284944"});
-            })
-         });
-}
-</script>
-
-Differences in Minimums on VANMET for relative humidity.
-
-<style>
-
-</style>
-
-<div id="fig_el8943144362665127506890787"></div>
-<script>
-function mpld3_load_lib(url, callback){
-  var s = document.createElement('script');
-  s.src = url;
-  s.async = true;
-  s.onreadystatechange = s.onload = callback;
-  s.onerror = function(){console.warn("failed to load library " + url);};
-  document.getElementsByTagName("head")[0].appendChild(s);
-}
-
-if(typeof(mpld3) !== "undefined" && mpld3._mpld3IsLoaded){
-   // already loaded: just create the figure
-   !function(mpld3){
-       
-       mpld3.draw_figure("fig_el8943144362665127506890787", {"axes": [{"xlim": [0.0, 90.0], "yscale": "linear", "axesbg": "#FFFFFF", "texts": [{"v_baseline": "hanging", "h_anchor": "middle", "color": "#000000", "text": "Value", "coordinates": "axes", "zorder": 3, "alpha": 1, "fontsize": 12.0, "position": [0.5, -0.059895833333333329], "rotation": -0.0, "id": "el894314438481936"}, {"v_baseline": "auto", "h_anchor": "middle", "color": "#000000", "text": "Probability", "coordinates": "axes", "zorder": 3, "alpha": 1, "fontsize": 12.0, "position": [-0.09375, 0.5], "rotation": -90.0, "id": "el894314439448208"}], "zoomable": true, "images": [], "xdomain": [0.0, 90.0], "ylim": [0.0, 0.025000000000000001], "paths": [{"edgecolor": "#000000", "facecolor": "#FF0000", "edgewidth": 1.0, "pathcodes": ["M", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "Z"], "yindex": 1, "coordinates": "data", "dasharray": "10,0", "zorder": 1, "alpha": 1, "xindex": 0, "data": "data01", "id": "el894314438854160"}], "sharey": [], "sharex": [], "axesbgalpha": null, "axes": [{"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 12.0, "position": "bottom", "nticks": 10, "tickvalues": null}, {"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 12.0, "position": "left", "nticks": 7, "tickvalues": null}], "lines": [], "markers": [], "id": "el894314436572944", "ydomain": [0.0, 0.025000000000000001], "collections": [], "xscale": "linear", "bbox": [0.125, 0.099999999999999978, 0.77500000000000002, 0.80000000000000004]}], "height": 480.0, "width": 640.0, "plugins": [{"type": "reset"}, {"enabled": false, "button": true, "type": "zoom"}, {"enabled": false, "button": true, "type": "boxzoom"}], "data": {"data01": [[0.0, 0.0], [0.0, 0.024661998502664376], [17.4, 0.024661998502664376], [17.4, 0.01629453472497468], [34.8, 0.01629453472497468], [34.8, 0.008807856608094421], [52.199999999999996, 0.008807856608094421], [52.199999999999996, 0.006165499625666094], [69.6, 0.006165499625666094], [69.6, 0.0015413749064165229], [87.0, 0.0015413749064165229], [87.0, 0.0], [69.6, 0.0], [69.6, 0.0], [52.199999999999996, 0.0], [52.199999999999996, 0.0], [34.8, 0.0], [34.8, 0.0], [17.4, 0.0], [17.4, 0.0]]}, "id": "el894314436266512"});
-   }(mpld3);
-}else if(typeof define === "function" && define.amd){
-   // require.js is available: use it to load d3/mpld3
-   require.config({paths: {d3: "https://mpld3.github.io/js/d3.v3.min"}});
-   require(["d3"], function(d3){
-      window.d3 = d3;
-      mpld3_load_lib("https://mpld3.github.io/js/mpld3.v0.2.js", function(){
-         
-         mpld3.draw_figure("fig_el8943144362665127506890787", {"axes": [{"xlim": [0.0, 90.0], "yscale": "linear", "axesbg": "#FFFFFF", "texts": [{"v_baseline": "hanging", "h_anchor": "middle", "color": "#000000", "text": "Value", "coordinates": "axes", "zorder": 3, "alpha": 1, "fontsize": 12.0, "position": [0.5, -0.059895833333333329], "rotation": -0.0, "id": "el894314438481936"}, {"v_baseline": "auto", "h_anchor": "middle", "color": "#000000", "text": "Probability", "coordinates": "axes", "zorder": 3, "alpha": 1, "fontsize": 12.0, "position": [-0.09375, 0.5], "rotation": -90.0, "id": "el894314439448208"}], "zoomable": true, "images": [], "xdomain": [0.0, 90.0], "ylim": [0.0, 0.025000000000000001], "paths": [{"edgecolor": "#000000", "facecolor": "#FF0000", "edgewidth": 1.0, "pathcodes": ["M", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "Z"], "yindex": 1, "coordinates": "data", "dasharray": "10,0", "zorder": 1, "alpha": 1, "xindex": 0, "data": "data01", "id": "el894314438854160"}], "sharey": [], "sharex": [], "axesbgalpha": null, "axes": [{"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 12.0, "position": "bottom", "nticks": 10, "tickvalues": null}, {"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 12.0, "position": "left", "nticks": 7, "tickvalues": null}], "lines": [], "markers": [], "id": "el894314436572944", "ydomain": [0.0, 0.025000000000000001], "collections": [], "xscale": "linear", "bbox": [0.125, 0.099999999999999978, 0.77500000000000002, 0.80000000000000004]}], "height": 480.0, "width": 640.0, "plugins": [{"type": "reset"}, {"enabled": false, "button": true, "type": "zoom"}, {"enabled": false, "button": true, "type": "boxzoom"}], "data": {"data01": [[0.0, 0.0], [0.0, 0.024661998502664376], [17.4, 0.024661998502664376], [17.4, 0.01629453472497468], [34.8, 0.01629453472497468], [34.8, 0.008807856608094421], [52.199999999999996, 0.008807856608094421], [52.199999999999996, 0.006165499625666094], [69.6, 0.006165499625666094], [69.6, 0.0015413749064165229], [87.0, 0.0015413749064165229], [87.0, 0.0], [69.6, 0.0], [69.6, 0.0], [52.199999999999996, 0.0], [52.199999999999996, 0.0], [34.8, 0.0], [34.8, 0.0], [17.4, 0.0], [17.4, 0.0]]}, "id": "el894314436266512"});
-      });
-    });
-}else{
-    // require.js not available: dynamically load d3 & mpld3
-    mpld3_load_lib("https://mpld3.github.io/js/d3.v3.min.js", function(){
-         mpld3_load_lib("https://mpld3.github.io/js/mpld3.v0.2.js", function(){
-                 
-                 mpld3.draw_figure("fig_el8943144362665127506890787", {"axes": [{"xlim": [0.0, 90.0], "yscale": "linear", "axesbg": "#FFFFFF", "texts": [{"v_baseline": "hanging", "h_anchor": "middle", "color": "#000000", "text": "Value", "coordinates": "axes", "zorder": 3, "alpha": 1, "fontsize": 12.0, "position": [0.5, -0.059895833333333329], "rotation": -0.0, "id": "el894314438481936"}, {"v_baseline": "auto", "h_anchor": "middle", "color": "#000000", "text": "Probability", "coordinates": "axes", "zorder": 3, "alpha": 1, "fontsize": 12.0, "position": [-0.09375, 0.5], "rotation": -90.0, "id": "el894314439448208"}], "zoomable": true, "images": [], "xdomain": [0.0, 90.0], "ylim": [0.0, 0.025000000000000001], "paths": [{"edgecolor": "#000000", "facecolor": "#FF0000", "edgewidth": 1.0, "pathcodes": ["M", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "Z"], "yindex": 1, "coordinates": "data", "dasharray": "10,0", "zorder": 1, "alpha": 1, "xindex": 0, "data": "data01", "id": "el894314438854160"}], "sharey": [], "sharex": [], "axesbgalpha": null, "axes": [{"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 12.0, "position": "bottom", "nticks": 10, "tickvalues": null}, {"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 12.0, "position": "left", "nticks": 7, "tickvalues": null}], "lines": [], "markers": [], "id": "el894314436572944", "ydomain": [0.0, 0.025000000000000001], "collections": [], "xscale": "linear", "bbox": [0.125, 0.099999999999999978, 0.77500000000000002, 0.80000000000000004]}], "height": 480.0, "width": 640.0, "plugins": [{"type": "reset"}, {"enabled": false, "button": true, "type": "zoom"}, {"enabled": false, "button": true, "type": "boxzoom"}], "data": {"data01": [[0.0, 0.0], [0.0, 0.024661998502664376], [17.4, 0.024661998502664376], [17.4, 0.01629453472497468], [34.8, 0.01629453472497468], [34.8, 0.008807856608094421], [52.199999999999996, 0.008807856608094421], [52.199999999999996, 0.006165499625666094], [69.6, 0.006165499625666094], [69.6, 0.0015413749064165229], [87.0, 0.0015413749064165229], [87.0, 0.0], [69.6, 0.0], [69.6, 0.0], [52.199999999999996, 0.0], [52.199999999999996, 0.0], [34.8, 0.0], [34.8, 0.0], [17.4, 0.0], [17.4, 0.0]]}, "id": "el894314436266512"});
-            })
-         });
-}
-</script>

@@ -4,30 +4,23 @@ title: "Outline of Flags and Problems on Portal"
 date: 2015-02-08T16:11:30-08:00
 ---
 
-This document gives short descriptions of the flags and their problems on the H.J. Andrews Portal website. While it primarily focuses on the discrepancies and flags in the suite of attributes of Air Temperature, Relative Humidity, Vapor Pressure Defecit, Vapor Pressure, and Dewpoint, examples from Precipitation, Snow Lysimeter, and Snow Water Equivalance are also given. Wind is only briefly mentioned in this document as its flags and consistency problems probably merit a separate analysis. Likewise, soil is not brought in here anywhere as we have already done a lot on it to pull it into the FSDB.
+This document gives short descriptions of the flags and their problems on the H.J. Andrews Portal website. While it primarily focuses on the discrepancies and flags in the suite of attributes of Air Temperature, Relative Humidity, Vapor Pressure Defecit, Vapor Pressure, and Dewpoint, examples from Precipitation, Snow Lysimeter, and Snow Water Equivalance are also given. Wind is only briefly mentioned in this document as its flags and consistency problems probably merit a separate analysis. Likewise, soil is not brought in this document.
 
-**Note:** Within this document I may use the terms "NULL", "NaN", and "None" interchangeably, to refer to data that does not have a value, but does have a type (such as "integer" or "string"). This is different from "empty" which might appear like this: '', ' ', "", " ", &nbsp, u'', U+00A0, etc...
-
-How an "empty" is interpreted varies wildly, see [Wikipedia Article on WhiteSpace](http://en.wikipedia.org/wiki/Whitespace_character#Unicode) for more information. My goal here is just to point out that "empty" and "null" are NOT the same. Thus if I say a value is "missing" I will try to clarify whether the term means "given a 'NaN'-like term as a placeholder" or "given an empty" or actually just skipped entirely.
-
-**Note:** Additionally, I tried to keep consistent naming and units when possible. AirT is Celcius air temperature, RH is relative humidity in percent, DEWPT is the dew point temperature in Celcius, VAP is the Vapor Pressure is the equilibrium vapor pressure in millibars (mb), SATVP is saturated vapor pressure in millibars, and VPD is the vapor pressure defecit, also in millibars. Precipitation is in millimeters for both snow and rain. Solar radiation here is not discussed in depth, but Photosynthetically Active radiation (PAR) is in millimols-photons per meters squared per second, and incoming photons take the negative convention. 
-
-**A final note:** These are only examples of the types of problems seen. Once a production environment has been set up that checks for these errors, we will conduct more extensive follow up. 
-
-# Table of Contents
-  * [Existing flag codes](#flagcodes)
-  * [Synchronized Flags across AIRT, DEWPT, VPD, RELHUM and VAP](#symlink)
-  * [The very bad week of 2014-08-22 to 2014-08-26](#badcen)
-  * [When flag value change is thrown in a case that is better described by impossible value](#imposs)
-  * [When a missing flag on air temperature destroys other values and flags for that Date time, and those other values and flags represent likely impossible data](#missdestroy)
-  * [When a existing value on air temperature is deemed impossible and destroys existing and possible values on other attributes](#missdestroy2)
-  * [Estimated values for Air Temperature are not also estimated for other attributes when only one datetime is missing.](#estimated)
-  * [There are values of Dew Point on Portal when both relative humidity and air temperature are missing](#whydew)
-  * [The EI flag](#whatisei)
-  * [IQVIQ flag](#whatisiqviq)
-  * [High Elevation Removals](#notremoved)
-  * [Flag Value Change Too Agressive at a Daily Scale](#fvc)
-  * [Missing Values (NaN) not necessarily paired with "M" flags](#missing)
+# Key points with links to examples:
+  * [Existing flag codes](#flagcodes) are described here. 
+  * [Synchronized Flags across AIRT, DEWPT, VPD, RELHUM and VAP](#symlink) are not consistent. Noteably, when AIR TEMPERATURE receives an "I" flag or an "M" flag in some cases it infects relative humidity, causing this value to appear impossible or missing. Likewise, there are cases where derived values such as dew point appear in the data, although both relative humidity and air temperature are missing.
+  * [The very bad week of 2014-08-22 to 2014-08-26](#badcen) on CENMET needs to be removed entirely from the dataset posted.
+  * [Missing Values (NaN) not necessarily paired with "M" flags](#missing) The most critical problem-- there is no notion of consistency between where the "M" flag is thrown, where no flag is thrown but the data is missing, or when the data has been made NaN although it exists and is impossible, and therefore the "M" flag gets thrown by mistake. 
+  * [Flag value change can be thrown in a case that is better described by impossible value](#imposs). When a value is nearly impossible, it may also deviate significantly from preceding values, and flag-value-change will be thrown. Even if an "I" or "Q" is not flagged these values that deviate too much and get a flag value change should be checked. 
+  * [When a missing flag on air temperature destroys other values and flags for that Date time, and those other values and flags represent likely impossible data](#missdestroy). Air temperature that is missing may also cause relative humidity to appear missing on the Portal, when in fact it is present in METDAT. In some cases, the relative humidity was present, but was impossible. In other case, impossible values will apear with no flags at all.
+  * More problematic is [when a existing value on air temperature is deemed impossible, removed, and destroys existing and possible values on other attributes](#missdestroy2). If air temperature is set to nan because it is not feasible, there are cases where relative humidity and other derived attributes will also be set to nan, even though the relative humidity was in fact a decent value. 
+  * [Estimated values for Air Temperature are not also estimated for other attributes when only one datetime is missing.](#estimated). An interpolation on air temperature is performed across one five minute period but it is not performed across any other attributes that are missing at that time as well that could be reasonably estimated.
+  * [There are values of Dew Point on Portal when both relative humidity and air temperature are missing](#whydew). Since dewpoint relies on relative humidity and air temperature to be calculated, this doesn't really make any sense.
+  * [The EI flag](#whatisei): An EI flag occurs when the raw data shows an impossible value and an estimated value is put in its place. In some cases the estimatation then occurs on the other attributes that share the same time stamp with it, even if they had realistic values before, and they are not also flagged with EI. However, it does not appear to affect derived attributes, such as dewpoint, so even if both air temperature and relative humidity get estimated in replacement of a missing or bad value, the dew point is not estimated from the estimates.
+  * [IQVIQ flag](#whatisiqviq): This flag gets thrown where "M" flags should be thrown, and more specifically when a value that is impossible is in the previous time, and then a value that is NaN is in the current time. However, sometimes the current NaN is actually a read value that is also an impossible value, and in other cases it is null. 
+  * [High Elevation Removals](#notremoved) are not always reflected in what is being displayed on Portal.
+  * [Flag Value Change is too agressive at a daily scale](#fvc). The flag value change is thrown erroneously, particularly on air temperature, dewpoint, and PAR between whole days, and this does not accurately reflect the fact that daily values may have a significant change between days that is actually realistic. The algorithm that Don generated for daily flags is useful, and not being implemented on Portal.
+  
 
 
 ## Existing flag codes<a id = "flagcodes"></a>
@@ -414,9 +407,10 @@ Here is a nice mixed "M" flagged NaN row with non-flagged NaN's, and an "E":
     "VARMET",2012-05-21 14:50:00,2,0,2021.0,8.64,"",42.02,"",0.00,"",NaN,81.0000,"",77.00,"",173.7116,""
 
 
-## Ultimately, in terms of flagging the following issues should be touched:
+**Note:** Within this document I used the terms "NULL", "NaN", and "None" interchangeably, to refer to data that does not have a value, but does have a type (such as "integer" or "string"). This is different from "empty" which might appear like this: '', ' ', "", " ", &nbsp, u'', U+00A0, etc...
 
-* "M", NaN, and Empty should be consistent in all data sets
-* Daily and hourly aggregates should not be based on five minute functions
-* Flag propagation from air-temperature must not destroy independent relative humidity measurement
-* Human-altered flags need to be made clear
+How an "empty" is interpreted varies wildly, see [Wikipedia Article on WhiteSpace](http://en.wikipedia.org/wiki/Whitespace_character#Unicode) for more information. My goal here is just to point out that "empty" and "null" are NOT the same. Thus if I say a value is "missing" I will try to clarify whether the term means "given a 'NaN'-like term as a placeholder" or "given an empty" or actually just skipped entirely.
+
+**Note:** Additionally, I tried to keep consistent naming and units when possible. AirT is Celcius air temperature, RH is relative humidity in percent, DEWPT is the dew point temperature in Celcius, VAP is the Vapor Pressure is the equilibrium vapor pressure in millibars (mb), SATVP is saturated vapor pressure in millibars, and VPD is the vapor pressure defecit, also in millibars. Precipitation is in millimeters for both snow and rain. Solar radiation here is not discussed in depth, but Photosynthetically Active radiation (PAR) is in millimols-photons per meters squared per second, and incoming photons take the negative convention. 
+
+**Note:** These are only examples of the types of problems seen. Once a production environment has been set up that checks for these errors, we will conduct more extensive follow up.
