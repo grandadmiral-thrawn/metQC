@@ -547,7 +547,7 @@ For the five-minute method, the difference between the five minute minimum relat
 
 An interesting test I looked at on this site was where the five minute minimum relative humidity was 100 %, was the daily minimum relative humidity also 100%? If this was true, then it might indicate either real, high humidity or instrument error which appeared that the 100 percent value was "stuck"-- however, in all but three (of 15 cases) cases, on days where the five minute minimum is 100 percent, the daily minimum is actually much lower.
 
-Below, the dotted blue line is the minimum relative humidity daily course from the daily minimums, the blue squares are when the daily minimum is 100 percent humidity, and the red squares are when the five minute minimums are 100 percent. 
+Below, the dotted blue line is the minimum relative humidity daily course from the daily minimums, the blue squares are when the daily minimum is 100 percent humidity and the five minute is also 100 percent humidity, and the red squares are the value of the daily minimums when the five minute minimums are 100 percent but the daily minimum is not. 
 
 <iframe src= "http://bl.ocks.org/dataRonin/63d7f6595a57033dceb8" width="800" height="600" scrolling="no"></iframe>
 
