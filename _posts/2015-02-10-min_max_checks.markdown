@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Min and Max Checks on Air Temperature, Relative Humidity, and Dew Point"
-date: 2015-02-03T14:30:24-08:00
+date: 2015-02-10T14:30:24-08:00
 ---
 
 # Key Points!
