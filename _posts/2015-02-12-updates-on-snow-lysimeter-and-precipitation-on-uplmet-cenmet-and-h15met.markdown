@@ -28,13 +28,13 @@ The following observations are mentioned in greater detail below:
 
 * On CENMET in calendar 2013 prior to the WY 2014, snow lysimeter measurements are unusually low as compared to the other [stations](#lowcen); however, measurements after the water year are more similar to those of the other two stations.
 
-* In calendar 2014, [UPLMET](#highupl) has much higher snow-melt and precipitation prior to the WY 2015 than CENMET does
+* In calendar 2014, [UPLMET](#highupl) has much greater snow-melt and precipitation prior to the WY 2015 than CENMET does
 
 * in WY 2014, there is ["summertime snow"](#summersno) on UPLMET that does not seem reasonable.
 
 * Two events in 2014 seem to have incresed the total UPLMET precipitation in both rain and snow-- the cold-spell in February 2014 and a December rain and [snow event](#spike).
 
-* It appears that CENMET is in general much drier than UPLMET, but that this dryness is largely reflected in the differences in snow in the spring months, rather than differences in precipitation.
+* It appears that the driver of the difference in snow lysimeter annual totals is differences in snowmelt in the spring months (march through june) that favors UPLMET, rather than differences in precipitation.
 
 * Over the whole of 2014 WY, CENMET receives about 2100 mm snow-lysimeter, UPLMET receives about 3100 snow-lysimeter, and H15MEt recieves about 2100 snow-lysimeter. 
 
@@ -76,8 +76,11 @@ Contrast to precipitation:
 
 UPLMET precipitation exceeds that of CENMET in precipitation during these months by about 150 mm.
 
+## SUMMARY:
 
-## Details:
+* UPLMET gets about 900 mm more snowmelt between March and June of 2014 than the other two stations, which leads to its higher value for both that calendar year and that water year.
+
+## Details of the above:
 
 ### Snow-melt lysimeter and precipitation before and after the water-year for Calendar 2013 and Calendar 2014 on CENMET, UPLMET, and H15MET.
 
