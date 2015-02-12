@@ -40,25 +40,47 @@ The following observations are mentioned in greater detail below:
 
 The image below shows 2013, since I do not have precipitation data from H15MET in 2014.
 
-<iframe src= "http://bl.ocks.org/dataRonin/c1ab85f07623e4fa6140" width="600" height = "500" scrolling="yes"></iframe><br>
+<iframe src= "/dataRonin/raw/c1ab85f07623e4fa6140/f66a562f39d46431197f3d0e49a7e2f4e2898fe0/" width="600" height = "500" scrolling="yes"></iframe><br>
 
 * In Precipitation, WY 2014, CENMET recieves about 2200 mm, UPLMET receives about 2800 mm, and H15MET it is unknown. Thus the biggest advantage to UPLMET appears to be in the snow lysimeter measurements on UPLMET, particularly in early 2014. 
 
 
-<iframe src= "http://bl.ocks.org/dataRonin/eb4a5f1eee8c48356e87"  width="600" height = "500" scrolling="yes"></iframe><br>
+<iframe src= "http://bl.ocks.org/dataRonin/raw/eb4a5f1eee8c48356e87/5e4f81cb2334744a464e7ad6b5f55af02144ef79/"  width="600" height = "500" scrolling="yes"></iframe><br>
 
 
 The data shows this [excerpt here](#morebelow)
 
-2014    3   416.0   LYSCEN01
-2014    3   564.2   LYSUPL01
-2014    3   478.0   LYSH1501
-2014    4   216.5   LYSH1501
-2014    4   419.7   LYSUPL01
-2014    4   214.6   LYSCEN01
-2014    5   529.2   LYSUPL01
-2014    5   156.4   LYSCEN01
-2014    5   159.0   LYSH1501
+        2014    3   416.0   LYSCEN01
+        2014    3   564.2   LYSUPL01
+        2014    3   478.0   LYSH1501
+        2014    4   216.5   LYSH1501
+        2014    4   419.7   LYSUPL01
+        2014    4   214.6   LYSCEN01
+        2014    5   529.2   LYSUPL01
+        2014    5   156.4   LYSCEN01
+        2014    5   159.0   LYSH1501
+
+
+In March, April, and May of 2014 the UPLMET lysimeter gets about a 900 lead on the lysimeters at CENMET and H15MET.
+
+Contrast to precipitation:
+
+        2014    3   488.1   PPTCEN01
+        2014    3   530.7   PPTUPL01
+        2014    3   457.5   PPTCEN02
+        2014    3   491.8   PPTUPL02
+        2014    4   213.0   PPTCEN02
+        2014    4   226.7   PPTCEN01
+        2014    4   277.4   PPTUPL01
+        2014    4   261.8   PPTUPL02
+        2014    5   159.1   PPTCEN02
+        2014    5   221.3   PPTUPL02
+        2014    5   228.6   PPTUPL01
+        2014    5   163.5   PPTCEN01
+
+UPLMET precipitation exceeds that of CENMET in precipitation during these months by about 150 mm.
+
+
 ## Details:
 
 ### Snow-melt lysimeter and precipitation before and after the water-year for Calendar 2013 and Calendar 2014 on CENMET, UPLMET, and H15MET.
@@ -134,7 +156,7 @@ On UPLMET in 2014, there are some snow patterns that do not seem reasonable.
 
 (note that in the above two diagrams, the scale of precipitation on UPLMET is nearly 2 times what it is on CENMET)
 
-### Enumeration of 2013, 2014 water year by month<a id="morebelow"></a>
+### Enumeration of 2013, 2014 water year by month on the snowmelt lysimeters <a id="morebelow"></a>
 
 |YEAR | MONTH | SNOWMELT | LYSIMETER |
 | - | -| -| -|
@@ -184,7 +206,7 @@ On UPLMET in 2014, there are some snow patterns that do not seem reasonable.
 |2014| 12 | 380.2|LYSH1501|
 |2014| 12  |364.3|LYSCEN01|
 
-## Algorithm <a id="algorithm"></a>
+## Shortcut-Precip Algorithm <a id="algorithm"></a>
 
 This is a shorter version of the precipitation algorithm designed to quickly get precipitation. It does not include a "summer mode" as we use in the original algorithm for not including very small gains in precipitation, nor is it as careful about detecting bounce-backs after resets (it will allow any inputs up to 5 mm). As such, it would be expected to slightly over-predict precipitation in any given circumstance.
 
