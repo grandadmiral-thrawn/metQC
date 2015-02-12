@@ -38,10 +38,6 @@ The following observations are mentioned in greater detail below:
 
 * Over the whole of 2014 WY, CENMET receives about 2100 mm snow-lysimeter, UPLMET receives about 3100 snow-lysimeter, and H15MEt recieves about 2100 snow-lysimeter. 
 
-The image below shows 2013, since I do not have precipitation data from H15MET in 2014.
-
-<iframe src= "/dataRonin/raw/c1ab85f07623e4fa6140/f66a562f39d46431197f3d0e49a7e2f4e2898fe0/" width="600" height = "500" scrolling="yes"></iframe><br>
-
 * In Precipitation, WY 2014, CENMET recieves about 2200 mm, UPLMET receives about 2800 mm, and H15MET it is unknown. Thus the biggest advantage to UPLMET appears to be in the snow lysimeter measurements on UPLMET, particularly in early 2014. 
 
 
