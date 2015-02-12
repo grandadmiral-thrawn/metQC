@@ -10,31 +10,31 @@ In the document [here](http://dataronin.github.io/metQC/2015/02/05/upl-snow-and-
 
 To update our analysis I:
 
-    * quickly ran a reduced version of the precipitation [algorithm](#algorithm) on the final 3 months of 2014 for UPLMET and CENMET (and ran the same algorithm over 2013 on H15MET as validation)
+* quickly ran a reduced version of the precipitation [algorithm](#algorithm) on the final 3 months of 2014 for UPLMET and CENMET (and ran the same algorithm over 2013 on H15MET as validation)
 
-    * found times of year in each of the three stations where snow melt apparently happened, despite no snow water equivalence value, and it being "summer".
+* found times of year in each of the three stations where snow melt apparently happened, despite no snow water equivalence value, and it being "summer".
 
-    * graphed the snow-melt from the snow-melt lysimeter, precipitation from both of the two gages, and swe (when available) to visualize where values were not in synchrony.
+* graphed the snow-melt from the snow-melt lysimeter, precipitation from both of the two gages, and swe (when available) to visualize where values were not in synchrony.
 
 ## Key Points:
 
 The following observations are mentioned in greater detail below:
 
-    * Overlap in data on Portal between the 2014 and 2015 arrays initially caused an over-estimation in my calculations. The data between 2014-12-11 and 2014-12-28 are repeated in both the 2014 and 2015 csv files.
+* Overlap in data on Portal between the 2014 and 2015 arrays initially caused an over-estimation in my calculations. The data between 2014-12-11 and 2014-12-28 are repeated in both the 2014 and 2015 csv files.
 
-    * a row of data on Portal from 2014-12-13 on UPLMET may contain important snow and precipitation values but has been turned missing
+* a row of data on Portal from 2014-12-13 on UPLMET may contain important snow and precipitation values but has been turned missing
 
         "UPLMET_227",2014-12-13 19:25:00,NaN,"M",NaN,"IM",NaN,"M",NaN,"M",47.865,"E",NaN,"",NaN,"M",76.30,"E",NaN,"",NaN,"M",NaN,"M",NaN,"",NaN,"",NaN,"M"
 
-    * On CENMET in calendar 2013 prior to the WY 2014, snow lysimeter measurements are unusually low as compared to the other [stations](#lowcen); however, measurements after the water year are more similar to those of the other two stations.
+* On CENMET in calendar 2013 prior to the WY 2014, snow lysimeter measurements are unusually low as compared to the other [stations](#lowcen); however, measurements after the water year are more similar to those of the other two stations.
 
-    * In calendar 2014, [UPLMET](#highupl) has much higher snow-melt and precipitation prior to the WY 2015 than CENMET does
+* In calendar 2014, [UPLMET](#highupl) has much higher snow-melt and precipitation prior to the WY 2015 than CENMET does
 
-    * in WY 2014, there is ["summertime snow"](#summersno) on UPLMET that does not seem reasonable.
+* in WY 2014, there is ["summertime snow"](#summersno) on UPLMET that does not seem reasonable.
 
-    * Two events in 2014 seem to have incresed the total UPLMET precipitation in both rain and snow-- the cold-spell in February 2014 and a December rain and [snow event](#spike).
+* Two events in 2014 seem to have incresed the total UPLMET precipitation in both rain and snow-- the cold-spell in February 2014 and a December rain and [snow event](#spike).
 
-    * the SWE from 
+* the SWE from 
 
 ## Details:
 
@@ -94,20 +94,20 @@ On UPLMET in 2014, there are some snow patterns that do not seem reasonable.
 
 ### Spike in December Precipitation and Snow on UPLMET, 2014 <a id="spike"></a>
 
-<iframe src="http://bl.ocks.org/dataRonin/raw/5db9e0cd181a8274a6b2/f3cf672c0b57b76453a4461a0e8fa10889e9a924/" marginwidth="0" marginheight="0" width="600" height = "600" scrolling="yes"></iframe>
-<p><aside><a style="position:relative;top:6px;" href="/dataRonin/raw/5db9e0cd181a8274a6b2/" target="_blank">Open in a new window.</a></aside>
+<iframe src="http://bl.ocks.org/dataRonin/raw/5db9e0cd181a8274a6b2/f3cf672c0b57b76453a4461a0e8fa10889e9a924/"  width="600" height = "500" scrolling="yes"></iframe><br>
+<p><aside><a style="position:relative;top:6px;" href="/dataRonin/raw/5db9e0cd181a8274a6b2/" target="_blank">Open in a new window.</a></aside></p>
 
 
 ### UPLMET in 2014 Precipitation (blue), Snow(orange), and SWE(crimson) - only available for part of the year
 
-<iframe src="http://bl.ocks.org/dataRonin/raw/3449fc37f4b2ab618a80/18166936651db80af137838bd07cbb25d66aecf8/" marginwidth="0" marginheight="0" width="600" height = "600" scrolling="yes"></iframe>
-<p><aside><a style="position:relative;top:6px;" href="/dataRonin/raw/3449fc37f4b2ab618a80/" target="_blank">Open in a new window.</a></aside>
+<iframe src="http://bl.ocks.org/dataRonin/raw/3449fc37f4b2ab618a80/18166936651db80af137838bd07cbb25d66aecf8/"  width="600" height = "500" scrolling="yes"></iframe><br>
+<p><aside><a style="position:relative;top:6px;" href="/dataRonin/raw/3449fc37f4b2ab618a80/" target="_blank">Open in a new window.</a></aside></p>
 
 
 ### CENMET in 2014 Precipitation (blue), Snow(orange), and SWE(crimson) - only available for part of the year
 
-<iframe src="http://bl.ocks.org/dataRonin/raw/c1d0dcacf33f021941f0/8f09350774d4a085d0a8f2485d8a509f26018d8c/" marginwidth="0" marginheight="0" width="600" height = "600" scrolling="yes"></iframe>
-<p><aside><a style="position:relative;top:6px;" href="/dataRonin/raw/c1d0dcacf33f021941f0/" target="_blank">Open in a new window.</a></aside>
+<iframe src="http://bl.ocks.org/dataRonin/raw/c1d0dcacf33f021941f0/8f09350774d4a085d0a8f2485d8a509f26018d8c/"  width="600" height = "500" scrolling="yes"></iframe><br>
+<p><aside><a style="position:relative;top:6px;" href="/dataRonin/raw/c1d0dcacf33f021941f0/" target="_blank">Open in a new window.</a></aside></p>
 
 
 ## Algorithm <a id="algorithm"></a>
