@@ -34,8 +34,31 @@ The following observations are mentioned in greater detail below:
 
 * Two events in 2014 seem to have incresed the total UPLMET precipitation in both rain and snow-- the cold-spell in February 2014 and a December rain and [snow event](#spike).
 
-* the SWE from 
+* It appears that CENMET is in general much drier than UPLMET, but that this dryness is largely reflected in the differences in snow in the spring months, rather than differences in precipitation.
 
+* Over the whole of 2014 WY, CENMET receives about 2100 mm snow-lysimeter, UPLMET receives about 3100 snow-lysimeter, and H15MEt recieves about 2100 snow-lysimeter. 
+
+The image below shows 2013, since I do not have precipitation data from H15MET in 2014.
+
+<iframe src= "http://bl.ocks.org/dataRonin/c1ab85f07623e4fa6140" width="600" height = "500" scrolling="yes"></iframe><br>
+
+* In Precipitation, WY 2014, CENMET recieves about 2200 mm, UPLMET receives about 2800 mm, and H15MET it is unknown. Thus the biggest advantage to UPLMET appears to be in the snow lysimeter measurements on UPLMET, particularly in early 2014. 
+
+
+<iframe src= "http://bl.ocks.org/dataRonin/eb4a5f1eee8c48356e87"  width="600" height = "500" scrolling="yes"></iframe><br>
+
+
+The data shows this [excerpt here](#morebelow)
+
+2014    3   416.0   LYSCEN01
+2014    3   564.2   LYSUPL01
+2014    3   478.0   LYSH1501
+2014    4   216.5   LYSH1501
+2014    4   419.7   LYSUPL01
+2014    4   214.6   LYSCEN01
+2014    5   529.2   LYSUPL01
+2014    5   156.4   LYSCEN01
+2014    5   159.0   LYSH1501
 ## Details:
 
 ### Snow-melt lysimeter and precipitation before and after the water-year for Calendar 2013 and Calendar 2014 on CENMET, UPLMET, and H15MET.
@@ -109,6 +132,57 @@ On UPLMET in 2014, there are some snow patterns that do not seem reasonable.
 <iframe src="http://bl.ocks.org/dataRonin/raw/c1d0dcacf33f021941f0/8f09350774d4a085d0a8f2485d8a509f26018d8c/"  width="600" height = "500" scrolling="yes"></iframe><br>
 <p><aside><a style="position:relative;top:6px;" href="/dataRonin/raw/c1d0dcacf33f021941f0/" target="_blank">Open in a new window.</a></aside></p>
 
+(note that in the above two diagrams, the scale of precipitation on UPLMET is nearly 2 times what it is on CENMET)
+
+### Enumeration of 2013, 2014 water year by month<a id="morebelow"></a>
+
+|YEAR | MONTH | SNOWMELT | LYSIMETER |
+| - | -| -| -|
+|2013| 10 | 53.4| LYSCEN01|
+|2013| 10 | 62.8| LYSH1501|
+|2013| 10 | 81.7| LYSUPL01|
+|2013| 11 | 192.2|LYSCEN01|
+|2013| 11 | 195.0|LYSH1501|
+|2013| 11 | 217.5|LYSUPL01|
+|2013| 12 | 135.0|LYSCEN01|
+|2013| 12 | 130.5|LYSH1501|
+|2013| 12 | 194.5|LYSUPL01|
+|2014| 1|222.8|LYSCEN01|
+|2014| 1|205.3|LYSH1501|
+|2014| 1|273.2|LYSUPL01|
+|2014| 2|466.1|LYSCEN01|
+|2014| 2|513.0|LYSH1501|
+|2014| 2|578.0|LYSUPL01|
+|2014| 3|416.0|LYSCEN01|
+|2014| 3|564.2|LYSUPL01|
+|2014| 3|478.0|LYSH1501|
+|2014| 4|216.5|LYSH1501|
+|2014| 4|419.7|LYSUPL01|
+|2014| 4|214.6|LYSCEN01|
+|2014| 5|529.2|LYSUPL01|
+|2014| 5|156.4|LYSCEN01|
+|2014| 5|159.0|LYSH1501|
+|2014| 6|116.9|LYSUPL01|
+|2014| 6|78.1| LYSH1501|
+|2014| 6|71.4| LYSCEN01|
+|2014| 7|21.7| LYSH1501|
+|2014| 7|38.4| LYSCEN01|
+|2014| 7|43.5| LYSUPL01|
+|2014| 8|13.7| LYSH1501|
+|2014| 8|25.0| LYSCEN01|
+|2014| 8|39.8| LYSUPL01|
+|2014| 9|52.1| LYSUPL01|
+|2014| 9|53.3| LYSH1501|
+|2014| 9|54.7| LYSCEN01|
+|2014| 10 | 300.1|LYSUPL01|
+|2014| 10 | 266.0|LYSH1501|
+|2014| 10 | 253.9|LYSCEN01|
+|2014| 11 | 389.0|LYSCEN01|
+|2014| 11 | 543.1|LYSUPL01|
+|2014| 11 | 374.3|LYSH1501|
+|2014| 12 | 425.7|LYSUPL01|
+|2014| 12 | 380.2|LYSH1501|
+|2014| 12  |364.3|LYSCEN01|
 
 ## Algorithm <a id="algorithm"></a>
 
