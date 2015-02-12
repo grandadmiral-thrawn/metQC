@@ -94,19 +94,19 @@ On UPLMET in 2014, there are some snow patterns that do not seem reasonable.
 
 ### Spike in December Precipitation and Snow on UPLMET, 2014 <a id="spike"></a>
 
-<iframe src="http://bl.ocks.org/dataRonin/raw/5db9e0cd181a8274a6b2/f3cf672c0b57b76453a4461a0e8fa10889e9a924/" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+<iframe src="http://bl.ocks.org/dataRonin/raw/5db9e0cd181a8274a6b2/f3cf672c0b57b76453a4461a0e8fa10889e9a924/" marginwidth="0" marginheight="0" width="600" height = "600" scrolling="yes"></iframe>
 <p><aside><a style="position:relative;top:6px;" href="/dataRonin/raw/5db9e0cd181a8274a6b2/" target="_blank">Open in a new window.</a></aside>
 
 
 ### UPLMET in 2014 Precipitation (blue), Snow(orange), and SWE(crimson) - only available for part of the year
 
-<iframe src="http://bl.ocks.org/dataRonin/raw/3449fc37f4b2ab618a80/18166936651db80af137838bd07cbb25d66aecf8/" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+<iframe src="http://bl.ocks.org/dataRonin/raw/3449fc37f4b2ab618a80/18166936651db80af137838bd07cbb25d66aecf8/" marginwidth="0" marginheight="0" width="600" height = "600" scrolling="yes"></iframe>
 <p><aside><a style="position:relative;top:6px;" href="/dataRonin/raw/3449fc37f4b2ab618a80/" target="_blank">Open in a new window.</a></aside>
 
 
 ### CENMET in 2014 Precipitation (blue), Snow(orange), and SWE(crimson) - only available for part of the year
 
-<iframe src="http://bl.ocks.org/dataRonin/raw/c1d0dcacf33f021941f0/8f09350774d4a085d0a8f2485d8a509f26018d8c/" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+<iframe src="http://bl.ocks.org/dataRonin/raw/c1d0dcacf33f021941f0/8f09350774d4a085d0a8f2485d8a509f26018d8c/" marginwidth="0" marginheight="0" width="600" height = "600" scrolling="yes"></iframe>
 <p><aside><a style="position:relative;top:6px;" href="/dataRonin/raw/c1d0dcacf33f021941f0/" target="_blank">Open in a new window.</a></aside>
 
 
