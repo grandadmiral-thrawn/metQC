@@ -4,6 +4,8 @@ title: "Comparing Fred B. versus NOAA Computations of Hourly Dew Point and VPD"
 date: 2015-02-10T15:38:58-08:00
 ---
 
+### For links to daily CSV files containing the "old data" of VAP and SATVP, see the link [here](#links)
+
 Overall Important Point!
 -------------
 
@@ -212,3 +214,19 @@ From PRI04,
     "2001-02-08 00:00",-2.0,-1.88,0.3,0.27,5.6,5.33
     "2001-02-09 00:00",0.3,0.26,0.2,0.15,6.38,6.23
     "2001-02-10 00:00",0.8,0.89,0.1,0.1,6.61,6.51
+
+
+LINKS TO CSV FILES FOR THE DAILY DATA:<a id="links"></a>
+---------
+
+[CENMET01](https://raw.githubusercontent.com/dataRonin/metQC/gh-pages/assets/cen01daily_old_vap.csv)
+[CENMET04](https://raw.githubusercontent.com/dataRonin/metQC/gh-pages/assets/cen04daily_old_vap.csv)
+[H15MET01](https://raw.githubusercontent.com/dataRonin/metQC/gh-pages/assets/h1501daily_old_vap.csv)
+[H15MET02](https://raw.githubusercontent.com/dataRonin/metQC/gh-pages/assets/h1502daily_old_vap.csv)
+[CS2MET](https://raw.githubusercontent.com/dataRonin/metQC/gh-pages/assets/cs202daily_old_vap.csv)
+[VANMET01](https://raw.githubusercontent.com/dataRonin/metQC/gh-pages/assets/van01daily_old_vap.csv)
+[VANMET04](https://raw.githubusercontent.com/dataRonin/metQC/gh-pages/assets/van04daily_old_vap.csv)
+[UPLMET01](https://raw.githubusercontent.com/dataRonin/metQC/gh-pages/assets/upl01daily_old_vap.csv)
+[UPLMET04](https://raw.githubusercontent.com/dataRonin/metQC/gh-pages/assets/upl04daily_old_vap.csv)
+[PRIMET01](https://raw.githubusercontent.com/dataRonin/metQC/gh-pages/assets/pri01daily_old_vap.csv)
+[PRIMET04](https://raw.githubusercontent.com/dataRonin/metQC/gh-pages/assets/pri04daily_old_vap.csv)
