@@ -6,6 +6,8 @@ date: 2015-02-12T14:03:02-08:00
 
 ## Recent courses of SWE, SNO, and PRE on H15MET as a comparison (2013)
 
+2013 H15 met shows an expected pattern with winter snow water accumulation and summer disappearance, then fall snow (and snow/rain) rebuild the accumulation.
+
 SWE on H15MET:
 
 <iframe src="http://bl.ocks.org/dataRonin/raw/fd780791b1127975063e/d8f34c5a5db7f47a4b4c53a13afbcc73843fb946/" width = "600" height = "500" scrolling = "yes"></iframe>
@@ -64,6 +66,7 @@ if(typeof(mpld3) !== "undefined" && mpld3._mpld3IsLoaded){
 
 On CENMET:
 
+Of importance to our analysis here is really the lack of a "final spike" in SWE on CENMET. The large spike on UPLMET indicates that much of the precipitation caught by either of the gages (precipitation gage or snow lysimeter) is snow. The CENMET lack of spike suggests that the snow is less on the ground, and, its earlier disappearance suggests it exits the ground sooner than on UPLMET. Both less SWE and earlier spring SWE declines suggest that for CENMET, spring time precipitation has less an effect on the snow lysimeter, hence why we might see smaller values.
 
 
 <style>
