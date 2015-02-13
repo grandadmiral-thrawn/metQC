@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Swe and Sno"
+title: "SWE (soil water equivalence) and Snow Melt"
 date: 2015-02-12T14:03:02-08:00
 ---
 
@@ -8,12 +8,12 @@ date: 2015-02-12T14:03:02-08:00
 
 2013 H15 met shows an expected pattern with winter snow water accumulation and summer disappearance, then fall snow (and snow/rain) rebuild the accumulation.
 
-SWE on H15MET:
+SWE on H15MET (2013):
 
 <iframe src="http://bl.ocks.org/dataRonin/raw/fd780791b1127975063e/d8f34c5a5db7f47a4b4c53a13afbcc73843fb946/" width = "600" height = "500" scrolling = "yes"></iframe>
 
 
-SNO and PRE on H15MET:
+SNOW and PRECIPITATION on H15MET (2013):
 
 <iframe src="http://bl.ocks.org/dataRonin/raw/a0c2f8a36671a88935bf/cb51191b22c604f266ba801f164b7ea54805ffb0/" width = "600" height = "500" scrolling = "yes"></iframe>
 
