@@ -28,6 +28,10 @@ The following observations are mentioned in greater detail below:
 
 * On CENMET in calendar 2013 prior to the WY 2014, snow lysimeter measurements are unusually low as compared to the other [stations](#lowcen); however, measurements after the water year are more similar to those of the other two stations.
 
+Here is a diagram showing WY2013 at CENMET
+
+<iframe src = "http://bl.ocks/org/dataRonin/raw/c6ba99fedfca2145eee2/99476eef71afdaf15b214f7b70e7962d321248d6/" width = "600" height = "500" scrolling = "yes"></iframe><br>
+
 * In calendar 2014, [UPLMET](#highupl) has much greater snow-melt and precipitation prior to the WY 2015 than CENMET does
 
 * in WY 2014, there is ["summertime snow"](#summersno) on UPLMET that does not seem reasonable.
