@@ -8,21 +8,72 @@ Continuing with the previous work on the precipitation on CENMET, UPLMET, and H1
 
 But let's just take a look. Here is:
 
-* [UPLMET 2010](#upl2010)
+* [UPLMET 2010 - 2011](#upl2010)
 
-* [UPLMET 2011](#upl2011)
+There are several questionable values in this year (most of the year, honestly), most occuring in the 2011 part. Here is a brief example.
 
-* [UPLMET 2012](#upl2012)
+    10.2 Q   May 15 2011 12:00:00:000AM
+    2.8 Q   May 16 2011 12:00:00:000AM
+    8.9 Q   May 17 2011 12:00:00:000AM
+    3.6 Q   May 18 2011 12:00:00:000AM
+    0.0 Q   May 19 2011 12:00:00:000AM
+    1.3 Q   May 20 2011 12:00:00:000AM
+    1.8 Q   May 21 2011 12:00:00:000AM
+    0.0 Q   May 22 2011 12:00:00:000AM
+    0.3 Q   May 23 2011 12:00:00:000AM
 
-* [UPLMET 2013](#upl2013)
 
+* [UPLMET 2011 - 2012](#upl2011)
+
+There are several questionable values in this year, most occuring in the 2011 part. Here is a brief example.
+
+FROM MS04309, snowmelt total by day and flag and date. 
+
+        0.0 Q   Nov  1 2011 12:00:00:000AM
+        0.0 Q   Nov  2 2011 12:00:00:000AM
+        7.6 Q   Nov  3 2011 12:00:00:000AM
+        1.3 Q   Nov  4 2011 12:00:00:000AM
+        4.8 Q   Nov  5 2011 12:00:00:000AM
+        0.5 Q   Nov  6 2011 12:00:00:000AM
+        1.3 Q   Nov  7 2011 12:00:00:000AM
+        0.0 Q   Nov  8 2011 12:00:00:000AM
+        0.0 Q   Nov  9 2011 12:00:00:000AM
+        0.0 Q   Nov 10 2011 12:00:00:000AM
+
+
+* [UPLMET 2012 -2013](#upl2012)
+
+There are both missing and questionable values in this year, particularly around when we had the major instrumentation changes. Here is some sample data showing missing and questionable values.
+
+        NULL    M   Aug  4 2012 12:00:00:000AM
+        NULL    M   Aug  5 2012 12:00:00:000AM
+        NULL    M   Aug  6 2012 12:00:00:000AM
+        0.0 Q   Aug  7 2012 12:00:00:000AM
+        NULL    M   Aug  8 2012 12:00:00:000AM
+        NULL    M   Aug  9 2012 12:00:00:000AM
+        NULL    M   Aug 10 2012 12:00:00:000AM
+        0.0 Q   Aug 11 2012 12:00:00:000AM
+        NULL    M   Aug 12 2012 12:00:00:000AM
+        0.0 Q   Aug 13 2012 12:00:00:000AM
+        NULL    M   Aug 14 2012 12:00:00:000AM
+        NULL    M   Aug 15 2012 12:00:00:000AM
+        NULL    M   Aug 16 2012 12:00:00:000AM
+        NULL    M   Aug 17 2012 12:00:00:000AM
+        NULL    M   Aug 18 2012 12:00:00:000AM
+        NULL    M   Aug 19 2012 12:00:00:000AM
+        NULL    M   Aug 20 2012 12:00:00:000AM
+
+
+* [UPLMET 2013 - 2014](#upl2013)
+
+This is the more recent data we have processed. 
 
 Graphics:
 -------
 
 ### [UPLMET 2010]<a id = "upl2010"></a>
 
-
+In 2010 there were a good amount of zero values in the snow lysimeter data, coupled against relatively rampant precipitation. Many values in the 2011 section of this year were marked as questionable in the database.
 
 <style>
 
@@ -69,7 +120,7 @@ if(typeof(mpld3) !== "undefined" && mpld3._mpld3IsLoaded){
 
 ### [UPLMET 2011]<a id = "upl2011"></a>
 
-
+In 2011, it appears that the precipitation at UPLMET over the water year exceeded the snow lysimeter, which may be the indication of faulty calibrations. The expected increase in snow lysimeter around the decrease of SWE does occur, but it never really catches back up 
 
 <style>
 
@@ -115,7 +166,7 @@ if(typeof(mpld3) !== "undefined" && mpld3._mpld3IsLoaded){
 
 ### [UPLMET 2012]<a id = "upl2012"></a>
 
-
+This 2012 graph appears a little odd, and I am going to re-run it to make sure there is no error in the data I called. 
 
 
 <style>
@@ -161,9 +212,9 @@ if(typeof(mpld3) !== "undefined" && mpld3._mpld3IsLoaded){
 </script>
 
 
-### [UPLMET 2013]<a id="upl2013"></a>
+### UPLMET 2013<a id="upl2013"></a>
 
-
+In 2013 on UPLMET, snow lysimeter had very high catch, and we see that it exceeds the precipitation gage right around the same point in the year (May) that the SWE drops off, indicating that the lysimeter was collecting the annual run off as expected.
 
 <style>
 
