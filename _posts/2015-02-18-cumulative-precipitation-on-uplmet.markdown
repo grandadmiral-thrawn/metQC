@@ -264,9 +264,9 @@ if(typeof(mpld3) !== "undefined" && mpld3._mpld3IsLoaded){
 </script>
 
 
-### CENMET 2010<a id = "cen2010"></a>
+### [CENMET 2010]<a id = "cen2010"></a>
 
-
+In 2010, it appears that the precip on CENMET exceeds the snow melt during that water year, which does not really make much sense. 
 
 <style>
 
@@ -312,7 +312,7 @@ if(typeof(mpld3) !== "undefined" && mpld3._mpld3IsLoaded){
 
 ### CENMET 2011<a id = "cen2011"></a>
 
-
+In 2011, similar to on UPLMET, the increase in snow corresponds to the drop in SWE, but again, it never quite catches up to the precipitation during this one water year.
 
 <style>
 
@@ -403,7 +403,7 @@ if(typeof(mpld3) !== "undefined" && mpld3._mpld3IsLoaded){
 
 ### CENMET 2013<a id = "cen2013"></a>
 
-
+Between 2013 and 2014, the behavior of CENMET tends to be more in line with the expected behavior, where snow and precip are both increasing to a point of nearly matching in cumulative output. 
 <style>
 
 </style>

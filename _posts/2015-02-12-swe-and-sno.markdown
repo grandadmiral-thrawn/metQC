@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "SWE (soil water equivalence) and Snow Melt"
+title: "SWE (Snow Water Equivalence) and Snow Melt"
 date: 2015-02-12T14:03:02-08:00
 ---
 
