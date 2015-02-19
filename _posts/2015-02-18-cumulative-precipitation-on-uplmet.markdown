@@ -256,10 +256,7 @@ if(typeof(mpld3) !== "undefined" && mpld3._mpld3IsLoaded){
 
 ### [UPLMET 2012]<a id = "upl2012"></a>
 
-This 2012 graph appears a little odd, and I am going to re-run it to make sure there is no error in the data I called. 
-
-
-
+The 2012 graph appears to be okay in shape, but the snowmelt never really catches back up over the water year. The pattern of 2012 at UPLMET is mimicked in CENMET, but UPLMET totals about 900 mm more per year (see the previous post where we identified a period of time in February that seems to be when the offset really occurs)
 
 <style>
 
