@@ -1,10 +1,10 @@
 ---
 layout: post
-title: "Cumulative Precipitation on UPLMET and CENMET"
+title: "Cumulative Precipitation on UPLMET,CENMET, and H15MET"
 date: 2015-02-18T11:41:09-08:00
 ---
 
-Continuing with the previous work on the precipitation on CENMET, UPLMET, and H15MET, we looked at a few more cumulative courses of precipitation.  Basically, the implementation here is the sum of the daily precipitation over the courses of the water year from 10-01-YEAR to 09-30-YEAR + 1.
+Continuing with the previous work on the precipitation on CENMET, UPLMET, and H15MET, we looked at a few more cumulative courses of precipitation.  Basically, the implementation here is the sum of the daily precipitation over the courses of the water year from 10-01-YEAR to 09-30-YEAR + 1. What we see is that CENMET displays an inability to "catch up" in snow melt.
 
 But let's just take a look. Here is:
 
