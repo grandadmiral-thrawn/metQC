@@ -196,8 +196,8 @@ WIND SPEED ON THE PROP
     * if speed does not change for a certain period of time flag (will do some tests- FSP)
     * if temperature is < 0 and speed is 0, "Q" (frozen?)
  
- WIND DIRECTION ON THE PROP
- -------------
+WIND DIRECTION ON THE PROP
+-------------
  
 * In place:
     * if direction < 0 or > 360, "I"; if direction is NaN, "M"
