@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Standard Deviation of Wind Direction and Other Wind Checks for Portal, Old and New Anemometers"
+title: "Comparison of the standard-deviation of means and the mean of standard deviations for five minute sonic and propeller anemometer values since 2012"
 date: 2015-02-19T14:58:32-08:00
 ---
 
@@ -17,13 +17,13 @@ Key Points
 
 * Data logger will always use the highest resolution inputs it has to determine statistics unless explicitly told [otherwise](#statistics)
 
-* for wind speeds by vector, the mean of the standard deviations and the standard deviation of means at the daily aggregation are not the same
+* For wind speeds by vector (Ux and Uy components), the mean of the standard deviations and the standard deviation of means do not give the same output in the daily scale.
 
-* sonic anemometers and propeller anemometers measure very different directions and deviations. even when the direction they measure for the day mean is similar, the deviation is much more on the [sonic](#compare)
+* Sonic anemometers and propeller anemometers measure very different directions and deviations, even at the same scale. Even when the direction they measure for the day mean is similar, the deviation is much more on the [sonic](#compare). This is because the sonic is measuring many more values and is more attune to variation because it does not suffer from mechancial issues such as underspeeding.
 
-* It appears that the sonic retains the high-variability of its high-resolution inputs even into the daily vector averaged summary for direction, whereas the propeller anemometer, which does not carry as much variability, shows daily standard deviations that are more constrained. Additionally, although the daily standard deviations that are vector averaged on the propeller anemometer did differ from taking the average of five minute standard deviations, these differences are relatively small.
+* Vector averaged deviations differ from deviations of not-vector-averaged metrics.
 
-* Whether or not to retain sub-15 second variability by doing standard deviation inclusive of all minor fluxes on the sonic anemometers seems to be the key in aligning the methods. The arguement against high-variability data at that scale is strong in the literature, however, the interest in retaining data at that scale is equally strong. The paper by Vickers and Mahrt (1996) shows the interest in retaining high resolution data; however, even eddy covariance methods rely on robust filtering of spiky data using weighted ensemble averaging, so the value of this spiky deviation as a direct output is hard to determine. 
+* Not calculating a daily standard deviation will dampen the variability associated with fifteen or less second data, and the loss of information will be greater on the sonic than on the propeller anemometer.
 
 How the Campbell C-SAT3 SONIC works
 ----------------
@@ -31,14 +31,14 @@ How the Campbell C-SAT3 SONIC works
 The C-SAT 3 is a sonic anemometer that can measure three-directional wind, which are called 'ux', 'uy', and 'uz'. The resolution of these vectors are 1 mm/s rms for ux and uy; uz is 0.5 mm/s rms; wind direction is 0.06 degrees rms. Instantaneous measurements can be sampled between 1 and 60 Hz.
 
 
-How the CR23X correlation works<a id="statistics"></a>
+How the CR23X statistical programs work<a id="statistics"></a>
 --------
 
 The covariance/correlation instruction for the CR23X calculates Means, variances, standard deviations, covariances, and correlation coefficients for a set of values in input storage. The instruction requires that all values be located contiguously in storage. The user specifies the first location and how many exist. Date are located in input storage and the results are returned to input storage when the averaging is completed. The memory might be overloaded by too many values. The way to compute the needed space and frequency is to add: 
 
-Time = 1.1 * number of values + 0.5 * number of means, deviations, or variances + 0.9 * number of correlations or covariances + 1.8 
+* Time = 1.1 * number of values + 0.5 * number of means, deviations, or variances + 0.9 * number of correlations or covariances + 1.8 
 
-Space = number of values + number of means, deviations, and variances + number of correlations or covariaces + total number of outputs + 2
+* Space = number of values + number of means, deviations, and variances + number of correlations or covariaces + total number of outputs + 2
 
 This can be expedited by explicitly storing the output locations using the "move" instructions. 
 
@@ -46,9 +46,9 @@ To accomadate cases where it is desireable to calculate statistics over periods 
 
 The CR23X computes standard deviation and other correlation statistics according to the traditional methodology:
 
-Mean = sum(x) / N  
-Variances = sum(x-squared)/N - sum(x/N)-squared
-Standard Deviations = square root of variances
+* Mean = sum(x) / N  
+* Variances = sum(x-squared)/N - sum(x/N)-squared
+* Standard Deviations = square root of variances
 
 Note: "when computing the variance of a constant signal, round off error produces a small, negative result. The CR23X returns a 0 for the square root of a negative number, therefore the standard deviation is set to zero. If the signal is later used in another correlation calculation, division by zero returns an over-range value"
 
@@ -107,6 +107,8 @@ I then replicated the same output in METDAT by querying against the PRIM_229_snc
 | 2014 |  12 |  25 | 0.131 | 0.144| 
 
 
+This was a test to affirm that the deviations being displayed in the Portal are the same as those in the database. 
+
 Comparing sonics and propeller anemometers<a id="compare">
 ------------
 
@@ -124,9 +126,10 @@ For that same week in december, I extracted the wind directions and the wind dir
 | 2014|12|26|86.8776|0.4685 |341.1150|17.7419| 
 | 2014|12|27|348.0764|0.3024 |350.1788|18.7041| 
 
-It is evident that they are not getting the same input nor are they producing the same direction values. Even when input is similar (for example, on 12/27, deviation on the sonic is much more than on the propeller.)
+It is evident that they are not getting the same input nor are they producing the same direction values. Even when input is similar (for example, on 12/27, deviation on the sonic is much more than on the propeller.) This is of course because the variability in the sonic is much finer.
 
-I also computed the same values against METDAT's five minute data based on the same array queries found in the documentation. I was not expecting to see the results to be the same since these are not vector averages, but I wanted to affirm that indeed the results would differ. 
+I also computed the same values against METDAT's five minute data based on the same array queries found in the documentation. This test was to affirm that the results of taking the mean of a standard deviation versus taking the standard deviation of means would give different results. I expected this to be true because the standard deviation of mean direction would retain the information from the high-resolution computation where as the mean of the standard deviations would dampen it. This was a correct expectation. 
+
 
 The sonic is not measured on a daily table, so I can only show the daily values as computed from five minute values.
 
@@ -152,5 +155,5 @@ Here is a comparison of daily average, daily STD, STD of the 5 average direction
 | 2014  |  12 | 27 | 112.8 |  50.83 | 109.033 | 0.3037 | 
 
 
-
+In short, taking the standard deviations of the mean is the best approach to represent the variability of the high resolution data at a daily scale. 
 
