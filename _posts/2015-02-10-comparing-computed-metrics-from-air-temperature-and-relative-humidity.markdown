@@ -9,7 +9,7 @@ date: 2015-02-10T15:38:58-08:00
 Overall Important Point!
 -------------
 
-There is almost perfect correlation between the Fred B. historical method of computing Vapor Pressure Defecit (VPD) and dew point and the NOAA/Chris method for computing vapor pressure defecit and dew point.
+There is almost perfect correlation between the Fred B. historical method of computing Vapor Pressure Defecit (VPD) and dew point and the NOAA/Chris method for computing vapor pressure defecit and dew point. This should be expected since these are well known formulas of physics!
 
 Sample correlation graphic of VPD from VANMET, 150 m, VPD:
 
@@ -106,6 +106,8 @@ if(typeof(mpld3) !== "undefined" && mpld3._mpld3IsLoaded){
 START TIMES FOR EACH PROBE ARE LIMITED BY FIRST RELATIVE HUMIDITY
 --------
 
+As we are working through the data, here are some convenient times to remember. This is when each "probe code" starts. These probe codes help us to align sensors that are physically together. Our other identifications, site code and method code, identify a physical site in space (which may have many probes) and a method of analysis (of which a probe may have many in its lifespan, or which may be shared across probes at different sites). Although all are "primary" identifications depending on your query, I find probe code to be the least fallible.
+
 * RELCEN01 = 1995-08-22 - current, hourly
 * RELCEN04 = 1995-08-22 - current, hourly
 
@@ -127,9 +129,9 @@ START TIMES FOR EACH PROBE ARE LIMITED BY FIRST RELATIVE HUMIDITY
 Starting times for the daily data
 -----------------
 
-Daily and high resolution have the same starting times (sometimes lag by 1 day if they started in the middle of a day)
+Daily and high resolution have the same starting times (sometimes lag by 1 day if they started in the middle of a day). We do not aggregate the first and final day in datasets because they are not representative of a whole day.
 
-How The Data Was Aggregated
+How The Data Was Aggregated (in Fred's old programs and now in this one.)
 --------------------------
 
 According to our data base I found the following programs:

@@ -64,6 +64,7 @@ On the sonic anemometer at PRIMET, we are generating the X- and Y- components of
 
         select year, month, day, Daily_StdDev_WUY_SNC_MEAN_1000_0_02, Daily_Mean_WUY_SNC_STDDEV_1000_0_02 from dailyPrimet2 limit 10;
 
+
 | Year | Month | Day | std(Y-comp mean) | mean(Y-comp std)
 | -| - | - | - | -|
 | 2014|12|19|0.082|0.075|
@@ -76,6 +77,7 @@ On the sonic anemometer at PRIMET, we are generating the X- and Y- components of
 | 2014|12|26|0.157|0.092| 
 | 2014|12|27|0.136|0.098| 
 | 2014|12|28|0.172|0.218| 
+
 
 I then replicated the same output in METDAT by querying against the PRIM_229_snc_avg table by asking:
 
@@ -157,3 +159,4 @@ Here is a comparison of daily average, daily STD, STD of the 5 average direction
 
 In short, taking the standard deviations of the mean is the best approach to represent the variability of the high resolution data at a daily scale. 
 
+To see my post on the computation of the resultant vector, please visit [here](http://dataronin.github.io/codemonkey/2015/02/24/daily-wind/)

@@ -658,3 +658,4 @@ In short, dew point is dependant on control of relative humidity and air tempera
 
 * NO DEW POINT CAN BE GREATER THAN AIR TEMPERATURE.
 
+* see our flag listings [here](http://dataronin.github.io/metQC/2015/02/20/checks-on-air-temperature-and-wind-in-portal.html) and [here](http://dataronin.github.io/metQC/2015/02/20/notes-on-5-minute-precip-gage-flags.html)

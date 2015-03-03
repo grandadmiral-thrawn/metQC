@@ -4,7 +4,7 @@ title: "Cumulative Precipitation on UPLMET,CENMET, and H15MET"
 date: 2015-02-18T11:41:09-08:00
 ---
 
-Continuing with the previous work on the precipitation on CENMET, UPLMET, and H15MET, we looked at a few more cumulative courses of precipitation.  Basically, the implementation here is the sum of the daily precipitation over the courses of the water year from 10-01-YEAR to 09-30-YEAR + 1. What we see is that CENMET displays an inability to "catch up" in snow melt.
+Continuing with the previous work on the precipitation on CENMET, UPLMET, and H15MET (see the other posts for details, [such as](http://dataronin.github.io/metQC/2015/02/12/updates-on-snow-lysimeter-and-precipitation-on-uplmet-cenmet-and-h15met.html), we looked at a few more cumulative courses of precipitation.  Basically, the implementation here is the sum of the daily precipitation over the courses of the water year from 10-01-YEAR to 09-30-YEAR + 1. What we see is that CENMET displays an inability to "catch up" in snow melt. What that means is, the total precipitation caught by the rain gage on the roof of CENMET is always more than the total precipitation caught by the lysimeter, which should be more since it gets both snow and rain!
 
 Note: for an update on this, check out [this page](http://dataronin.github.io/metQC/2015/02/28/post-adjustment-uplmet-cenmet-and-h15met.html)
 
@@ -14,15 +14,18 @@ But let's just take a look. Here is:
 
 There are several questionable values in this year (most of the year, honestly), most occuring in the 2011 part. Here is a brief example.
 
-    10.2 Q   May 15 2011 12:00:00:000AM
-    2.8 Q   May 16 2011 12:00:00:000AM
-    8.9 Q   May 17 2011 12:00:00:000AM
-    3.6 Q   May 18 2011 12:00:00:000AM
-    0.0 Q   May 19 2011 12:00:00:000AM
-    1.3 Q   May 20 2011 12:00:00:000AM
-    1.8 Q   May 21 2011 12:00:00:000AM
-    0.0 Q   May 22 2011 12:00:00:000AM
-    0.3 Q   May 23 2011 12:00:00:000AM
+        10.2 Q   May 15 2011 12:00:00:000AM
+        2.8 Q   May 16 2011 12:00:00:000AM
+        8.9 Q   May 17 2011 12:00:00:000AM
+        3.6 Q   May 18 2011 12:00:00:000AM
+        0.0 Q   May 19 2011 12:00:00:000AM
+        1.3 Q   May 20 2011 12:00:00:000AM
+        1.8 Q   May 21 2011 12:00:00:000AM
+        0.0 Q   May 22 2011 12:00:00:000AM
+        0.3 Q   May 23 2011 12:00:00:000AM
+
+
+I have noticed in going back through sometimes that systematically 2011 appears to be off. It leads me to wonder about the calibration of the system. We would find out about that after our site visit.
 
 
 * [UPLMET 2011 - 2012](#upl2011)
@@ -47,6 +50,7 @@ FROM MS04309, snowmelt total by day and flag and date.
 
 There are both missing and questionable values in this year, particularly around when we had the major instrumentation changes. Here is some sample data showing missing and questionable values.
 
+
         NULL    M   Aug  4 2012 12:00:00:000AM
         NULL    M   Aug  5 2012 12:00:00:000AM
         NULL    M   Aug  6 2012 12:00:00:000AM
@@ -68,7 +72,7 @@ There are both missing and questionable values in this year, particularly around
 
 * [UPLMET 2013 - 2014](#upl2013)
 
-This is the more recent data we have processed. 
+This is the more recent data we have processed. It appears that the system finally gets more normal around this time!
 
 * [CENMET 2010 - 2011](#cen2010)
 
@@ -82,6 +86,9 @@ In 2011 the precip has some rather large influxes which are not matched by snow 
         Apr 15 2011 12:00:00:000AM  A   36.5
         Apr 16 2011 12:00:00:000AM  A   13.5
         Apr 17 2011 12:00:00:000AM  A   0.5
+
+
+CENMET unlike the other sites does not have as much snow-melt in general, being at a lower elevation. It also had some trouble during the 2012 logger changes. It should be qc'ed carefully during logger changes, especially these!
 
 * [CENMET 2011 - 2012](#cen2011)
 

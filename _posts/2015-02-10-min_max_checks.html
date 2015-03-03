@@ -1,0 +1,2497 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><style>body {
+  width: 45em;
+  border: 1px solid #ddd;
+  outline: 1300px solid #fff;
+  margin: 16px auto;
+}
+
+body .markdown-body
+{
+  padding: 30px;
+}
+
+@font-face {
+  font-family: fontawesome-mini;
+  src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
+}
+
+@font-face {
+  font-family: octicons-anchor;
+  src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
+}
+
+.markdown-body {
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  color: #333333;
+  overflow: hidden;
+  font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  word-wrap: break-word;
+}
+
+.markdown-body a {
+  background: transparent;
+}
+
+.markdown-body a:active,
+.markdown-body a:hover {
+  outline: 0;
+}
+
+.markdown-body b,
+.markdown-body strong {
+  font-weight: bold;
+}
+
+.markdown-body mark {
+  background: #ff0;
+  color: #000;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.markdown-body sub,
+.markdown-body sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+.markdown-body sup {
+  top: -0.5em;
+}
+.markdown-body sub {
+  bottom: -0.25em;
+}
+
+.markdown-body h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+.markdown-body img {
+  border: 0;
+}
+
+.markdown-body hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+}
+
+.markdown-body pre {
+  overflow: auto;
+}
+
+.markdown-body code,
+.markdown-body kbd,
+.markdown-body pre,
+.markdown-body samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+.markdown-body input {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+}
+
+.markdown-body html input[disabled] {
+  cursor: default;
+}
+
+.markdown-body input {
+  line-height: normal;
+}
+
+.markdown-body input[type="checkbox"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.markdown-body table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.markdown-body td,
+.markdown-body th {
+  padding: 0;
+}
+
+.markdown-body .codehilitetable {
+  border: 0;
+  border-spacing: 0;
+}
+
+.markdown-body .codehilitetable tr {
+  border: 0;
+}
+
+.markdown-body .codehilitetable pre,
+.markdown-body .codehilitetable div.codehilite {
+  margin: 0;
+}
+
+.markdown-body .linenos,
+.markdown-body .code,
+.markdown-body .codehilitetable td {
+  border: 0;
+  padding: 0;
+}
+
+.markdown-body td:not(.linenos) .linenodiv {
+  padding: 0 !important;
+}
+
+.markdown-body .code {
+  width: 100%;
+}
+
+.markdown-body .linenos div pre,
+.markdown-body .linenodiv pre,
+.markdown-body .linenodiv {
+  border: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  -webkit-border-top-left-radius: 3px;
+  -webkit-border-bottom-left-radius: 3px;
+  -moz-border-radius-topleft: 3px;
+  -moz-border-radius-bottomleft: 3px;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.markdown-body .code div pre,
+.markdown-body .code div {
+  border: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  -webkit-border-top-right-radius: 3px;
+  -webkit-border-bottom-right-radius: 3px;
+  -moz-border-radius-topright: 3px;
+  -moz-border-radius-bottomright: 3px;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+.markdown-body * {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.markdown-body input {
+  font: 13px Helvetica, arial, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+  line-height: 1.4;
+}
+
+.markdown-body a {
+  color: #4183c4;
+  text-decoration: none;
+}
+
+.markdown-body a:hover,
+.markdown-body a:focus,
+.markdown-body a:active {
+  text-decoration: underline;
+}
+
+.markdown-body hr {
+  height: 0;
+  margin: 15px 0;
+  overflow: hidden;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.markdown-body hr:before,
+.markdown-body hr:after {
+  display: table;
+  content: " ";
+}
+
+.markdown-body hr:after {
+  clear: both;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  line-height: 1.1;
+}
+
+.markdown-body h1 {
+  font-size: 30px;
+}
+
+.markdown-body h2 {
+  font-size: 21px;
+}
+
+.markdown-body h3 {
+  font-size: 16px;
+}
+
+.markdown-body h4 {
+  font-size: 14px;
+}
+
+.markdown-body h5 {
+  font-size: 12px;
+}
+
+.markdown-body h6 {
+  font-size: 11px;
+}
+
+.markdown-body blockquote {
+  margin: 0;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body ol ol,
+.markdown-body ul ol {
+  list-style-type: lower-roman;
+}
+
+.markdown-body ul ul ol,
+.markdown-body ul ol ol,
+.markdown-body ol ul ol,
+.markdown-body ol ol ol {
+  list-style-type: lower-alpha;
+}
+
+.markdown-body dd {
+  margin-left: 0;
+}
+
+.markdown-body code,
+.markdown-body pre,
+.markdown-body samp {
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  font-size: 12px;
+}
+
+.markdown-body pre {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body kbd {
+  background-color: #e7e7e7;
+  background-image: -moz-linear-gradient(#fefefe, #e7e7e7);
+  background-image: -webkit-linear-gradient(#fefefe, #e7e7e7);
+  background-image: linear-gradient(#fefefe, #e7e7e7);
+  background-repeat: repeat-x;
+  border-radius: 2px;
+  border: 1px solid #cfcfcf;
+  color: #000;
+  padding: 3px 5px;
+  line-height: 10px;
+  font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  display: inline-block;
+}
+
+.markdown-body>*:first-child {
+  margin-top: 0 !important;
+}
+
+.markdown-body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+.markdown-body .headeranchor-link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  display: block;
+  padding-right: 6px;
+  padding-left: 30px;
+  margin-left: -30px;
+}
+
+.markdown-body .headeranchor-link:focus {
+  outline: none;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  position: relative;
+  margin-top: 1em;
+  margin-bottom: 16px;
+  font-weight: bold;
+  line-height: 1.4;
+}
+
+.markdown-body h1 .headeranchor,
+.markdown-body h2 .headeranchor,
+.markdown-body h3 .headeranchor,
+.markdown-body h4 .headeranchor,
+.markdown-body h5 .headeranchor,
+.markdown-body h6 .headeranchor {
+  display: none;
+  color: #000;
+  vertical-align: middle;
+}
+
+.markdown-body h1:hover .headeranchor-link,
+.markdown-body h2:hover .headeranchor-link,
+.markdown-body h3:hover .headeranchor-link,
+.markdown-body h4:hover .headeranchor-link,
+.markdown-body h5:hover .headeranchor-link,
+.markdown-body h6:hover .headeranchor-link {
+  height: 1em;
+  padding-left: 8px;
+  margin-left: -30px;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.markdown-body h1:hover .headeranchor-link .headeranchor,
+.markdown-body h2:hover .headeranchor-link .headeranchor,
+.markdown-body h3:hover .headeranchor-link .headeranchor,
+.markdown-body h4:hover .headeranchor-link .headeranchor,
+.markdown-body h5:hover .headeranchor-link .headeranchor,
+.markdown-body h6:hover .headeranchor-link .headeranchor {
+  display: inline-block;
+}
+
+.markdown-body h1 {
+  padding-bottom: 0.3em;
+  font-size: 2.25em;
+  line-height: 1.2;
+  border-bottom: 1px solid #eee;
+}
+
+.markdown-body h2 {
+  padding-bottom: 0.3em;
+  font-size: 1.75em;
+  line-height: 1.225;
+  border-bottom: 1px solid #eee;
+}
+
+.markdown-body h3 {
+  font-size: 1.5em;
+  line-height: 1.43;
+}
+
+.markdown-body h4 {
+  font-size: 1.25em;
+}
+
+.markdown-body h5 {
+  font-size: 1em;
+}
+
+.markdown-body h6 {
+  font-size: 1em;
+  color: #777;
+}
+
+.markdown-body p,
+.markdown-body blockquote,
+.markdown-body ul,
+.markdown-body ol,
+.markdown-body dl,
+.markdown-body table,
+.markdown-body pre,
+.markdown-body .admonition {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.markdown-body hr {
+  height: 4px;
+  padding: 0;
+  margin: 16px 0;
+  background-color: #e7e7e7;
+  border: 0 none;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding-left: 2em;
+}
+
+.markdown-body ul ul,
+.markdown-body ul ol,
+.markdown-body ol ol,
+.markdown-body ol ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body li>p {
+  margin-top: 16px;
+}
+
+.markdown-body dl {
+  padding: 0;
+}
+
+.markdown-body dl dt {
+  padding: 0;
+  margin-top: 16px;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.markdown-body dl dd {
+  padding: 0 16px;
+  margin-bottom: 16px;
+}
+
+.markdown-body blockquote {
+  padding: 0 15px;
+  color: #777;
+  border-left: 4px solid #ddd;
+}
+
+.markdown-body blockquote>:first-child {
+  margin-top: 0;
+}
+
+.markdown-body blockquote>:last-child {
+  margin-bottom: 0;
+}
+
+.markdown-body table {
+  display: block;
+  width: 100%;
+  overflow: auto;
+  word-break: normal;
+  word-break: keep-all;
+}
+
+.markdown-body table th {
+  font-weight: bold;
+}
+
+.markdown-body table th,
+.markdown-body table td {
+  padding: 6px 13px;
+  border: 1px solid #ddd;
+}
+
+.markdown-body table tr {
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+}
+
+.markdown-body table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+.markdown-body img {
+  max-width: 100%;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.markdown-body code,
+.markdown-body samp {
+  padding: 0;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  margin: 0;
+  font-size: 85%;
+  background-color: rgba(0,0,0,0.04);
+  border-radius: 3px;
+}
+
+.markdown-body code:before,
+.markdown-body code:after {
+  letter-spacing: -0.2em;
+  content: "\00a0";
+}
+
+.markdown-body pre>code {
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+  word-break: normal;
+  white-space: pre;
+  background: transparent;
+  border: 0;
+}
+
+.markdown-body .codehilite {
+  margin-bottom: 16px;
+}
+
+.markdown-body .codehilite pre,
+.markdown-body pre {
+  padding: 16px;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: #f7f7f7;
+  border-radius: 3px;
+}
+
+.markdown-body .codehilite pre {
+  margin-bottom: 0;
+  word-break: normal;
+}
+
+.markdown-body pre {
+  word-wrap: normal;
+}
+
+.markdown-body pre code {
+  display: inline;
+  max-width: initial;
+  padding: 0;
+  margin: 0;
+  overflow: initial;
+  line-height: inherit;
+  word-wrap: normal;
+  background-color: transparent;
+  border: 0;
+}
+
+.markdown-body pre code:before,
+.markdown-body pre code:after {
+  content: normal;
+}
+
+/* Admonition */
+.markdown-body .admonition {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  position: relative;
+  border-radius: 3px;
+  border: 1px solid #e0e0e0;
+  border-left: 6px solid #333;
+  padding: 10px 10px 10px 30px;
+}
+
+.markdown-body .admonition table {
+  color: #333;
+}
+
+.markdown-body .admonition p {
+  padding: 0;
+}
+
+.markdown-body .admonition-title {
+  font-weight: bold;
+  margin: 0;
+}
+
+.markdown-body .admonition>.admonition-title {
+  color: #333;
+}
+
+.markdown-body .attention>.admonition-title {
+  color: #a6d796;
+}
+
+.markdown-body .caution>.admonition-title {
+  color: #d7a796;
+}
+
+.markdown-body .hint>.admonition-title {
+  color: #96c6d7;
+}
+
+.markdown-body .danger>.admonition-title {
+  color: #c25f77;
+}
+
+.markdown-body .question>.admonition-title {
+  color: #96a6d7;
+}
+
+.markdown-body .note>.admonition-title {
+  color: #d7c896;
+}
+
+.markdown-body .admonition:before,
+.markdown-body .attention:before,
+.markdown-body .caution:before,
+.markdown-body .hint:before,
+.markdown-body .danger:before,
+.markdown-body .question:before,
+.markdown-body .note:before {
+  font: normal normal 16px fontawesome-mini;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  line-height: 1.5;
+  color: #333;
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+.markdown-body .admonition:before {
+  content: "\f056\00a0";
+  color: 333;
+}
+
+.markdown-body .attention:before {
+  content: "\f058\00a0";
+  color: #a6d796;
+}
+
+.markdown-body .caution:before {
+  content: "\f06a\00a0";
+  color: #d7a796;
+}
+
+.markdown-body .hint:before {
+  content: "\f05a\00a0";
+  color: #96c6d7;
+}
+
+.markdown-body .danger:before {
+  content: "\f057\00a0";
+  color: #c25f77;
+}
+
+.markdown-body .question:before {
+  content: "\f059\00a0";
+  color: #96a6d7;
+}
+
+.markdown-body .note:before {
+  content: "\f040\00a0";
+  color: #d7c896;
+}
+
+.markdown-body .admonition::after {
+  content: normal;
+}
+
+.markdown-body .attention {
+  border-left: 6px solid #a6d796;
+}
+
+.markdown-body .caution {
+  border-left: 6px solid #d7a796;
+}
+
+.markdown-body .hint {
+  border-left: 6px solid #96c6d7;
+}
+
+.markdown-body .danger {
+  border-left: 6px solid #c25f77;
+}
+
+.markdown-body .question {
+  border-left: 6px solid #96a6d7;
+}
+
+.markdown-body .note {
+  border-left: 6px solid #d7c896;
+}
+
+.markdown-body .admonition>*:first-child {
+  margin-top: 0 !important;
+}
+
+.markdown-body .admonition>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* progress bar*/
+.markdown-body .progress {
+  display: block;
+  width: 300px;
+  margin: 10px 0;
+  height: 24px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #ededed;
+  position: relative;
+  box-shadow: inset -1px 1px 3px rgba(0, 0, 0, .1);
+}
+
+.markdown-body .progress-label {
+  position: absolute;
+  text-align: center;
+  font-weight: bold;
+  width: 100%; margin: 0;
+  line-height: 24px;
+  color: #333;
+  text-shadow: 1px 1px 0 #fefefe, -1px -1px 0 #fefefe, -1px 1px 0 #fefefe, 1px -1px 0 #fefefe, 0 1px 0 #fefefe, 0 -1px 0 #fefefe, 1px 0 0 #fefefe, -1px 0 0 #fefefe, 1px 1px 2px #000;
+  -webkit-font-smoothing: antialiased !important;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.markdown-body .progress-bar {
+  height: 24px;
+  float: left;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #96c6d7;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .5), inset 0 -1px 0 rgba(0, 0, 0, .1);
+  background-size: 30px 30px;
+  background-image: -webkit-linear-gradient(
+    135deg, rgba(255, 255, 255, .4) 27%,
+    transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%,
+    transparent 77%, transparent
+  );
+  background-image: -moz-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+  background-image: -ms-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+  background-image: -o-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+  background-image: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+}
+
+.markdown-body .progress-100plus .progress-bar {
+  background-color: #a6d796;
+}
+
+.markdown-body .progress-80plus .progress-bar {
+  background-color: #c6d796;
+}
+
+.markdown-body .progress-60plus .progress-bar {
+  background-color: #d7c896;
+}
+
+.markdown-body .progress-40plus .progress-bar {
+  background-color: #d7a796;
+}
+
+.markdown-body .progress-20plus .progress-bar {
+  background-color: #d796a6;
+}
+
+.markdown-body .progress-0plus .progress-bar {
+  background-color: #c25f77;
+}
+
+.markdown-body .candystripe-animate .progress-bar{
+  -webkit-animation: animate-stripes 3s linear infinite;
+  -moz-animation: animate-stripes 3s linear infinite;
+  animation: animate-stripes 3s linear infinite;
+}
+
+@-webkit-keyframes animate-stripes {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 60px 0;
+  }
+}
+
+@-moz-keyframes animate-stripes {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 60px 0;
+  }
+}
+
+@keyframes animate-stripes {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 60px 0;
+  }
+}
+
+.markdown-body .gloss .progress-bar {
+  box-shadow:
+    inset 0 4px 12px rgba(255, 255, 255, .7),
+    inset 0 -12px 0 rgba(0, 0, 0, .05);
+}
+
+/* Multimarkdown Critic Blocks */
+.markdown-body .critic_mark {
+  background: #ff0;
+}
+
+.markdown-body .critic_delete {
+  color: #c82829;
+  text-decoration: line-through;
+}
+
+.markdown-body .critic_insert {
+  color: #718c00 ;
+  text-decoration: underline;
+}
+
+.markdown-body .critic_comment {
+  color: #8e908c;
+  font-style: italic;
+}
+
+.markdown-body .headeranchor {
+  font: normal normal 16px octicons-anchor;
+  line-height: 1;
+  display: inline-block;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.headeranchor:before {
+  content: '\f05c';
+}
+
+.markdown-body .task-list-item {
+  list-style-type: none;
+}
+
+.markdown-body .task-list-item+.task-list-item {
+  margin-top: 3px;
+}
+
+.markdown-body .task-list-item input {
+  margin: 0 4px 0.25em -20px;
+  vertical-align: middle;
+}
+
+/* Media */
+@media only screen and (min-width: 480px) {
+  .markdown-body {
+    font-size:14px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .markdown-body {
+    font-size:16px;
+  }
+}
+
+@media print {
+  .markdown-body * {
+    background: transparent !important;
+    color: black !important;
+    filter:none !important;
+    -ms-filter: none !important;
+  }
+
+  .markdown-body {
+    font-size:12pt;
+    max-width:100%;
+    outline:none;
+    border: 0;
+  }
+
+  .markdown-body a,
+  .markdown-body a:visited {
+    text-decoration: underline;
+  }
+
+  .markdown-body .headeranchor-link {
+    display: none;
+  }
+
+  .markdown-body a[href]:after {
+    content: " (" attr(href) ")";
+  }
+
+  .markdown-body abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+
+  .markdown-body .ir a:after,
+  .markdown-body a[href^="javascript:"]:after,
+  .markdown-body a[href^="#"]:after {
+    content: "";
+  }
+
+  .markdown-body pre {
+    white-space: pre;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+
+  .markdown-body pre,
+  .markdown-body blockquote {
+    border: 1px solid #999;
+    padding-right: 1em;
+    page-break-inside: avoid;
+  }
+
+  .markdown-body .progress,
+  .markdown-body .progress-bar {
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+
+  .markdown-body .progress {
+    border: 1px solid #ddd;
+  }
+
+  .markdown-body .progress-bar {
+    height: 22px;
+    border-right: 1px solid #ddd;
+  }
+
+  .markdown-body tr,
+  .markdown-body img {
+    page-break-inside: avoid;
+  }
+
+  .markdown-body img {
+    max-width: 100% !important;
+  }
+
+  .markdown-body p,
+  .markdown-body h2,
+  .markdown-body h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  .markdown-body h2,
+  .markdown-body h3 {
+    page-break-after: avoid;
+  }
+}
+</style><title>2015-02-10-min_max_checks</title></head><body><article class="markdown-body"><hr />
+<p>layout: post<br />
+title: &ldquo;Min and Max Checks&rdquo;<br />
+date: 2015-02-03T14:30:24-08:00</p>
+<hr />
+<h1 id="key-points"><a name="user-content-key-points" href="#key-points" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Key Points!</h1>
+<ul>
+<li>
+<p><a href="#qlink">The Problem</a> and <a href="#approach">The Approach</a> to understanding the implications of differences between five minute and daily values are outlined here. </p>
+</li>
+<li>
+<p><a href="#atmax">AIR TEMPERATURE Maximums</a> from daily data (instantaneous measurements as we have been getting in the past) were all within less than one degree of difference from air temperature maximums taken from getting the maximum of the five minute values of the day. Sometimes the time of maximum was a little different than the closest five minute interval (if there were several very hot intervals in the day). Both the instantaneous and five-minute maximums were about 60 percent greater than the daily mean. At fifteen minutes, using only the most recent data, there was good agreement between the methods, however, our past analysis indicated that there is more discrepancy between fifteen minute maximums and five minute maximums than within a five minute window. </p>
+</li>
+<li>
+<p><a href="#rhmax">RELATIVE HUMIDITY Maximums</a>. Differences between the relative humidity maximums from the daily data and from the five minute data were generally less than 12 percent. However, the maximum relative humidity is also well constrained at 100 percent. Between the maximum relative humidity and the mean is generally less than 20 percent difference, however this trend is not as strong across sites as it was with temperature. There is more variability between daily (instantaneous) and daily (five minute) data in relative humidity than in temperature.</p>
+</li>
+<li>
+<p><a href="#dpmax">DEW POINT Maximums</a> depend on consistency between maximums of air temperature and of relative humidity. Since there is a chance that one or both of these will not be similar to the five minute measurement, the dew point calculation is also affected. Since relative humidity is the more variable of the two, in general, if the maximum relative humidity of the day differs significantly from the found maximum in the five minute data, the maximum dew point of the day will also differ. Another issue is that sometimes dew point is &ldquo;calculated&rdquo; even when both relative humidity and air temperature are off (see the <a href="http://dataronin.github.io/metQC/2015/02/09/outline_of_flags_and_problems_on_portal.html">flags</a> document). A third problem is that if error occurs in one of the component measurements, the dew point might be predicted to be greater than the temperature of the day (which is impossible). The majority of dew points maximums were less than two degrees different than the five minute maximums. The difference between the dew point maximum and the daily mean dew point was about 40 percent for the instantaneous method and 32 percent for the five-minute data method. I attribute that difference to when dew point was computed despite one or both of its components being missing.</p>
+</li>
+<li>
+<p><a href="#atmin">AIR TEMPERATURE Minimums</a> from the daily data (instantaneous&hellip;) were also within less than one degree of difference from the minimums taken from the minimum five minute mean of the day. The minimums were about 40 percent less than the daily mean. In general, there was less variability between minimums than maximums. On PRIMET at 450 m there were several outlier measurements. </p>
+</li>
+<li>
+<p><a href="#rhin">RELATIVE HUMIDITY Minimums</a> The minimums from the daily data for relative humidity can be very different than the five minute minimums, particularly when the five minute minimums are at 100 percent humidity and the daily minimum has displayed as value which is not 100 percent humidity. While the minimum five minute mean humidity suggests that the lowest humidity is about 37 less than the mean over the course of the day, the daily method indicates that it is closer to 44 percent. </p>
+</li>
+<li>
+<p><a href="#dpmin">DEW POINT Minimums</a> In general, it was seen that the average difference between dew point minimum by methods was about 1.5 degrees C. Similar to the dew point maximums, error propogating from air temperature and (strongly from) relative humidity affect the minimum dew point. When using the five minute method, the minimum dew point was usually about 29 percent lower than the daily mean dew point; when using the instantaneous method it was about 33 percent lower. The most nefarious problem with dew points is the calculation of the dew point in the log even when relative humidity or air temperature are missing. </p>
+</li>
+</ul>
+<p>At the bottom of this document are a few more summary take home points, the body of this document is examples of problems and charts.</p>
+<h2 id="the-problem"><a name="user-content-the-problem" href="#the-problem" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>The Problem<a id="qlink"></a></h2>
+<p>Data collected in the past included the instantaneous minimum and maximums of air temperature, relative humidity, solar radiation, and wind speed and direction (only maximum for wind) on a single day. This information is no longer being collected. Recently, we have used the five- or fifteen- minute minimum or maximum from the day to approximate these instantaneous values. But what do we lose if we choose to not capture these values?</p>
+<p>Example (hypothetical):</p>
+<ul>
+<li>Instantaneous maximum is &ldquo;37.89&rdquo; and occurs at 12:34:05</li>
+<li>Five- minute preceding temperature is &ldquo;36.35&rdquo; at 12:30:00 and following is &ldquo;35.87&rdquo; at 12:35:00. </li>
+</ul>
+<h2 id="the-approach"><a name="user-content-the-approach" href="#the-approach" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>The Approach<a id="approach"></a></h2>
+<h2 id="data-extent-for-air-temperature-and-relative-humidity-and-by-derivation-dew-point-and-vapor-pressure-defecit"><a name="user-content-data-extent-for-air-temperature-and-relative-humidity-and-by-derivation-dew-point-and-vapor-pressure-defecit" href="#data-extent-for-air-temperature-and-relative-humidity-and-by-derivation-dew-point-and-vapor-pressure-defecit" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Data Extent for Air Temperature and Relative Humidity (and by derivation, dew point and vapor pressure defecit) <a id= "statlink"></a></h2>
+<p>The table below describes the extent of the data used in this analysis.  The DAYS SHARED attribute is the number of days I used during which both five- and daily- data acquisitions appeared to be operational. During these times there were no long &ldquo;streaks&rdquo; of values gathered labelled as &ldquo;NULL&rdquo; and the values fell within an earthly range, here defined at greater than -50 C or less than 50 C for any air temperature. The LAST GATHERED attribute is the last day from which I collected data. There may be a few days of good data following this date.</p>
+<table>
+<thead>
+<tr>
+<th>STATION</th>
+<th>HEIGHT</th>
+<th>DAYS SHARED</th>
+<th>FIRST SHARED</th>
+<th>LAST GATHERED</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CENMET</td>
+<td>150</td>
+<td>160</td>
+<td>2014-08-29</td>
+<td>2015-01-28</td>
+</tr>
+<tr>
+<td>CENMET</td>
+<td>250</td>
+<td>160</td>
+<td>2014-08-29</td>
+<td>2015-01-28</td>
+</tr>
+<tr>
+<td>CENMET</td>
+<td>350</td>
+<td>160</td>
+<td>2014-08-29</td>
+<td>2015-01-28</td>
+</tr>
+<tr>
+<td>CENMET</td>
+<td>450</td>
+<td>160</td>
+<td>2014-08-28</td>
+<td>2015-01-28</td>
+</tr>
+<tr>
+<td>PRIMET</td>
+<td>150</td>
+<td>267</td>
+<td>2014-05-13</td>
+<td>2015-02-03</td>
+</tr>
+<tr>
+<td>PRIMET</td>
+<td>250</td>
+<td>267</td>
+<td>2014-05-13</td>
+<td>2015-02-03</td>
+</tr>
+<tr>
+<td>PRIMET</td>
+<td>350</td>
+<td>267</td>
+<td>2014-05-13</td>
+<td>2015-02-03</td>
+</tr>
+<tr>
+<td>PRIMET</td>
+<td>450</td>
+<td>267</td>
+<td>2014-05-13</td>
+<td>2015-02-03</td>
+</tr>
+<tr>
+<td>VANMET</td>
+<td>150</td>
+<td>260</td>
+<td>2014-05-19</td>
+<td>2015-02-03</td>
+</tr>
+<tr>
+<td>VANMET</td>
+<td>250</td>
+<td>260</td>
+<td>2014-05-19</td>
+<td>2015-02-03</td>
+</tr>
+<tr>
+<td>VANMET</td>
+<td>350</td>
+<td>260</td>
+<td>2014-05-19</td>
+<td>2015-02-03</td>
+</tr>
+<tr>
+<td>VANMET</td>
+<td>450</td>
+<td>260</td>
+<td>2014-05-19</td>
+<td>2015-02-03</td>
+</tr>
+</tbody>
+</table>
+<p>The tables that follow describe results generated for a few stations. <br />
+I did not address here the aspirated sensors for air temperature. After bring in, merging, and <a href="#outliers">filtering outliers</a>, I computed a basic set of metrics, and fed them into histograms to create probability distributions to exemplify and compare the behaviors of each set.</p>
+<ul>
+<li>date-time for the daily date</li>
+<li>maximums on the daily</li>
+<li>minimums on the daily</li>
+<li>maximums on the five minutes (max of five minute means for a day)</li>
+<li>minimums on the five minutes (min of five minute means for a day)</li>
+<li>difference between corresponding daily and five minute maxes (absolute value difference)</li>
+<li>difference between corresponding daily and five minute minimums (absolute value difference)</li>
+<li>percent of difference between the daily max and the daily mean </li>
+<li>percent of difference between the max of the five minute means for the day and the mean of five minute means for the day</li>
+<li>percent of difference between the daily min and the daily mean</li>
+<li>percent of difference between the minimum of the daily five minute means and the daily mean</li>
+</ul>
+<p><a id="outliers"></a> When generating histograms, I used 5 evenly spaced bins. In some cases, one or two values which were clearly erroneous for either of the two data sets were removed as they greatly skewed the distribution. When this removal fell well into the realm of impossibility, I noted the date and value and then removed it. When it was potentially questionable, I noted it for further exploration (see the <a href="#atmax">PRIMET maximums</a> for an example).</p>
+<p>Additionally, I independently validated 3 randomly selected days by randomly selecting a row using a random number generator between the collected data and the daily data being reported on the Portal. I also checked that the times of minimum and times of maximums reported on Portal for the five minute observation were the same as the ones that encompassed the maximum (or minimum) daily variables taken from instantaneous measurements daily temperature come from METDAT off of the daily (440) table. The key problem I found in this was that observations between 23:55 PM and Midnight could get assigned to the wrong time stamp, due to the timing discrepancy between the 2400 as midnight method versus the 0000 as midnight method. Although I initially thought I had found an example of this, I was incorrect; however, it did open my eyes to the fact that this error could exist, and would result in the daily minimum or maximum value being cast to the prior day, should it not be taken using the daily synopsis technique. In short, this is an inconsistency between the two methods that will not be resolved unless the TmStamp is reformated in either the newer or older data sets. </p>
+<ul>
+<li><strong> Note: </strong> When calculating the average difference between the daily mean value and the daily max or min value, I used the median rather than the statistical mean, as often one outlier that I could not immediately determine if real or incorrect would skew the distribution too much. </li>
+</ul>
+<h2 id="air-temperature-maximums"><a name="user-content-air-temperature-maximums" href="#air-temperature-maximums" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>AIR TEMPERATURE MAXIMUMS <a id = "atmax"></a></h2>
+<p>Here are a few examples of air temperature maximums, collected from the four sensors on CENMET:</p>
+<p>At the 150 m height, AIRCEN01:</p>
+<ul>
+<li>
+<p><strong> Overview: </strong> 153 values collected</p>
+</li>
+<li>
+<p><strong> Maximum difference </strong> 0.51 C on 2014-09-09</p>
+</li>
+<li>
+<p>The daily maximum temperatures are on average 70.71 percent greater than the mean temperature for the day as calculated on the daily summary</p>
+</li>
+<li>
+<p>The five-minute maximum temperatures are on average 68.6 percent greater than the mean temperature for the day as calculated as the mean of all the five minute temperatures</p>
+</li>
+<li>
+<p>Tables like this contain the boundaries of the grouping bins in a histogram, the count of the values encompassed by that bin, and the percent of the total values in that bin. The below would be read as &ldquo;forty-four percent of all differences between the daily measurement of maximum temperature and the maximum of the five minute mean fell within a window of less than 0.1 degrees C&rdquo;</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>BIN EDGES</th>
+<th>NUMBER OF VALUES</th>
+<th>PERCENT OF VALUES</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>~0 to 0.1</td>
+<td>71</td>
+<td>44</td>
+</tr>
+<tr>
+<td>0.1 to 0.2</td>
+<td>63</td>
+<td>39</td>
+</tr>
+<tr>
+<td>0.2 to 0.3</td>
+<td>20</td>
+<td>13</td>
+</tr>
+<tr>
+<td>0.3 to 0.4</td>
+<td>5</td>
+<td>3</td>
+</tr>
+<tr>
+<td>&gt; 0.5</td>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>Validations conducted on air temperature at CENMET 150m on 2014-10-29, 2014-10-07, 2014-11-24.</p>
+<ul>
+<li>Tables like this contain the date being validated, the maximum value for the day on Portal, the maximum value for the day in METDAT, etc. with PORT being &ldquo;Portal&rdquo; and MET being &ldquo;METDAT&rdquo;</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>DATE</th>
+<th>PORT MAX</th>
+<th>MET MAX</th>
+<th>PORT TMX</th>
+<th>MET TMX</th>
+<th>PORT MIN</th>
+<th>MET MIN</th>
+<th>PORT TMIN</th>
+<th>MET TMIN</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2014-10-29</td>
+<td>14.51</td>
+<td>14.51</td>
+<td>13:30</td>
+<td>13:29</td>
+<td>6.047</td>
+<td>6.047</td>
+<td>7:13</td>
+<td>7:15</td>
+</tr>
+<tr>
+<td>2014-10-07</td>
+<td>30.19</td>
+<td>30.19</td>
+<td>14:40</td>
+<td>14:37</td>
+<td>12.00</td>
+<td>12.03</td>
+<td>6:35</td>
+<td>6:33</td>
+</tr>
+<tr>
+<td>2014-11-24</td>
+<td>9.13</td>
+<td>9.13</td>
+<td>13:25</td>
+<td>13:24</td>
+<td>1.04</td>
+<td>1.04</td>
+<td>6:24</td>
+<td>6:25</td>
+</tr>
+</tbody>
+</table>
+<p>(The reported values are in sync with those in the database)</p>
+<p>At the 250 m height, AIRCEN02 reports:</p>
+<ul>
+<li>
+<p><strong> Overview: </strong> 160 values collected</p>
+</li>
+<li>
+<p><strong> Maximum difference </strong> 0.69 C on 2014-11-26</p>
+</li>
+<li>
+<p>The daily maximum temperatures are on average 67.11 percent greater than the mean temperature for the day as calculated on the daily summary</p>
+</li>
+<li>The five-minute maximum temperatures are on average 64.11 percent greater than the mean temperature for the day as calculated as the mean of all the five minute temperatures</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>BIN EDGES</th>
+<th>NUMBER OF VALUES</th>
+<th>PERCENT OF VALUES</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>~0 to 0.1</td>
+<td>65</td>
+<td>41</td>
+</tr>
+<tr>
+<td>0.13 to 0.27</td>
+<td>71</td>
+<td>44</td>
+</tr>
+<tr>
+<td>0.27 to 0.41</td>
+<td>20</td>
+<td>13</td>
+</tr>
+<tr>
+<td>0.41 to 0.55</td>
+<td>5</td>
+<td>2</td>
+</tr>
+<tr>
+<td>&gt; 0.55</td>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>Validations were conducted for 2014-09-02, 2014-11-07, and 2014-12-06</p>
+<table>
+<thead>
+<tr>
+<th>DATE</th>
+<th>PORT MAX</th>
+<th>MET MAX</th>
+<th>PORT TMX</th>
+<th>MET TMX</th>
+<th>PORT MIN</th>
+<th>MET MIN</th>
+<th>PORT TMIN</th>
+<th>MET TMIN</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2014-09-02</td>
+<td>22.77</td>
+<td>22.77</td>
+<td>14:00</td>
+<td>13:55</td>
+<td>7.089</td>
+<td>7.089</td>
+<td>23:55</td>
+<td>00:00</td>
+</tr>
+<tr>
+<td>2014-11-07</td>
+<td>13.66</td>
+<td>13.66</td>
+<td>15:30</td>
+<td>15:30</td>
+<td>1.813</td>
+<td>1.813</td>
+<td>7:20</td>
+<td>07:18</td>
+</tr>
+<tr>
+<td>2014-12-06</td>
+<td>7.442</td>
+<td>7.442</td>
+<td>11:20</td>
+<td>11:16</td>
+<td>1.851</td>
+<td>1.851</td>
+<td>22:00</td>
+<td>21:59</td>
+</tr>
+</tbody>
+</table>
+<p>(The reported values are in sync with those in the database)</p>
+<p>At 350 m height, AIRCEN03 reports: </p>
+<ul>
+<li>
+<p><strong> Overview: </strong> 160 values collected</p>
+</li>
+<li>
+<p><strong> Maximum difference </strong> 1.32 on 2014-11-26</p>
+</li>
+<li>
+<p>The daily maximum temperatures are on average 63.63 percent greater than the mean temperature for the day as calculated on the daily summary</p>
+</li>
+<li>The five-minute maximum temperatures are on average 61.41 percent greater than the mean temperature for the day as calculated as the mean of all the five minute temperatures</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>BIN EDGES</th>
+<th>NUMBER OF VALUES</th>
+<th>PERCENT OF VALUES</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>~0 to 0.2</td>
+<td>128</td>
+<td>78</td>
+</tr>
+<tr>
+<td>0.2 to 0.5</td>
+<td>33</td>
+<td>21</td>
+</tr>
+<tr>
+<td>0.5 to 0.8</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>0.8 to 1.1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>&gt; 1.1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>Validations were conducted for 2014-10-16, 2014-12-13, and 2014-09-28</p>
+<table>
+<thead>
+<tr>
+<th>DATE</th>
+<th>PORT MAX</th>
+<th>MET MAX</th>
+<th>PORT TMX</th>
+<th>MET TMX</th>
+<th>PORT MIN</th>
+<th>MET MIN</th>
+<th>PORT TMIN</th>
+<th>MET TMIN</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2014-10-16</td>
+<td>16.530</td>
+<td>16.53</td>
+<td>14:30</td>
+<td>14:27</td>
+<td>4.248</td>
+<td>4.248</td>
+<td>02:10</td>
+<td>01:57</td>
+</tr>
+<tr>
+<td>2014-12-13</td>
+<td>6.312</td>
+<td>6.416</td>
+<td>12:25</td>
+<td>12:25</td>
+<td>-0.765</td>
+<td>-0.765</td>
+<td>20:40</td>
+<td>20:37</td>
+</tr>
+<tr>
+<td>2014-09-28</td>
+<td>22.46</td>
+<td>22.46</td>
+<td>14:45</td>
+<td>14:45</td>
+<td>7.717</td>
+<td>7.717</td>
+<td>01:45</td>
+<td>01:45</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>The Portal five minute value and the database five minute value for the minimum are in sync, but this actual minimum value on 2014-10-16 was about three-one-hundreths of a degree colder and occured about 15 minutes earlier, as 4.218 at 01:57. </li>
+</ul>
+<p>The graph below shows the distribution of the air temperature maximums on CENMET at 350 m height</p>
+<iframe src= "http://bl.ocks.org/dataRonin/raw/83465daf2ee7fe16255c" width="650" height="600" scrolling="yes"></iframe>
+
+<p>At 450 m height, AIRCEN04 reports:</p>
+<ul>
+<li>
+<p><strong> Overview: </strong> 160 values collected</p>
+</li>
+<li>
+<p><strong> Maximum difference </strong> 4.51 C, 2014-11-06</p>
+<ul>
+<li>In this case the maximum value was 19.54 C on the daily measurement and the minimum value was 15.24 C on the five minute measurement. Both datasets expressed similar daily means (8.38 C for the daily and 8.40 C for the five minute)</li>
+<li>This value occurred at 10:54:54 am.</li>
+</ul>
+</li>
+<li>
+<p>The daily maximum temperatures are on average 69.17 percent greater than the mean temperature for the day as calculated on the daily summary</p>
+</li>
+<li>The five-minute maximum temperatures are on average 67.47 percent greater than the mean temperature for the day as calculated as the mean of all the five minute temperatures</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>BIN EDGES</th>
+<th>NUMBER OF VALUES</th>
+<th>PERCENT OF VALUES</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0.01 to 1.8</td>
+<td>158</td>
+<td>99</td>
+</tr>
+<tr>
+<td>1.8 to 3.6</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>3.6 to 5.4</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>2.71 to 3.61</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>&gt; 3.61</td>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>Validations were conducted on 2014-08-30, 2014-12-09, and 2014-02-02</p>
+<table>
+<thead>
+<tr>
+<th>DATE</th>
+<th>PORT MAX</th>
+<th>MET MAX</th>
+<th>PORT TMX</th>
+<th>MET TMX</th>
+<th>PORT MIN</th>
+<th>MET MIN</th>
+<th>PORT TMIN</th>
+<th>MET TMIN</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2014-08-30</td>
+<td>13.96</td>
+<td>13.96</td>
+<td>11:40</td>
+<td>11:36</td>
+<td>9.55</td>
+<td>9.55</td>
+<td>23:45</td>
+<td>23:43</td>
+</tr>
+<tr>
+<td>2014-12-09</td>
+<td>11.170</td>
+<td>11.417</td>
+<td>10:20</td>
+<td>10:17</td>
+<td>6.331</td>
+<td>6.331</td>
+<td>06:25</td>
+<td>06:38</td>
+</tr>
+<tr>
+<td>2014-02-02</td>
+<td>7.536</td>
+<td>7.536</td>
+<td>14:40</td>
+<td>14:38</td>
+<td>1.516</td>
+<td>1.516</td>
+<td>22:20</td>
+<td>22:13</td>
+</tr>
+</tbody>
+</table>
+<p><strong> Note about time difference </strong></p>
+<p>On the December 9th value, it appears that the minimums observed by Portal and the minimum of the five minutes are about fifteen minutes earlier than the actual daily minimum, which was 6.295. This is within a tenth of a degree of the five minute minimum, however.</p>
+<p>On PRIMET, similar trends were observed. Here I will also showcase a few outliers that affect the distributions prior to their removal.</p>
+<ul>
+<li>
+<p><strong> Overview: </strong> 266/267 values collected at 150 m</p>
+</li>
+<li>
+<p><strong> Maximum difference </strong> 9.158 on 2014-11-12, after removal 0.51 on 2014-01-18</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>DATE</th>
+<th>Five Minute Table</th>
+<th>Value</th>
+<th>Daily Table</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2014-11-12 00:00:00</td>
+<td>PRIM_226_table105</td>
+<td>8.24</td>
+<td>PRIM_226_table440</td>
+<td>-0.918</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>
+<p>The five-minute maximum on this day is 8.24, although both the daily mean and the five minute mean are consistent (0.798 C five minute versus -1.21 C daily, recalling that this outlier is also certainly pulling the daily mean)</p>
+</li>
+<li>
+<p>Days preceding this one show similar daily maximums to the five-minute value of 9 C, while days following this one show similar daily maximums to the daily value, between zero and two degrees. </p>
+</li>
+<li>
+<p>Besides this outlier, all values were less than half of a degree of difference between methods.</p>
+</li>
+<li>
+<p>The daily maximum temperatures are on average 59 percent greater than the mean temperature for the day as calculated on the daily summary</p>
+</li>
+<li>
+<p>The five-minute maximum temperatures are on average 58 percent greater than the mean temperature for the day as calculated as the mean of all the five minute temperatures</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>BIN EDGES</th>
+<th>NUMBER OF VALUES</th>
+<th>PERCENT OF VALUES</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>~0 to 0.2</td>
+<td>121</td>
+<td>46</td>
+</tr>
+<tr>
+<td>0.2 to 0.3</td>
+<td>97</td>
+<td>37</td>
+</tr>
+<tr>
+<td>0.3 to 0.4</td>
+<td>35</td>
+<td>13</td>
+</tr>
+<tr>
+<td>0.4 to 0.5</td>
+<td>11</td>
+<td>0.4</td>
+</tr>
+<tr>
+<td>&gt;0.5</td>
+<td>2</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>Validations were conducted on 2014-12-29, 2014-11-14, 2014-07-04</p>
+<table>
+<thead>
+<tr>
+<th>DATE</th>
+<th>PORT MAX</th>
+<th>MET MAX</th>
+<th>PORT TMX</th>
+<th>MET TMX</th>
+<th>PORT MIN</th>
+<th>MET MIN</th>
+<th>PORT TMIN</th>
+<th>MET TMIN</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2014-12-29</td>
+<td>2.60</td>
+<td>2.60</td>
+<td>14:10</td>
+<td>14:10</td>
+<td>-4.732</td>
+<td>-4.68</td>
+<td>23:45</td>
+<td>23:58</td>
+</tr>
+<tr>
+<td>2014-12-09</td>
+<td>7.19</td>
+<td>7.189</td>
+<td>12:45</td>
+<td>12:45</td>
+<td>-0.345</td>
+<td>-0.346</td>
+<td>23:55</td>
+<td>23:58</td>
+</tr>
+<tr>
+<td>2014-07-04</td>
+<td>28.19</td>
+<td>28.19</td>
+<td>14:15</td>
+<td>14:38</td>
+<td>10.84</td>
+<td>10.84</td>
+<td>04:30</td>
+<td>04:26</td>
+</tr>
+</tbody>
+</table>
+<p><strong> Note about time difference </strong></p>
+<p>On the 2014-12-29 and 2014-07-04 measurements, the values are similar between the Portal and METDAT, but the time of the maximum differs.</p>
+<p>On PRIMET at 250 m, AIRPRI02 reports:</p>
+<ul>
+<li>
+<p><strong> Overview: </strong> 266/267 values collected</p>
+</li>
+<li>
+<p><strong> Maximum difference </strong> 8.838 on 2014-11-12, after removal of outlier, 0.68 is maximum difference which occurs on 2014-10-08.</p>
+</li>
+</ul>
+<p><strong> A NOTE ABOUT A POTENTIALLY PROBLEMATIC DAY AT PRIMET</strong></p>
+<p>The data on 2014-11-11 is continuously suspect, here is the 250 example.It&rsquo;s removal reduces the maximum difference to less than a degree</p>
+<table>
+<thead>
+<tr>
+<th>DATE</th>
+<th>Five Minute Table</th>
+<th>Value</th>
+<th>Daily Table</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2014-11-12 00:00:00</td>
+<td>PRIM_226_table105</td>
+<td>8.48</td>
+<td>PRIM_226_table440</td>
+<td>-0.358</td>
+</tr>
+</tbody>
+</table>
+<p>Likewise, this day is a problem at 350 m</p>
+<table>
+<thead>
+<tr>
+<th>DATE</th>
+<th>Five Minute Table</th>
+<th>Value</th>
+<th>Daily Table</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2014-11-12 00:00:00</td>
+<td>PRIM_226_table105</td>
+<td>8.66</td>
+<td>PRIM_226_table440</td>
+<td>-0.199</td>
+</tr>
+</tbody>
+</table>
+<p>Maximum difference ** 8.859 on 2014-11-11, after removal it is 0.64</p>
+<p>and at 450 m </p>
+<table>
+<thead>
+<tr>
+<th>DATE</th>
+<th>Five Minute Table</th>
+<th>Value</th>
+<th>Daily Table</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2014-11-12 00:00:00</td>
+<td>PRIM_226_table105</td>
+<td>8.66</td>
+<td>PRIM_226_table440</td>
+<td>-0.199</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>
+<p>The daily maximum temperatures at 250, 350, and 450 m are on average 56 percent greater than the mean temperature for the day as calculated on the daily summary</p>
+</li>
+<li>
+<p>The five-minute maximum temperatures are also on average 56 percent greater than the mean temperature for the day as calculated as the mean of all the five minute temperatures</p>
+</li>
+<li>
+<p>Besides the outlier, all values were less than one degree of difference between methods.</p>
+</li>
+</ul>
+<p>Validations were conducted on 2014-07-30, 2014-08-22, and 2014-12-07</p>
+<table>
+<thead>
+<tr>
+<th>DATE</th>
+<th>PORT MAX</th>
+<th>MET MAX</th>
+<th>PORT TMX</th>
+<th>MET TMX</th>
+<th>PORT MIN</th>
+<th>MET MIN</th>
+<th>PORT TMIN</th>
+<th>MET TMIN</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2014-07-30</td>
+<td>33.96</td>
+<td>33.96</td>
+<td>13:50</td>
+<td>14:50</td>
+<td>13.81</td>
+<td>13.81</td>
+<td>5:15</td>
+<td>5:17</td>
+</tr>
+<tr>
+<td>2014-08-22</td>
+<td>26.11</td>
+<td>26.11</td>
+<td>12:45</td>
+<td>12:45</td>
+<td>9.18</td>
+<td>9.18</td>
+<td>23:55</td>
+<td>3:55</td>
+</tr>
+<tr>
+<td>2014-12-07</td>
+<td>9.33</td>
+<td>9.33</td>
+<td>14:40</td>
+<td>14:38</td>
+<td>0.626</td>
+<td>0.626</td>
+<td>07:25</td>
+<td>07:24</td>
+</tr>
+</tbody>
+</table>
+<p>On VANMET, similar trends were seen. A few more examples:</p>
+<ul>
+<li>The day of 2014-06-13 is a problematic day on the 150 m and 450 m sensors at VANMET; here at 150 m:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>DATE</th>
+<th>Five Minute Table</th>
+<th>Value</th>
+<th>Daily Table</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2014-06-13 00:00:00</td>
+<td>&ldquo;Van_231_Table105&rdquo;</td>
+<td>&ldquo;14.35&rdquo;</td>
+<td>&ldquo;Van_231_Table440&rdquo;</td>
+<td>&ldquo;18.63&rdquo;</td>
+</tr>
+</tbody>
+</table>
+<p>and at 450 m:</p>
+<table>
+<thead>
+<tr>
+<th>DATE</th>
+<th>Five Minute Table</th>
+<th>Value</th>
+<th>Daily Table</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2014-06-13 00:00:00</td>
+<td>Van_231_Table105</td>
+<td>12.94</td>
+<td>Van_231_Table440</td>
+<td>19.28</td>
+</tr>
+</tbody>
+</table>
+<p>Other than these days, the maximum differences on air temperature at VANMET were less than 0.68.  Maximum values were approximately 55 percent greater than the mean for both methods. </p>
+<hr />
+<h3 id="although-data-was-only-available-at-a-15-minute-resolution-for-h15met-and-uplmet-i-went-ahead-and-looked-at-this-data-to-see-if-it-also-reflected-similar-trends"><a name="user-content-although-data-was-only-available-at-a-15-minute-resolution-for-h15met-and-uplmet-i-went-ahead-and-looked-at-this-data-to-see-if-it-also-reflected-similar-trends" href="#although-data-was-only-available-at-a-15-minute-resolution-for-h15met-and-uplmet-i-went-ahead-and-looked-at-this-data-to-see-if-it-also-reflected-similar-trends" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>although data was only available at a 15 minute resolution for H15MET and UPLMET, I went ahead and looked at this data to see if it also reflected similar trends.</h3>
+<p>Here is an image of the difference between daily maximums and 15 minute maximums on H15MET. <strong> THE OUTLIER DAY HAS NOT BEEN REMOVED PRIOR TO THE GENERATION OF THIS HISTOGRAM </strong></p>
+<iframe src= "http://bl.ocks.org/dataRonin/raw/0f1988059058a28dc705" width="650" height="600" scrolling="yes"></iframe>
+
+<p>At H15MET, the percent difference between the 15 minute daily temperatures as the maximum of the day versus the instantaneous maximum of the day showed that only one value had a difference of more than 0.2 degrees. This value came from the day 2013-02-01, and the daily instruction appears to be incorrect, showing a maximum value of 23.25 C (and a minimum value of -85 C).</p>
+<p>The average difference between maximum and mean air temperature for a day was 51 percent for both methods at H15MET.</p>
+<hr />
+<h2 id="relative-humidity-maximums"><a name="user-content-relative-humidity-maximums" href="#relative-humidity-maximums" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>RELATIVE HUMIDITY MAXIMUMS <a id = "rhmax"></a></h2>
+<p>Here are a few examples of relative humidity maximums, collected from several sensors:</p>
+<p>At the 150 m height, RHCEN01:</p>
+<ul>
+<li>
+<p>The maximum difference between five- minute relative humidity maximum and daily relative humidity maximum was 55.13 percent and occured on 2014-09-11.</p>
+</li>
+<li>
+<p>on this day, the daily measurement was 96.3 percent for the maximum while the five-minute measurement was only 40.3 percent. The value of 96.3 percent is more similar to the other measurements on this sensor during that week, which were also in the 90&rsquo;s. This value is also more similar to the measured values of 100.0 on PRIMET on this day at 150 m for the daily and 95.5 on this day for the five-minute.</p>
+</li>
+<li>
+<p>On average, the maximum relative humidity is only 8 percent greater than the mean for both the daily and five minute methods on CENMET 150 at 150 m. </p>
+</li>
+<li>
+<p>After removing outliers, 91 percent of daily maximum values and maximum values for the day from five minute means are within 10 percent of one another. </p>
+</li>
+</ul>
+<p>The graph below shows the distribution of maximums on VANMET 150 before the outliers are removed. <strong> Please be aware that the y-axis should be multiplied by 10 to get an appropriate probability.</strong> I.e. prior to outlier removal, about 82 percent of maximum values were still between 0 and 10 percent relative humidity of one another. I am not sure why the histogramming function is generating this error, but it is internal and I will look into it. </p>
+<iframe src= "http://bl.ocks.org/dataRonin/raw/784c6890f5b9feea97ad" width="650" height="600" scrolling="yes"></iframe>
+
+<p>Relative humidity maximums on CENMET 450 (a discussion):</p>
+<ul>
+<li>
+<p>Comparing the 150 m and 450 m height, it is evident that when there is a large difference between the relative humidity maximum measured on the daily measurement versus the daily maximum as computed from the five minute means, this difference is often due to an error that is sensor specific. For example, the maximum difference between the two methods occurs on the CENMET relative humidity sensors on 2014-09-11. On this day, the daily measurement is 87.7 percent relative humidity whereas the five-minute measurement is 21 percent.</p>
+</li>
+<li>
+<p>Air temperature on this day were also problematic and removed from the data, and measurements of the difference in humidities on VANMET and PRIMET are more similar to the 87.7 percent. Furthermore, the rest of the week also has a relative humidity that is greater than 60 percent for daily measurements and five minute measurements.</p>
+</li>
+<li>
+<p>The average percent difference in relative humidity maximums from the mean relative humidity is 16 percent in both the five minute and daily methods.</p>
+</li>
+</ul>
+<p>Relative humidity maximums on PRIMET (a discussion):</p>
+<ul>
+<li>
+<p>the 450 m sensor does not appear to be functional for a long duration of the time period.</p>
+</li>
+<li>
+<p>based on observations at 150 m, </p>
+</li>
+<li>The greatest difference between the five-minute and instantaneous maximums was 12 % on 2014-09-12. On this day the daily value exceeded the 5 minute value at 95 percent versus 83 percent. </li>
+<li>92 percent of differences between methods were less than 12 percent. </li>
+</ul>
+<p>Relative humidity maximums on VANMET (a discussion):</p>
+<ul>
+<li>
+<p>on VANMET, the same 2014-09-11 emerges for having discrepancies between the five minute maximum and daily maximum values.</p>
+</li>
+<li>
+<p>However, the mean difference between the maximum and median relative humidity at VANMET is 20.5 degrees in the maximum values from daily and 20.4 in the version in the five minute data; this may be within acceptable tolerance.</p>
+</li>
+<li>
+<p>Only 67 percent of vanmets values are within 10 percent of the mean.</p>
+</li>
+</ul>
+<h2 id="dewpoint-differences-between-five-minute-max-and-daily-max"><a name="user-content-dewpoint-differences-between-five-minute-max-and-daily-max" href="#dewpoint-differences-between-five-minute-max-and-daily-max" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>DEWPOINT, DIFFERENCES BETWEEN FIVE-MINUTE MAX and DAILY-MAX<a id='dpmax'></a></h2>
+<p>Since dew point is affected by air temperature and relative humidity, dew point maximums also follow these trends. If the quality of relative humidity and air temperature are controlled, the dewpoint will follow the same. </p>
+<p>The challenge is that sometimes, if air temperature and relative humidity are not being calculated, dew point is calculated anyway. In these cases, the dew point readings do not reflect actual observations, but spew from the loggers. Thus, the daily maximum and minimum values, as well as the five minute values, could either or both be tainted by these fake values. Here is an example:</p>
+<ul>
+<li>The maximum difference between the daily maximum from 5 minute values versus the instantaneous maximum was 18.9 degrees due to this erroneous value.</li>
+</ul>
+<p>Here is an example of a large difference between dew points on VANMET  at 150 m at 5 minutes versus its daily corrresponding value. In this case, dew point was being thrown e</p>
+<table>
+<thead>
+<tr>
+<th>DATE</th>
+<th>Five Minute Table</th>
+<th>Value</th>
+<th>Daily Table</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2014-11-08 00:00:00</td>
+<td>Van_231_Table105</td>
+<td>9.3</td>
+<td>Van_231_Table440</td>
+<td>-9.6</td>
+</tr>
+</tbody>
+</table>
+<p>Here is an example of where real values were being output for air temperature and relative humidity on a particularly cold day on PRIMET, and the output dew point appeared problematic.</p>
+<table>
+<thead>
+<tr>
+<th>DATE</th>
+<th>Five Minute Table</th>
+<th>Value</th>
+<th>Daily Table</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2014-12-30 00:00:00</td>
+<td>PRIM_226_table105</td>
+<td>-5.088</td>
+<td>PRIM_226_table440</td>
+<td>2.444</td>
+</tr>
+</tbody>
+</table>
+<p>What will be problematic for calculations is if the dew point computed appears to be greater than the temperature of the day because erroneous values are thrown into the temperature data extensively.</p>
+<p>Here is an image of dew point maximums differences on PRIMET at 150 m prior to the removal of that cold day outlier. Once that outlier was removed, the largest difference was 1.43 C.</p>
+<iframe src= "http://bl.ocks.org/dataRonin/raw/8eb803aa6cdabd520fe6" width="650" height="600" scrolling="yes"></iframe>
+
+<h2 id="air-temperature-minimums"><a name="user-content-air-temperature-minimums" href="#air-temperature-minimums" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>AIR TEMPERATURE MINIMUMS <a id='atmin'></a></h2>
+<p>On CENMET 150, </p>
+<ul>
+<li>
+<p><strong> Overview: </strong> 160 values collected</p>
+</li>
+<li>
+<p><strong> Maximum difference </strong> (between minimums) 0.304 on 2014-10-01</p>
+</li>
+<li>
+<p>The daily minimum temperatures are on average 42.2 percent less than the mean temperature for the day as calculated on the daily summary</p>
+</li>
+<li>The five-minute minimum temperatures are on average 41.5 percent less than the mean temperature for the day as calculated as the mean of all the five minute temperatures</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>BIN EDGES</th>
+<th>NUMBER OF VALUES</th>
+<th>PERCENT OF VALUES</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>~0 to 0.1</td>
+<td>139</td>
+<td>87</td>
+</tr>
+<tr>
+<td>0.1 to 0.2</td>
+<td>14</td>
+<td>9</td>
+</tr>
+<tr>
+<td>0.2 to 0.3</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>0.3 to 0.4</td>
+<td>4</td>
+<td>3</td>
+</tr>
+<tr>
+<td>0.4 to 0.5</td>
+<td>2</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>at 250 m, the maximum difference (between minimums) 0.312 on 2014-10-01</p>
+<ul>
+<li>The daily minimum temperatures are on average 40.4 percent less than the mean temperature for the day as calculated on the daily summary</li>
+<li>The five-minute minimum temperatures are on average 40.2 percent less than the mean temperature for the day as calculated as the mean of all the five minute temperatures</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>BIN EDGES</th>
+<th>NUMBER OF VALUES</th>
+<th>PERCENT OF VALUES</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>~0 to 0.06</td>
+<td>135</td>
+<td>84</td>
+</tr>
+<tr>
+<td>0.6 to 0.12</td>
+<td>17</td>
+<td>11</td>
+</tr>
+<tr>
+<td>0.12 to 0.18</td>
+<td>3</td>
+<td>2</td>
+</tr>
+<tr>
+<td>0.18 to 0.24</td>
+<td>2</td>
+<td>2</td>
+</tr>
+<tr>
+<td>&gt;0.24</td>
+<td>2</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>at CENMET 350, the maximum difference (between minimums) 0.321 C on 2014-10-01</p>
+<ul>
+<li>The daily minimum temperatures are on average 39.88 percent less than the mean temperature for the day as calculated on the daily summary</li>
+<li>The five-minute minimum temperatures are on average 32.9 percent less than the mean temperature for the day as calculated as the mean of all the five minute temperatures</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>BIN EDGES</th>
+<th>NUMBER OF VALUES</th>
+<th>PERCENT OF VALUES</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>~0 to 0.06</td>
+<td>135</td>
+<td>84</td>
+</tr>
+<tr>
+<td>0.6 to 0.12</td>
+<td>17</td>
+<td>11</td>
+</tr>
+<tr>
+<td>0.12 to 0.18</td>
+<td>3</td>
+<td>2</td>
+</tr>
+<tr>
+<td>0.18 to 0.24</td>
+<td>2</td>
+<td>2</td>
+</tr>
+<tr>
+<td>&gt;0.24</td>
+<td>2</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>on CENMET at 450 m, the maximum difference (between minimums) 0.257 on 2014-10-01</p>
+<ul>
+<li>The daily minimum temperatures are on average 40.4 percent less than the mean temperature for the day as calculated on the daily summary</li>
+<li>The five-minute minimum temperatures are on average 40.2 percent less than the mean temperature for the day as calculated as the mean of all the five minute temperatures</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>BIN EDGES</th>
+<th>NUMBER OF VALUES</th>
+<th>PERCENT OF VALUES</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>~0 to 0.05</td>
+<td>136</td>
+<td>89</td>
+</tr>
+<tr>
+<td>0.05 to 0.1</td>
+<td>15</td>
+<td>4</td>
+</tr>
+<tr>
+<td>0.1 to 0.15</td>
+<td>6</td>
+<td>3</td>
+</tr>
+<tr>
+<td>0.2 to 0.25</td>
+<td>1</td>
+<td>3</td>
+</tr>
+<tr>
+<td>&gt;0.25</td>
+<td>2</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>On PRIMET, similar trends are observed; a maximum difference between minimums of 0.25 C on 2014- 07-21.</p>
+<ul>
+<li>The daily minimum temperatures are on average 40.4 percent less than the mean temperature for the day as calculated on the daily summary</li>
+<li>The five-minute minimum temperatures are on average 39.5 percent less than the mean temperature for the day as calculated as the mean of all the five minute temperatures</li>
+</ul>
+<p>However, there is a notorious outlier on 2014-06-13. </p>
+<table>
+<thead>
+<tr>
+<th>DATE</th>
+<th>Five Minute Table</th>
+<th>Value</th>
+<th>Daily Table</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2014-06-13 00:00:00</td>
+<td>PRIM_226_table105</td>
+<td>8.55</td>
+<td>PRIM_226_table440</td>
+<td>-23.94</td>
+</tr>
+</tbody>
+</table>
+<p>Here are some data from the 250, 350, and 450 m heights for minimum temperatures on PRIMET. </p>
+<p>At 250 m, </p>
+<ul>
+<li>
+<p>Largest difference between minimums was 0.21 C on 2014-07-21</p>
+</li>
+<li>
+<p>The daily minimum temperatures are on average 39.5 percent less than the mean temperature for the day as calculated on the daily summary</p>
+</li>
+<li>
+<p>The five-minute minimum temperatures are on average 39.4 percent less than the mean temperature for the day as calculated as the mean of all the five minute temperatures</p>
+</li>
+<li>
+<p>No minimum values on PRIMET differ by more than 0.6 degrees at the 250 m height</p>
+</li>
+</ul>
+<p>At 350 m,</p>
+<ul>
+<li>
+<p>Largest difference between minimums was 0.19 C on 2014-07-21</p>
+</li>
+<li>
+<p>The daily minimum temperatures are on average 39.5 percent less than the mean temperature for the day as calculated on the daily summary</p>
+</li>
+<li>
+<p>The five-minute minimum temperatures are on average 39.4 percent less than the mean temperature for the day as calculated as the mean of all the five minute temperatures</p>
+</li>
+</ul>
+<p>At 450 m, </p>
+<ul>
+<li>
+<p>Largest difference was 0.15 C on 2014-06-25</p>
+<ul>
+<li>I removed two major outliers in order to reduce the minimum difference from 32 degrees to less than one degree. Here are those points: </li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>DATE</th>
+<th>Five Minute Table</th>
+<th>Value</th>
+<th>Daily Table</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2014-06-12</td>
+<td>&ldquo;PRIM_226_table105&rdquo;</td>
+<td>-7.875</td>
+<td>&ldquo;PRIM_226_table440&rdquo;</td>
+<td>-43.01</td>
+</tr>
+<tr>
+<td>2014-01-28</td>
+<td>&ldquo;PRIM_226_table105&rdquo;</td>
+<td>1.125</td>
+<td>&ldquo;PRIM_226_Table440&rdquo;</td>
+<td>-31.16</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>The daily minimum temperatures are on average 40.5 percent less than the mean temperature for the day as calculated on the daily summary</p>
+</li>
+<li>
+<p>The five-minute minimum temperatures are on average 39.9 percent less than the mean temperature for the day as calculated as the mean of all the five minute temperatures</p>
+</li>
+</ul>
+<h2 id="relative-humidity-minimums"><a name="user-content-relative-humidity-minimums" href="#relative-humidity-minimums" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>RELATIVE HUMIDITY MINIMUMS <a id="rhmin"></a></h2>
+<p>On PRIMET, at 150 m, the daily minimum relative humidities were about 30 percent less than the mean from both the five minute and the daily data.</p>
+<ul>
+<li>
+<p>216 of the 260 values had a 100 percent maximum humidity. </p>
+</li>
+<li>
+<p>30 of the 260 values had a 100 percent minimum humidity for the day (indicating they were humid all day)</p>
+</li>
+</ul>
+<p>Here is an example of relative humidity minimums on PRIMET that are very different from one another. This is also the same day that the air temperature was giving bad values. </p>
+<table>
+<thead>
+<tr>
+<th>DATE</th>
+<th>Five Minute Table</th>
+<th>Value</th>
+<th>Daily Table</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2014-06-13 00:00:00</td>
+<td>PRIM_226_table105</td>
+<td>99.00</td>
+<td>PRIM_226_table440</td>
+<td>-25.3</td>
+</tr>
+</tbody>
+</table>
+<p>Similar to PRIMET, VANMET at 150 m showed the largest outlier of 98 percent difference on 2014-06-13 (a day which was also problematic for PRIMET at 150m). However, even after removal the largest difference between the daily minimum relative humidity percent and the minimum percent from five minute intervals for the day is 67 percent relative humidity decrease. </p>
+<p>In short, the differences between the daily minimum relative humidities and the minimum of the five-minute mean relative humidities are very different. </p>
+<p>For the five-minute method, the difference between the five minute minimum relative humidity and the mean is approximately 37, for the daily method, the difference is closer to 44 percent. </p>
+<p>An interesting test I looked at on this site was where the five minute minimum relative humidity was 100 %, was the daily minimum relative humidity also 100%? If this was true, then it might indicate either real, high humidity or instrument error which appeared that the 100 percent value was &ldquo;stuck&rdquo;&ndash; however, in all but three (of 15 cases) cases, on days where the five minute minimum is 100 percent, the daily minimum is actually much lower.</p>
+<p>Below, the dotted blue line is the minimum relative humidity daily course from the daily minimums, the blue squares are when the daily minimum is 100 percent humidity, and the red squares are when the five minute minimums are 100 percent. </p>
+<iframe src= "http://bl.ocks.org/dataRonin/63d7f6595a57033dceb8" width="800" height="600" scrolling="no"></iframe>
+
+<p>In short this shows that the daily minimum may indeed read much lower than the five minute minimum relative humidity. </p>
+<h2 id="dewpoint-minimums-5-minute-versus-daily-minimums"><a name="user-content-dewpoint-minimums-5-minute-versus-daily-minimums" href="#dewpoint-minimums-5-minute-versus-daily-minimums" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>DEWPOINT MINIMUMS, 5 MINUTE VERSUS DAILY MINIMUMS <a id="dpmin"></a></h2>
+<p>The graphic below shows the difference between the minimum dew points on PRIMET using both methods. It is clear that the majority of values fall within a fairly constrained range, but when there is a discrepancy, it is more than for air temperature. </p>
+<iframe src= "http://bl.ocks.org/dataRonin/raw/ca9bbdb63fb2c0560cfe" width="650" height="600" scrolling="yes"></iframe>
+
+<p>For example, in this PRIMET data set, most of the dew point differences for minimums are within a degree of one another.</p>
+<table>
+<thead>
+<tr>
+<th>BIN EDGES</th>
+<th>NUMBER OF VALUES</th>
+<th>PERCENT OF VALUES</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>~0 to 0.9</td>
+<td>272</td>
+<td>96</td>
+</tr>
+<tr>
+<td>0.9 to 1.9</td>
+<td>4</td>
+<td>3</td>
+</tr>
+<tr>
+<td>1.9 to 2.9</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>2.9 to 3.9</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>&gt;3.9</td>
+<td>2</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>The dewpoint on VANMET also showed a greater magnitude in the discrepancy between the five minute values and the daily values when there was a notable difference between the two methods.</p>
+<p>In general, the quality of air temperature is better known and more stable than that of relative humidity, and it is of a smaller magnitude, so errors given to due point usually come in tandem with errors in one of the values of relative humidity. The second case that occurs is when dewpoint is measured even though air temperature and relative humidity were not (a faulty log), and therefore comparing random values to random values results in random differences.</p>
+<p>Here is an example of where I found dan erroneous minimum in the daily dataset of -72 dew point. </p>
+<table>
+<thead>
+<tr>
+<th>DATE</th>
+<th>Five Minute Table</th>
+<th>Value</th>
+<th>Daily Table</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2014-06-08 00:00:00</td>
+<td>Van_231_Table105</td>
+<td>5.781</td>
+<td>Van_231_Table440</td>
+<td>-72.32</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>
+<p>Using the minimum of the five minute mean, the difference between the minimum dew point for a day and the mean dewpoint of the day is approximately 29 percent.</p>
+</li>
+<li>
+<p>Using the daily minimum, the difference between the minimum dew point for the day and the mean of the day is 34 percent. </p>
+</li>
+</ul>
+<h4 id="take-home-points-for-air-temperature"><a name="user-content-take-home-points-for-air-temperature" href="#take-home-points-for-air-temperature" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>TAKE HOME POINTS for AIR TEMPERATURE:<a id="takehome"></a></h4>
+<p>Given the consistency between the above results, I have developed some take-home points that may be useful for future flagging on AIR TEMPERATURE.</p>
+<ul>
+<li>
+<p>maximums are about 65 percent greater than daily mean in both five minute and instantaneous methods</p>
+</li>
+<li>
+<p>minumums are about 40 percent less than daily mean in both five minute and instantaneous methods</p>
+</li>
+<li>
+<p>maximums are less stable than minimums (in general the variability on both is small at the sub five minute scale, but it is even less on minimums than maximums)</p>
+</li>
+<li>
+<p>all of the max daily temperatures from instantaneous are less than one and a half degrees off the five- minute values after a few spikes (described) were removed.</p>
+</li>
+<li>
+<p>the true daily maximum/minimum usually occurs within the same five minute interval as the five-minute maximum/minimum selected from the day, but not always</p>
+</li>
+<li>
+<p>it seems like the retention of the time of max and time of min is an important feature, but that the five minute data does seem to provide an adequate representation. </p>
+</li>
+<li>
+<p>Reports in METDAT (table CENT_233_Table440) can e slightly different (due to rounding?) than those on Portal. I selected this day because on both it seems a little too high for a January so I was exploring it anyway.</p>
+<ul>
+<li>19.88, Jan. 26 2015 01:50:15:000PM</li>
+<li>20.22, Jan. 26 2015 01:43:30:000PM</li>
+<li>20.49, Jan. 26 2015 01:43:30:000PM</li>
+<li>20.27, Jan. 26 2015 01:43:30:000PM</li>
+</ul>
+</li>
+<li>
+<p>Portal Reports for cenmet_233_a_dly_2015.csv (these are the daily values):</p>
+<ul>
+<li>at height 150: 19.700,&rdquo;&ldquo;,13:55:00</li>
+<li>at height 250, 20.070,&rdquo;&ldquo;,13:50:00</li>
+<li>at height 350, 20.360,&rdquo;&ldquo;,13:45:00</li>
+<li>at height 450, 20.140,&rdquo;&ldquo;,13:45:00</li>
+</ul>
+</li>
+<li>
+<p>a simple check for maximum and minimum might be a QUESTIONABLE type flag for maximums that are more than 75% greater than the mean, or minimums that are more than 50% less than the mean. This should almost never occur, and it could be implemented in one cell of MATLAB as (theoretically):</p>
+<pre><code>if (five_max - five_mean)/ five_mean &gt; 0.7
+    flag = &ldquo;Q&rdquo;;
+else flag = &ldquo;A&rdquo;;
+end</code></pre>
+</li>
+</ul>
+<h4 id="take-home-points-for-relative-humidity"><a name="user-content-take-home-points-for-relative-humidity" href="#take-home-points-for-relative-humidity" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>TAKE HOME POINTS for RELATIVE HUMIDITY :</h4>
+<p>Given the consistency between the above results, I have developed some take-home points that may be useful for future flagging on RELATIVE HUMIDITY</p>
+<ul>
+<li>
+<p>maximums are about 8 percent greater than daily mean in both five minute and instantaneous methods</p>
+</li>
+<li>
+<p>minumums are about 40 percent less than daily mean in both five minute and instantaneous methods</p>
+</li>
+<li>
+<p>maximums are more stable than minimums (in general the variability on both is small at the sub five minute scale, but it is even less on minimums than maximums)</p>
+</li>
+<li>
+<p>removal of outliers improves the correspondance between methods, but there is still a greater range of discrepancy.</p>
+</li>
+<li>
+<p>the true daily maximum/minimum usually occurs within the same five minute interval as the five-minute maximum/minimum selected from the day, but not always</p>
+</li>
+<li>
+<p>It appears that good quality control on the relative humidity input, especially in reference to other relative humidities on the same probe or nearby, is essential for giving a robust minimum or maximum. Because the range over which relative humidity can swing, it can have a strong effect.</p>
+</li>
+</ul>
+<h4 id="take-home-points-for-dew-point"><a name="user-content-take-home-points-for-dew-point" href="#take-home-points-for-dew-point" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Take HOME POINTS FOR DEW POINT:</h4>
+<p>In short, dew point is dependant on control of relative humidity and air temperature.</p>
+<ul>
+<li>
+<p>Discrepancies arise more when relative humidity is erroneous than air temperature because it is more variable and has a greater range</p>
+</li>
+<li>
+<p>Discrepancies arise when dew point is computed even though it is not coming from a real value of airtemp or relative humidity.</p>
+</li>
+<li>
+<p>Because of its dependancies, dew point is more extreme when calculated with the instantaneous method (about 5 percent more extreme). </p>
+</li>
+<li>
+<p>Difference from the mean with the five minute method are about thirty-five percent for maximums and thirty percent for minimums; they are about fourty four percent for the daily method maximums and thirty three percent for daily method minimums.</p>
+</li>
+<li>
+<p>NO DEW POINT CAN BE GREATER THAN AIR TEMPERATURE.</p>
+</li>
+</ul></article></body></html>

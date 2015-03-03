@@ -4,7 +4,7 @@ title: "SWE (Snow Water Equivalence) and Snow Melt"
 date: 2015-02-12T14:03:02-08:00
 ---
 
-## Recent courses of SWE, SNO, and PRE on H15MET as a comparison (2013)
+## Recent courses of SWE, SNOW-MELT LYSIMETER, and PRECIPITATION on H15MET as a comparison (2013)
 
 2013 H15 met shows an expected pattern with winter snow water accumulation and summer disappearance, then fall snow (and snow/rain) rebuild the accumulation.
 
@@ -16,6 +16,9 @@ SWE on H15MET (2013):
 SNOW and PRECIPITATION on H15MET (2013):
 
 <iframe src="http://bl.ocks.org/dataRonin/raw/a0c2f8a36671a88935bf/cb51191b22c604f266ba801f164b7ea54805ffb0/" width = "600" height = "500" scrolling = "yes"></iframe>
+
+
+On H15MET, we have what we consider a good course for the data. We hoped the other sites would behave similarly, but this is not the case. However, look at these graphs before proceeding to [here](http://dataronin.github.io/metQC/2015/02/28/post-adjustment-uplmet-cenmet-and-h15met.html)
 
 Cumulative Snow, Precip, and SWE on CENMET:
 

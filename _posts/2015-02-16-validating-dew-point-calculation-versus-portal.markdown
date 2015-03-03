@@ -15,6 +15,7 @@ Key Points
 
 * Similar results were found on the other sites; PROVIDED that dewpoint could be calculated from corresponding Air Temperature and Relative Humidity Sensors. Removal of NaN values was essential to performing the calculation. Here is an example, not normalized, from VANMET.
 
+* In short, as long as values are not removed and flags suggesting that dew point can't exist without relative humidity and air temperature are in place, dew point is safe to calculate and an important part of our data!
 
 <style>
 

@@ -4,7 +4,9 @@ title: "Dates and Time missing from Portal"
 date: 2015-02-08T16:11:30-08:00
 ---
 
-The following is a list of times when there are gaps in the data streams displayed on the Portal, by logger. When dates are displayed but with round-off-error, this is also discussed.
+I was tasked to find when there are gaps in the data streams which come into Portal. This data is received by the Portal via the telemetry. Adam showed me how the telemetry may glitch and store on the limited local cache. It is my understanding that if the local cache runs out or does not get transfered up appropriately, this data may be lost. However, we also have it as back ups in dat files, so we can salvage it when we know of this. In the future, given the opportunity, I will run a full check on all the .dat files against all the Portal to find these gaps. 
+
+The following is a list of times when there are gaps in the data streams displayed on the Portal, by logger. When dates are displayed but with round-off-error, this is also discussed. I found these gaps via just simply analyzing all the data with my eyes and a little scripting. 
 
 ## Missing Times
 
@@ -31,6 +33,7 @@ There are time gaps in data streams for several hours. These seem to occur when 
 * overlap on CENMET 225 from 12 December to 31 December 2014
 * overlap on CENMET 233 part a from 12 December to 31 December 2014
 * CENMET hourly files for logger 225 are split by attribute from the 2012-2014 time period with replication of the soil attributes in both to the 2014 and 2015 "hourly" locations. as of 01-30-2015, I have reported this to Adam, as I assume it is a simple mistake that can be fixed. 
+
 * **Note**: column organization on CENMET 233 hourly data has a 6 column date structure rather than the date structure reflected in other data sets
 
 ### VANMET:
@@ -131,7 +134,7 @@ time in the old manner
             2012-12-21 10:03:52 is the entry in __inlocs__
             2012-12-21 10:00:00 is the entry in UPLO_227_105
             
-    * and between 2014-09-13 17:30:00 and 2014-09-14 07:50:00. Once again the Portal values have round-off error, such as 2014-09-13  17:29:59, which persists to the end of the missing period. Neither \__inlocs\__ or UPLO_227_105 records any values.
+    * and between 2014-09-13 17:30:00 and 2014-09-14 07:50:00. Once again the Portal values have round-off error, such as 2014-09-13  17:29:59, which persists to the end of the missing period. Neither \_inlocs\_ or UPLO_227_105 records any values.
     
     * 15 minute (airT, solar, atm pressure), all datetimes are okay. Even during the times when the five minute data is not recording at all, those 5 minute values are coming in on the 15 minute tables just fine.
     * all hourly and daily values are okay
