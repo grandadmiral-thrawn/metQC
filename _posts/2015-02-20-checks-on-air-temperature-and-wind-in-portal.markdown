@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Checks on Air Temperature and Wind in Portal"
+title: "Notes on flags for Air Temperature, Relative Humidity, VPD, Solar, and Wind (Speed and Direction) in Portal"
 date: 2015-02-20T14:09:55-08:00
 ---
 
@@ -38,7 +38,8 @@ RELATIVE HUMIDITY
 --------
 
 * In Place:
-    *Flags from airtemp are propagated to here - this is not correct!
+
+    * Flags from airtemp are propagated to here - this is not correct!
 
 * Add:
     * Remove flag propagation from air temp. 
@@ -50,21 +51,18 @@ SONIC MEAN WIND DIRECTION
 ----------------
 
 * In Place:
-    * If direction is less than 0 or > 360, "I"; if is NaN, "M"; , standard deviations of > 180 are "Q", those of < 0 are "Q".
+    * If direction is less than 0 or > 360, "I"; if is NaN, "M"; Standard deviations of > 180 are "Q", those of < 0 are "Q".
 
 * Add:
-    * If direction is NaN, "M"; is speed is "M" or "I", direction is "Q"(maybe M or I). Receive propogated flags from mean speed. If the std of direction is "Q" then the direction should also be "Q". If the temperature of the sonic is "M" the direction should be "M". If the temperature of the sonic is "I" or "Q" the direction should be "Q".
+    * If direction is NaN, "M" or if speed is "M" or "I", then the direction should be "Q"(maybe "M" if speed is "M"?). 
+    * Don suggests to receive propogated flags from mean speed. 
+    * If the STD of direction is "Q" then the direction should also be "Q", since this indicates errors at the higher resolution of the collected data.
+    * If the temperature of the sonic is "M" the direction should be "M". 
+    * If the temperature of the sonic is "I" or "Q" the direction should be "Q".
+    * If the component winds (either wux or wuy) are "M" then the direction should be "Q" (since it needs the component winds)
+    * If any system flag (battery, etc.) is thrown, then the sonic direction is Q.
+    * NEW ADDITION: If the number of points sampled and good (not "M", "I", or "Q") is less than 60 percent of the total number of points that should be sampled, the measurement should be "Q". This comes from how Chris identified relevant windows and I think it's valid here too.
 
-
-SONIC MEAN WIND STANDARD DEVIATION:
----------
-
-* In place
-    * NaN values are "M", components with > 10 are I. 
-
-* Add
-    * When sonic mean speed is "I", replace mean std with "Q; When sonic x-vector or y-vector is is "I", replace mean std with "Q"; Supplement the sonic mean standard deviation with whatever the sonic mean is if the mean standard deviation is blank but mean standard deviation. is not blank. Receive propogated "M" flag from mean speed. 
-    * I do not think it is possible to have a negative standard deviation, since it's the square root of the variance. Remove. 
 
 SONIC MEAN WIND SPEED:
 ------
@@ -76,7 +74,22 @@ SONIC MEAN WIND SPEED:
     * When sonic mean is "I" replace Sonic Max Flag wih "Q", When sonic mean is "I", replace sonic x-vector and y-vector with "Q". Receive propogated "M" flag from mean speed. 
     * for x and y vectors speed, replace "I" values with M when values are missing from speed or themselves. 
     * if direction is "M" or "Q", speed should be also "M" or "Q"
-    * soon add spike/persistance flags (I will help.)
+    * if < 60% of high-resolution measurements were used to compute five minute means, flag as "Q"
+
+
+SONIC MEAN WIND STANDARD DEVIATION:
+---------
+
+* In place
+    * NaN values are "M", components with > 10 are I. 
+
+* Add
+    * When sonic mean speed is "I", replace mean STD with "Q
+    * When sonic x-vector or y-vector is is "I", replace mean std with "Q"
+    * Supplement the sonic mean standard deviation with the sonic mean wind speed when the standard deviation is blank but the mean wind speed is not blank (instead of a 0 value). Flag with a "Q"
+    * Receive propogated "M" flag from mean speed. 
+    * I do not think it is possible to have a negative standard deviation, since it's the square root of the variance. Remove.
+    * Apply system flags for battery, etc. to "Q" values that might be bad. See sonic temp for details. 
 
 SONIC MEAN TEMP:
 ------------
@@ -85,7 +98,8 @@ SONIC MEAN TEMP:
     * NaN values are "M"
 
 * Add
-    * If sonic temp is "I" then replace sonic mean, sonic x-vector, sonic y-vector, sonic direction, sonic std direction with "Q"; If the sonic air temperature standard deviation flag is blank replace it with the sonic air temperature flag. Receive propogated "M" flag from mean speed. 
+    * If sonic temp is "I" then replace sonic mean, sonic x-vector, sonic y-vector, sonic direction, sonic std direction with "Q" 
+    * If the sonic air temperature standard deviation flag is blank replace it with the sonic air temperature flag. Receive propogated "M" flag from mean speed. 
 
 
 SOIL TEMP MEAN
@@ -114,6 +128,7 @@ SOIL TEMP MEAN
         2014-12-12 06:00:00|6.758|5.928|20.170||5.838
         2014-12-12 06:05:00|6.758|5.926|20.170||5.838
             
+
 SONIC GUST
 ----------
 
@@ -209,3 +224,53 @@ WIND DIRECTION DEVIATION ON THE PROP
 ----------------
 
 * same as suggestions for sonic
+
+
+SOLAR SW IN
+---------------
+
+* In Place:
+    * Remove values > and < 2000 and -2000 and flag with 'I'
+    * Flag values >1060 'Q'.
+    * Set incoming and outgoing shortwave rad to zero when incoming shortwave rad is <1.
+    * Set albedo to NaN when incoming shortwave rad is <1
+
+* Add:
+    * Negative values are set to zero for values < 0 and >-5 with no flag for both incoming and outgoing shortwave when time is between 1600 and 0900.
+    * Change values <0 to zero when time is between 0900 and 1600, flag with 'Q'.
+    * Set negative values <-5 to zero and flag with 'Q' when time is between 0900 and 1600.
+    * Incoming shortwave values greater than 2 would remain and be flagged as 'Q' when time is between 2100 and 0500.
+    * Recompute net radiation and flag value as Q if any of the four components are flagged with a ‘Q’.
+    * Albedo is "I" if albedo > 0.95 (earth is not black body radiator!)
+
+
+SOLAR SW OUT
+--------------
+
+* In Place:
+    * Outgoing shortwave rad to zero when incoming shortwave rad is <1.
+
+* Add:
+    * Outgoing shortwave values greater than 2 would remain and be flagged as 'Q' when time is between 2100 and 0500.
+    * if albedo is Q (due to SW in being too small), SW out is Q.
+    * SW out is 0 at night
+
+
+SOLAR LW IN 
+------------
+
+* In Place:
+    * None
+
+* Add:
+    * If LW in > LW out, "Q"
+
+
+SOLAR LW OUT
+--------------
+
+* In Place:
+    * None
+
+* Add:
+    * At night, LW out should always be > SW in, SW out, and LW in. If not all get the "Q"
