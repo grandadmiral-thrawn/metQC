@@ -264,7 +264,7 @@ SOLAR LW IN
 
 * Add:
     * If LW in > LW out, "Q"
-
+    * Could probably just do if net LW is not negative, "Q"
 
 SOLAR LW OUT
 --------------
