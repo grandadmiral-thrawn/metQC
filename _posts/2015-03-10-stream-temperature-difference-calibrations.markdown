@@ -61,7 +61,7 @@ Hourly Stream Temp Change > 3
 | 2009-01-08 23:00 | questionable changes: 4.6 |
 | 2009-01-08 04:00 | questionable changes: 4.5 |
 
--------
+
 
 WS02
 --------
@@ -118,7 +118,7 @@ Hourly Stream Temp Change > 3
 |-|-|
 | 2013-08-08 12:35 | 4.010 |
 
---------
+
 
 WS03
 -------
@@ -136,6 +136,7 @@ WS03
 * 5-min three std +: 0.0720
 * 5-min median : 0.010
 * 5-min max: 2.840
+
 
 WS03 Duplicates in METDAT with diff vals
 ------------------ 
@@ -166,7 +167,7 @@ Hourly Stream Temp Change > 3
 | 2012-12-19 10:45|  3.1|
 
 
-------------
+
 
 WS06
 ----------
@@ -201,8 +202,8 @@ Five Minute Stream Temp Change > 3
 | 2013-08-09 15:10 |3.340 |
 | 2012-12-24 11:00 | 3.4 |
 | 2012-12-24 11:15 | 3.4 |
- 
----------
+
+
 
 
 WS07
@@ -246,7 +247,7 @@ Five Minute Stream Temp Change > 3
 | 2012-05-02 12:50| 3.621 |
 | 2014-04-30 11:30| 4.810 |
 
-----------
+
 
 
 WS08
@@ -310,7 +311,7 @@ Hourly Stream Temp Change > 3
 |2001-05-07 13:00| 3.3|
 
 
--------
+
 
 WS10 
 ------

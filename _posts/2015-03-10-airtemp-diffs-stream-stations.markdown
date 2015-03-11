@@ -1,14 +1,22 @@
 ---
 layout: post
-title: "Airtemp Diffs Stream Stations"
+title: "Air Temperature Differences Between Gaged Stream Stations"
 date: 2015-03-10T14:28:38-07:00
 ---
 
-Air Temperatures are also measured at the stream stations, but on a 15 minute scale. They are much more variable than stream temperatures. See the stream temperature post for more details on this structure. Essentially the first part is basic statistics, the duplicates section is a QC section for the back-end database, and questionable values, in this case, are changes > 10 C in the time interval (either 15 minutes or an hour).
+Air Temperatures are also measured at the gaged stream stations, but unlike water temperatures, they are on a 15 minute scale. As expected, the air temperatures are more variable than the water temperatures. See the stream temperature [post](http://dataronin.github.io/metQC/2015/03/10/stream-temperature-difference-calibrations.html)  for more details on this structure. 
 
-It had been noted that WS10 seems to have a lot of fluctuation. Here we see that this is true. However, at 15 minutes several of the stations show sizeable variation. Noteably the max variability at 15 minutes (and I did stop the analysis for values > 10 change in 15 minutes) is nearly 5 for several stations.
+Essentially, the first information given is basic statistics about the temperature, the duplicates section is a QC section for METDAT database, listing when times are duplicated but values are different, and the questionable values, in this case, are changes > 10 C that occur over time interval (either 15 minutes or an hour).
 
-In short at 15 minutes air temperature flags should be 1.25 C, and at an hour, they should be 5 C. This will get 4 sigma for all sites (except lower McRae, which is 5.2).
+It had been noted that WS10 air temperature seems to have a lot of fluctuations as compared to the other stations. While this is true, all the stations did show more variability than I would have expected off hand.
+
+Flagging thoughts:
+----------------
+
+#### * at 15 minutes air temperature difference flags should be 1.25 C
+#### * at an hour, they should be 5 C. 
+
+This will get 4 sigma for all sites (except lower McRae, which is 5.2).
 
 
 WS01 
