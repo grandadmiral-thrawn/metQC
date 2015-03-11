@@ -6,14 +6,9 @@ date: 2015-03-11T08:26:21-07:00
 
 PAR is a measurement of photosynthetically active radiation. It is measured in units of micro-mols of photons per meters squared per second. The basic principle is that organisms mostly use light in the 400-700 nm wavelengths, and so PAR can be used to look at factors such as oxygen usage and carbon uptake. 
 
-Better descriptions are found here:
+Better descriptions are found [here](http://www.fondriest.com/environmental-measurements/parameters/weather/photosynthetically-active-radiation/)
 
-<a href="http://www.fondriest.com/environmental-measurements/parameters/weather/photosynthetically-active-radiation/
-"></a> 
-
-and here:
-
-<a href="http://agi32.com/blog/2014/12/10/photometry-and-photosynthesis/"></a>
+and [here](http://agi32.com/blog/2014/12/10/photometry-and-photosynthesis)
 
 We measure part with an LI190SB, a LiCOR instrument attached to a Campbell logging platform. Briefly, a diode is excited differently by different wavelengths of light, and the instrument uses the difference to the re-grounding of the instrument voltage to figure out the number of excitations in certain bins corresponding to certain wavelengths over a sampling period. Then it performs an integration, resulting in a net amount of energy over that time period and representative area. Because the energy is quantized in the form of photons, the energy is represented in micro-mols. There is another method representing the energy in terms of total energy gyield but it has been suggested this is not the best for outdoor environments. See [here](http://upload.wikimedia.org/wikipedia/commons/f/f8/Photosynthesis_yield_photon_flux_spectral_weighting.svg).
 
