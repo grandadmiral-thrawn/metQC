@@ -1,0 +1,358 @@
+---
+layout: post
+title: "H15met Parser"
+date: 2015-03-24T14:32:34-07:00
+---
+
+
+This is a simple python script and mapping for H15met dat files. It can be used in another program to get a dictionary to map a probe and attribute onto date stamps at 15 minute, hourly, or daily intervals. It does not do gap-filling or flagging but generates a matched dictionary for flags. It is the partner of the CS2met parser, but more specific because there are two probes at H15met. It does not include the methods for the calculation of dewpoint or vpd since those were already in this data, however, they could be copied over from the other should one want them.
+
+
+        #!/usr/bin/python
+        # -*- coding: utf-8 -*-
+
+        import datetime
+        import csv
+
+
+        def h15parse(probe_index, attribute):
+            ''' 
+            A simpple function to take the .dat files from H15met 208 logger an convert them into meaningful arrays
+            for xtempx program. Makes 3 data arrays, hourly, fifteen, and daily, and three flag arrays containing default
+            flags of 'N' for each attribute because they are Not on Portal.
+
+            To add or change files in the same format append to the subsequent list. It doesn't matter the order, as dictionaries are unordered.
+            Sort the dictionaries in xtempx or map them to other files as you nee.
+            '''
+
+            # inputs: 
+            files = ['208_2015_013.DAT','208_2015_034.DAT','208_2015_056.DAT']
+
+            # data dictionaries:
+            hourly = {}
+            fifteen = {}
+            daily = {}
+
+            # flag dictionaries:
+            hf = {}
+            ff = {}
+            df = {}
+
+            # iterate over files
+            for each_file in files:
+
+                # read each file
+                with open(each_file, 'rb') as f:
+                    
+                    while True:
+
+                        a = f.readline()
+                        line_items = a.strip('\r\n').split(',')
+                        #print line_items
+
+                        try:
+                            year = int(line_items[3])
+                        except IndexError:
+                            print "that was the last index possible"
+                            break
+
+                        # day of the year
+                        doy = int(line_items[4])
+
+                        # converts the hhmm time to hours and minutes
+                        if len(line_items[5]) <= 2:
+                            mm = line_items[5]
+                            hh = 0
+                        elif len(line_items[5]) ==3:
+                            mm = int(line_items[5][-2:])
+                            hh = int(line_items[5][0])
+                        else:
+                            mm = int(line_items[5][-2:])
+                            hh = int(line_items[5][0:2])
+
+                        # converted time as a human-readable time
+                        converted = dtmod(year, doy, hh, mm)
+
+                        # lo is the probe at 150 ht (1), 
+                        # hi is the probe at 450 ht (2)
+                        # ** note currently my system is set up to use 4 as 
+                        # * the index for probe 2 in the daily, and then does a conversion 
+                        # * specific for h15met to return the name to how it should
+                        # * be. If you want different functionality, change the
+                        # * probe_index == 4 to probe_index == 2 in all the below
+
+                        # air temp
+                        atlo = str(line_items[6])
+                        athi = str(line_items[7])
+
+                        # rel hum
+                        rhlo = str(line_items[8])
+                        rhhi = str(line_items[9])
+
+                        # dew point
+                        dewptlo = str(line_items[10])
+                        dewpthi = str(line_items[11])
+
+                        # vapor pressure defecit
+                        vpdlo = str(line_items[12])
+                        vpdhi = str(line_items[13])
+
+                        # hourly data
+                        if int(line_items[0])==160:
+
+                            # if it is not already mappped *protect from duplicates*
+                            if converted not in hourly:
+                                
+                                # map attribute onto its time stamp
+                                if attribute == "airtemp" and probe_index == 1:
+                                    hourly[converted] = athi
+                                elif attribute == "airtemp" and probe_index == 2:
+                                    hourly[converted] = atlo
+
+                                elif attribute == "relhum" and probe_index == 1:
+                                    hourly[converted] = rhhi
+                                elif attribute == "relhum" and probe_index == 2:
+                                    hourly[converted] = rhlo
+
+                                elif attribute == "dewpt" and probe_index == 1:
+                                    hourly[converted] = dewpthi
+                                elif attribute == "dewpt" and probe_index == 2:
+                                    hourly[converted] = dewptlo
+
+                                elif attribute == "vpd" and probe_index == 1:
+                                    hourly[converted] = vpdhi
+                                elif attribute == "vpd" and probe_index == 2:
+                                    hourly[converted] = vpdlo
+
+                            elif converted in hourly:
+                                print "there are duplicate entries; this should never be called"
+
+                            # flags are not assigned here
+                            hf[converted] = ""
+                        
+                        # maps the 15 minute data (same function as above)
+                        elif int(line_items[0]) == 115:
+                            
+                            if converted not in fifteen:
+                                
+                                if attribute == "airtemp" and probe_index == 1:
+                                    fifteen[converted] = athi
+                                elif attribute == "airtemp" and probe_index == 2:
+                                    fifteen[converted] = atlo
+
+                                elif attribute == "relhum" and probe_index == 1:
+                                    fifteen[converted] = rhhi
+                                elif attribute == "relhum" and probe_index == 2:
+                                    fifteen[converted] = rhlo
+
+                                elif attribute == "dewpt" and probe_index == 1:
+                                    fifteen[converted] = dewpthi
+                                elif attribute == "dewpt" and probe_index == 2:
+                                    fifteen[converted] = dewptlo
+
+                                elif attribute == "vpd" and probe_index == 1:
+                                    fifteen[converted] = vpdhi
+                                elif attribute == "vpd" and probe_index == 2:
+                                    fifteen[converted] = vpdlo
+
+                            # protection against duplicates 
+                            elif converted in fifteen:
+                                print "there are duplicate entries; this should never be called"
+
+                            # flags are not assigned here
+                            ff[converted] =""
+
+                        # maps the daily data onto time stamp maps
+                        elif int(line_items[0]) == 440:
+
+                            # air temp at 150
+                            atlo = str(line_items[18])
+                            # air temp at 450
+                            athi = str(line_items[19])
+                            # rel hum at 150
+                            rhlo = str(line_items[20])
+                            # rel hum at 450
+                            rhhi = str(line_items[21])
+                            # dew point at 150
+                            dewptlo = str(line_items[22])
+                            # dew point at 450
+                            dewpthi = str(line_items[23])
+                            # vpd at 150
+                            vpdlo = str(line_items[24])
+                            # vpd at 450
+                            vpdhi = str(line_items[25])
+
+                            # anything with "lo" is at 150
+                            # anything with "hi" is at 450
+                            # at is airtemp, rh is relhum,
+                            # dewpt is dewpoint, vpd is vapor 
+                            # pressure deficit
+
+                            # air temp max at 150
+                            atlo_max = str(line_items[28])
+                            # air temp max time at 150
+                            atlo_maxt = str(line_items[29])
+                            # air temp max at 450
+                            athi_max = str(line_items[30])
+                            # air temp mat time at 450
+                            athi_maxt = str(line_items[31])
+
+                            # other attributes, same pattern
+                            rhlo_max = str(line_items[32])
+                            rhlo_maxt = str(line_items[33])
+                            rhhi_max = str(line_items[34])
+                            rhhi_maxt = str(line_items[35])
+                            dewptlo_max = str(line_items[36])
+                            dewptlo_maxt = str(line_items[37])
+                            dewpthi_max = str(line_items[38])
+                            dewpthi_maxt = str(line_items[39])
+                            vpdlo_max = str(line_items[40])
+                            vpdhi_max = str(line_items[41])
+                            vpdlo_maxt = str(line_items[42])
+                            vpdhi_maxt = str(line_items[43])
+
+                            atlo_min = str(line_items[44])
+                            atlo_mint = str(line_items[45])
+                            athi_min = str(line_items[46])
+                            athi_mint = str(line_items[47])
+
+                            # relhum min at 150
+                            rhlo_min = str(line_items[48])
+                            # relhum mintime at 150
+                            rhlo_mint = str(line_items[49])
+                            # relhum min at 450
+                            rhhi_min = str(line_items[50])
+                            # relhum min time at 450
+                            rhhi_mint = str(line_items[51])
+                            dewptlo_min = str(line_items[52])
+                            dewptlo_mint = str(line_items[53])
+                            dewpthi_min = str(line_items[54])
+                            dewpthi_mint = str(line_items[55])
+                            vpdlo_min = str(line_items[56])
+                            vpdhi_min = str(line_items[57])
+                            vpdlo_mint = str(line_items[58])
+                            vpdhi_mint = str(line_items[59])
+
+                            # after mapping, generate the dictionaries
+                            # timestamp: attribute
+                            if attribute == "airtemp" and probe_index == 1:
+                                daily[converted] = athi
+                            elif attribute == "airtemp" and probe_index == 4:
+                                daily[converted] = atlo
+
+                            elif attribute == "relhum" and probe_index == 1:
+                                daily[converted] = rhhi
+                            elif attribute == "relhum" and probe_index == 4:
+                                daily[converted] = rhlo
+
+                            elif attribute == "dewpt" and probe_index == 1:
+                                daily[converted] = dewpthi
+                            elif attribute == "dewpt" and probe_index == 4:
+                                daily[converted] = dewptlo
+
+                            elif attribute == "vpd" and probe_index == 1:
+                                daily[converted] = vpdhi
+                            elif attribute == "vpd" and probe_index == 4:
+                                daily[converted] = vpdlo
+                                
+                            elif attribute == "airtemp_min" and probe_index == 1:
+                                daily[converted] = athi_min
+                            elif attribute == "airtemp_min" and probe_index == 4:
+                                daily[converted] = atlo_min
+
+                            elif attribute == "relhum_min" and probe_index == 1:
+                                daily[converted] = rhhi_min
+                            elif attribute == "relhum_min" and probe_index == 4:
+                                daily[converted] = rhlo_min
+
+                            elif attribute == "dewpt_min" and probe_index == 1:
+                                daily[converted] = dewpthi_min
+                            elif attribute == "dewpt_min" and probe_index == 4:
+                                daily[converted] = dewptlo_min
+
+                            elif attribute == "vpd_min" and probe_index == 1:
+                                daily[converted] = vpdhi_min
+                            elif attribute == "vpd_min" and probe_index == 4:
+                                daily[converted] = vpdlo_min
+                            
+                            elif attribute == "airtemp_mintime" and probe_index == 1:
+                                daily[converted] = athi_mint
+                            elif attribute == "airtemp_mintime" and probe_index == 4:
+                                daily[converted] = atlo_min
+
+                            elif attribute == "relhum_mintime" and probe_index == 1:
+                                daily[converted] = rhhi_mint
+                            elif attribute == "relhum_mintime" and probe_index == 4:
+                                daily[converted] = rhlo_mint
+
+                            elif attribute == "dewpt_mintime" and probe_index == 1:
+                                daily[converted] = dewpthi_mint
+                            elif attribute == "dewpt_mintime" and probe_index == 4:
+                                daily[converted] = dewptlo_min
+
+                            elif attribute == "vpd_mintime" and probe_index == 1:
+                                daily[converted] = vpdhi_mint
+                            elif attribute == "vpd_mintime" and probe_index == 4:
+                                daily[converted] = vpdlo_mint
+
+                            elif attribute == "airtemp_max" and probe_index == 1:
+                                daily[converted] = athi_max
+                            elif attribute == "airtemp_max" and probe_index == 4:
+                                daily[converted] = atlo_max
+
+                            elif attribute == "relhum_max" and probe_index == 1:
+                                daily[converted] = rhhi_max
+                            elif attribute == "relhum_max" and probe_index == 4:
+                                daily[converted] = rhlo_max
+
+                            elif attribute == "dewpt_max" and probe_index == 1:
+                                daily[converted] = dewpthi_max
+                            elif attribute == "dewpt_max" and probe_index == 4:
+                                daily[converted] = dewptlo_max
+
+                            elif attribute == "vpd_max" and probe_index == 1:
+                                daily[converted] = vpdhi_max
+                            elif attribute == "vpd_max" and probe_index == 4:
+                                daily[converted] = vpdlo_max
+                            
+                            elif attribute == "airtemp_maxtime" and probe_index == 1:
+                                daily[converted] = athi_maxt
+                            elif attribute == "airtemp_maxtime" and probe_index == 4:
+                                daily[converted] = atlo_max
+
+                            elif attribute == "relhum_maxtime" and probe_index == 1:
+                                daily[converted] = rhhi_maxt
+                            elif attribute == "relhum_maxtime" and probe_index == 4:
+                                daily[converted] = rhlo_maxt
+
+                            elif attribute == "dewpt_maxtime" and probe_index == 1:
+                                daily[converted] = dewpthi_maxt
+                            elif attribute == "dewpt_maxtime" and probe_index == 4:
+                                daily[converted] = dewptlo_max
+
+                            elif attribute == "vpd_maxtime" and probe_index == 1:
+                                daily[converted] = vpdhi_maxt
+                            elif attribute == "vpd_maxtime" and probe_index == 4:
+                                daily[converted] = vpdlo_maxt
+
+                            df[converted] = ""
+
+            # dictionaries returned are hourly vals, hourly flags, fifteen min vals, fifteen min flags,
+            # daily vals, daily flags
+            return hourly, hf, fifteen, ff, daily, df
+
+        def dtmod(year, doy, hh, mm):
+                """ converts ymd to regular human readable day"""
+
+                dt1 = datetime.datetime(year, 1, 1) + datetime.timedelta(int(doy) - 1) + datetime.timedelta(hours=int(hh)) + datetime.timedelta(minutes = int(mm))
+                
+                if doy == 365 and hh == 24 and mm== 0:
+                    dt1 = datetime.datetime(year+1, 1, 1, 0, 0)
+                else:
+                    pass
+
+                return dt1
+
+        if __name__ == "__main__":
+
+            a,b,c,d,e,f =    h15parse()
