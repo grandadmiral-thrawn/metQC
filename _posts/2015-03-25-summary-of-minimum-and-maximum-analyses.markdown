@@ -1,11 +1,5 @@
 ---
 layout: post
-title: "Summary of Minimum and Maximum Analyses"
-date: 2015-03-25T15:35:49-07:00
----
-
----
-layout: post
 title: "Can Daily Minimums and Maximums Be Found From Five Minute Means?"
 date: 2015-03-24T18:19:40-07:00
 ---
