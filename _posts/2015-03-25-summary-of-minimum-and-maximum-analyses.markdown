@@ -20,7 +20,10 @@ The original analysis is [here](http://dataronin.github.io/metQC/2015/02/10/min_
   font: 10px sans-serif;
   background-color: blue;
   text-align: right;
-  padding: 3px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-right: 3px;
+  padding-left: 50px;
   margin: 1px;
   color: white;
 }
@@ -30,7 +33,7 @@ The original analysis is [here](http://dataronin.github.io/metQC/2015/02/10/min_
   <div style="width: 440px;">Less Than 0.1 C</div>
   <div style="width: 390px;">0.1 C to O.2 C</div>
   <div style="width: 130px;">0.2 C to 0.3 C</div>
-  <div style="width: 30px;">Greater Than 0.3 C</div>
+  <div style="width: 30px;">0.3 C +</div>
 </div>
 
 * RELATIVE HUMIDITY MAXIMUMS: Relative humidity maximum is constrained at 100 percent, so comparisons were less robust. However, most of our high-resolution data for relative humidity is at an hourly basis. On an hourly basis, there was a mean difference of twelve-percent between hourly maximums and instantaneous maximums. Since relative humidity often reaches 100 percent, the average standard deviation of relative humidity maximums over one day was twenty percent. We would not be concerned even now with using the maximum daily relative humidity value on days where the relative humidity reaches 100 percent. If we were to calculate relative humidity at a five-minute resolution, this would likely reduce the difference between daily and hourly maximums.
