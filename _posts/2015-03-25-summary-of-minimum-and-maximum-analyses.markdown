@@ -21,7 +21,7 @@ The original analysis is [here](http://dataronin.github.io/metQC/2015/02/10/min_
   background-color: blue;
   text-align: right;
   padding: 3px;
-  margin: 100px;
+  margin: auto;
   color: white;
 }
 
