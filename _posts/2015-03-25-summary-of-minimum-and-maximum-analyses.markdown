@@ -29,7 +29,10 @@ Instantaneous maximums from all sites were within less than one degree of differ
   padding-bottom: 3px;
   padding-right: 3px;
   padding-left: 3px;
-  margin: 10px;
+  margin-left: 100px;
+  margin-bottom: 1px;
+  margin-top: 1px;
+
   color: white;
 }
 
