@@ -14,6 +14,7 @@ The original analysis is [here](http://dataronin.github.io/metQC/2015/02/10/min_
 
 * AIR TEMPERATURE MAXIMUMS: Instantaneous maximums from all sites were within **less than one degree of difference** from five-minute maximums. The time interval could vary by up to ten minutes if the maximum occured during a very hot part of the day. Air temperature maximums both instantaneous and five-minute were approximately 60 percent greater than the daily mean. We also compared the fifteen-minute maximums to the instantaneous maximums, and at this scale there was often more than a degree of difference.
 
+<html>
 <style>
 
 .bar {
@@ -105,6 +106,7 @@ function type(d) {
 }
 
 </script>
+</html>
 
 * RELATIVE HUMIDITY MAXIMUMS: Relative humidity maximum is constrained at 100 percent, so comparisons were less robust. However, most of our high-resolution data for relative humidity is at an hourly basis. On an hourly basis, there was a mean difference of twelve-percent between hourly maximums and instantaneous maximums. Since relative humidity often reaches 100 percent, the average standard deviation of relative humidity maximums over one day was twenty percent. We would not be concerned even now with using the maximum daily relative humidity value on days where the relative humidity reaches 100 percent. If we were to calculate relative humidity at a five-minute resolution, this would likely reduce the difference between daily and hourly maximums.
 
