@@ -12,7 +12,12 @@ We tested if the daily maximum and minimum values that were calculated by the lo
 
 The original analysis is [here](http://dataronin.github.io/metQC/2015/02/10/min_max_checks.html). Here is a brief overview of what we found:
 
-* AIR TEMPERATURE MAXIMUMS: Instantaneous maximums from all sites were within **less than one degree of difference** from five-minute maximums. The time interval could vary by up to ten minutes if the maximum occured during a very hot part of the day. Air temperature maximums both instantaneous and five-minute were approximately 60 percent greater than the daily mean. We also compared the fifteen-minute maximums to the instantaneous maximums, and at this scale there was often more than a degree of difference.
+#### AIR TEMPERATURE MAXIMUMS
+
+Instantaneous maximums from all sites were within less than one degree of difference from five-minute maximums. The time interval could vary by up to ten minutes if the maximum occured during a very hot part of the day. Air temperature maximums both instantaneous and five-minute were approximately 60 percent greater than the daily mean. We also compared the fifteen-minute maximums to the instantaneous maximums, and at this scale there was often more than a degree of difference.
+
+##### A bar chart of the difference between the instantaneous maximum for the day and the maximum five minute mean on CENMET at 150 height:
+
 
 <style>
 
@@ -23,7 +28,7 @@ The original analysis is [here](http://dataronin.github.io/metQC/2015/02/10/min_
   padding-top: 3px;
   padding-bottom: 3px;
   padding-right: 3px;
-  padding-left: 50px;
+  padding-left: 500px;
   margin: 1px;
   color: white;
 }
