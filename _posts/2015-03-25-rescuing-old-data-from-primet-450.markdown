@@ -6,6 +6,8 @@ date: 2015-03-25T13:51:38-07:00
 
 The PRIMET sensor for relative humidity at 450 m (RELPRI01) is missing. Therefore, all daily measurements of relative humidity, dewpoint, and vpd from that height during the period between 2014-02-12 and now are invalid. We salvaged the data from the 15-minute (air temperature) and hourly (relative humidity) tables in PRIM_226_table115 and PRIM_226_table160 METDAT loggers. Note that AIRPRI01 was available at 450 m because it was calculate on a different instruction set (the 115 set). The method for getting the daily mean relative humidities and dewpoints was to get the hourly mean air temperature (from the four values in the hour), combine this with the hourly observed relative humidity, compute the dewpoint and vpd, and then find the mean daily air temperature, relative humidity, dewpoint, and vpd. The reason for computing the air temperature as well was to assess how well the daily values agreed with the hourly means. The graph below shows the daily-logged and hourly-means-averaged-over-a-day values for air temperature at 450 m. on PRIMET
 
+
+
 <style>
 
 </style>
@@ -48,7 +50,7 @@ if(typeof(mpld3) !== "undefined" && mpld3._mpld3IsLoaded){
 }
 </script>
 
-I put together a quick regression to test the correlation between these two data sets. The R-squared between the two is 0.91, regressing the daily data logger mean onto the hourly data averaged to the daily mean.
+I put together a quick regression to test the correlation between these two data sets. The R-squared between the two is 0.996, regressing the daily data logger mean onto the hourly data averaged to the daily mean.
 
 Although air temperature cannot stand in as a proxy for the other measurements we do not have the ability to compare, we can say from this that there appears to be a reasonable correlation between the values generated from the averaging of the 24 hourly means to those from the daily mean.
 
