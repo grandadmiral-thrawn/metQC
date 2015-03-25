@@ -14,8 +14,6 @@ The original analysis is [here](http://dataronin.github.io/metQC/2015/02/10/min_
 
 * AIR TEMPERATURE MAXIMUMS: Instantaneous maximums from all sites were within **less than one degree of difference** from five-minute maximums. The time interval could vary by up to ten minutes if the maximum occured during a very hot part of the day. Air temperature maximums both instantaneous and five-minute were approximately 60 percent greater than the daily mean. We also compared the fifteen-minute maximums to the instantaneous maximums, and at this scale there was often more than a degree of difference.
 
-<!DOCTYPE html>
-<meta charset="utf-8">
 <style>
 
 .bar {
