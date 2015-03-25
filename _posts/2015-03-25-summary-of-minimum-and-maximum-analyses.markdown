@@ -16,14 +16,14 @@ The original analysis is [here](http://dataronin.github.io/metQC/2015/02/10/min_
 
 Instantaneous maximums from all sites were within less than one degree of difference from five-minute maximums. The time interval could vary by up to ten minutes if the maximum occured during a very hot part of the day. Air temperature maximums both instantaneous and five-minute were approximately 60 percent greater than the daily mean. We also compared the fifteen-minute maximums to the instantaneous maximums, and at this scale there was often more than a degree of difference.
 
-##### A bar chart of the difference between the instantaneous maximum for the day and the maximum five minute mean on CENMET at 150 height:
+##### A bar chart of the difference between the instantaneous maximum for the day and the maximum five minute mean on CENMET at 150 height. More than 85 % of values have less than 0.2 C difference between the daily instantaneous maximum and the maximum of five minute means.
 
 
 <style>
 
 .chart div {
   font: 10px sans-serif;
-  background-color: blue;
+  background-color: #990033;
   text-align: right;
   padding-top: 3px;
   padding-bottom: 3px;
@@ -41,10 +41,50 @@ Instantaneous maximums from all sites were within less than one degree of differ
   <div style="width: 440px;">Less Than 0.1 C</div>
   <div style="width: 390px;">0.1 C to O.2 C</div>
   <div style="width: 130px;">0.2 C to 0.3 C</div>
-  <div style="width: 30px;">0.3 C +</div>
+  <div style="width: 30px;">0.3 C+</div>
 </div>
 
-* RELATIVE HUMIDITY MAXIMUMS: Relative humidity maximum is constrained at 100 percent, so comparisons were less robust. However, most of our high-resolution data for relative humidity is at an hourly basis. On an hourly basis, there was a mean difference of twelve-percent between hourly maximums and instantaneous maximums. Since relative humidity often reaches 100 percent, the average standard deviation of relative humidity maximums over one day was twenty percent. We would not be concerned even now with using the maximum daily relative humidity value on days where the relative humidity reaches 100 percent. If we were to calculate relative humidity at a five-minute resolution, this would likely reduce the difference between daily and hourly maximums.
+
+
+#### RELATIVE HUMIDITY MAXIMUMS 
+
+Relative humidity maximum is constrained at 100 percent, so comparisons were less robust. However, most of our high-resolution data for relative humidity is at an hourly basis. On an hourly basis, there was a mean difference of twelve percent between hourly maximums and instantaneous maximums. On the two loggers we have at 5-minute resolution, VANMET and CENMET, about 85 percent of relative humidities were less than 10 percent different between the instantaneous maximum and the five minute maximum.  
+
+##### A bar chart of the difference between the instantaneous maximum for the day and the maximum five minute mean on CENMET at 450 height. 82 % of values have less than 10 percent difference between the daily instantaneous maximum and the maximum of five minute means. On VANMET at the same height there is 88% of values that are less than 10% different.
+
+
+<style>
+
+.bchart div {
+  font: 10px sans-serif;
+  background-color: #6600CC;
+  text-align: right;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-right: 3px;
+  padding-left: 3px;
+  margin-left: 100px;
+  margin-bottom: 1px;
+  margin-top: 1px;
+
+  color: white;
+}
+
+##### CENMET 450m RELATIVE HUMIDITY 
+</style>
+<div class="bchart">
+  <div style="width: 410px;">Less than 10 %</div>
+  <div style="width: 50px;"> 10-20 %</div>
+  <div style="width: 40px;"> 20+ %</div>
+</div>
+##### VANMET 450m RELATIVE HUMIDITY
+<div class="chart">
+  <div style="width: 435px;">Less than 10 %</div>
+  <div style="width: 50px;"> 10-20 %</div>
+  <div style="width: 25px;"> 20+ %</div>
+</div>
+
+Since relative humidity often reaches 100 percent, the average standard deviation of relative humidity maximums over one day was twenty percent. We would not be concerned even now with using the maximum daily relative humidity value on days where the relative humidity reaches 100 percent. If we were to calculate relative humidity at a five-minute resolution, this would likely reduce the difference between daily and hourly maximums.
 
 * DEW POINT MAXIMUMS and VPD MAXIMUMS: These are largely subject to the quality of air temperature and relative humidity maximums. With five-minute temperatures and relative humidities, dew points and vapor pressure deficits are generally very similar in five-minute maximums to daily maximums. However, the issue of data quality greatly hinders these analyses.  Sometimes dew point is "calculated" even when both relative humidity and air temperature are off (see the [flags](http://dataronin.github.io/metQC/2015/02/09/outline_of_flags_and_problems_on_portal.html) document). When erroneous dew-point calculations were removed, the majority of dew points maximums were less than two degrees different than the five minute maximums. The key to a calculated dew point maximum will be very quality controlled five-minute data.
 
