@@ -54,7 +54,7 @@ Instantaneous maximums and minimums from all sites were within less than one deg
   <div style="width: 30px;">0.3 C+</div>
 </div>
 
-
+ 
 
 #### RELATIVE HUMIDITY MAXIMUMS 
 
@@ -80,6 +80,8 @@ Relative humidity maximum is constrained at 100 percent, so comparisons were les
   color: white;
 }
 </style>
+
+
 ##### CENMET 450m RELATIVE HUMIDITY 
 
 <div class="bchart">
@@ -96,12 +98,13 @@ Relative humidity maximum is constrained at 100 percent, so comparisons were les
   <div style="width: 25px;"> 20+ %</div>
 </div>
 
-Since relative humidity often reaches 100 percent, the average standard deviation of relative humidity maximums over one day was twenty percent. We would not be concerned even now with using the maximum daily relative humidity value on days where the relative humidity reaches 100 percent. If we were to calculate relative humidity at a five-minute resolution, this would likely reduce the difference between daily and hourly maximums.
+The average standard deviation of relative humidity five minute values over one day was twenty percent.  However, overall, both hourly and five-minute relative humidities were closely related to the daily maximums
 
 
 #### RELATIVE HUMIDITY MINIMUMS
 
-The instantaneous relative humidity minimums can be very different than the five minute minimums. The average daily range of the relative humidity minimum as calculated from five-minute and hourly data is 40 percent. On VANMET in particular I noticed that even when the 5 minute relative humidity was 100 percent all day, the instantaneous  relative humidity could be much lower. 
+The instantaneous relative humidity minimums can be very different than the five minute minimums. The average daily difference of the relative humidity minimum versus the mean as calculated from five-minute and hourly data is 40 percent at both time resolutions.
+On VANMET in particular I noticed that even when the 5 minute relative humidity was 100 percent all day, the instantaneous  relative humidity could be much lower. 
 
 #### DEW POINT MAXIMUMS AND MINIMUMS
 
