@@ -5,13 +5,9 @@ date: 2015-04-01T14:55:08-07:00
 ---
 
 In the previous post, we looked for the times of year and day in which we found many outliers for solar radiation that were either impossible (more 1367 Watts per meters squared ) or very unlikely (more than 1060 Watts per meters squared ) on earth. We noticed that most of these values were found recently (after 2012), on VANMET, during the early-summer months (May or June), and during the warmest hours of the day. 
+ 
 
-We should note that in our experience while May and June are "summer" months they do not in general have as high of temperatures as August or September, but do have more variability in temperature. 
-
-On our most recent net-radiometers, we only have one value at VANMET which is exceptionally large (1103 Watts-per-meters squared). 
-
-Using the PHRSC set up, we we able to look at a shorter data set. The PHRSC set up calculates the mean and max solar radiation for shortwave incoming and outgoing on a five-minute basis using the CM3 pyranometers which are the same as those in the Campbell NR01 we use for net radiation on PRIMET and VANMET. Specifically, we looked at when there was a large difference between the incoming and outgoing shortwave radiation. This is when I would expect to see possible "sun bursts" which might cause spikes in both temperature and radiation.  Most of these occurred fairly recently. Here is a diagram:
-
+Using the PHRSC set up, we we able to look at a shorter data set. The PHRSC set up calculates the mean and max solar radiation for shortwave incoming and outgoing on a five-minute basis using the CM3 pyranometers which are the same as those in the Campbell NR01 we use for net radiation on PRIMET and VANMET. Specifically, we looked at when there was a large difference between the incoming and outgoing shortwave radiation. This is when I would expect to see possible "sun bursts" which might cause spikes in both temperature and radiation.  
 
 
 <style>
@@ -56,7 +52,8 @@ if(typeof(mpld3) !== "undefined" && mpld3._mpld3IsLoaded){
 }
 </script>
 
-The standard deviation of the PHRSC logger set up for the difference between incoming and outgoing shortwave radiation is 139, so I tested for when we saw about 4 x this much deviation (640 Watts per meters squared). This gave me approximately 30 times. All of these times occurred between 11 am and 14:00. The largest net shortwave difference was 740 watts-per-meters squared on 2015-03-28 11:15:00.
+The red line is SW incoming and the blue line is SW outgoing.
+The standard deviation of the PHRSC logger set up for the difference between incoming and outgoing shortwave radiation is 139, so I tested for when we saw about 4 x this much deviation (640 Watts per meters squared). This gave me approximately 30 times, represented by the teal dots. The amount of net radiation is the height on the y-axis.  All of these times occurred between 11 am and 14:00. The largest net shortwave difference was 740 watts-per-meters squared on 2015-03-28 11:15:00.
 
 For this date, I then pulling in the corresponding temperatures at the PHRSC station. I wondered if the means and maxes during that five minute period might be significantly different from one another. I pulled both the Gill and HJA radiation shields, shielded and non-shielded for comparison. However, there was no more than 0.3 C difference between the five minute means and maxes during this time on these probes, suggesting that despite an improportionate amount of SW incoming radiation, the temperature was not spiking. 
 
