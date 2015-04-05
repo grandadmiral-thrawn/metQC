@@ -55,5 +55,7 @@ if(typeof(mpld3) !== "undefined" && mpld3._mpld3IsLoaded){
 The red line is SW incoming and the blue line is SW outgoing.
 The standard deviation of the PHRSC logger set up for the difference between incoming and outgoing shortwave radiation is 139, so I tested for when we saw about 4 x this much deviation (640 Watts per meters squared). This gave me approximately 30 times, represented by the teal dots. The amount of net radiation is the height on the y-axis.  All of these times occurred between 11 am and 14:00. The largest net shortwave difference was 740 watts-per-meters squared on 2015-03-28 11:15:00.
 
-For this date, I then pulling in the corresponding temperatures at the PHRSC station. I wondered if the means and maxes during that five minute period might be significantly different from one another. I pulled both the Gill and HJA radiation shields, shielded and non-shielded for comparison. However, there was no more than 0.3 C difference between the five minute means and maxes during this time on these probes, suggesting that despite an improportionate amount of SW incoming radiation, the temperature was not spiking. 
+For this date, I then pulling in the corresponding temperatures at the PHRSC station. I wondered if the means and maxes during that five minute period might be significantly different from one another. I pulled both the Gill and HJA radiation shields, shielded and non-shielded for comparison. However, *there was no more than 0.3 C difference between the five minute means and maxes* during this time on these probes, suggesting that despite an improportionate amount of SW incoming radiation, the temperature was not spiking. 
+
+
 
