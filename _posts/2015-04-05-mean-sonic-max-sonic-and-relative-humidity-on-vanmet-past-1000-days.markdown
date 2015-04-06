@@ -50,10 +50,10 @@ if(typeof(mpld3) !== "undefined" && mpld3._mpld3IsLoaded){
 }
 </script>
 
-Not surprisingly, when the maximum gust is highest, the mean for that same period is also elevated. But, it does not appear that droplets on the sonic are leading to these spiky periods. Rather, they all occur during periods of the day which are relatively "dry" -- mid-day.
+Not surprisingly, when the maximum gust is highest, the mean for that same period is also elevated. But, it does not appear that droplets on the sonic are leading to these spiky periods. Rather, they all occur during periods of the day which are relatively "dry" -- mid-day. I will suggest in a subsequent analysis that perhaps humidity could still play a role in messing with the sonic outputs, but that this role is likely constrained to certain times of day.
 
 I should like to follow up this analysis by looking at a few different periods, as well as at the propellor anemometer as compared to the sonic. I think that we will see a few things:
 
-1. I expect that during a different part of the year, when it is not so dry, we might see less of a matching.
-2. I expect that the maximum speeds on the sonic and the propellor anemometers will differ, potentially with the propellor missing out on some of the bursts we see on the sonic, and taking longer to "calm down" (less spikes).
-3. I expect that certain wind directions will be predisposed to quicker speeds, specifically downslopes, and during certain times of day, such as late afternoon.
+1. I expect there is a strong diel pattern going on, and would like to explore that further. 
+2. I expect that the maximum speeds of the sonic anemometer will always be both spikier and higher than those on the prop since it is more response. 
+3. I expect that certain wind directions will show different wind speed patterns. Specifically downslope winds (about 230 ) should show quicker speeds and occur during day. 
