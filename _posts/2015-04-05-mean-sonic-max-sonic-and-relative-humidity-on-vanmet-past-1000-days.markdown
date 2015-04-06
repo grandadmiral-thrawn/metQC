@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Mean Sonic, Max Sonic, and Relative-humidity on VANMET, Past 1000 Days"
+title: "Mean Sonic, Max Sonic, and Relative-humidity on VANMET, Past ~4 days"
 date: 2015-04-05T16:16:13-07:00
 ---
 
