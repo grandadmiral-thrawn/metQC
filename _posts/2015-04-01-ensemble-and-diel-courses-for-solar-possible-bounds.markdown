@@ -194,7 +194,7 @@ On CENMET, particularly in the early year, the dawn and late afternoon radiation
 
 Based on these some general ranges can be seen from history:
   
-    * Net radiation is generally not be greater than 900 W/m2.
-    * Net radiation is generally not greater than 0 before 7:00 or after 17:00 (if we are very lenient).
-    * Patterns across sites should be similar on an annual cycle, but may be different on a daily cycle (shorter on CENMET than on VANMET). It makes sense to be very site specific in this case at least on setting the hours of day over which we do range checks.
-    * A next attempt will be made to use these bounds +/- an amount of sigma to see how many values are extraneous.
+* Net radiation is generally not be greater than 900 W/m2.
+* Net radiation is generally not greater than 0 before 7:00 or after 17:00 (if we are very lenient).
+* Patterns across sites should be similar on an annual cycle, but may be different on a daily cycle (shorter on CENMET than on VANMET). It makes sense to be very site specific in this case at least on setting the hours of day over which we do range checks.
+* A next attempt will be made to use these bounds +/- an amount of sigma to see how many values are extraneous.

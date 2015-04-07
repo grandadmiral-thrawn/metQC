@@ -95,3 +95,11 @@ if(typeof(mpld3) !== "undefined" && mpld3._mpld3IsLoaded){
          });
 }
 </script>
+
+Based on these outputs I suggest that solar QA/QC focus on patterns that occur during the day and specifically the summer. 
+
+* Keep the algorithms that Don suggested for the NR01 which involve separating night from day for flagging minimums
+
+* Use different criteria to address summer versus winter. Specifically, look at summer periods for very exceptional maxima.
+
+* Be wary of potential high resolution variability in May, June, and July which might be indicative of small-scale variability. 
