@@ -14,21 +14,20 @@ Steve asked me recently about some of the daily discharge on our watersheds for 
 <style>
   body {
   font-family: 'Helvetica Neue', Helvetica, sans-serif;
-  font-size: 10px;
+  font-size: 12px;
   font-style: normal;
-  background-color: grey;
 }
   
  path { 
-  stroke: purple;
-  stroke-width: 2;
+  stroke: red;
+  stroke-width: 2.5;
   fill: none;
 }
 
 .axis path,
 .axis line {
   fill: none;
-  stroke: #fff;
+  stroke: #black;
   shape-rendering: crispEdges;
 }
 
