@@ -6,7 +6,8 @@ date: 2015-09-16T20:17:47-07:00
 
 Steve asked me recently about some of the daily discharge on our watersheds for 2015, so I graphed it. Here's a few to look at:
 
-<head>
+<iframe srcdoc="
+<html><head>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
   <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
 </head>
@@ -126,7 +127,7 @@ Steve asked me recently about some of the daily discharge on our watersheds for 
       });
     });
   </script>
-</body>
+</body></html>"></iframe>
 
 You can see a pretty large spike there, reminescent of what Steve also saw on WS1. But the June and July data is quite low, in fact, he is thinking it is the lowest it has ever been!
 
